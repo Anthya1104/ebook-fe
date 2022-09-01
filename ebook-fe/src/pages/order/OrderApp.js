@@ -1,28 +1,63 @@
 import './OrderApp.css'
+import * as React from 'react'
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 
 function OrderApp() {
   return (
     <>
-      <div className="card mb-3">
+      <Card sx={{ maxWidth: 1067, maxheight: 400 }} className="mb-3">
         <div className="row g-0">
           <div className="col-md-4">
-            <img src="#" className="img-fluid rounded-start" alt="..." />
+            <CardMedia
+              className="img-fluid"
+              component="img"
+              height="140"
+              image="/static/images/cards/contemplative-reptile.jpg"
+              alt="book"
+            />
           </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <p className="card-text">訂單編號</p>
-              <p className="card-text">訂單狀態:</p>
-              <p className="card-text">訂單日期:</p>
-              <p className="card-text">商品數量:</p>
-              <h5 className="card-title">尚未評價</h5>
-              <h5 className="card-title">訂單總額</h5>
-              <a href="#" className="btn btn-primary">
-                完整訂單
-              </a>
-            </div>
-          </div>
+          <CardContent className="col-md-8">
+            <Typography variant="body2" color="text.secondary">
+              訂單編號
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              訂單狀態
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              訂單日期
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              商品數量
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              className="border-bottom"
+            >
+              尚未評價
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              className="border-bottom"
+            >
+              訂單總額
+            </Typography>
+          </CardContent>
+          <CardActions className="justify-content-center">
+            <a href="#" className="btn btn-primary ">
+              完整訂單
+            </a>
+          </CardActions>
         </div>
-      </div>
+      </Card>
     </>
   )
 }
