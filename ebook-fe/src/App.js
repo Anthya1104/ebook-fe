@@ -1,18 +1,33 @@
 import './style/global.scss'
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+// 其它子頁面
+import Home from './pages/Home'
+// 版面頁面元件
+import Layout from './layouts/Layout'
+import Login from './pages/Login'
+import Mart from './pages/Mart/Index'
+import Member from './pages/Member'
+import NotFound from './pages/NotFound'
+import React from 'react'
+
 function App() {
   return (
-    <>
-      <div className="d-flex justify-content-center m-2">
-        <h1>test</h1>
-      </div>
-      <div className="d-flex justify-content-center m-2">
-        <h1 className="fw-bold text-light">測試</h1>
-      </div>
-      <div className="d-flex justify-content-center m-2">
-        <button className="btn btn-primary">try</button>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* index代表此路由中的預設子頁 */}
+          <Route index element={<Home />} />
+          {/* 其它子頁面 */}
+          <Route path="Login" element={<Login />} />
+          <Route path="Mart" element={<Mart />} />
+          <Route path="Member" element={<Member />} />
+          {/* 404未找到的頁面路由，需放在最下方 */}
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -1,0 +1,12 @@
+$link-color:#F5F5F5;
+@import './global.scss';
+
+
+.navbar{
+  height: 110px;
+  margin:0px;
+  background: $primary;
+}
+.menu{
+  font-size: $h4-font-size;;
+}

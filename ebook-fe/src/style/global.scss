@@ -11,6 +11,8 @@ $dark: #8D4343;
 // body
 $body-bg:#F5F5F5;
 $body-color: $primary;
+
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
 .btn-primary{
   border-radius: 0;
