@@ -1,4 +1,22 @@
 
-$primary: rgb(51, 89, 97);
-
+// color
+$primary: #661F1E;
+$secondary:#C0724A;
+$warning:#DF9D6E;
+$success: #D99282;
+$info:#B48C8C;
+$danger:#BF245D;
+$light:#EFD3CE;
+$dark: #8D4343;
+// body
+$body-bg:#F5F5F5;
+$body-color: $primary;
 @import "../../node_modules/bootstrap/scss/bootstrap";
+.btn-primary{
+  border-radius: 0;
+  &:hover{
+    border:1px solid $primary;
+    background:$body-bg;
+    color:$primary;
+  }
+}
