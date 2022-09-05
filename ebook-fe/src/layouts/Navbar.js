@@ -1,6 +1,6 @@
 import '../style/Navbar.scss'
 
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -10,9 +10,9 @@ function Navbar() {
           <h4>Home</h4>
         </Link>
         <div className="menu d-flex justify-content-start align-items-center mx-2">
-          <Link className="mx-2" to="/Login">
-            Login
-          </Link>
+          <NavLink className="mx-2" activeClassName="selected" to="/Login">
+            <p className="">Login</p>
+          </NavLink>
           <Link className="mx-2" to="/Mart">
             Mart
           </Link>
