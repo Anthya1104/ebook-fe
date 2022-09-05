@@ -19,6 +19,9 @@ function Navbar() {
           <Link className="mx-2" to="/Member">
             Member
           </Link>
+          <Link className="mx-2" to="/Cart">
+            Shopping Cart
+          </Link>
         </div>
       </div>
     </div>
