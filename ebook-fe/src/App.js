@@ -19,6 +19,7 @@ import OverView from './pages/Member/OverView'
 import Order from './pages/Member/Order'
 import Orders from './pages/Member/Order/Orders'
 import OrderDetail from './pages/Member/Order/OrderDetail'
+import ProductDetail from './pages/Mart/ProductDetail'
 
 function App() {
   return (
@@ -32,12 +33,13 @@ function App() {
             <Route index element={<OverView />} />
             <Route path="order" element={<Order />}>
               <Route index element={<Orders />} />
-              <Route path="orderdetail" element={<OrderDetail />} />
+              <Route path=":orderId" element={<OrderDetail />} />
             </Route>
           </Route>
           {/* 商城 */}
           <Route path="Mart" element={<Mart />}>
             <Route index element={<Products />} />
+            <Route path=":productId" element={<ProductDetail />} />
             <Route path="SearchResult" element={<SearchResult />} />
           </Route>
           {/* 購物車 */}

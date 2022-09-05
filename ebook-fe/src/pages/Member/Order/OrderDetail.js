@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 function OrderDetail() {
+  const { orderId } = useParams()
   return (
     <>
-      <div>OrderDetail</div>
+      <div>OrderDetail:{orderId}</div>
       <Link className="mx-2" to="/Member/order">
-        OrderList
+        Back to OrderList
       </Link>
     </>
   )
