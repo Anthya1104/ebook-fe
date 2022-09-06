@@ -8,6 +8,12 @@ function OverView() {
       <Link className="mx-2" to="/Member/order">
         Order
       </Link>
+      <Link className="mx-2" to="/Member/bookshelf">
+        Bookshelf
+      </Link>
+      <Link className="mx-2" to="/Member/coupon">
+        Coupon
+      </Link>
     </>
   )
 }

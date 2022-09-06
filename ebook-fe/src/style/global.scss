@@ -25,3 +25,47 @@ $link-hover-color: #F5F5F5;
     color:$primary;
   }
 }
+.btn-primary-reverse{
+  border-radius: 0;
+  background:rgba(0,0,0,0);
+  border:1px solid $primary;
+  &:hover{
+    border:1px solid $primary;
+    background:$primary;
+    color:$body-bg;
+  }
+  &:active{
+    border-radius: 0;
+    background:rgba(0,0,0,0);
+    border:1px solid $primary;
+  }
+}
+.btn-light{
+  color:#661F1E;
+  &:hover{
+    border:1px solid $primary;
+    background:$body-bg;
+    color:$primary;
+  }
+}
+.btn-danger{
+  border-radius:20px;
+  color:#F5F5F5;
+  padding:15px;
+  &:hover{
+    border:1px solid $success;
+    background:$success;
+
+  }
+}
+.product-category{
+  border:1px solid $secondary;
+  border-radius:20px;
+  color:#F5F5F5;
+  padding:15px;
+  &:hover{
+    border:1px solid $secondary;
+    background:$secondary;
+
+  }
+}
