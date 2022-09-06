@@ -8,6 +8,7 @@ import Cart from './pages/Cart'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Member from './pages/Member'
+import Preview from './pages/Preview/Index'
 import NotFound from './pages/NotFound'
 import Mart from './pages/Mart'
 import React from 'react'
@@ -68,6 +69,8 @@ function App() {
           </Route>
           <Route path="chat" element={<Chat />} />
           <Route path="materials" element={<Materials />} />
+
+          <Route path="Preview" element={<Preview />} />
 
           {/* 404未找到的頁面路由，需放在最下方 */}
           <Route path="*" element={<NotFound />} />
