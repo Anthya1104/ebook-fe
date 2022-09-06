@@ -59,13 +59,47 @@ $link-hover-color: #F5F5F5;
   }
 }
 .product-category{
-  border:1px solid $secondary;
+  background:$body-bg;
+  border:3px solid $secondary;
   border-radius:20px;
-  color:#F5F5F5;
-  padding:15px;
+  color:$secondary;
+  padding:15px 30px;
   &:hover{
-    border:1px solid $secondary;
+    border:3px solid $secondary;
     background:$secondary;
+    color:$body-bg;
+    svg{
+      fill:$body-bg;
+    }
+  }
+  svg{
+    fill:$secondary;
+  }
+}
+.product-category-active{
+  background:$secondary;
+  border:3px solid $secondary;
+  border-radius:20px;
+  color:$body-bg;
+  padding:15px 30px;
+  svg{
+    fill:$body-bg;
+  }
+  &:hover{
+    border:3px solid $secondary;
+    background:$secondary;
+    color:$body-bg;
+  }
+}
+
+.toggle-primary{
+  border-radius: 20px;
+  .toggle-inside{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background:red;
 
   }
+  
 }
