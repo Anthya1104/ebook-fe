@@ -1,11 +1,31 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import '../../style/Mart.scss'
+import Category from './Category/Category'
+import Card from './Card/Card'
+import Breadcrumb from './Breadcrumb'
+// import Product from './Product'
+import Dropdown from './Dropdown'
+import Select from './Select/Select'
+import TopCategory from './TopCategory/TopCategory'
+import Tabbed from './Tabbed/Tabbed'
+import CartTable from './CartTable/CartTable'
+import ProductPage from './ProductPage/ProductPage'
+import ProductInfo from './ProductPage/ProductInfo'
 
 function Mart() {
   return (
     <>
-      <h1>This is Mart Page</h1>
-      <Outlet />
+      <Category />
+      <Card />
+      <Breadcrumb />
+      {/* <Product /> */}
+      <Dropdown />
+      <Select />
+      <TopCategory />
+      <Tabbed />
+      <CartTable />
+      <ProductPage />
+      <ProductInfo />
     </>
   )
 }
