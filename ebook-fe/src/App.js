@@ -27,6 +27,7 @@ import Coupon from './pages/Member/Coupon'
 import CouponList from './pages/Member/Coupon/CouponList'
 import CouponDetail from './pages/Member/Coupon/CouponDetail'
 import Materials from './pages/Materials'
+import Chat from './pages/Chat'
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
             <Route index element={<ToBuyList />} />
             <Route path="fav-list" element={<FavList />} />
           </Route>
+          <Route path="chat" element={<Chat />} />
           <Route path="materials" element={<Materials />} />
 
           {/* 404未找到的頁面路由，需放在最下方 */}

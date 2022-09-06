@@ -22,6 +22,9 @@ function Navbar() {
           <NavLink className="mx-2" to="/Cart">
             Shopping Cart
           </NavLink>
+          <NavLink className="mx-2" to="/Chat">
+            Chat
+          </NavLink>
           <NavLink className="mx-2" to="/Materials">
             Material Reference
           </NavLink>
