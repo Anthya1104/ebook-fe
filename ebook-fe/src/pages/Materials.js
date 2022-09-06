@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
 
 function Materials() {
   const categorySVGColor = '#C0724A'
@@ -26,33 +27,40 @@ function Materials() {
         <div className="d-flex flex-column">
           <div className="d-flex my-3">
             <h3 className="mx-4">.btn-primary</h3>
-            <button className="btn btn-primary">btn-primary</button>
+            <Button className="btn btn-primary">btn-primary</Button>
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">.btn-primary-reverse(購物車/收藏toggle)</h3>
             {/* toggle作法 : https://react.school/ui/button (button toggle) */}
-            <button className="btn btn-primary-reverse active">
+            <Button className="btn btn-primary-reverse">
               btn-primary-reverse
-            </button>
+            </Button>
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">.btn-light</h3>
-            <button className="btn btn-light">btn-light</button>
+            <Button className="btn btn-light">btn-light</Button>
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">.btn-danger</h3>
-            <button className="btn btn-danger">btn-danger</button>
+            <Button className="btn btn-danger">btn-danger</Button>
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">.toggle-primary</h3>
             <button className="d-flex align-items-center toggle-primary">
               <div className="toggle-inside"></div>
-              <p>toggle-primary</p>
+              <h4 className="px-3">toggle-primary</h4>
+            </button>
+          </div>
+          <div className="d-flex my-3">
+            <h3 className="mx-4">.toggle-primary-active</h3>
+            <button className="d-flex align-items-center toggle-primary-active">
+              <h4 className="px-3">toggle-primary-active</h4>
+              <div className="toggle-inside"></div>
             </button>
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">product-category</h3>
-            <button className="btn product-category fw-bold">
+            <div className="btn product-category fw-bold">
               <div className="d-flex flex-column align-items-center my-2">
                 <div className="d-flex my-2">
                   <svg
@@ -78,11 +86,11 @@ function Materials() {
                 </div>
                 btn-danger
               </div>
-            </button>
+            </div>
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">product-category-active</h3>
-            <button className="btn product-category-active fw-bold">
+            <div className="btn product-category-active fw-bold">
               <div className="d-flex flex-column align-items-center my-2">
                 <div className="d-flex my-2">
                   <svg
@@ -108,7 +116,7 @@ function Materials() {
                 </div>
                 btn-danger
               </div>
-            </button>
+            </div>
           </div>
         </div>
       </div>

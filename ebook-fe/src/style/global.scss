@@ -29,6 +29,7 @@ $link-hover-color: #F5F5F5;
   border-radius: 0;
   background:rgba(0,0,0,0);
   border:1px solid $primary;
+  color:$primary;
   &:hover{
     border:1px solid $primary;
     background:$primary;
@@ -72,6 +73,7 @@ $link-hover-color: #F5F5F5;
       fill:$body-bg;
     }
   }
+
   svg{
     fill:$secondary;
   }
@@ -93,12 +95,31 @@ $link-hover-color: #F5F5F5;
 }
 
 .toggle-primary{
-  border-radius: 20px;
+  padding:10px;
+  border:2px solid $info;
+  border-radius: 30px;
+  background:$info;
+  color:$body-bg;
   .toggle-inside{
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
-    background:red;
+    background:$body-bg;
+
+  }
+  
+}
+.toggle-primary-active{
+  padding:10px;
+  border:2px solid $primary;
+  border-radius: 30px;
+  background:$body-bg;
+  color:$primary;
+  .toggle-inside{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background:$primary;
 
   }
   
