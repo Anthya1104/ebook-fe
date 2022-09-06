@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from 'react'
 
 function DatePick() {
@@ -19,15 +18,3 @@ function DatePick() {
   )
 }
 export default DatePick
-=======
-function DatePick(){
-    const [date, setDate]=useState();
-
-    console.log
-}
-
-<div className="main">
-        <h1>Selected Date : {date}</h1>
-        <input type="date" onChange={e->setDate(e.target.value)}/>
-      </div>
->>>>>>> c33b7c80e022a16e5d49dc34799b4a7d18d9051f
