@@ -1,15 +1,13 @@
 import React from 'react'
-
 import { Outlet } from 'react-router-dom'
 
-function Cart() {
+function Coupon() {
   return (
     <>
-      <h1>This is Cart Page</h1>
-
+      <div>Coupon Index</div>
       <Outlet />
     </>
   )
 }
 
-export default Cart
+export default Coupon

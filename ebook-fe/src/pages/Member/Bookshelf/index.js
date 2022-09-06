@@ -1,15 +1,13 @@
 import React from 'react'
-
 import { Outlet } from 'react-router-dom'
 
-function Cart() {
+function Bookshelf() {
   return (
     <>
-      <h1>This is Cart Page</h1>
-
+      <div>Bookshelf Index</div>
       <Outlet />
     </>
   )
 }
 
-export default Cart
+export default Bookshelf
