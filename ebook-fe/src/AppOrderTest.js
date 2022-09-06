@@ -1,11 +1,11 @@
 import './style/global.scss'
-import OrderApp from './pages/order/OrderApp'
+import Index from './pages/Order/Index'
 
 function AppOrderTest() {
   return (
     <>
       <>
-        <OrderApp />
+        <Index />
       </>
     </>
   )
