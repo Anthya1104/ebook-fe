@@ -1,4 +1,4 @@
-$link-color:#F5F5F5;
+
 @import './global.scss';
 
 
@@ -6,7 +6,13 @@ $link-color:#F5F5F5;
   height: 110px;
   margin:0px;
   background: $primary;
+
+
 }
 .menu{
-  font-size: $h4-font-size;;
+  font-size: $h4-font-size;
+  .selected{
+    color:red;
+  }
+
 }
