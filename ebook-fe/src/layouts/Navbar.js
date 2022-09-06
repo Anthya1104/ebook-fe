@@ -1,24 +1,30 @@
 import '../style/Navbar.scss'
 
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
     <div className="navbar d-flex justify-content-start">
       <div className="d-flex p-2 align-items-center">
-        <Link to="/">
+        <NavLink to="/">
           <h4>Home</h4>
-        </Link>
+        </NavLink>
         <div className="menu d-flex justify-content-start align-items-center mx-2">
-          <Link className="mx-2" to="/Login">
-            Login
-          </Link>
-          <Link className="mx-2" to="/Mart">
+          <NavLink className="mx-2" activeClassName="selected" to="/Login">
+            <p className="">Login</p>
+          </NavLink>
+          <NavLink className="mx-2" to="/Mart">
             Mart
-          </Link>
-          <Link className="mx-2" to="/Member">
+          </NavLink>
+          <NavLink className="mx-2" to="/Member">
             Member
-          </Link>
+          </NavLink>
+          <NavLink className="mx-2" to="/Cart">
+            Shopping Cart
+          </NavLink>
+          <NavLink className="mx-2" to="/Materials">
+            Material Reference
+          </NavLink>
           <Link className="mx-2" to="/Preview">
             Preview
           </Link>
