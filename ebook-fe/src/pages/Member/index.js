@@ -10,7 +10,7 @@ function Member() {
         <div>
           <img alt="test-sidenavi" src={SideNavi} />
         </div>
-        <Outlet />{' '}
+        <Outlet />
       </div>
     </>
   )
