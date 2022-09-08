@@ -7,20 +7,20 @@ function Navbar() {
     <div className="navbar d-flex justify-content-start">
       <div className="d-flex p-2 align-items-center">
         <NavLink to="/">
-          <h4>Home</h4>
+          <h4>首頁</h4>
         </NavLink>
         <div className="menu d-flex justify-content-start align-items-center mx-2">
           <NavLink className="mx-2" activeClassName="selected" to="/Login">
             <p className="">Login</p>
           </NavLink>
           <NavLink className="mx-2" to="/Mart">
-            Mart
+            商城
           </NavLink>
           <NavLink className="mx-2" to="/Member">
-            Member
+            會員中心
           </NavLink>
           <NavLink className="mx-2" to="/Cart">
-            Shopping Cart
+            購物車
           </NavLink>
           <NavLink className="mx-2" to="/Materials">
             Material Reference
