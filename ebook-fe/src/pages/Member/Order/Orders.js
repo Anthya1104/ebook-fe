@@ -72,16 +72,16 @@ function Orders() {
                   gutterBottom
                   variant="h5"
                   component="div"
-                  className="border-bottom mb-3"
+                  className="border-bottom mb-2"
                 >
                   訂單總額
-                </Typography>
+                </Typography>{' '}
+                <CardActions className="justify-content-center">
+                  <a href="#" className="btn btn-primary ">
+                    完整訂單
+                  </a>
+                </CardActions>
               </CardContent>
-              <CardActions className="justify-content-center">
-                <a href="#" className="btn btn-primary ">
-                  完整訂單
-                </a>
-              </CardActions>
             </div>
           </Card>
           <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
@@ -140,12 +140,12 @@ function Orders() {
                 >
                   訂單總額
                 </Typography>
+                <CardActions className="justify-content-center">
+                  <a href="#" className="btn btn-primary ">
+                    完整訂單
+                  </a>
+                </CardActions>
               </CardContent>
-              <CardActions className="justify-content-center">
-                <a href="#" className="btn btn-primary ">
-                  完整訂單
-                </a>
-              </CardActions>
             </div>
           </Card>
           <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
@@ -204,12 +204,12 @@ function Orders() {
                 >
                   訂單總額
                 </Typography>
+                <CardActions className="justify-content-center">
+                  <a href="#" className="btn btn-primary ">
+                    完整訂單
+                  </a>
+                </CardActions>
               </CardContent>
-              <CardActions className="justify-content-center">
-                <a href="#" className="btn btn-primary ">
-                  完整訂單
-                </a>
-              </CardActions>
             </div>
           </Card>
           <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
@@ -268,12 +268,12 @@ function Orders() {
                 >
                   訂單總額
                 </Typography>
+                <CardActions className="justify-content-center">
+                  <a href="#" className="btn btn-primary ">
+                    完整訂單
+                  </a>
+                </CardActions>
               </CardContent>
-              <CardActions className="justify-content-center">
-                <a href="#" className="btn btn-primary ">
-                  完整訂單
-                </a>
-              </CardActions>
             </div>
           </Card>
         </div>
