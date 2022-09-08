@@ -1,5 +1,8 @@
 @import './global.scss';
 
+$Bookshelf_recent_translateX: 55px;
+$Bookshelf_recent_translateY: 40px;
+
 .contain-fit{
   object-fit: contain;
   width: 100%;
@@ -10,18 +13,103 @@
 }
 
 .recent-book{
-  width: 300px;
-  height: 300px;
+  width: 310px;
+  height: 310px;
   border: 1px solid $primary;
   border-radius: 50%;
 }
 
 .recent-book-img{
-  float:left;
+  // float:left;
+  transform: translate($Bookshelf_recent_translateX,$Bookshelf_recent_translateY);
   width:150px;
   background:$primary;
+
 }
 // RecentBook Chart.js
 .chartLocation{
   transform: translateY(-5px);
+}
+
+.Bookshelf-recent-btn{
+  transform: translate($Bookshelf_recent_translateX,65px);
+}
+
+.Bookshelf-recent-info{
+  transform: translate(220px,$Bookshelf_recent_translateY);
+  text-shadow: 
+  $body-bg 1px 1px 0,
+  $body-bg -1px -1px 0,
+  $body-bg 1px -1px 0,
+  $body-bg -1px 1px 0;
+
+  & h5{
+    font-weight: 500;
+  }
+
+  & h6{
+    color:$success;
+    font-weight: 500;
+  }
+
+  & p{
+    transform: translate(50px, 25px);
+    font-style: italic;
+    color:$body-bg;
+    text-shadow: 
+    $primary 1px 1px 0,
+    $primary -1px -1px 0,
+    $primary 1px -1px 0,
+    $primary -1px 1px 0;
+    font-size:120px
+
+  }
+}
+
+// 分隔線
+.Bookshelf-recent-title{
+  & h2{
+    padding: 0 200px;
+  // transform: translateX(120px);
+  }
+  & svg{
+    transform:translateY(-20px);
+    @media(max-width: 1440px){
+      width:70%;
+
+    }
+  }
+
+}
+
+// 大分類
+.Bookshelf_category{
+  max-width: 150px;
+  color:$primary;
+  background:none;
+  border:1px solid rgba(0,0,0,0);
+  border-radius: 12px 0 12px 0;
+  transform: skew(-20deg);
+  & h4{
+    padding-top:10px;
+    transform: skew(20deg);
+
+  }
+  &:hover{
+  color:$body-bg;
+  background: $primary;
+  }
+  &:active{
+    color:$body-bg;
+    background: $primary;
+  }
+}
+.Bookshelf-catagory-divider{
+  transform:translateY(-22px);
+  & svg{
+    @media(max-width: 1440px){
+      width:70%;
+      // viewBox:"0 0 500 12";
+    }
+  }
 }
