@@ -72,7 +72,7 @@ function Orders() {
                   gutterBottom
                   variant="h5"
                   component="div"
-                  className="border-bottom mb-2"
+                  className="border-bottom mb-5"
                 >
                   訂單總額
                 </Typography>{' '}
