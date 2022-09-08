@@ -16,7 +16,7 @@ function Navbar() {
           <NavLink className="mx-2" to="/Mart">
             Mart
           </NavLink>
-          <NavLink className="mx-2" to="/Member">
+          <NavLink className="mx-2" to="/member-index">
             Member
           </NavLink>
           <NavLink className="mx-2" to="/Cart">
