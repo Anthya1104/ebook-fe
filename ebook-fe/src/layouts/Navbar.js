@@ -16,7 +16,7 @@ function Navbar() {
           <NavLink className="mx-2" to="/Mart">
             Mart
           </NavLink>
-          <NavLink className="mx-2" to="/Member">
+          <NavLink className="mx-2" to="/member-index">
             Member
           </NavLink>
           <NavLink className="mx-2" to="/Cart">
@@ -27,6 +27,9 @@ function Navbar() {
           </NavLink>
           <NavLink className="mx-2" to="/Materials">
             Material Reference
+          </NavLink>
+          <NavLink className="mx-2" to="/Preview">
+            Preview
           </NavLink>
         </div>
       </div>
