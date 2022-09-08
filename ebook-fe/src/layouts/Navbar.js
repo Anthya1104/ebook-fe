@@ -25,9 +25,9 @@ function Navbar() {
           <NavLink className="mx-2" to="/Materials">
             Material Reference
           </NavLink>
-          <Link className="mx-2" to="/Preview">
+          <NavLink className="mx-2" to="/Preview">
             Preview
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>
