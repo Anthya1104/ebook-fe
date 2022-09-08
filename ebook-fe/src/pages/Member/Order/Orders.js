@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import './OrderApp.css'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import DatePick from './Component/DatePick'
+import Book from '../../../img/book.jpg'
 
 function Orders() {
   const [date, setDate] = useState()
@@ -14,198 +15,269 @@ function Orders() {
   const orderId = 1
   return (
     <>
-      <Card sx={{ maxWidth: 1067, maxheight: 400 }} className="mb-3">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <CardMedia
-              className="img-fluid"
-              component="img"
-              height="140"
-              image="../../../img/book.jpg"
-              alt="book"
-            />
+      <div className="container">
+        <div className="">
+          <div className="d-flex justify-content-end">
+            <DatePick />
           </div>
-          <CardContent className="col-md-8">
-            <Typography variant="body2" color="text.secondary">
-              訂單編號
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單狀態
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單日期
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              商品數量
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              尚未評價
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              訂單總額
-            </Typography>
-          </CardContent>
-          <CardActions className="justify-content-center">
-            <a href="#" className="btn btn-primary ">
-              完整訂單
-            </a>
-          </CardActions>
+          <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+            <div className="row g-0">
+              <div className="col-md-4">
+                <CardMedia
+                  className="img-fluid"
+                  component="img"
+                  height="100"
+                  image={Book}
+                  alt="book"
+                />
+              </div>
+              <CardContent className="col-md-8">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單編號
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單狀態
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單日期
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  商品數量
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  尚未評價
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  訂單總額
+                </Typography>
+              </CardContent>
+              <CardActions className="justify-content-center">
+                <a href="#" className="btn btn-primary ">
+                  完整訂單
+                </a>
+              </CardActions>
+            </div>
+          </Card>
+          <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+            <div className="row g-0">
+              <div className="col-md-4">
+                <CardMedia
+                  className="img-fluid"
+                  component="img"
+                  height="100"
+                  image={Book}
+                  alt="book"
+                />
+              </div>
+              <CardContent className="col-md-8">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單編號
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單狀態
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單日期
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  商品數量
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  尚未評價
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  訂單總額
+                </Typography>
+              </CardContent>
+              <CardActions className="justify-content-center">
+                <a href="#" className="btn btn-primary ">
+                  完整訂單
+                </a>
+              </CardActions>
+            </div>
+          </Card>
+          <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+            <div className="row g-0">
+              <div className="col-md-4">
+                <CardMedia
+                  className="img-fluid"
+                  component="img"
+                  height="100"
+                  image={Book}
+                  alt="book"
+                />
+              </div>
+              <CardContent className="col-md-8">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單編號
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單狀態
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單日期
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  商品數量
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  尚未評價
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  訂單總額
+                </Typography>
+              </CardContent>
+              <CardActions className="justify-content-center">
+                <a href="#" className="btn btn-primary ">
+                  完整訂單
+                </a>
+              </CardActions>
+            </div>
+          </Card>
+          <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+            <div className="row g-0">
+              <div className="col-md-4">
+                <CardMedia
+                  className="img-fluid"
+                  component="img"
+                  height="100"
+                  image={Book}
+                  alt="book"
+                />
+              </div>
+              <CardContent className="col-md-8">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單編號
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單狀態
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  訂單日期
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="mb-3"
+                >
+                  商品數量
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  尚未評價
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="border-bottom mb-3"
+                >
+                  訂單總額
+                </Typography>
+              </CardContent>
+              <CardActions className="justify-content-center">
+                <a href="#" className="btn btn-primary ">
+                  完整訂單
+                </a>
+              </CardActions>
+            </div>
+          </Card>
         </div>
-      </Card>
-      <Card sx={{ maxWidth: 1067, maxheight: 400 }} className="mb-3">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <CardMedia
-              className="img-fluid"
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="book"
-            />
-          </div>
-          <CardContent className="col-md-8">
-            <Typography variant="body2" color="text.secondary">
-              訂單編號
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單狀態
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單日期
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              商品數量
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              尚未評價
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              訂單總額
-            </Typography>
-          </CardContent>
-          <CardActions className="justify-content-center">
-            <a href="#" className="btn btn-primary ">
-              完整訂單
-            </a>
-          </CardActions>
-        </div>
-      </Card>
-      <Card sx={{ maxWidth: 1067, maxheight: 400 }} className="mb-3">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <CardMedia
-              className="img-fluid"
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="book"
-            />
-          </div>
-          <CardContent className="col-md-8">
-            <Typography variant="body2" color="text.secondary">
-              訂單編號
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單狀態
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單日期
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              商品數量
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              尚未評價
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              訂單總額
-            </Typography>
-          </CardContent>
-          <CardActions className="justify-content-center">
-            <a href="#" className="btn btn-primary ">
-              完整訂單
-            </a>
-          </CardActions>
-        </div>
-      </Card>
-      <Card sx={{ maxWidth: 1067, maxheight: 400 }} className="mb-3">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <CardMedia
-              className="img-fluid"
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="book"
-            />
-          </div>
-          <CardContent className="col-md-8">
-            <Typography variant="body2" color="text.secondary">
-              訂單編號
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單狀態
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              訂單日期
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              商品數量
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              尚未評價
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              className="border-bottom"
-            >
-              訂單總額
-            </Typography>
-          </CardContent>
-          <CardActions className="justify-content-center">
-            <a href="#" className="btn btn-primary ">
-              完整訂單
-            </a>
-          </CardActions>
-        </div>
-      </Card>
+      </div>
       <Link className="mx-2" to={`${orderId}`}>
         Orderdetail
       </Link>
