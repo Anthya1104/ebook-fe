@@ -1,5 +1,8 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
+import BtnPrimary from '../Component/Buttons/BtnPrimary'
+import BtnPrimaryBS from '../Component/Buttons/BtnPrimaryBS'
+import BtnPrimaryReverse from '../Component/Buttons/BtnPrimaryReverse'
 
 function Materials() {
   const categorySVGColor = '#C0724A'
@@ -27,14 +30,16 @@ function Materials() {
         <div className="d-flex flex-column">
           <div className="d-flex my-3">
             <h3 className="mx-4">.btn-primary</h3>
-            <Button className="btn btn-primary">btn-primary</Button>
+            {BtnPrimary(123)}
+            {BtnPrimaryBS(123)}
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">.btn-primary-reverse(購物車/收藏toggle)</h3>
             {/* toggle作法 : https://react.school/ui/button (button toggle) */}
-            <Button className="btn btn-primary-reverse">
+            {/* <Button className="btn btn-primary-reverse">
               btn-primary-reverse
-            </Button>
+            </Button> */}
+            {BtnPrimaryReverse('btn-primary-reverse')}
           </div>
           <div className="d-flex my-3">
             <h3 className="mx-4">.btn-light</h3>
