@@ -28,6 +28,8 @@ import Coupon from './pages/Member/Coupon'
 import CouponList from './pages/Member/Coupon/CouponList'
 import CouponDetail from './pages/Member/Coupon/CouponDetail'
 import Materials from './pages/Materials'
+import Chat from './pages/Chat'
+import MemberIndex from './pages/MemberIndex'
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="Login" element={<Login />} />
+
+          <Route path="member-index" element={<MemberIndex />} />
 
           <Route path="Member" element={<Member />}>
             <Route index element={<OverView />} />
@@ -66,6 +70,7 @@ function App() {
             <Route index element={<ToBuyList />} />
             <Route path="fav-list" element={<FavList />} />
           </Route>
+          <Route path="chat" element={<Chat />} />
           <Route path="materials" element={<Materials />} />
 
           <Route path="Preview" element={<Preview />} />
