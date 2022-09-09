@@ -1,15 +1,19 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { Link } from 'react-router-dom'
 import RecentBook from './Component/RecentBook'
 import Button from 'react-bootstrap/Button'
+import OwnedBooksList from './OwnedBooksList'
+import BookReviesList from './BookReviewList'
 
 function OwnedBooks() {
   const ownedBookId = 1
+
+  // tab state
+  const [bookToggleState, setbookToggleState] = useState(1)
   return (
     <>
       <div className="d-flex-column justify-content-left">
-        <div>Book List</div>
-        <RecentBook />
+        {/* <div>Book List</div> */}
         <div className="Bookshelf-recent-title position-absolute top-50 end-0">
           <h2>最近閱讀</h2>
           <div>
@@ -27,12 +31,33 @@ function OwnedBooks() {
             </svg>
           </div>
         </div>
+        <RecentBook />
         {/* 書櫃標題 */}
-        <div className="d-flex justify-content-left m-2">
-          <Button className="btn Bookshelf_category py-2 d-flex justify-content-end">
+ 
+
+        <div className="Bookshelf-tabs d-flex justify-content-left m-2">
+          <Button
+            className={
+              bookToggleState === 1
+                ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
+                : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+            }
+            onClick={() => {
+              setbookToggleState(1)
+            }}
+          >
             <h4>我的書櫃</h4>
           </Button>
-          <Button className="btn Bookshelf_category py-2 d-flex justify-content-end">
+          <Button
+            className={
+              bookToggleState === 2
+                ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
+                : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+            }
+            onClick={() => {
+              setbookToggleState(2)
+            }}
+          >
             <h4>我的評論</h4>
           </Button>
         </div>
@@ -50,6 +75,8 @@ function OwnedBooks() {
             />
           </svg>
         </div>
+
+        {bookToggleState === 1 ? <OwnedBooksList /> : <BookReviesList />}
 
         <Link className="mx-2" to={`${ownedBookId}`}>
           Book Detail

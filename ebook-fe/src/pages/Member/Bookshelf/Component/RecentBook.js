@@ -23,8 +23,12 @@ const newdata = {
 }
 console.log()
 function RecentBook() {
+  // Chart.js states
   // 動態做法: https://www.youtube.com/watch?v=UwlaPofs5cA&ab_channel=SeemaHolidayDeveloper
   const [data, setData] = useState(newdata)
+
+
+  // Chart.js 動態改變
   // 用 useEffect 做動態改變
   useEffect(() => {
     // readProcess -> data.datasets[0].data[0]
@@ -36,6 +40,7 @@ function RecentBook() {
   //   let newProcess = 20
   //   // let updateData = [...data]
   // }, [data])
+
   return (
     <>
       <div className="position-relative m-5">
@@ -43,7 +48,7 @@ function RecentBook() {
           <img className="img-flip m-2" alt="arrow-l" src={ArrowRight} />
           <div className="recent-book d-flex justify-content-center align-items-center">
             <div className="chartLocation">
-            <Doughnut data={data} />
+              <Doughnut data={data} />
             </div>
           </div>
           <img className="m-2" alt="arrow-r" src={ArrowRight} />

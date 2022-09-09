@@ -24,6 +24,10 @@ $Bookshelf_recent_translateY: 40px;
   transform: translate($Bookshelf_recent_translateX,$Bookshelf_recent_translateY);
   width:150px;
   background:$primary;
+  transition:.4s;
+  &:hover{
+    transform: translate($Bookshelf_recent_translateX,calc($Bookshelf_recent_translateY - 10%));
+  }
 
 }
 // RecentBook Chart.js
@@ -68,6 +72,9 @@ $Bookshelf_recent_translateY: 40px;
 
 // 分隔線
 .Bookshelf-recent-title{
+  @media(max-width:1440px){
+    transform:translateY(180px);
+  }
   & h2{
     padding: 0 200px;
   // transform: translateX(120px);
@@ -75,7 +82,7 @@ $Bookshelf_recent_translateY: 40px;
   & svg{
     transform:translateY(-20px);
     @media(max-width: 1440px){
-      width:70%;
+      // width:70%;
 
     }
   }
@@ -83,13 +90,16 @@ $Bookshelf_recent_translateY: 40px;
 }
 
 // 大分類
+
 .Bookshelf_category{
-  max-width: 150px;
+  width: 150px;
+  margin-right:30px;
   color:$primary;
   background:none;
   border:1px solid rgba(0,0,0,0);
   border-radius: 12px 0 12px 0;
   transform: skew(-20deg);
+  transition:.4s;
   & h4{
     padding-top:10px;
     transform: skew(20deg);
@@ -104,11 +114,13 @@ $Bookshelf_recent_translateY: 40px;
     background: $primary;
   }
 }
+
 .Bookshelf-catagory-divider{
   transform:translateY(-22px);
   & svg{
     @media(max-width: 1440px){
       width:70%;
+  
       // viewBox:"0 0 500 12";
     }
   }
