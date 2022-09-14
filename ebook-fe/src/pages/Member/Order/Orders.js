@@ -10,6 +10,7 @@ import DatePick from './Component/DatePick'
 import Book from '../../../img/book.jpg'
 import BreadCrumb from './Component/BreadCumb'
 import line from '../../../img/line.svg'
+import dash from '../../../img/dash.svg'
 
 function Orders() {
   const [date, setDate] = useState()
@@ -24,7 +25,7 @@ function Orders() {
         <div className="d-flex justify-content-end">
           <DatePick />
         </div>
-        <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+        <Card sx={{ maxWidth: 1067, maxheight: 200 }} className="mb-3">
           <div className="row g-0">
             <div className="col-md-4">
               <CardMedia
@@ -68,16 +69,20 @@ function Orders() {
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3"
+                className="mb-3"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 尚未評價
               </Typography>
               <Typography
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-5"
+                className="mb-5"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 訂單總額
               </Typography>{' '}
               <CardActions className="justify-content-center">
@@ -88,7 +93,7 @@ function Orders() {
             </CardContent>
           </div>
         </Card>
-        <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+        <Card sx={{ maxWidth: 1067, maxheight: 200 }} className="mb-3">
           <div className="row g-0">
             <div className="col-md-4">
               <CardMedia
@@ -132,16 +137,20 @@ function Orders() {
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3"
+                className=" mb-3"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 尚未評價
               </Typography>
               <Typography
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3"
+                className=" mb-3"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 訂單總額
               </Typography>
               <CardActions className="justify-content-center">
@@ -152,7 +161,7 @@ function Orders() {
             </CardContent>
           </div>
         </Card>
-        <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+        <Card sx={{ maxWidth: 1067, maxheight: 200 }} className="mb-3">
           <div className="row g-0">
             <div className="col-md-4">
               <CardMedia
@@ -196,16 +205,20 @@ function Orders() {
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3"
+                className=" mb-3"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 尚未評價
               </Typography>
               <Typography
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3"
+                className=" mb-3"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 訂單總額
               </Typography>
               <CardActions className="justify-content-center">
@@ -216,7 +229,7 @@ function Orders() {
             </CardContent>
           </div>
         </Card>
-        <Card sx={{ maxWidth: 1067, height: 400 }} className="mb-3">
+        <Card sx={{ maxWidth: 1067, maxheight: 200 }} className="mb-3">
           <div className="row g-0">
             <div className="col-md-4">
               <CardMedia
@@ -260,16 +273,20 @@ function Orders() {
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3"
+                className=" mb-3"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 尚未評價
               </Typography>
               <Typography
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3"
+                className=" mb-3"
               >
+                <img src={dash} alt="dash" />
+                <br></br>
                 訂單總額
               </Typography>
               <CardActions className="justify-content-center">
