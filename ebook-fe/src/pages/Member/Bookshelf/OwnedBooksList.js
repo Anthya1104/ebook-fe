@@ -7,6 +7,7 @@ import LinearProgress, {
   linearProgressClasses,
 } from '@mui/material/LinearProgress'
 import DropdownSelection from './Component/DropdownSelection'
+// react-toggle importing
 
 const customizedCategory = ['所有藏書', '奇幻類別', '自訂書單', '工作用書']
 
@@ -35,7 +36,25 @@ function OwnedBooksList() {
   // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
   // isRead 切換
+  // toggle reference: https://www.npmjs.com/package/react-toggle
   const [isRead, setIsRead] = useState(false)
+  const distingReading = () => {
+    if (isRead) {
+      return (
+        <>
+          <div className="px-2">閱讀中</div>
+          <div className="toggle-inside"></div>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className="toggle-inside"></div>
+          <div className="px-2">尚未閱讀</div>
+        </>
+      )
+    }
+  }
 
   return (
     <>
@@ -106,8 +125,7 @@ function OwnedBooksList() {
             setIsRead(!isRead)
           }}
         >
-          <div className="toggle-inside"></div>
-          <div className="px-2">{isRead ? '閱讀中' : '尚未閱讀'}</div>
+          {distingReading()}
         </button>
       </div>
 
