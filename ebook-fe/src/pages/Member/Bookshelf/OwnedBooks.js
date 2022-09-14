@@ -12,7 +12,7 @@ function OwnedBooks() {
   const [bookToggleState, setbookToggleState] = useState(1)
   return (
     <>
-      <div className="d-flex-column justify-content-left">
+      <div className="d-flex-column justify-content-left vw-100">
         {/* <div>Book List</div> */}
         <div className="Bookshelf-recent-title position-absolute top-50 end-0">
           <h2>最近閱讀</h2>
@@ -33,7 +33,6 @@ function OwnedBooks() {
         </div>
         <RecentBook />
         {/* 書櫃標題 */}
- 
 
         <div className="Bookshelf-tabs d-flex justify-content-left m-2">
           <Button
