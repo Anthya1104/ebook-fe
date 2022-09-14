@@ -29,7 +29,11 @@ import CouponList from './pages/Member/Coupon/CouponList'
 import CouponDetail from './pages/Member/Coupon/CouponDetail'
 import Materials from './pages/Materials'
 import Chat from './pages/Chat'
+// import Chat from './pages/Chat/ChatRooms/pages/chats'
+// import Chat from './pages/Chat/ChatRooms/pages/_app'
 import MemberIndex from './pages/MemberIndex'
+import OwnedBooksList from './pages/Member/Bookshelf/OwnedBooksList'
+import BookReviewList from './pages/Member/Bookshelf/BookReviewList'
 
 function App() {
   return (
@@ -51,6 +55,7 @@ function App() {
             {/* 書架 */}
             <Route path="bookshelf" element={<Bookshelf />}>
               <Route index element={<OwnedBooks />} />
+
               <Route path=":ownedBookId" element={<OwnedBookDetail />} />
             </Route>
             {/* 優惠券 */}

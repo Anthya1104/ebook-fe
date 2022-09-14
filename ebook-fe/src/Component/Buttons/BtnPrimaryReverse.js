@@ -4,7 +4,9 @@ import Button from 'react-bootstrap/Button'
 function BtnPrimaryReverse(inputText) {
   return (
     <>
-      <Button className="btn btn-primary-reverse">{inputText}</Button>
+      <div className="mb-2">
+        <Button className="btn btn-primary-reverse">{inputText}</Button>
+      </div>
     </>
   )
 }

@@ -1,5 +1,8 @@
 @import './global.scss';
 
+$Bookshelf_recent_translateX: 55px;
+$Bookshelf_recent_translateY: 40px;
+
 .contain-fit{
   object-fit: contain;
   width: 100%;
@@ -10,18 +13,348 @@
 }
 
 .recent-book{
-  width: 300px;
-  height: 300px;
+  width: 310px;
+  height: 310px;
   border: 1px solid $primary;
   border-radius: 50%;
 }
 
 .recent-book-img{
-  float:left;
+  // float:left;
+  transform: translate($Bookshelf_recent_translateX,$Bookshelf_recent_translateY);
   width:150px;
   background:$primary;
+  transition:.4s;
+  &:hover{
+    transform: translate($Bookshelf_recent_translateX,calc($Bookshelf_recent_translateY - 10%));
+  }
+
 }
 // RecentBook Chart.js
 .chartLocation{
   transform: translateY(-5px);
+}
+
+.Bookshelf-recent-btn{
+  transform: translate($Bookshelf_recent_translateX,65px);
+}
+
+.Bookshelf-recent-info{
+  transform: translate(220px,$Bookshelf_recent_translateY);
+  text-shadow: 
+  $body-bg 1px 1px 0,
+  $body-bg -1px -1px 0,
+  $body-bg 1px -1px 0,
+  $body-bg -1px 1px 0;
+
+  & h5{
+    font-weight: 500;
+  }
+
+  & h6{
+    color:$success;
+    font-weight: 500;
+  }
+
+  & p{
+    transform: translate(50px, 25px);
+    font-style: italic;
+    color:$body-bg;
+    text-shadow: 
+    $primary 1px 1px 0,
+    $primary -1px -1px 0,
+    $primary 1px -1px 0,
+    $primary -1px 1px 0;
+    font-size:120px
+
+  }
+}
+
+// 分隔線
+.Bookshelf-recent-title{
+  @media(max-width:1440px){
+    transform:translateY(180px);
+  }
+  & h2{
+    padding: 0 200px;
+  // transform: translateX(120px);
+  }
+  & svg{
+    transform:translateY(-20px);
+    @media(max-width: 1440px){
+      // width:70%;
+
+    }
+  }
+
+}
+
+// 大分類
+
+.Bookshelf_category{
+  width: 150px;
+  margin-right:30px;
+  color:$primary;
+  background:none;
+  border:1px solid rgba(0,0,0,0);
+  border-radius: 12px 0 12px 0;
+  transform: skew(-20deg);
+  transition:.4s;
+  & h4{
+    padding-top:10px;
+    transform: skew(20deg);
+
+  }
+  &:hover{
+  color:$body-bg;
+  background: $primary;
+  }
+  &:active{
+    color:$body-bg;
+    background: $primary;
+  }
+}
+
+.Bookshelf-catagory-divider{
+  transform:translateY(-22px);
+  & svg{
+    @media(max-width: 1440px){
+      width:70%;
+  
+      // viewBox:"0 0 500 12";
+    }
+  }
+}
+
+// 書卡片
+
+
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+
+$color-box-1 : #0f9bc0;
+$color-box-2 : rgba(34, 65, 154, .8);
+$color-box-3 : #57ccfd;
+$color-box-4 : #e660e3;
+$color-box-5 : #f07306;
+$color-box-6 : #9b1308;
+$color-box-7 : #de8b3e;
+
+.card__collection {
+    position: relative;
+    display: block;
+    // background: rgba(10,10,10,.5);
+    padding: 10px;
+    
+  .cards {
+      width: 150px;
+      height: 200px;
+      display: block;
+      background-size: cover;
+      float: left;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      background-position: center;
+      margin: 10px;
+  }
+  
+  .cards--one {
+      // backface-visiblility: hidden;
+      &:hover {
+        
+        &:after {
+          bottom: -20px;
+        }
+        
+        &:before {
+          bottom: -10px;
+        }
+        
+        .cards--one__rect {
+          left: 45%;
+          
+          &--back {
+            left: 50%;
+          }
+        }
+        
+        
+      }
+      
+      &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 70px;
+      transform: rotate(-3deg);
+      background: $color-box-4;
+      position: absolute;
+      bottom: -80px;  
+      left: 0;
+      right: -10px;
+      z-index: 9;
+      transition: all .2s ease-in;
+      transition-delay: .3s;
+      }
+      
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 80px;
+        transform: rotate(-3deg);
+        bottom: -90px;
+        left: 0;
+        background: #fff;
+        right: -10px;
+        z-index: 5;
+        transition: all .2s ease-in;
+        transition-delay: .1s;
+      }
+      
+      &__rect {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 18px;
+        background: $color-box-1;
+        width: 126px;
+        height: 55px;
+        transform: skewY(5deg);
+        position: absolute;
+        display: block;
+        top: 60%;
+        left: -45%;
+        z-index: 1;
+        line-height: 3.3rem;
+        text-align: center;
+        transition: all .2s ease-in;
+        
+        &--back {
+          display: block;
+          background: $color-box-2;
+          width: 126px;
+          height: 55px;
+          transform: skewY(7deg);
+          position: absolute;
+          top: 65%;
+          left: -50%;
+          transition: all .2s ease-in;
+          transition-delay: .3s;
+        }
+        
+        p {
+          transform: skewY(-7deg);
+          position: relative;
+        }
+      }
+      
+      
+    }
+  
+  .cards--two {
+      position: relative;
+      backface-visibility: hidden;
+      
+      p {
+        position: absolute;
+        top: 83%;
+        left: -100%;
+        text-transform: capitalize;
+        color: #fff;
+        font-size: 20px;
+        z-index: 8;
+        transition: all .6s ease;
+      }
+      
+      &:hover {
+        
+        p {
+          left: 8%;
+        }
+        
+        img {
+          transform: translateY(-15px);
+        }
+        
+        .cards--two__rect {
+          top: 75%;
+          
+          &:before {
+            transform: translateY(15px);
+          }
+        }
+        
+        li {
+            transform: translateY(0);
+        }
+        
+
+      }
+      
+      img {
+        transition: all .2s ease;
+      }
+      
+      &__rect {
+        width: 750px;
+        height: 200px;
+        // background: #fff;
+        display: block;
+        position: absolute;
+        top: 50%;
+        // left: -78%;
+        transform: rotate(0deg);
+        z-index: 5;
+        opacity: .9;
+        transition: all .3s ease-in-out;
+        
+        &:before {
+          content: '';
+          display: block;
+          width: 100%;
+          position: relative;
+          height: 100%;
+          background: $color-box-5;
+          transform: translateY(100px);
+          z-index: 2;
+          transition: all .3s ease-in-out;
+          transition-delay: .1s;
+        }
+      }
+      
+      ul {
+        list-style: none;
+        position: absolute;
+        bottom: 0;
+        left: -10px;
+        z-index: 9;
+        
+        li {
+          display: inline-block;
+          font-size: 16px;
+          margin: 7px;
+          color: #fff;
+          transition: all .2s ease-in-out;
+          transform: translateY(100px);
+          
+          &:nth-child(2) {
+            transition-delay: .2s;
+          }
+          
+          &:nth-child(3) {
+            transition-delay: .3s;
+          }
+          
+          &:nth-child(4) {
+            transition-delay: .4s;
+          }
+        }
+      }
+    }
+  
 }

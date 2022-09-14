@@ -1,0 +1,174 @@
+.shadow {
+  box-shadow: 0 2px 15px rgb(0 0 0 / 68%);
+}
+
+/* Chat List */
+.ce-wrapper {
+  background-color: #C0724A !important;
+}
+/* my-chat */
+.ce-chats-container {
+  background-color: #C0724A !important;
+  border-radius: 0px !important;
+}
+/* 最上方聊天室房間 */
+.ce-chat-form-container {
+  background-color: #C0724A !important;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.ce-chat-card {
+  margin: 0px 6px !important;
+}
+
+.ce-chat-card-loading-bar {
+  background-color: white !important;
+}
+/* 聊天室button */
+.ce-active-chat-card {
+  background-color: #8D4343 !important;
+}
+
+.ce-chat-title-text {
+  color: white !important;
+}
+
+.ce-chat-subtitle-text {
+  color: white !important;
+}
+/* 邊線 */
+/* .ce-chat-unread-dot {
+  background-color: white !important;
+} */
+
+/* Chat Feed */
+/* 聊天室名稱聊天內容上方 */
+.ce-chat-title-container {
+  background-color: #C0724A !important;
+  border-radius: 0px !important;
+  /* border-bottom: 1px solid white; */
+}
+/* 聊天內容 */
+.ce-chat-feed-container {
+  background-color: #C0724A !important;
+  opacity: .9;
+}
+
+.ce-primary-button {
+  background-color: #8D4343 !important;
+}
+
+.ce-message-date-text {
+  color: white !important;
+}
+
+.ce-my-message-bubble {
+  background-color: #8D4343 !important;
+}
+
+.ce-my-message-sinding-bubble {
+  background-color: #8D4343 !important;
+}
+
+.ce-my-message-timestamp {
+  color: white !important;
+}
+
+.ce-their-message-timestamp {
+  color: white !important;
+}
+/* 聊天送出按鈕 */
+#ce-send-message-button {
+  background-color: #8D4343 !important;
+}
+
+#ce-ice-breaker-gif {
+  max-width: 115px !important;
+  margin-top: 30px !important;
+}
+/* 聊天輸入 */
+.ce-social-message-form {
+  background-color: #C0724A !important;
+  /* border-top: 1px solid white; */
+}
+
+.ce-message-input-form {
+  padding-bottom: 10px !important;
+}
+/* 聊天室輸入框 */
+#msg-textarea {
+  width: calc(100% - 140px) !important;
+  position: relative !important;
+  top: 4px !important;
+  border-width: 1px !important;
+  background-color: rgba(192,114,74,0.8) !important;
+  color: white !important;
+}
+#msg-textarea::placeholder {
+  /* color: hsla(0, 0%, 100%, 0.568) !important; */
+  color: white !important;
+}
+
+#ce-upload-document-icon {
+  color: white !important;
+}
+
+.ce-feed-container-bottom {
+  height: "44px";
+}
+
+.ce-message-images-row {
+  background-color: #4a5162 !important;
+}
+
+.ce-their-message-sender {
+  color: hsla(0, 0%, 100%, 0.568) !important;
+} 
+/* 對方聊天內容 */
+.ce-their-message-bubble {
+  background-color: #8D4343 !important;
+  color: white !important;
+}
+
+/* Chat Settings */
+
+.ce-settings {
+  background-color: #C0724A  !important;
+  border-radius: 0px !important;
+}
+
+.ce-chat-title-form .ce-text-input {
+  background-color: #C0724A;
+  color: white;
+}
+
+.ce-section-title-container {
+  background-color: #C0724A !important;
+  color: white;
+}
+
+#ce-options-drop-down {
+  background-color: #C0724A !important;
+  color: white;
+}
+
+.ce-person-text {
+  color: white;
+}
+
+.ce-danger-button {
+  background-color: #C0724A !important;
+  border: 1px solid white !important;
+  color: white !important;
+}
+
+.ce-autocomplete-close {
+  background-color: white !important;
+  border-radius: 0px !important;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
