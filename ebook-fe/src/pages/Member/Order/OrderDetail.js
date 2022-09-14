@@ -21,7 +21,7 @@ function OrderDetail() {
                 gutterBottom
                 variant="h5"
                 component="div"
-                className="border-bottom mb-3 text-white"
+                className="mb-3 text-white "
               >
                 訂單總額:$800
               </Typography>
