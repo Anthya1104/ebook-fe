@@ -19,7 +19,7 @@ import OverView from './pages/Member/OverView'
 import Order from './pages/Member/Order'
 import Orders from './pages/Member/Order/Orders'
 import OrderDetail from './pages/Member/Order/OrderDetail'
-import ProductDetail from './pages/Mart/ProductDetail'
+// import ProductDetail from './pages/Mart/ProductDetail'
 import Bookshelf from './pages/Member/Bookshelf'
 import OwnedBooks from './pages/Member/Bookshelf/OwnedBooks'
 import OwnedBookDetail from './pages/Member/Bookshelf/OwnedBookDetail'
@@ -27,6 +27,11 @@ import Coupon from './pages/Member/Coupon'
 import CouponList from './pages/Member/Coupon/CouponList'
 import CouponDetail from './pages/Member/Coupon/CouponDetail'
 import Materials from './pages/Materials'
+
+//後加的
+import SingleCart from './pages/ShoppingCart/SingleCart'
+import Test from './pages/Cart/Test'
+import ProductDetail from '../src/pages/Mart/ProductDetail/ProductDetail'
 
 function App() {
   return (
@@ -54,18 +59,32 @@ function App() {
               <Route path=":couponId" element={<CouponDetail />} />
             </Route>
           </Route>
-          {/* 商城 */}
+          {/* 商城 原本的
           <Route path="Mart" element={<Mart />}>
             <Route index element={<Products />} />
             <Route path=":productId" element={<ProductDetail />} />
             <Route path="SearchResult" element={<SearchResult />} />
+          </Route> */}
+
+          {/* ????????????????????????????????? */}
+          {/* 商城 */}
+          <Route path="Mart" element={<Mart />}>
+            <Route index element={<Products />} />
+            <Route
+              path="ProductDetail/:productId"
+              element={<ProductDetail />}
+            />
+            <Route path="SearchResult" element={<SearchResult />} />
           </Route>
+
           {/* 購物車 */}
           <Route path="Cart" element={<Cart />}>
             <Route index element={<ToBuyList />} />
             <Route path="fav-list" element={<FavList />} />
           </Route>
           <Route path="materials" element={<Materials />} />
+          <Route path="SingleCart" element={<SingleCart />} />
+          <Route path="Test" element={<Test />} />
 
           {/* 404未找到的頁面路由，需放在最下方 */}
           <Route path="*" element={<NotFound />} />

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "picture": "book1.jpg",
+    "stock": 5,
+    "name": "iPhone 12 Pro",
+    "price": 25000,
+    "tags": "蘋果,大螢幕"
+  },
+  {
+    "id": "2",
+    "picture": "https://via.placeholder.com/32",
+    "stock": 5,
+    "name": "iPhone 12",
+    "price": 15000,
+    "tags": "蘋果,小螢幕"
+  },
+  {
+    "id": "3",
+    "picture": "https://via.placeholder.com/32",
+    "stock": 10,
+    "name": "iPhone SE",
+    "price": 12500,
+    "tags": "蘋果,小螢幕"
+  },
+  {
+    "id": "4",
+    "picture": "https://via.placeholder.com/32",
+    "stock": 10,
+    "name": "iPhone XS",
+    "price": 22000,
+    "tags": "蘋果,大螢幕"
+  },
+  {
+    "id": "5",
+    "picture": "https://via.placeholder.com/32",
+    "stock": 6,
+    "name": "Google Pixel 5",
+    "price": 17000,
+    "tags": "安卓,大螢幕"
+  },
+  {
+    "id": "6",
+    "picture": "https://via.placeholder.com/32",
+    "stock": 6,
+    "name": "Google Pixel 4",
+    "price": 15500,
+    "tags": "安卓,大螢幕"
+  },
+  {
+    "id": "7",
+    "book_sn": "10001",
+    "name": "原子習慣",
+    "book_category": "3",
+    "author": "詹姆斯",
+    "publisher": "閱閱出版社",
+    "publication_date": "2019-07-01",
+    "language": "英文",
+    "book_details": "每天都進步1%，",
+    "price": "300",
+    "status": "已下架",
+    "upload_time": "2022-06-02 15:35:37",
+    "book_img": "book1.jpg",
+    "valid": "0",
+    "category_id": "1",
+    "factory_id": "1"
+  },
+  {
+    "id": "2",
+    "book_sn": "10002",
+    "name": "檯面下我是這樣投資",
+    "book_category": "1",
+    "author": "喬許．布",
+    "publisher": "閱閱出版社",
+    "publication_date": "2022-02-06",
+    "language": "中文",
+    "book_details": "《致富心態》作者摩根．豪瑟等各領域財金專家們的真心自白，教你「真正」可實踐的消費、儲蓄、投資與退休計畫。投資的世界中，各路理財專家天花亂墜的告訴大家如何「正確」管理錢財；然而，有看過這些專家拉開帷幕，告訴大家他們自己「私下」如何投資嗎？沒有。《檯面下我是這樣投資》就要告訴你，專家們私下是怎麼投資自己的錢。　　從他們的分享中，你會找出屬於自己的「投資最重要的事」！你以為專家的投資信念就是要賺大錢，檯面下其實是……那些專業理財顧問和投資大師，既然那麼懂投資，肯定都存了好幾桶金、衣食無缺的過著富裕階級的生活吧？那可不一定！",
+    "price": "350",
+    "status": "上架中",
+    "upload_time": "2022-06-03 00:00:00",
+    "book_img": "book2.jpg",
+    "valid": "1",
+    "category_id": "1",
+    "factory_id": "1"
+  }
+]

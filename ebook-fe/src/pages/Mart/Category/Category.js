@@ -4,7 +4,9 @@ import './Category.scss'
 function Category() {
   return (
     <>
-      <ul>
+    
+      <ul className="me-5">
+      <h3>全站分類</h3>
         <li className="item">
         
           <a href="#">
