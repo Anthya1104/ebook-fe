@@ -15,6 +15,9 @@ $body-color: $primary;
 $link-color:#D99282;
 $link-hover-color: #F5F5F5;
 
+// break point
+$mobile-break-point:768px;
+
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 .btn-primary{

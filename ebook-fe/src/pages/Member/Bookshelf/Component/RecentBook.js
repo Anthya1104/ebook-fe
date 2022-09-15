@@ -10,23 +10,27 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import { API_URL } from '../../../../utils/config'
 
-// 動態資料連動方法 -> 使用
-ChartJS.register(ArcElement, Tooltip, Legend)
-let readProcess = 40
-const newdata = {
-  labels: [],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [readProcess, 100 - readProcess],
-      backgroundColor: ['rgb(102,31,30)', 'rgba(0, 0, 0, 0)'],
-      cutout: 140,
-      borderWidth: 0,
-    },
-  ],
-}
-console.log()
 function RecentBook() {
+  // 動態資料連動方法 -> 使用
+  ChartJS.register(ArcElement, Tooltip, Legend)
+  let readProcess = 40
+  const newdata = {
+    labels: [],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [readProcess, 100 - readProcess],
+        backgroundColor: ['rgb(102,31,30)', 'rgba(0, 0, 0, 0)'],
+        cutout: 140,
+        borderWidth: 0,
+      },
+    ],
+  }
+
+  const readChartOption = {
+    responsive: true,
+  }
+
   // Chart.js states
   // 動態做法: https://www.youtube.com/watch?v=UwlaPofs5cA&ab_channel=SeemaHolidayDeveloper
   const [data, setData] = useState(newdata)
@@ -61,22 +65,30 @@ function RecentBook() {
 
   return (
     <>
-      <div className="position-relative m-5">
-        <div className="d-flex justify-content-left align-items-center">
-          <img className="img-flip m-2" alt="arrow-l" src={ArrowRight} />
+      <div className="Bookshelf-mobile-recent-title">
+        <h5>原子習慣：細微改變帶來巨大成就的實證法則</h5>
+        <h6>詹姆斯‧克利爾</h6>
+      </div>
+      <div className="position-relative mb-5">
+        <div className="Bookshelf-recent-book-container d-flex justify-content-left align-items-center">
+          <img
+            className="Bookshelf-arrow img-flip m-2"
+            alt="arrow-l"
+            src={ArrowRight}
+          />
           <div className="recent-book d-flex justify-content-center align-items-center">
             <div className="chartLocation">
-              <Doughnut data={data} />
+              <Doughnut data={data} options={readChartOption} />
             </div>
           </div>
-          <img className="m-2" alt="arrow-r" src={ArrowRight} />
+          <img className="Bookshelf-arrow m-2" alt="arrow-r" src={ArrowRight} />
         </div>
         <div className="position-absolute top-0 Bookshelf-recent-info">
           <h5>原子習慣：細微改變帶來巨大成就的實證法則</h5>
           <h6>詹姆斯‧克利爾</h6>
         </div>
         <div className="position-absolute bottom-0 Bookshelf-recent-info">
-          <p>{readProcess + '%'}</p>
+          <p className="Bookshelf-recent-percentage">{readProcess + '%'}</p>
         </div>
         <div className="position-absolute top-0 d-flex align-items-center">
           <div className="recent-book-img p-1">
@@ -95,7 +107,6 @@ function RecentBook() {
           </div>
         </div>
       </div>
-
       {/* <div>RecentBook</div> */}
     </>
   )

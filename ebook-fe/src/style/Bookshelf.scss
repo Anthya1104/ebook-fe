@@ -13,11 +13,33 @@ $Bookshelf_recent_translateY: 40px;
   transform: scaleX(-1) ;
 }
 
+// mobile title
+.Bookshelf-mobile-recent-title{
+  display:none;
+  @media(max-width:$mobile-break-point){
+    display:flex;
+    flex-direction:column;
+  }
+}
+.Bookshelf-recent-book-container{
+    @media(max-width:$mobile-break-point){
+    justify-content: center;
+  }
+}
+
 .recent-book{
   width: 310px;
   height: 310px;
   border: 1px solid $primary;
   border-radius: 50%;
+
+
+
+}
+.Bookshelf-arrow{
+  @media(max-width:$mobile-break-point){
+    display:none;
+  }
 }
 
 .recent-book-img{
@@ -34,6 +56,7 @@ $Bookshelf_recent_translateY: 40px;
 // RecentBook Chart.js
 .chartLocation{
   transform: translateY(-5px);
+  
 }
 
 .Bookshelf-recent-btn{
@@ -66,15 +89,22 @@ $Bookshelf_recent_translateY: 40px;
     $primary -1px -1px 0,
     $primary 1px -1px 0,
     $primary -1px 1px 0;
-    font-size:120px
+    font-size:120px;
+ 
 
-  }
+  }   
+  @media(max-width:$mobile-break-point){
+      display:none;
+    }
 }
 
 // 分隔線
 .Bookshelf-recent-title{
   @media(max-width:1440px){
     transform:translateY(180px);
+  }
+  @media(max-width:$mobile-break-point){
+    display:none;
   }
   & h2{
     padding: 0 200px;
