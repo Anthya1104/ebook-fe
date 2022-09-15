@@ -8,6 +8,7 @@ import Cart from './pages/Cart'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Member from './pages/Member'
+import Preview from './pages/Preview/Index'
 import NotFound from './pages/NotFound'
 import Mart from './pages/Mart'
 import React from 'react'
@@ -27,6 +28,8 @@ import Coupon from './pages/Member/Coupon'
 import CouponList from './pages/Member/Coupon/CouponList'
 import CouponDetail from './pages/Member/Coupon/CouponDetail'
 import Materials from './pages/Materials'
+import Chat from './pages/Chat'
+import MemberIndex from './pages/MemberIndex'
 
 function App() {
   return (
@@ -35,6 +38,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="Login" element={<Login />} />
+
+          <Route path="member-index" element={<MemberIndex />} />
 
           <Route path="Member" element={<Member />}>
             <Route index element={<OverView />} />
@@ -65,7 +70,10 @@ function App() {
             <Route index element={<ToBuyList />} />
             <Route path="fav-list" element={<FavList />} />
           </Route>
+          <Route path="chat" element={<Chat />} />
           <Route path="materials" element={<Materials />} />
+
+          <Route path="Preview" element={<Preview />} />
 
           {/* 404未找到的頁面路由，需放在最下方 */}
           <Route path="*" element={<NotFound />} />

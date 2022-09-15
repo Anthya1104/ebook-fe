@@ -10,10 +10,9 @@ function Layout() {
       <Navbar />
       <CollapsibleExample />
 
-      {/* Outlet相當於props.children，呈現區域頁面的內容 */}
-      {/* 代表子頁區域內容 */}
-      <Outlet />
-
+      <div className="container d-flex-column justify-context-center">
+        <Outlet />
+      </div>
       {/* 頁尾資訊 */}
       <Footer />
     </>

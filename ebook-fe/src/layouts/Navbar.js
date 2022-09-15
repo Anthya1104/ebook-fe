@@ -16,14 +16,20 @@ function Navbar() {
           <NavLink className="mx-2" to="/Mart">
             商城
           </NavLink>
-          <NavLink className="mx-2" to="/Member">
-            會員中心
+          <NavLink className="mx-2" to="/member-index">
+            Member
           </NavLink>
           <NavLink className="mx-2" to="/Cart">
             購物車
           </NavLink>
+          <NavLink className="mx-2" to="/Chat">
+            Chat
+          </NavLink>
           <NavLink className="mx-2" to="/Materials">
             Material Reference
+          </NavLink>
+          <NavLink className="mx-2" to="/Preview">
+            Preview
           </NavLink>
         </div>
       </div>
