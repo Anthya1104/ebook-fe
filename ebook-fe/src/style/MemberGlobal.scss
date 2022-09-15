@@ -1,0 +1,14 @@
+@import './global.scss';
+
+.Member-side-nav{
+  h3{
+    font-weight:600;
+  }
+  ul{
+    list-style: none;
+    width:250px;
+    .Member-nav-contents{   
+        width:100%;
+      }
+  }
+}
