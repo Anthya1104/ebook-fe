@@ -8,6 +8,16 @@ import { Link } from 'react-router-dom'
 import './CouponList.scss'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import coupon from '../../../img/coupon-ex.png'
+import coupon1 from '../../../img/coupon-business.png'
+import coupon2 from '../../../img/coupon-novel.png'
+import coupon3 from '../../../img/coupon-social.png'
+import coupon4 from '../../../img/coupon-lifestyle.png'
+import coupon5 from '../../../img/coupon-art.png'
+import coupon6 from '../../../img/coupon-science.png'
+import coupon7 from '../../../img/coupon-travel.png'
+import coupon8 from '../../../img/coupon-medical.png'
+import coupon9 from '../../../img/coupon-grow.png'
+import coupon10 from '../../../img/coupon-new.png'
 
 function CouponList() {
   const couponId = 1
@@ -16,8 +26,8 @@ function CouponList() {
       <div className="container d-flex flex-column">
         <div>
           <Breadcrumb>
-            <Breadcrumb.Item href="#">首頁</Breadcrumb.Item>
-            <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
+            <Breadcrumb.Item href="../../Home">首頁</Breadcrumb.Item>
+            <Breadcrumb.Item href="../../Member">
               會員專區
             </Breadcrumb.Item>
             <Breadcrumb.Item active>優惠券</Breadcrumb.Item>
@@ -50,7 +60,7 @@ function CouponList() {
           <Row className="g-4 mb-4">
             <Col>
               <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
+                <Card.Img src={coupon1} alt="Card image" />
                 <Card.ImgOverlay>
                   {/* <Card.Title>Card title</Card.Title>
                 <Card.Text>
@@ -63,35 +73,7 @@ function CouponList() {
             </Col>
             <Col>
               <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
-                <Card.ImgOverlay>
-                  {/* <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural lead-in
-                  to additional content. This content is a little bit longer.
-                </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text> */}
-                </Card.ImgOverlay>
-              </Card>
-            </Col>
-          </Row>
-          <Row className="g-4 mb-4">
-            <Col>
-              <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
-                <Card.ImgOverlay>
-                  {/* <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural lead-in
-                  to additional content. This content is a little bit longer.
-                </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text> */}
-                </Card.ImgOverlay>
-              </Card>
-            </Col>
-            <Col>
-              <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
+                <Card.Img src={coupon2} alt="Card image" />
                 <Card.ImgOverlay>
                   {/* <Card.Title>Card title</Card.Title>
                 <Card.Text>
@@ -106,7 +88,7 @@ function CouponList() {
           <Row className="g-4 mb-4">
             <Col>
               <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
+                <Card.Img src={coupon3} alt="Card image" />
                 <Card.ImgOverlay>
                   {/* <Card.Title>Card title</Card.Title>
                 <Card.Text>
@@ -119,35 +101,7 @@ function CouponList() {
             </Col>
             <Col>
               <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
-                <Card.ImgOverlay>
-                  {/* <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural lead-in
-                  to additional content. This content is a little bit longer.
-                </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text> */}
-                </Card.ImgOverlay>
-              </Card>
-            </Col>
-          </Row>
-          <Row className="g-4 mb-4">
-            <Col>
-              <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
-                <Card.ImgOverlay>
-                  {/* <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural lead-in
-                  to additional content. This content is a little bit longer.
-                </Card.Text>
-                <Card.Text>Last updated 3 mins ago</Card.Text> */}
-                </Card.ImgOverlay>
-              </Card>
-            </Col>
-            <Col>
-              <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
+                <Card.Img src={coupon4} alt="Card image" />
                 <Card.ImgOverlay>
                   {/* <Card.Title>Card title</Card.Title>
                 <Card.Text>
@@ -162,7 +116,7 @@ function CouponList() {
           <Row className="g-4 mb-4">
             <Col>
               <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
+                <Card.Img src={coupon5} alt="Card image" />
                 <Card.ImgOverlay>
                   {/* <Card.Title>Card title</Card.Title>
                 <Card.Text>
@@ -175,7 +129,63 @@ function CouponList() {
             </Col>
             <Col>
               <Card className="text-white coupon-card">
-                <Card.Img src={coupon} alt="Card image" />
+                <Card.Img src={coupon6} alt="Card image" />
+                <Card.ImgOverlay>
+                  {/* <Card.Title>Card title</Card.Title>
+                <Card.Text>
+                  This is a wider card with supporting text below as a natural lead-in
+                  to additional content. This content is a little bit longer.
+                </Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
+                </Card.ImgOverlay>
+              </Card>
+            </Col>
+          </Row>
+          <Row className="g-4 mb-4">
+            <Col>
+              <Card className="text-white coupon-card">
+                <Card.Img src={coupon7} alt="Card image" />
+                <Card.ImgOverlay>
+                  {/* <Card.Title>Card title</Card.Title>
+                <Card.Text>
+                  This is a wider card with supporting text below as a natural lead-in
+                  to additional content. This content is a little bit longer.
+                </Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
+                </Card.ImgOverlay>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="text-white coupon-card">
+                <Card.Img src={coupon8} alt="Card image" />
+                <Card.ImgOverlay>
+                  {/* <Card.Title>Card title</Card.Title>
+                <Card.Text>
+                  This is a wider card with supporting text below as a natural lead-in
+                  to additional content. This content is a little bit longer.
+                </Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
+                </Card.ImgOverlay>
+              </Card>
+            </Col>
+          </Row>
+          <Row className="g-4 mb-4">
+            <Col>
+              <Card className="text-white coupon-card">
+                <Card.Img src={coupon9} alt="Card image" />
+                <Card.ImgOverlay>
+                  {/* <Card.Title>Card title</Card.Title>
+                <Card.Text>
+                  This is a wider card with supporting text below as a natural lead-in
+                  to additional content. This content is a little bit longer.
+                </Card.Text>
+                <Card.Text>Last updated 3 mins ago</Card.Text> */}
+                </Card.ImgOverlay>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="text-white coupon-card">
+                <Card.Img src={coupon10} alt="Card image" />
                 <Card.ImgOverlay>
                   {/* <Card.Title>Card title</Card.Title>
                 <Card.Text>
