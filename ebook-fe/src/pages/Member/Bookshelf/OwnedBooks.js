@@ -45,7 +45,7 @@ function OwnedBooks() {
               setbookToggleState(1)
             }}
           >
-            <h4>我的書櫃</h4>
+            <h5>我的書櫃</h5>
           </Button>
           <Button
             className={
@@ -57,7 +57,7 @@ function OwnedBooks() {
               setbookToggleState(2)
             }}
           >
-            <h4>我的評論</h4>
+            <h5>我的評論</h5>
           </Button>
         </div>
         <div className="position-absolute Bookshelf-catagory-divider">

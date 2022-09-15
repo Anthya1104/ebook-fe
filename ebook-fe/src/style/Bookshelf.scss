@@ -131,7 +131,7 @@ $Bookshelf_recent_translateY: 40px;
   border-radius: 12px 0 12px 0;
   transform: skew(-20deg);
   transition:.4s;
-  & h4{
+  & h5{
     padding-top:10px;
     transform: skew(20deg);
 
@@ -163,7 +163,7 @@ $Bookshelf_recent_translateY: 40px;
   ul{
     list-style: none;
     li{
-      font-size: 1.5rem;
+      font-size: 1.0 rem;
 
     }      
     .active{

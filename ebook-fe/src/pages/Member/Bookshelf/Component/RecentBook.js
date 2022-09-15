@@ -69,7 +69,7 @@ function RecentBook() {
         <h5>原子習慣：細微改變帶來巨大成就的實證法則</h5>
         <h6>詹姆斯‧克利爾</h6>
       </div>
-      <div className="position-relative mb-5">
+      <div className="position-relative my-5">
         <div className="Bookshelf-recent-book-container d-flex justify-content-left align-items-center">
           <img
             className="Bookshelf-arrow img-flip m-2"
