@@ -27,8 +27,9 @@ $link-hover-color: #F5F5F5;
 }
 .btn-primary-reverse{
   border-radius: 0;
-  background:rgba(0,0,0,0);
+  background:$body-bg;
   border:1px solid $primary;
+  color:$primary;
   &:hover{
     border:1px solid $primary;
     background:$primary;
@@ -59,13 +60,68 @@ $link-hover-color: #F5F5F5;
   }
 }
 .product-category{
-  border:1px solid $secondary;
+  background:$body-bg;
+  border:3px solid $secondary;
   border-radius:20px;
-  color:#F5F5F5;
-  padding:15px;
+  color:$secondary;
+  padding:15px 30px;
   &:hover{
-    border:1px solid $secondary;
+    border:3px solid $secondary;
     background:$secondary;
+    color:$body-bg;
+    svg{
+      fill:$body-bg;
+    }
+  }
 
+  svg{
+    fill:$secondary;
   }
 }
+.product-category-active{
+  background:$secondary;
+  border:3px solid $secondary;
+  border-radius:20px;
+  color:$body-bg;
+  padding:15px 30px;
+  svg{
+    fill:$body-bg;
+  }
+  &:hover{
+    border:3px solid $secondary;
+    background:$secondary;
+    color:$body-bg;
+  }
+}
+
+.toggle-primary{
+  padding:10px;
+  border:2px solid $info;
+  border-radius: 30px;
+  background:$info;
+  color:$body-bg;
+  .toggle-inside{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background:$body-bg;
+
+  }
+  
+}
+.toggle-primary-active{
+  padding:10px;
+  border:2px solid $primary;
+  border-radius: 30px;
+  background:$body-bg;
+  color:$primary;
+  .toggle-inside{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background:$primary;
+
+  }
+  
+}
+
