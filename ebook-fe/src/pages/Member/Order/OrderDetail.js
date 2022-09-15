@@ -24,7 +24,7 @@ function OrderDetail() {
               <div className="d-flex justify-content-center">
                 <Typography
                   gutterBottom
-                  variant="h5"
+                  variant="h4"
                   component="div"
                   className="mb-3 text-white "
                 >
@@ -33,7 +33,7 @@ function OrderDetail() {
               </div>
               <div className="d-flex justify-content-center">
                 <Typography
-                  variant="body2"
+                  variant="body1"
                   color="text.secondary"
                   className=" mb-3 text-white"
                 >
@@ -86,59 +86,31 @@ function OrderDetail() {
             <CardContent className="col-md-8">
               <Typography
                 gutterBottom
-                variant="h5"
+                variant="h4"
                 component="div"
-                className="mb-5"
+                className="mb-3 orderText"
               >
                 原子習慣
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="mb-2"
-              >
+              <Typography variant="h6" className="mb-2 orderText">
                 細微改變帶來巨大成就的實證法則
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="mb-2"
-              >
+              <Typography variant="body2" className="mb-2 orderText">
                 作者：詹姆斯．克利爾
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="mb-3"
-              >
+              <Typography variant="body2" className="mb-3 orderText">
                 原文作者： James Clear
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="mb-3"
-              >
+              <Typography variant="body2" className="mb-3 orderText">
                 譯者： 蔡世偉
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="mb-3"
-              >
+              <Typography variant="body2" className="mb-3 orderText">
                 出版社：方智出版
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="mb-3"
-              >
+              <Typography variant="body2" className="mb-3 orderText">
                 出版日期：2019/06/01
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="mb-3"
-              >
+              <Typography variant="body2" className="mb-3 orderText">
                 語言：繁體中文
               </Typography>{' '}
             </CardContent>
