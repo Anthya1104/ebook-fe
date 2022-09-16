@@ -9,6 +9,13 @@ $Bookshelf_recent_translateY: 40px;
   width: 100%;
   height: 100%;
 }
+
+.cover-fit{
+  object-fit: cover;
+  object-position:center;
+  width: 100%;
+  height: 100%;
+}
 .img-flip{
   transform: scaleX(-1) ;
 }
@@ -98,6 +105,23 @@ $Bookshelf_recent_translateY: 40px;
     }
 }
 
+// recent books popup reviews
+.Bookshelf-popup-reviews{
+  width: 500px;
+  height: 300px;
+  background: $primary;
+ color:#fff;
+ input{
+  padding:15px;
+  width:100%;
+  height:200px;
+ }
+ .Bookshelf-recentbook-avatar{
+  width: 40px;
+  height: 40px;
+ }
+}
+
 // 分隔線
 .Bookshelf-recent-title{
   @media(max-width:1440px){
@@ -121,6 +145,9 @@ $Bookshelf_recent_translateY: 40px;
 }
 
 // 大分類
+.Bookshelf-tabs{
+  transform: translateY(50px);
+}
 
 .Bookshelf_category{
   width: 150px;

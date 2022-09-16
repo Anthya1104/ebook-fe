@@ -4,8 +4,14 @@ import ArrowRight from '../../../../img/recent_book_arrow_r.svg'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 import { useState } from 'react'
-import BtnPrimaryReverse from '../../../../Component/Buttons/BtnPrimaryReverse'
 import Button from 'react-bootstrap/Button'
+// Popup Window Importing
+import Popup from 'reactjs-popup'
+// Star Rating Importing
+import StarRating from './StarRating'
+
+// test avatar img importing
+import Avatar from '../../../../img/book.jpg'
 
 import axios from 'axios'
 import { API_URL } from '../../../../utils/config'
@@ -101,9 +107,48 @@ function RecentBook() {
                 繼續閱讀
               </Button>
             </div>
-
-            {BtnPrimaryReverse('寫下評論')}
-            {BtnPrimaryReverse('送給朋友')}
+            {/* popup 評論 window */}
+            {/* reference: https://react-popup.elazizi.com/ */}
+            <div className="mb-2">
+              <Popup
+                trigger={
+                  <Button className="btn btn-primary-reverse">寫下評論</Button>
+                }
+                className="mb-2"
+                position="center"
+              >
+                {(close) => (
+                  <div className="Bookshelf-popup-reviews p-2 rounded">
+                    <Button
+                      className="btn btn-primary float-end rounded-circle"
+                      onClick={close}
+                    >
+                      &times;
+                    </Button>
+                    <div className="d-flex-column m-2">
+                      <div className="d-flex m-2 align-items-center">
+                        <div className="Bookshelf-recentbook-avatar mx-2">
+                          <img
+                            className="cover-fit rounded-circle"
+                            alt="avatar"
+                            src={Avatar}
+                          />
+                        </div>
+                        {/* reference : https://mui.com/material-ui/react-rating/ */}
+                        <StarRating />
+                      </div>
+                      <input type="textarea" />
+                      <div></div>
+                    </div>
+                  </div>
+                )}
+              </Popup>
+            </div>
+            <div className="mb-2">
+              <Button className="btn btn-primary-reverse" onClick={() => {}}>
+                送給朋友
+              </Button>
+            </div>
           </div>
         </div>
       </div>
