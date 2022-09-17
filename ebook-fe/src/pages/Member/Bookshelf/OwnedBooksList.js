@@ -39,6 +39,8 @@ function OwnedBooksList() {
   // TODO: make a filter with all conditions
   // const [onFiltered, setOnfiltered]=useState([])
   // append各種狀況
+  // 先嘗試只篩類別
+  const [onCategoryList, setOnCategoryList] = useState([])
   useEffect(() => {
     const getCategories = async () => {
       let response = await axios.get(`${API_URL}/bookshelf/custom-categories`)
@@ -56,15 +58,19 @@ function OwnedBooksList() {
     // 把 Category post 到後端
     const handleCategoryChange = async () => {
       try {
-        let dataInfo = ['/bookshelf/on-category', 'category_id', 'for: sort']
-        let postCategory = [dataInfo, { ...onCategory }]
-        let response = await axios.post(
-          `${API_URL}/bookshelf/on-filter`,
-          postCategory
-        )
-        console.log(response.data)
+        // console.log(onCategory)
+        let response = await axios.post(`${API_URL}/bookshelf/on-filter`, [
+          onCategory.id,
+        ])
+        // console.log(response.data)
 
-        // TODO: creatBookList()
+        // TODO: createBookList()
+        // let filteredBookList = response.data
+        // createBookList(filteredBookList)
+        if (response.data.length === 0) {
+          return setOnCategoryList(['nothing'])
+        }
+        setOnCategoryList(response.data)
       } catch (e) {
         console.error(e)
       }
@@ -95,30 +101,35 @@ function OwnedBooksList() {
     }
   }
 
-  const createBookList = () => {
+  const createBookList = (bookList) => {
+    if (onCategoryList[0] === 'nothing') {
+      // 如果沒抓到資料
+      return <div>nothing</div>
+    }
+
     return (
       <>
-        {/* 自切card */}
-        <div className="d-flex m-2">
-          <div className="Bookshelf-bookCollection m-2 ">
-            <div className="bookCover d-flex-column align-items-center justify-content-center">
-              <img className="contain-fit" src={Bookcover} alt="bookCover" />
-            </div>
-            <ul className="my-2 d-flex-column justify-content-center align-items-center">
-              <li className="d-flex justify-content-center align-items-center">
-                <Box sx={{ width: 115, left: 5 }}>
-                  <BookLinearProgress variant="determinate" value={50} />
-                </Box>
-                <h6 className="mx-1">50%</h6>
-              </li>
-              <li className="d-flex justify-content-center">
-                間歇高效率的番茄工作法
-              </li>
-              <li className="Bookshelf-book-author d-flex justify-content-center">
-                法蘭西斯.西里洛
-              </li>
-            </ul>
+        <div key={bookList.id} className="Bookshelf-bookCollection m-2 ">
+          <div className="bookCover d-flex-column align-items-center justify-content-center">
+            <img className="contain-fit" src={Bookcover} alt="bookCover" />
           </div>
+          <ul className="my-2 d-flex-column justify-content-center align-items-center">
+            <li className="d-flex justify-content-center align-items-center">
+              <Box sx={{ width: 115, left: 5 }}>
+                <BookLinearProgress
+                  variant="determinate"
+                  value={bookList.reading_progress}
+                />
+              </Box>
+              <h6 className="mx-1">{bookList.reading_progress + '%'}</h6>
+            </li>
+            <li className="d-flex justify-content-center">
+              {bookList.book_name}
+            </li>
+            <li className="Bookshelf-book-author d-flex justify-content-center">
+              {bookList.author}
+            </li>
+          </ul>
         </div>
       </>
     )
@@ -195,7 +206,11 @@ function OwnedBooksList() {
           {distingReading()}
         </button>
       </div>
-      {createBookList()}
+      <div className="d-flex m-2">
+        {onCategoryList.map((listValue) => {
+          return createBookList(listValue)
+        })}
+      </div>
     </>
   )
 }
