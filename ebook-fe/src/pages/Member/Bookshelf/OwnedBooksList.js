@@ -42,6 +42,7 @@ function OwnedBooksList() {
   useEffect(() => {
     const getCategories = async () => {
       let response = await axios.get(`${API_URL}/bookshelf/custom-categories`)
+
       setGetCategories(response.data)
       setOnCategory(response.data[0])
     }
