@@ -1,15 +1,18 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Bookcover from '../../../img/book.jpg'
+// axios
+import axios from 'axios'
+import { API_URL } from '../../../utils/config'
+// react-bootstrap
+import Button from 'react-bootstrap/Button'
+// MUI importing
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
 import LinearProgress, {
   linearProgressClasses,
 } from '@mui/material/LinearProgress'
 import DropdownSelection from './Component/DropdownSelection'
-// react-toggle importing
-
-const customizedCategory = ['所有藏書', '奇幻類別', '自訂書單', '工作用書']
 
 // customized MUI Linear Progress
 const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -31,7 +34,42 @@ const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 function OwnedBooksList() {
   // customized Category states
-  const [onCategory, setOnCategory] = useState(customizedCategory[0])
+  const [getCategories, setGetCategories] = useState([])
+  const [onCategory, setOnCategory] = useState('')
+  // TODO: make a filter with all conditions
+  // const [onFiltered, setOnfiltered]=useState([])
+  // append各種狀況
+  useEffect(() => {
+    const getCategories = async () => {
+      let response = await axios.get(`${API_URL}/bookshelf/custom-categories`)
+      setGetCategories(response.data)
+      setOnCategory(response.data[0])
+    }
+    getCategories()
+  }, [])
+
+  useEffect(() => {
+    // console.log(onCategory)
+    // console.log({ API_URL })
+    // TODO:在這裡做 ownedBookList 切換
+    // 把 Category post 到後端
+    const handleCategoryChange = async () => {
+      try {
+        let dataInfo = ['/bookshelf/on-category', 'category_id', 'for: sort']
+        let postCategory = [dataInfo, { ...onCategory }]
+        let response = await axios.post(
+          `${API_URL}/bookshelf/on-filter`,
+          postCategory
+        )
+        console.log(response.data)
+
+        // TODO: creatBookList()
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    handleCategoryChange()
+  }, [onCategory])
   // TODO:處理 tab 切換
   // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
@@ -56,19 +94,47 @@ function OwnedBooksList() {
     }
   }
 
+  const createBookList = () => {
+    return (
+      <>
+        {/* 自切card */}
+        <div className="d-flex m-2">
+          <div className="Bookshelf-bookCollection m-2 ">
+            <div className="bookCover d-flex-column align-items-center justify-content-center">
+              <img className="contain-fit" src={Bookcover} alt="bookCover" />
+            </div>
+            <ul className="my-2 d-flex-column justify-content-center align-items-center">
+              <li className="d-flex justify-content-center align-items-center">
+                <Box sx={{ width: 115, left: 5 }}>
+                  <BookLinearProgress variant="determinate" value={50} />
+                </Box>
+                <h6 className="mx-1">50%</h6>
+              </li>
+              <li className="d-flex justify-content-center">
+                間歇高效率的番茄工作法
+              </li>
+              <li className="Bookshelf-book-author d-flex justify-content-center">
+                法蘭西斯.西里洛
+              </li>
+            </ul>
+          </div>
+        </div>
+      </>
+    )
+  }
+
   return (
     <>
       {/* 卡片 hover 參考 : https://codepen.io/chhiring90/pen/zLJLBG */}
       {/* Customized Category */}
-
       <div className="Bookshelf-customized-category d-flex justify-content-between">
         <ul className="d-flex my-2 align-items-center">
-          {customizedCategory.map((categoryValue) => {
+          {getCategories.map((categoryValue) => {
             return (
               <li
-                key={categoryValue.indexOf()}
+                key={categoryValue.id}
                 className={
-                  categoryValue === onCategory
+                  categoryValue.category_name === onCategory.category_name
                     ? 'p-2 d-flex align-items-center active'
                     : 'p-2 d-flex align-items-center'
                 }
@@ -76,7 +142,7 @@ function OwnedBooksList() {
                   setOnCategory(categoryValue)
                 }}
               >
-                {categoryValue}
+                <div className="btn">{categoryValue.category_name}</div>
               </li>
             )
           })}
@@ -128,29 +194,7 @@ function OwnedBooksList() {
           {distingReading()}
         </button>
       </div>
-
-      {/* 自切card */}
-      <div className="d-flex m-2">
-        <div className="Bookshelf-bookCollection m-2 ">
-          <div className="bookCover d-flex-column align-items-center justify-content-center">
-            <img className="contain-fit" src={Bookcover} alt="bookCover" />
-          </div>
-          <ul className="my-2 d-flex-column justify-content-center align-items-center">
-            <li className="d-flex justify-content-center align-items-center">
-              <Box sx={{ width: 115, left: 5 }}>
-                <BookLinearProgress variant="determinate" value={50} />
-              </Box>
-              <h6 className="mx-1">50%</h6>
-            </li>
-            <li className="d-flex justify-content-center">
-              間歇高效率的番茄工作法
-            </li>
-            <li className="Bookshelf-book-author d-flex justify-content-center">
-              法蘭西斯.西里洛
-            </li>
-          </ul>
-        </div>
-      </div>
+      {createBookList()}
     </>
   )
 }

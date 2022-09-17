@@ -197,6 +197,15 @@ $Bookshelf_recent_translateY: 40px;
         border-bottom: 2px solid $primary;
     }
   }
+  .btn{
+    background-color: $body-bg;
+    border: none;
+    color: $primary;
+    transition:.4s;
+    &:hover{
+      transform:translateX(3px);
+    }
+  }
 }
 
 // 書卡片
