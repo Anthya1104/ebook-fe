@@ -11,6 +11,7 @@ import Cards from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
+// import ScrollToTop from './ScrollToTop'
 import couponData from './marketing.json'
 // import couponData from './coupon.json'
 import business from '../../../img/business.png'
@@ -35,15 +36,15 @@ function CouponList() {
   return (
     <>
       <div className="container d-flex flex-column">
-        <div className="ms-4">
+        <div className="ms-5">
           <Breadcrumb>
-            <Breadcrumb.Item href="../../Home">首頁</Breadcrumb.Item>
+            <Breadcrumb.Item href="http://localhost:3005">首頁</Breadcrumb.Item>
             <Breadcrumb.Item href="../../Member">會員專區</Breadcrumb.Item>
             <Breadcrumb.Item active>優惠券</Breadcrumb.Item>
           </Breadcrumb>
         </div>
         <div className="d-flex justify-content-end">
-          <div className="coupon-dropdown">
+          <div className="coupon-dropdown col-3 mb-4 dp">
             <DropdownButton
               align="end"
               title="優惠券排序"
@@ -56,12 +57,12 @@ function CouponList() {
             </DropdownButton>
           </div>
         </div>
-        <div className="d-flex flex-wrap ">
+        <div className="d-flex flex-wrap">
           {couponData.map((v, i) => {
             return (
               <Cards
                 sx={{ maxWidth: 343, height: 147 }}
-                className="m-4 coupon-bg coupon-card"
+                className="mb-4  ms-5 coupon-bg coupon-card"
                 style={{ backgroundColor: 'rgba($color: #ffffff, $alpha: 0)' }}
               >
                 <div className="row g-0">

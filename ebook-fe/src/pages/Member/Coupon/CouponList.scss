@@ -14,7 +14,18 @@
 
 // }
 
-.coupon-dropdown{
-    margin-right: 128px;
-    border-bottom: 1px solid #000;
+// .coupon-dropdown{
+//     margin-right: 128px;
+//     border-bottom: 1px solid #000;
+// }
+
+@media (max-width:500px) {
+    .coupon-dropdown{
+        margin-right: 20px;
+    }
 }
+
+
+
+
+
