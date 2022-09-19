@@ -67,7 +67,7 @@ function RecentBook() {
             </div>
             <div className="position-absolute top-0 Bookshelf-recent-info">
               <h5>{recentBookValue.book_name}</h5>
-              <h6>詹姆斯‧克利爾</h6>
+              <h6>{recentBookValue.author}</h6>
             </div>
             <div className="position-absolute bottom-0 Bookshelf-recent-info">
               <p className="Bookshelf-recent-percentage">{readProcess + '%'}</p>
@@ -105,24 +105,42 @@ function RecentBook() {
                     {(close) => (
                       <div className="Bookshelf-popup-reviews p-2 rounded">
                         <Button
-                          className="btn btn-primary float-end rounded-circle"
+                          className="Bookshelf-close-btn btn btn-primary float-end rounded-circle"
                           onClick={close}
                         >
                           &times;
                         </Button>
                         <div className="d-flex-column m-2">
-                          <div className="d-flex m-2 align-items-center">
-                            <div className="Bookshelf-recentbook-avatar mx-2">
+                          <div className="d-flex my-3 align-items-center">
+                            <div className="Bookshelf-recentbook-avatar mx-3">
                               <img
                                 className="cover-fit rounded-circle"
                                 alt="avatar"
                                 src={Avatar}
                               />
                             </div>
+                            <div className="mx-2">
+                              <svg
+                                width="2"
+                                height="44"
+                                viewBox="0 0 2 44"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M1 1.74512L0.999998 42.7451"
+                                  stroke="#B48C8C"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                />
+                              </svg>
+                            </div>
                             {/* reference : https://mui.com/material-ui/react-rating/ */}
-                            <StarRating
-                              setScoreFromStarRating={setScoreFromStarRating}
-                            />
+                            <div className="mx-3">
+                              <StarRating
+                                setScoreFromStarRating={setScoreFromStarRating}
+                              />
+                            </div>
                             {console.log(scoreFromStarRating)}
                           </div>
                           <input type="textarea" />
@@ -157,7 +175,7 @@ function RecentBook() {
     labels: [],
     datasets: [
       {
-        label: '# of Votes',
+        label: '# of Progress',
         data: [readProcess, 100 - readProcess],
         backgroundColor: ['rgb(102,31,30)', 'rgba(0, 0, 0, 0)'],
         cutout: 140,
