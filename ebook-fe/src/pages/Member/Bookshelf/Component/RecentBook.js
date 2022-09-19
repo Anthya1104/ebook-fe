@@ -28,9 +28,12 @@ function RecentBook() {
   const [reviewParam, setReviewParam] = useState({
     member_id: 1,
     book_id: '',
-    review_score: '',
+    review_score: 0,
     review_comments: '',
   })
+
+  // data ready
+  const [dataReady, setDataReady] = useState(false)
 
   // the most recent read book from DB
   const [recentBook, setRecentBook] = useState([])
@@ -60,6 +63,15 @@ function RecentBook() {
       return setReviewParam({ ...reviewParam, book_id: data.id })
     }
   }, [recentBook])
+
+  // 把starRating的分數存進submit data
+  useEffect(() => {
+    setReviewParam({ ...reviewParam, review_score: scoreFromStarRating })
+  }, [scoreFromStarRating])
+
+  const reviewOnChangeHandler = (e) => {
+    setReviewParam({ ...reviewParam, review_comments: e.target.value })
+  }
 
   const createRecentBook = (recentBook) => {
     return recentBook.map((recentBookValue) => {
@@ -92,7 +104,6 @@ function RecentBook() {
             <div className="position-absolute top-0 Bookshelf-recent-info">
               <h5>{recentBookValue.book_name}</h5>
               <h6>{recentBookValue.author}</h6>
-
             </div>
             <div className="position-absolute bottom-0 Bookshelf-recent-info">
               <p className="Bookshelf-recent-percentage">{readProcess + '%'}</p>
@@ -168,12 +179,34 @@ function RecentBook() {
                             </div>
                           </div>
                           {/* <input type="textarea" /> */}
-                          <textarea col="4" row="500"></textarea>
+                          <textarea
+                            col="4"
+                            row="500"
+                            placeholder="請輸入評論"
+                            onChange={reviewOnChangeHandler}
+                          ></textarea>
                           <div className="d-flex justify-content-end my-2 mx-3">
                             <Button className="btn btn-primary mx-2">
                               清空
                             </Button>
-                            <Button className="btn btn-primary ">送出</Button>
+                            <Button
+                              className="btn btn-primary"
+                              onClick={() => {
+                                if (
+                                  !reviewParam.member_id ||
+                                  !reviewParam.book_id ||
+                                  !reviewParam.review_score ||
+                                  !reviewParam.review_comments
+                                ) {
+                                  return alert('請填好資料')
+                                }
+                                console.log('資料送出', reviewParam)
+                                setDataReady(true)
+                                close()
+                              }}
+                            >
+                              送出
+                            </Button>
                           </div>
                         </div>
                       </div>
@@ -195,6 +228,21 @@ function RecentBook() {
       )
     })
   }
+
+  // 確定review Data 都有存到 -> post request
+  useEffect(() => {
+    if (!dataReady) {
+      return console.log('資料不齊全喔')
+    }
+    const submitReview = async () => {
+      let response = await axios.post(
+        `${API_URL}/reviews/post-review`,
+        reviewParam
+      )
+      setDataReady(false)
+    }
+    submitReview()
+  }, [dataReady])
 
   // chart.js book_progress
   // 動態資料連動方法 -> 使用
@@ -222,7 +270,7 @@ function RecentBook() {
     <>
       {/* <div>RecentBook</div> */}
       {createRecentBook(recentBook)}
-      {console.log('createRecentBook', createRecentBook(recentBook))}
+      {/* {console.log('createRecentBook', createRecentBook(recentBook))} */}
     </>
   )
 }
