@@ -1,4 +1,12 @@
-.innerbox {
+@import '../../../style/global.scss' ;
+
+.Market-slick-space{
+    margin-right:5px;
+    .product-category{
+        padding:15px 65px;
+    }
+}
+.Topcategory-innerbox {
     padding-top: 10px;
     width: 40px;
     height: 130px;
@@ -9,6 +17,8 @@
     margin-right: 10px;
 }
 
-img {
+.Topcategory-img {
     margin: 0 auto;
 }
+
+
