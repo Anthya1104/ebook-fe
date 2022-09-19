@@ -12,6 +12,10 @@ import products from '../data/products.json'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
+import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
+import ProductFilter from '../Product/ProductFilter/ProductFilter'
+
+
 
 function ProductList(props) {
   // 對話盒使用
@@ -30,6 +34,7 @@ function ProductList(props) {
     setProductName(name + '已成功加入購物車')
     handleShow()
   }
+
 
   const messageModal = (
     <>
@@ -125,6 +130,8 @@ function ProductList(props) {
     <>
       {/* <h1>商品列表頁範例</h1> */}
       <TopCategory />
+      <SearchBar />
+      <ProductFilter />
       <div className='my-5'></div>
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
