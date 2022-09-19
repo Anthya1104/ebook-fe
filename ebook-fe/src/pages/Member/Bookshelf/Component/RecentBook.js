@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import BookCover from '../../../../img/book.jpg'
 import ArrowRight from '../../../../img/recent_book_arrow_r.svg'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
-import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 // Popup Window Importing
 import Popup from 'reactjs-popup'
@@ -17,6 +16,7 @@ import axios from 'axios'
 import { API_URL } from '../../../../utils/config'
 
 function RecentBook() {
+  // chart.js book_progress
   // 動態資料連動方法 -> 使用
   ChartJS.register(ArcElement, Tooltip, Legend)
   let readProcess = 40
@@ -41,6 +41,9 @@ function RecentBook() {
   // 動態做法: https://www.youtube.com/watch?v=UwlaPofs5cA&ab_channel=SeemaHolidayDeveloper
   const [data, setData] = useState(newdata)
 
+  // data from star rating
+  const [scoreFromStarRating, setScoreFromStarRating] = useState(0)
+
   // Chart.js 動態改變
   // 用 useEffect 做動態改變
   useEffect(() => {
@@ -53,21 +56,6 @@ function RecentBook() {
   //   let newProcess = 20
   //   // let updateData = [...data]
   // }, [data])
-
-  // 確定能連結後端 -> done
-  // const [test, setTest] = useState('')
-  // useEffect(() => {
-
-  //   const BETest = async () => {
-  //     let response = await axios.get(`${API_URL}/test`)
-  //     setTest(response.data)
-  //   }
-  //   BETest()
-  // }, [])
-  // useEffect(() => {
-  //   console.log(test)
-  //   console.log({ API_URL })
-  // }, [test])
 
   return (
     <>
@@ -135,7 +123,10 @@ function RecentBook() {
                           />
                         </div>
                         {/* reference : https://mui.com/material-ui/react-rating/ */}
-                        <StarRating />
+                        <StarRating
+                          setScoreFromStarRating={setScoreFromStarRating}
+                        />
+                        {console.log(scoreFromStarRating)}
                       </div>
                       <input type="textarea" />
                       <div></div>

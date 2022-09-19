@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react'
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
 
-function StarRating() {
+function StarRating(props) {
   const [value, setValue] = useState(0)
+
+  // 回傳start score
+  useEffect(() => {
+    props.setScoreFromStarRating(value)
+  }, [value])
 
   return (
     <>
