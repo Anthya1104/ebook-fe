@@ -26,6 +26,17 @@ $Bookshelf_recent_translateY: 40px;
   @media(max-width:$mobile-break-point){
     display:flex;
     flex-direction:column;
+    padding:15px;
+    h5{
+      color:$dark;
+      font-size:1.8rem;
+      font-weight: 600;
+    }
+    h6{
+      color:$secondary;
+      font-size:1.5rem;
+      font-weight:400;
+    }
   }
 }
 .Bookshelf-recent-book-container{
@@ -101,7 +112,10 @@ $Bookshelf_recent_translateY: 40px;
 
   }   
   @media(max-width:$mobile-break-point){
-      display:none;
+    h5,h6{
+           display:none;
+    }
+ 
     }
 }
 
@@ -194,6 +208,7 @@ $Bookshelf_recent_translateY: 40px;
 .Bookshelf-customized-category{
   max-width:100%;
   ul{
+    padding:0;
     list-style: none;
     li{
       font-size: 1.0 rem;
@@ -217,21 +232,39 @@ $Bookshelf_recent_translateY: 40px;
 // 書卡片
 
 // 自切
+.Bookshelf-on-category-list{
+  display:flex;
+  margin:15px auto;
+  @media(max-width:$mobile-break-point){
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .Bookshelf-bookCollection{
+  margin:15px auto;
+  @media(max-width:$mobile-break-point){
+    align-items: center;
+  }
   ul{
     list-style:none;
     padding-left: 0px;
+    margin:auto;
 
 
     li{
       max-width:180px;    
       font-weight: 600;
+      margin:auto;
+    }
+    .bookName{
+      text-align:center;
     }
   }
 
 }
 .bookCover{
   width: 180px;
+  margin:auto;
 }
 .Bookshelf-book-author{
   color:$secondary;

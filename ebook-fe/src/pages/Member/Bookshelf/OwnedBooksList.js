@@ -109,8 +109,8 @@ function OwnedBooksList() {
 
     return (
       <>
-        <div key={bookList.id} className="Bookshelf-bookCollection m-2 ">
-          <div className="bookCover d-flex-column align-items-center justify-content-center">
+        <div key={bookList.id} className="Bookshelf-bookCollection">
+          <div className="bookCover">
             <img className="contain-fit" src={Bookcover} alt="bookCover" />
           </div>
           <ul className="my-2 d-flex-column justify-content-center align-items-center">
@@ -123,7 +123,7 @@ function OwnedBooksList() {
               </Box>
               <h6 className="mx-1">{bookList.reading_progress + '%'}</h6>
             </li>
-            <li className="d-flex justify-content-center">
+            <li className="bookName d-flex justify-content-center">
               {bookList.book_name}
             </li>
             <li className="Bookshelf-book-author d-flex justify-content-center">
@@ -206,7 +206,7 @@ function OwnedBooksList() {
           {distingReading()}
         </button>
       </div>
-      <div className="d-flex m-2">
+      <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4">
         {onCategoryList.map((listValue) => {
           return createBookList(listValue)
         })}
