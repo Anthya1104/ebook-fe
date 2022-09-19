@@ -1,6 +1,20 @@
+// .coupon-bg{
+//     border: 0px;
+//     background: rgba($color: #ffffff, $alpha: 0);
+// }
+
 .coupon-card{
     width: 343px;
     height: 147px;
-    border: 0px;
-    background: rgba($color: #ffffff, $alpha: 0);
+    // background-image: url("../../../img/coupon.png") ;
+    background-image: url("../../../img/test-coupon.png") ;
+}
+
+// .img-align{
+
+// }
+
+.coupon-dropdown{
+    margin-right: 128px;
+    border-bottom: 1px solid #000;
 }
