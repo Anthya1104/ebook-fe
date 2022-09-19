@@ -123,7 +123,7 @@ function OwnedBooksList() {
               </Box>
               <h6 className="mx-1">{bookList.reading_progress + '%'}</h6>
             </li>
-            <li className="d-flex justify-content-center">
+            <li className="bookName d-flex justify-content-center">
               {bookList.book_name}
             </li>
             <li className="Bookshelf-book-author d-flex justify-content-center">

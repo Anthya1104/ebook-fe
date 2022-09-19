@@ -26,6 +26,17 @@ $Bookshelf_recent_translateY: 40px;
   @media(max-width:$mobile-break-point){
     display:flex;
     flex-direction:column;
+    padding:15px;
+    h5{
+      color:$dark;
+      font-size:1.8rem;
+      font-weight: 600;
+    }
+    h6{
+      color:$secondary;
+      font-size:1.5rem;
+      font-weight:400;
+    }
   }
 }
 .Bookshelf-recent-book-container{
@@ -101,7 +112,10 @@ $Bookshelf_recent_translateY: 40px;
 
   }   
   @media(max-width:$mobile-break-point){
-      display:none;
+    h5,h6{
+           display:none;
+    }
+ 
     }
 }
 
@@ -194,6 +208,7 @@ $Bookshelf_recent_translateY: 40px;
 .Bookshelf-customized-category{
   max-width:100%;
   ul{
+    padding:0;
     list-style: none;
     li{
       font-size: 1.0 rem;
@@ -240,6 +255,9 @@ $Bookshelf_recent_translateY: 40px;
       max-width:180px;    
       font-weight: 600;
       margin:auto;
+    }
+    .bookName{
+      text-align:center;
     }
   }
 

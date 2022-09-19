@@ -24,6 +24,14 @@ function RecentBook() {
   // data from star rating
   const [scoreFromStarRating, setScoreFromStarRating] = useState(0)
 
+  // submitted data
+  const [reviewParam, setReviewParam] = useState({
+    member_id: 1,
+    book_id: '',
+    review_score: '',
+    review_comments: '',
+  })
+
   // the most recent read book from DB
   const [recentBook, setRecentBook] = useState([])
 
@@ -42,11 +50,27 @@ function RecentBook() {
     getRecentBook()
   }, [])
 
+  // 設定評論 book_id
+  useEffect(() => {
+    // TODO:question : 為什麼 如果沒寫 recentBook.length 這個判別 會壞掉
+    if (recentBook.length !== 0) {
+      let [data] = [...recentBook]
+      console.log('recentBookId', data)
+
+      return setReviewParam({ ...reviewParam, book_id: data.id })
+    }
+  }, [recentBook])
+
   const createRecentBook = (recentBook) => {
     return recentBook.map((recentBookValue) => {
-      console.log('recetnBookValue', recentBookValue)
+      // console.log('recetnBookValue', recentBookValue)
+
       return (
         <>
+          <div className="Bookshelf-mobile-recent-title">
+            <h5>{recentBookValue.book_name}</h5>
+            <h6>{recentBookValue.author}</h6>
+          </div>
           <div className="position-relative my-5" key={recentBookValue.id}>
             <div className="Bookshelf-recent-book-container d-flex justify-content-left align-items-center">
               <img
@@ -68,6 +92,7 @@ function RecentBook() {
             <div className="position-absolute top-0 Bookshelf-recent-info">
               <h5>{recentBookValue.book_name}</h5>
               <h6>{recentBookValue.author}</h6>
+
             </div>
             <div className="position-absolute bottom-0 Bookshelf-recent-info">
               <p className="Bookshelf-recent-percentage">{readProcess + '%'}</p>
@@ -148,9 +173,7 @@ function RecentBook() {
                             <Button className="btn btn-primary mx-2">
                               清空
                             </Button>
-                            <Button className="btn btn-primary ">
-                              送出
-                            </Button>
+                            <Button className="btn btn-primary ">送出</Button>
                           </div>
                         </div>
                       </div>
