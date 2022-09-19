@@ -1,0 +1,14 @@
+.innerbox {
+  padding-top: 10px;
+  width: 40px;
+  height: 130px;
+  border: 2px solid #C0724A;
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  margin-right: 10px;
+}
+
+img {
+  margin: 0 auto;
+}/*# sourceMappingURL=TopCategory.css.map */

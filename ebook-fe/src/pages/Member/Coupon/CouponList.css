@@ -1,0 +1,10 @@
+.coupon-card {
+  width: 343px;
+  height: 147px;
+  background-image: url("../../../img/test-coupon.png");
+}
+
+.coupon-dropdown {
+  margin-right: 128px;
+  border-bottom: 1px solid #000;
+}/*# sourceMappingURL=CouponList.css.map */
