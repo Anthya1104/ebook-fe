@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../../../../style/Order.scss'
 
 function DatePick() {
   const [date, setDate] = useState()
@@ -8,8 +9,17 @@ function DatePick() {
   return (
     <div className="main mb-3">
       <div className="d-flex">
-        <input type="date" onChange={(e) => setDate(e.target.value)} /> -{' '}
-        <input type="date" onChange={(e) => setDate(e.target.value)} />
+        <input
+          className="date-pick"
+          type="date"
+          onChange={(e) => setDate(e.target.value)}
+        />{' '}
+        -{' '}
+        <input
+          className="date-pick"
+          type="date"
+          onChange={(e) => setDate(e.target.value)}
+        />
         <div>
           <a href="#" className="btn btn-primary ms-2">
             搜尋

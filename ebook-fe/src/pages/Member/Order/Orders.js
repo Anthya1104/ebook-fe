@@ -25,19 +25,22 @@ function Orders() {
       <div className="container">
         <ScrollToTop />
         <BreadCrumb />
-        <img src={line} alt="line" />
+        <img className="img-fluid" src={line} alt="line" />
         <div className="d-flex justify-content-end">
           <DatePick />
         </div>
         {data.map((v, i) => {
           return (
-            <Card sx={{ maxWidth: 1067, maxheight: 200 }} className="mb-3">
-              <div className="row g-0">
+            <Card
+              sx={{ maxwidth: 1067, maxheight: 400 }}
+              className="mb-3 card-style"
+            >
+              <div className="row">
                 <div className="col-md-4">
                   <CardMedia
-                    className="img-fluid"
+                    className="img-fluid mx-2 my-2 shadow"
                     component="img"
-                    height="100"
+                    // maxheight="200"
                     image={Book}
                     alt="book"
                   />
@@ -61,7 +64,7 @@ function Orders() {
                     component="div"
                     className="mb-3 orderText"
                   >
-                    <img src={dash} alt="dash" />
+                    <img className="img-fluid" src={dash} alt="dash" />
                     <br></br>
                     尚未評價
                   </Typography>
@@ -71,7 +74,7 @@ function Orders() {
                     component="div"
                     className="mb-5 orderText"
                   >
-                    <img src={dash} alt="dash" />
+                    <img className="img-fluid" src={dash} alt="dash" />
                     <br></br>
                     訂單總額:
                   </Typography>
