@@ -141,10 +141,17 @@ function RecentBook() {
                                 setScoreFromStarRating={setScoreFromStarRating}
                               />
                             </div>
-                            {console.log(scoreFromStarRating)}
                           </div>
-                          <input type="textarea" />
-                          <div></div>
+                          {/* <input type="textarea" /> */}
+                          <textarea col="4" row="500"></textarea>
+                          <div className="d-flex justify-content-end my-2 mx-3">
+                            <Button className="btn btn-primary mx-2">
+                              清空
+                            </Button>
+                            <Button className="btn btn-primary ">
+                              送出
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     )}
