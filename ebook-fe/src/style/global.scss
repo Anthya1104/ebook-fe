@@ -15,6 +15,9 @@ $body-color: $primary;
 $link-color:#D99282;
 $link-hover-color: #F5F5F5;
 
+// break point
+$mobile-break-point:768px;
+
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 .btn-primary{
@@ -95,11 +98,12 @@ $link-hover-color: #F5F5F5;
 }
 
 .toggle-primary{
-  padding:10px;
+  padding:2px;
   border:2px solid $info;
   border-radius: 30px;
   background:$info;
   color:$body-bg;
+  transition:.6s;
   .toggle-inside{
     height: 35px;
     width: 35px;
@@ -110,11 +114,12 @@ $link-hover-color: #F5F5F5;
   
 }
 .toggle-primary-active{
-  padding:10px;
+  padding:2px;
   border:2px solid $primary;
   border-radius: 30px;
   background:$body-bg;
   color:$primary;
+  transition:.6s;
   .toggle-inside{
     height: 35px;
     width: 35px;

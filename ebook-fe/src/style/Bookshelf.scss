@@ -5,6 +5,14 @@ $Bookshelf_recent_translateY: 40px;
 
 .contain-fit{
   object-fit: contain;
+  object-position:center;
+  width: 100%;
+  height: 100%;
+}
+
+.cover-fit{
+  object-fit: cover;
+  object-position:center;
   width: 100%;
   height: 100%;
 }
@@ -12,11 +20,33 @@ $Bookshelf_recent_translateY: 40px;
   transform: scaleX(-1) ;
 }
 
+// mobile title
+.Bookshelf-mobile-recent-title{
+  display:none;
+  @media(max-width:$mobile-break-point){
+    display:flex;
+    flex-direction:column;
+  }
+}
+.Bookshelf-recent-book-container{
+    @media(max-width:$mobile-break-point){
+    justify-content: center;
+  }
+}
+
 .recent-book{
   width: 310px;
   height: 310px;
   border: 1px solid $primary;
   border-radius: 50%;
+
+
+
+}
+.Bookshelf-arrow{
+  @media(max-width:$mobile-break-point){
+    display:none;
+  }
 }
 
 .recent-book-img{
@@ -33,6 +63,7 @@ $Bookshelf_recent_translateY: 40px;
 // RecentBook Chart.js
 .chartLocation{
   transform: translateY(-5px);
+  
 }
 
 .Bookshelf-recent-btn{
@@ -65,15 +96,39 @@ $Bookshelf_recent_translateY: 40px;
     $primary -1px -1px 0,
     $primary 1px -1px 0,
     $primary -1px 1px 0;
-    font-size:120px
+    font-size:120px;
+ 
 
-  }
+  }   
+  @media(max-width:$mobile-break-point){
+      display:none;
+    }
+}
+
+// recent books popup reviews
+.Bookshelf-popup-reviews{
+  width: 500px;
+  height: 300px;
+  background: $primary;
+ color:#fff;
+ input{
+  padding:15px;
+  width:100%;
+  height:200px;
+ }
+ .Bookshelf-recentbook-avatar{
+  width: 40px;
+  height: 40px;
+ }
 }
 
 // 分隔線
 .Bookshelf-recent-title{
   @media(max-width:1440px){
     transform:translateY(180px);
+  }
+  @media(max-width:$mobile-break-point){
+    display:none;
   }
   & h2{
     padding: 0 200px;
@@ -90,6 +145,9 @@ $Bookshelf_recent_translateY: 40px;
 }
 
 // 大分類
+.Bookshelf-tabs{
+  transform: translateY(50px);
+}
 
 .Bookshelf_category{
   width: 150px;
@@ -100,7 +158,7 @@ $Bookshelf_recent_translateY: 40px;
   border-radius: 12px 0 12px 0;
   transform: skew(-20deg);
   transition:.4s;
-  & h4{
+  & h5{
     padding-top:10px;
     transform: skew(20deg);
 
@@ -126,235 +184,49 @@ $Bookshelf_recent_translateY: 40px;
   }
 }
 
-// 書卡片
+// 小分類
+.Bookshelf-customized-category{
+  max-width:100%;
+  ul{
+    list-style: none;
+    li{
+      font-size: 1.0 rem;
 
-
-
-.img-responsive {
-  max-width: 100%;
-  height: auto;
+    }      
+    .active{
+        border-bottom: 2px solid $primary;
+    }
+  }
+  .btn{
+    background-color: $body-bg;
+    border: none;
+    color: $primary;
+    transition:.4s;
+    &:hover{
+      transform:translateX(3px);
+    }
+  }
 }
 
+// 書卡片
 
-$color-box-1 : #0f9bc0;
-$color-box-2 : rgba(34, 65, 154, .8);
-$color-box-3 : #57ccfd;
-$color-box-4 : #e660e3;
-$color-box-5 : #f07306;
-$color-box-6 : #9b1308;
-$color-box-7 : #de8b3e;
+// 自切
+.Bookshelf-bookCollection{
+  ul{
+    list-style:none;
+    padding-left: 0px;
 
-.card__collection {
-    position: relative;
-    display: block;
-    // background: rgba(10,10,10,.5);
-    padding: 10px;
-    
-  .cards {
-      width: 150px;
-      height: 200px;
-      display: block;
-      background-size: cover;
-      float: left;
-      border-radius: 15px;
-      position: relative;
-      overflow: hidden;
-      background-position: center;
-      margin: 10px;
+
+    li{
+      max-width:180px;    
+      font-weight: 600;
+    }
   }
-  
-  .cards--one {
-      // backface-visiblility: hidden;
-      &:hover {
-        
-        &:after {
-          bottom: -20px;
-        }
-        
-        &:before {
-          bottom: -10px;
-        }
-        
-        .cards--one__rect {
-          left: 45%;
-          
-          &--back {
-            left: 50%;
-          }
-        }
-        
-        
-      }
-      
-      &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      height: 70px;
-      transform: rotate(-3deg);
-      background: $color-box-4;
-      position: absolute;
-      bottom: -80px;  
-      left: 0;
-      right: -10px;
-      z-index: 9;
-      transition: all .2s ease-in;
-      transition-delay: .3s;
-      }
-      
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        height: 80px;
-        transform: rotate(-3deg);
-        bottom: -90px;
-        left: 0;
-        background: #fff;
-        right: -10px;
-        z-index: 5;
-        transition: all .2s ease-in;
-        transition-delay: .1s;
-      }
-      
-      &__rect {
-        color: #fff;
-        text-transform: uppercase;
-        font-size: 18px;
-        background: $color-box-1;
-        width: 126px;
-        height: 55px;
-        transform: skewY(5deg);
-        position: absolute;
-        display: block;
-        top: 60%;
-        left: -45%;
-        z-index: 1;
-        line-height: 3.3rem;
-        text-align: center;
-        transition: all .2s ease-in;
-        
-        &--back {
-          display: block;
-          background: $color-box-2;
-          width: 126px;
-          height: 55px;
-          transform: skewY(7deg);
-          position: absolute;
-          top: 65%;
-          left: -50%;
-          transition: all .2s ease-in;
-          transition-delay: .3s;
-        }
-        
-        p {
-          transform: skewY(-7deg);
-          position: relative;
-        }
-      }
-      
-      
-    }
-  
-  .cards--two {
-      position: relative;
-      backface-visibility: hidden;
-      
-      p {
-        position: absolute;
-        top: 83%;
-        left: -100%;
-        text-transform: capitalize;
-        color: #fff;
-        font-size: 20px;
-        z-index: 8;
-        transition: all .6s ease;
-      }
-      
-      &:hover {
-        
-        p {
-          left: 8%;
-        }
-        
-        img {
-          transform: translateY(-15px);
-        }
-        
-        .cards--two__rect {
-          top: 75%;
-          
-          &:before {
-            transform: translateY(15px);
-          }
-        }
-        
-        li {
-            transform: translateY(0);
-        }
-        
 
-      }
-      
-      img {
-        transition: all .2s ease;
-      }
-      
-      &__rect {
-        width: 750px;
-        height: 200px;
-        // background: #fff;
-        display: block;
-        position: absolute;
-        top: 50%;
-        // left: -78%;
-        transform: rotate(0deg);
-        z-index: 5;
-        opacity: .9;
-        transition: all .3s ease-in-out;
-        
-        &:before {
-          content: '';
-          display: block;
-          width: 100%;
-          position: relative;
-          height: 100%;
-          background: $color-box-5;
-          transform: translateY(100px);
-          z-index: 2;
-          transition: all .3s ease-in-out;
-          transition-delay: .1s;
-        }
-      }
-      
-      ul {
-        list-style: none;
-        position: absolute;
-        bottom: 0;
-        left: -10px;
-        z-index: 9;
-        
-        li {
-          display: inline-block;
-          font-size: 16px;
-          margin: 7px;
-          color: #fff;
-          transition: all .2s ease-in-out;
-          transform: translateY(100px);
-          
-          &:nth-child(2) {
-            transition-delay: .2s;
-          }
-          
-          &:nth-child(3) {
-            transition-delay: .3s;
-          }
-          
-          &:nth-child(4) {
-            transition-delay: .4s;
-          }
-        }
-      }
-    }
-  
+}
+.bookCover{
+  width: 180px;
+}
+.Bookshelf-book-author{
+  color:$secondary;
 }

@@ -3,13 +3,19 @@
 
 
 .navbar{
+  display:flex;
   height: 110px;
   margin:0px;
   background: $primary;
+  @media(max-width:$mobile-break-point){
+    display:none !important;
+  }
+
 
 
 }
 .menu{
+  display:none;
   font-size: $h4-font-size;
   .selected{
     color:red;

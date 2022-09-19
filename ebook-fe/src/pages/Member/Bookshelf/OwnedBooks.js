@@ -12,7 +12,7 @@ function OwnedBooks() {
   const [bookToggleState, setbookToggleState] = useState(1)
   return (
     <>
-      <div className="d-flex-column justify-content-left">
+      <div className="d-flex-column justify-content-left vw-100">
         {/* <div>Book List</div> */}
         <div className="Bookshelf-recent-title position-absolute top-50 end-0">
           <h2>最近閱讀</h2>
@@ -33,51 +33,51 @@ function OwnedBooks() {
         </div>
         <RecentBook />
         {/* 書櫃標題 */}
- 
 
-        <div className="Bookshelf-tabs d-flex justify-content-left m-2">
-          <Button
-            className={
-              bookToggleState === 1
-                ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
-                : 'btn Bookshelf_category py-2 d-flex justify-content-end'
-            }
-            onClick={() => {
-              setbookToggleState(1)
-            }}
-          >
-            <h4>我的書櫃</h4>
-          </Button>
-          <Button
-            className={
-              bookToggleState === 2
-                ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
-                : 'btn Bookshelf_category py-2 d-flex justify-content-end'
-            }
-            onClick={() => {
-              setbookToggleState(2)
-            }}
-          >
-            <h4>我的評論</h4>
-          </Button>
+        <div className="Bookshelf_tabs d-flex-column py-3">
+          <div className="d-flex justify-content-left m-2">
+            <Button
+              className={
+                bookToggleState === 1
+                  ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
+                  : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+              }
+              onClick={() => {
+                setbookToggleState(1)
+              }}
+            >
+              <h5>我的書櫃</h5>
+            </Button>
+            <Button
+              className={
+                bookToggleState === 2
+                  ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
+                  : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+              }
+              onClick={() => {
+                setbookToggleState(2)
+              }}
+            >
+              <h5>我的評論</h5>
+            </Button>
+          </div>
+          <div className="position-absolute Bookshelf-catagory-divider">
+            <svg
+              width="1039"
+              height="12"
+              viewBox="0 0 1039 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1038.77 5.99991L1033 0.226407L1027.23 5.99991L1033 11.7734L1038.77 5.99991ZM8.74228e-08 7L1033 6.99991L1033 4.99991L-8.74228e-08 5L8.74228e-08 7Z"
+                fill="#661F1E"
+              />
+            </svg>
+          </div>
+
+          {bookToggleState === 1 ? <OwnedBooksList /> : <BookReviesList />}
         </div>
-        <div className="position-absolute Bookshelf-catagory-divider">
-          <svg
-            width="1039"
-            height="12"
-            viewBox="0 0 1039 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1038.77 5.99991L1033 0.226407L1027.23 5.99991L1033 11.7734L1038.77 5.99991ZM8.74228e-08 7L1033 6.99991L1033 4.99991L-8.74228e-08 5L8.74228e-08 7Z"
-              fill="#661F1E"
-            />
-          </svg>
-        </div>
-
-        {bookToggleState === 1 ? <OwnedBooksList /> : <BookReviesList />}
-
         <Link className="mx-2" to={`${ownedBookId}`}>
           Book Detail
         </Link>
