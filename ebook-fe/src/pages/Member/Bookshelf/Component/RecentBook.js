@@ -8,6 +8,9 @@ import Button from 'react-bootstrap/Button'
 import Popup from 'reactjs-popup'
 // Star Rating Importing
 import StarRating from './StarRating'
+// reactToastify importing
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 // test avatar img importing
 import Avatar from '../../../../img/book.jpg'
@@ -72,6 +75,21 @@ function RecentBook() {
   const reviewOnChangeHandler = (e) => {
     setReviewParam({ ...reviewParam, review_comments: e.target.value })
   }
+
+  // review post toastify
+  // TODO:研究改顏色
+  // https://fkhadra.github.io/react-toastify/how-to-style
+  const notify = () =>
+    toast.info('成功送出資料', {
+      className: 'Bookshelf-toast-black-background',
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
 
   const createRecentBook = (recentBook) => {
     return recentBook.map((recentBookValue) => {
@@ -240,6 +258,7 @@ function RecentBook() {
         reviewParam
       )
       setDataReady(false)
+      notify()
     }
     submitReview()
   }, [dataReady])
@@ -271,6 +290,18 @@ function RecentBook() {
       {/* <div>RecentBook</div> */}
       {createRecentBook(recentBook)}
       {/* {console.log('createRecentBook', createRecentBook(recentBook))} */}
+      {/* toast test */}
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   )
 }
