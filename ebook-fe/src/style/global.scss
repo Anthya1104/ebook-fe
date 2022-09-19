@@ -74,11 +74,17 @@ $mobile-break-point:768px;
     color:$body-bg;
     svg{
       fill:$body-bg;
+      path{
+        fill:$body-bg;
+      }
     }
   }
 
   svg{
     fill:$secondary;
+    path{
+      fill:$secondary;
+    }
   }
 }
 .product-category-active{

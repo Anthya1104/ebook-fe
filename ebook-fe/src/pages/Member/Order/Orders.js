@@ -9,7 +9,8 @@ import Typography from '@mui/material/Typography'
 import DatePick from './Component/DatePick'
 import Pagination from './Component/Pagination'
 import Book from '../../../img/book.jpg'
-import BreadCrumb from './Component/BreadCumb'
+import BreadCrumb from './Component/BreadCrumb'
+import ScrollToTop from './Component/ScrollToTop'
 import line from '../../../img/line.svg'
 import dash from '../../../img/dash.svg'
 import data from './OrderData.json'
@@ -22,14 +23,15 @@ function Orders() {
   return (
     <>
       <div className="container">
+        <ScrollToTop />
         <BreadCrumb />
         <img src={line} alt="line" />
         <div className="d-flex justify-content-end">
           <DatePick />
         </div>
-        <Card sx={{ maxWidth: 1067, maxheight: 200 }} className="mb-3">
-          {data.map((v, i) => {
-            return (
+        {data.map((v, i) => {
+          return (
+            <Card sx={{ maxWidth: 1067, maxheight: 200 }} className="mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
                   <CardMedia
@@ -80,9 +82,10 @@ function Orders() {
                   </CardActions>
                 </CardContent>
               </div>
-            )
-          })}
-        </Card>
+            </Card>
+          )
+        })}
+        {/* <Pagination /> */}
       </div>
     </>
   )
