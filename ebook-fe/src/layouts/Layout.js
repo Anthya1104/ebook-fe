@@ -10,7 +10,7 @@ function Layout() {
       <Navbar />
       <CollapsibleExample />
 
-      <div className="container d-flex-column justify-context-center">
+      <div className="container-xxl d-flex-column justify-context-center">
         <Outlet />
       </div>
       {/* 頁尾資訊 */}
