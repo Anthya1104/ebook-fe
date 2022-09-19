@@ -8,7 +8,8 @@
 
 // export default Checkout
 
-import { useCart } from '../../../utils/useCart'
+// import { useCart } from '../../utils/useCart'
+import { useCart } from '../../../CustomizedShoppingCart/utils/useCart'
 import { useNavigate } from 'react-router-dom'
 import { useNavigate2 } from 'react-router-dom'
 // import ProductList from 'pages/Product/ProductList'
@@ -46,7 +47,7 @@ function ListItemsWithHook({ tab, handleStep }) {
           {items.map((v, i) => {
             return (
               <tr key={v.id}>
-                <td>{v.name} </td>
+                <td>{v.book_name} </td>
                 <td>$ {v.price}</td>
                 {/* 設定tab是購物車還是收藏 */}
                 {/* <td>

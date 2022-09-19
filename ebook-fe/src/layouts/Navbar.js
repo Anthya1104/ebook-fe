@@ -13,7 +13,7 @@ function Navbar() {
           <NavLink className="mx-2" activeClassName="selected" to="/Login">
             <p className="">Login</p>
           </NavLink>
-          <NavLink className="mx-2" to="/Mart">
+          <NavLink className="mx-2" to="/Cart/product-list">
             Mart
           </NavLink>
           <NavLink className="mx-2" to="/member-index">

@@ -1,4 +1,4 @@
-import { useCart } from '../utils/useCart'
+import { useCart } from '../../../utils/useCart'
 import { FaShoppingCart } from 'react-icons/fa'
 import './CartIcon.scss'
 

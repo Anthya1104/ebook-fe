@@ -26,7 +26,7 @@ import Dropdown from './Dropdown'
 import TopCategory from './TopCategory/TopCategory'
 import Select from './Select/Select'
 // import ProductCard from '../../Component/ProductCard/ProductCard'
-import ProductCard from '../../components/ProductCard/ProductCard'
+import ProductCard from '../../Component/ProductCard/ProductCard'
 import MOCK_BOOK_IMG from '../../img/mockdata/book.png'
 import './SearchResult.scss'
 

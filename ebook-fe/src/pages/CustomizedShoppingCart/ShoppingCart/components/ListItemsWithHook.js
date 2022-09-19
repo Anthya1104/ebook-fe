@@ -1,8 +1,10 @@
-import { useCart } from '../../../utils/useCart'
+// import { useCart } from '../../../utils/useCart'
+import { useCart } from '../../utils/useCart'
 import { useNavigate } from 'react-router-dom'
 import { useNavigate2 } from 'react-router-dom'
 // import ProductList from 'pages/Product/ProductList'
-import ProductList from '../../../pages/Product/ProductList'
+// import ProductList from '../../../pages/Product/ProductList'
+import ProductList from '../../Product/ProductList'
 
 function ListItemsWithHook({ tab, handleStep }) {
   // 使用hooks 解出所需的狀態與函式(自context)
@@ -36,7 +38,8 @@ function ListItemsWithHook({ tab, handleStep }) {
           {items.map((v, i) => {
             return (
               <tr key={v.id}>
-                <td>{v.name} </td>
+                {/* <td>{v.book_img}</td> */}
+                <td>{v.book_name} </td>
                 <td>$ {v.price}</td>
                 {/* 設定tab是購物車還是收藏 */}
                 <td>
@@ -108,7 +111,7 @@ function ListItemsWithHook({ tab, handleStep }) {
         <button
           type="button"
           className="btn co-btn"
-          onClick={handleClick('/ProductList')}
+          onClick={handleClick('/Cart/product-list')}
         >
           繼續購物
         </button>

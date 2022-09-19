@@ -5,8 +5,8 @@ function DefaultExample() {
   return (
     <div>
       <h4>篩選條件</h4>
-      <ListGroup className="select mb-4">
-        <ListGroup.Item className="title">價格</ListGroup.Item>
+      <ListGroup className="Mart-select mb-4">
+        <ListGroup.Item className="Mart-title">價格</ListGroup.Item>
         <ListGroup.Item>
           <a href="#">100元 </a>
         </ListGroup.Item>
@@ -21,8 +21,8 @@ function DefaultExample() {
         </ListGroup.Item>
       </ListGroup>
 
-      <ListGroup className="select mb-4">
-        <ListGroup.Item className="title">分類</ListGroup.Item>
+      <ListGroup className="Mart-select mb-4">
+        <ListGroup.Item className="Mart-title">分類</ListGroup.Item>
         <ListGroup.Item>
           <a href="#">商業理財 </a>
         </ListGroup.Item>
@@ -52,8 +52,8 @@ function DefaultExample() {
         </ListGroup.Item>
       </ListGroup>
 
-      <ListGroup className="select">
-        <ListGroup.Item className="title">出版社</ListGroup.Item>
+      <ListGroup className="Mart-select">
+        <ListGroup.Item className="Mart-title">出版社</ListGroup.Item>
         <ListGroup.Item>
           <a href="#">出版社1 </a>
         </ListGroup.Item>

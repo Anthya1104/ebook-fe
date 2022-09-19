@@ -1,5 +1,7 @@
 import React from 'react'
-import { withRouter } from '../utils/withRouter'
+// import { withRouter } from '../../../utils/withRouter'
+import { withRouter } from '../../utils/withRouter'
+
 
 // 頁面切換時要用捲軸讓頁面回到最上方
 class ScrollToTop extends React.Component {

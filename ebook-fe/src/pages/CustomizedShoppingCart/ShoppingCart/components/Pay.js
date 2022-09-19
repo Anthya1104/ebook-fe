@@ -1,8 +1,13 @@
-import { useCart } from '../../../utils/useCart'
+// import { useCart } from '../../../utils/useCart'
+import { useCart } from '../../utils/useCart'
 import { useNavigate } from 'react-router-dom'
 import { useNavigate2 } from 'react-router-dom'
-import ProductList from '../../../pages/Product/ProductList'
+// import ProductList from '../../../pages/Product/ProductList'
+import ProductList from '../../Product/ProductList'
 import Form from 'react-bootstrap/Form'
+
+import { Link } from 'react-router-dom'
+import Popup from './Popup'
 
 function ListItemsWithHook({ tab, handleStep }) {
   // 使用hooks 解出所需的狀態與函式(自context)
@@ -37,7 +42,7 @@ function ListItemsWithHook({ tab, handleStep }) {
             {items.map((v, i) => {
               return (
                 <tr key={v.id}>
-                  <td>{v.name} </td>
+                  <td>{v.book_name} </td>
                   <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
                   {/* <td>
@@ -155,13 +160,14 @@ function ListItemsWithHook({ tab, handleStep }) {
         </div>
 
         <div className="d-flex justify-content-end">
-          <button
+          {/* <button
             type="button"
             className="btn co-btn"
             // onClick={handleStep(3)}
           >
             確定付款
-          </button>
+          </button> */}
+          <Popup />
         </div>
       </div>
     </>
