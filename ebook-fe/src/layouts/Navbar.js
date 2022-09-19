@@ -23,9 +23,7 @@ function Navbar() {
             <NavLink className="mx-2" to="/Cart">
               Shopping Cart
             </NavLink>
-            <NavLink className="mx-2" to="/Chat">
-              Chat
-            </NavLink>
+            <a href="http://localhost:3000/chats">Chat</a>
             <NavLink className="mx-2" to="/Materials">
               Material Reference
             </NavLink>
