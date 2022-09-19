@@ -11,6 +11,7 @@ import products from '../data/products.json'
 
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
+import TopCategory from '../../Mart/TopCategory/TopCategory'
 
 function ProductList(props) {
   // 對話盒使用
@@ -123,8 +124,9 @@ function ProductList(props) {
   return (
     <>
       {/* <h1>商品列表頁範例</h1> */}
-
-      <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p>
+      <TopCategory />
+      <div className='my-5'></div>
+      {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
         <div className="me-5">
           <Select />
