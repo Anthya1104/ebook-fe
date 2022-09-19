@@ -217,21 +217,36 @@ $Bookshelf_recent_translateY: 40px;
 // 書卡片
 
 // 自切
+.Bookshelf-on-category-list{
+  display:flex;
+  margin:15px auto;
+  @media(max-width:$mobile-break-point){
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .Bookshelf-bookCollection{
+  margin:15px auto;
+  @media(max-width:$mobile-break-point){
+    align-items: center;
+  }
   ul{
     list-style:none;
     padding-left: 0px;
+    margin:auto;
 
 
     li{
       max-width:180px;    
       font-weight: 600;
+      margin:auto;
     }
   }
 
 }
 .bookCover{
   width: 180px;
+  margin:auto;
 }
 .Bookshelf-book-author{
   color:$secondary;
