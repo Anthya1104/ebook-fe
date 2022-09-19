@@ -71,11 +71,17 @@ $link-hover-color: #F5F5F5;
     color:$body-bg;
     svg{
       fill:$body-bg;
+      path{
+        fill:$body-bg;
+      }
     }
   }
 
   svg{
     fill:$secondary;
+    path{
+      fill:$secondary;
+    }
   }
 }
 .product-category-active{

@@ -22,7 +22,7 @@ function DefaultExample() {
       </ListGroup>
 
       <ListGroup className="product-select mb-4">
-        <ListGroup.Item className="title">分類</ListGroup.Item>
+        <ListGroup.Item className="product-title">分類</ListGroup.Item>
         <ListGroup.Item>
           <a href="#">商業理財 </a>
         </ListGroup.Item>
@@ -55,13 +55,19 @@ function DefaultExample() {
       <ListGroup className="product-select">
         <ListGroup.Item className="product-title">出版社</ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">出版社1 </a>
+          <a href="#">閱閱出版社 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">出版社2 </a>
+          <a href="#">時代雜誌 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">出版社3 </a>
+          <a href="#">蘋果日報 </a>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <a href="#">博客來書店 </a>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <a href="#">誠品書局</a>
         </ListGroup.Item>
       </ListGroup>
     </div>
