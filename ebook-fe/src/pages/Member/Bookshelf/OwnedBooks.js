@@ -78,9 +78,6 @@ function OwnedBooks() {
 
           {bookToggleState === 1 ? <OwnedBooksList /> : <BookReviesList />}
         </div>
-        <Link className="mx-2" to={`${ownedBookId}`}>
-          Book Detail
-        </Link>
       </div>
     </>
   )

@@ -20,6 +20,14 @@ $Bookshelf_recent_translateY: 40px;
   transform: scaleX(-1) ;
 }
 
+// TODO:研究怎麼改顏色
+// toastify
+.Bookshelf-toast-black-background{
+  .Toastify__toast-theme--light {
+    background: $primary;
+  }
+}
+
 // mobile title
 .Bookshelf-mobile-recent-title{
   display:none;
