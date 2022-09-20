@@ -39,13 +39,13 @@ const Category = () => {
               test
             </button>
           </div>
-          <div className="row row-cols-1 row-cols-md-4 g-4 ">
-            <div className="col">
-              <div className="cards">
+          {/* <div className="row row-cols-1 row-cols-md-4 g-4 "> */}
+            {/* <div className="col"> */}
+              <div className="row cards d-flex flex-wrap mt-4">
                 {data.map((values) => {
                   const { id, book_name, book_category } = values
                   return (
-                    <div className="col" key={values.id}>
+                    <div className="col-3 mb-4" key={values.id}>
                       {/* 怎麼帶id??? */}
                       <div className="card ProductList-card">
                         {/* <Link to={'/Cart/ProductDetail/' + item.id}> */}
@@ -104,8 +104,8 @@ const Category = () => {
                   )
                 })}
               </div>
-            </div>
-          </div>
+            {/* </div> */}
+          {/* </div> */}
         </div>
       </div>
     </>

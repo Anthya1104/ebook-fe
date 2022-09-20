@@ -41,9 +41,10 @@ function ProductList(props) {
   }, [])
 
   useEffect(() => {
-    if (cat) {
-      setProductsDisplay(products.filter((v, i) => v.book_category === cat))
+    if(cat){
+      setProductsDisplay(products.filter((v,i)=> v.book_category===cat))
     }
+    
   }, [cat])
 
   const messageModal = (
@@ -83,7 +84,7 @@ function ProductList(props) {
 
   const display = (
     //TEST//
-    <div className="row row-cols-1 row-cols-md-4 g-4 ">
+    <div className="row">
       {productsDisplay.map((v, i) => {
         return (
           <>
