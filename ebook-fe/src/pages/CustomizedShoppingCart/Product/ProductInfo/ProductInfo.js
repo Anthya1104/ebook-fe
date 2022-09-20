@@ -52,12 +52,13 @@ function ProductInfo(productId) {
                 售價：<span>$</span>
                 <span className="ProductInfo-bookInfo-price">{v.price}</span>
               </div>
-              <ButtonToolbar className="mt-5">
-                <ButtonGroup className="me-2">
+              <div className='ProductInfo-btn-position'>
+              <ButtonToolbar className="mt-5 ">
+                <ButtonGroup className="me-2 ">
                   {/* <Button className="btn-danger" size="sm">
                     <img src={CartIcon} alt="buy" /> 購買
                   </Button> */}
-                  <Button className="btn-danger" size="sm">
+                  <Button className="btn-danger me-2 mb-2">
                     <img
                       src={CartIcon}
                       alt="buy"
@@ -74,16 +75,17 @@ function ProductInfo(productId) {
                   </Button>
                 </ButtonGroup>
                 <ButtonGroup className="me-2">
-                  <Button className="btn-danger">
+                  <Button className="btn-danger me-2 mb-2">
                     <img src={TrialIcon} alt="trial" /> 試閱
                   </Button>
                 </ButtonGroup>
                 <ButtonGroup className="me-2">
-                  <Button className="btn-danger">
+                  <Button className="btn-danger mb-2">
                     <img src={HeartIcon} alt="heart" /> 收藏
                   </Button>
                 </ButtonGroup>
               </ButtonToolbar>
+              </div>
             </div>
           </Col>
         </Row>

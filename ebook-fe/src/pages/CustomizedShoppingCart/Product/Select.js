@@ -4,7 +4,7 @@ import './Select.scss'
 function DefaultExample({ cat, setCat }) {
   return (
     <div>
-      <h4>篩選條件</h4>
+      <h4 className='Select-title'>篩選條件</h4>
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">價格</ListGroup.Item>
         <ListGroup.Item>

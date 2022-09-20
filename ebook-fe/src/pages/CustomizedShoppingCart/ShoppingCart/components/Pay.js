@@ -29,7 +29,7 @@ function ListItemsWithHook({ tab, handleStep }) {
           cellSpacing="0"
         >
           <thead>
-            <tr className="cart-topnav">
+            <tr className="SingleCart-topnav">
               {/* <th>id</th> */}
               <th>名稱</th>
               {/* <th>單價</th> */}
@@ -84,20 +84,20 @@ function ListItemsWithHook({ tab, handleStep }) {
         </table>
 
         <div>
-          <div>
-            <div className="cart-topnav py-2 ps-2">訂單資訊 </div>
+          <div className='my-5'>
+            <div className="SingleCart-topnav py-2 ps-2">訂單資訊 </div>
             <br />
             共有 {cart.totalItems}件商品
             <br />
             訂單小計：$ {cart.cartTotal}
             <br />
             {cart.isEmpty && '購物車為空'}
-            <hr />
+            {/* <hr /> */}
           </div>
         </div>
 
         <div>
-          <div className="cart-topnav py-2 ps-2"> 付款方式：信用卡</div>
+          <div className="SingleCart-topnav py-2 ps-2"> 付款方式：信用卡</div>
           <br />
           <div className="d-flex">
             <Form.Label htmlFor=" ">信用卡號：</Form.Label>

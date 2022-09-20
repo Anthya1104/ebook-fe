@@ -11,7 +11,7 @@ function Example() {
 
   return (
     <>
-      <Button variant="btn co-btn" onClick={handleShow}>
+      <Button variant="btn btn-primary-reverse my-5" onClick={handleShow}>
         確定付款
       </Button>
 
@@ -25,7 +25,7 @@ function Example() {
             關閉
           </Button> */}
           <Link to="product-list">
-          <Button variant="btn co-btn" onClick={handleClose}>
+          <Button variant="btn btn-primary-reverse" onClick={handleClose}>
             回到商品列表
           </Button>
           </Link>

@@ -33,7 +33,7 @@ function ListItemsWithHook({ tab, handleStep }) {
         width="100%"
         cellSpacing="0"
       >
-        <thead className='cart-topnav'>
+        <thead className="SingleCart-topnav">
           <tr>
             {/* <th>id</th> */}
             <th>名稱</th>
@@ -87,35 +87,46 @@ function ListItemsWithHook({ tab, handleStep }) {
           })}
         </tbody>
       </table>
-          <div className='Checkout-box'>
-      <div className="d-flex">
-        <div className="me-4">
-          <h5 className="me-4 co-text-em-color">付款方式 </h5>
-          <input type="radio" value="creditcard" />
-          <label>信用卡</label>
-          <br />
-          <input type="radio" value="linepay" />
-          <label>LINE PAY</label>
-          <br />
-          <input type="radio" value="atm" />
-          <label>ATM 轉帳</label>
-        </div>
+      <div className="Checkout-box">
+        <div className="d-flex">
+          <div className="me-4">
+            <h5 className="me-4 ListItemsWithHook-text-em-color">付款方式 </h5>
+            <input type="radio" value="creditcard" />
+            <label className="py-1"> &nbsp;信用卡</label>
+            <br />
+            <input type="radio" value="linepay" />
+            <label className="py-1"> &nbsp;LINE PAY</label>
+            <br />
+            <input type="radio" value="atm" />
+            <label className="py-1"> &nbsp;ATM 轉帳</label>
+          </div>
 
-        <div>
-          <h5 className='co-text-em-color' >訂單資訊 </h5>
-          共有 {cart.totalItems}件商品
-          <br />
-          訂單小計：$ {cart.cartTotal}
-          <br />
-          <br />
-          {cart.isEmpty && '購物車為空'}
-          <hr />
-        </div>
+          <div>
+            <h5 className="ListItemsWithHook-text-em-color ">訂單資訊 </h5>
+            共有{' '}
+            <span className="ListItemsWithHook-text-em-color">
+              {' '}
+              {cart.totalItems}{' '}
+            </span>{' '}
+            件商品
+            <br />
+            訂單小計{' '}
+            <span className="ListItemsWithHook-text-em-color">
+              $ {cart.cartTotal}
+            </span>
+            <br />
+            <br />
+            {cart.isEmpty && '購物車為空'}
+          </div>
         </div>
       </div>
 
-      <div className="d-flex justify-content-end">
-        <button type="button" className="btn co-btn" onClick={handleStep(3)}>
+      <div className="d-flex justify-content-end my-5">
+        <button
+          type="button"
+          className="btn btn-primary-reverse"
+          onClick={handleStep(3)}
+        >
           確定付款
         </button>
       </div>
