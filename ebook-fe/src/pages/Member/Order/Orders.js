@@ -31,16 +31,13 @@ function Orders() {
         </div>
         {data.map((v, i) => {
           return (
-            <Card
-              sx={{ maxwidth: 1067, maxheight: 400 }}
-              className="mb-3 card-style"
-            >
+            <Card sx={{ maxwidth: 1067 }} className="mb-3">
               <div className="row">
                 <div className="col-md-4">
                   <CardMedia
                     className="img-fluid mx-2 my-2 shadow"
                     component="img"
-                    // maxheight="200"
+                    height="140"
                     image={Book}
                     alt="book"
                   />
