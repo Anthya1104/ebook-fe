@@ -4,7 +4,7 @@
   border-radius: 0;
   border: 1px solid #661f1e;
   &:hover {
-    border-radius: 0; //why沒效???
+    border-radius: none; //why沒效???
     border: 1px solid #661f1e;
   }
 }
@@ -48,4 +48,13 @@
 .ListItemsWithHook-text-em-color {
   color: #bf245d;
   font-weight: bolder;
+}
+
+//Pay頁面
+.Pay-text-style {
+  font-weight: bolder;
+}
+
+.Pay-input-style {
+  border: 1px solid #661f1e;
 }

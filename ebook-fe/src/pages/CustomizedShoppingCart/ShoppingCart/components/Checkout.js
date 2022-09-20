@@ -87,7 +87,7 @@ function ListItemsWithHook({ tab, handleStep }) {
           })}
         </tbody>
       </table>
-      <div className="Checkout-box">
+      <div className="Checkout-box my-5">
         <div className="d-flex">
           <div className="me-4">
             <h5 className="me-4 ListItemsWithHook-text-em-color">付款方式 </h5>
@@ -103,11 +103,10 @@ function ListItemsWithHook({ tab, handleStep }) {
 
           <div>
             <h5 className="ListItemsWithHook-text-em-color ">訂單資訊 </h5>
-            共有{' '}
+            共有&nbsp;
             <span className="ListItemsWithHook-text-em-color">
-              {' '}
-              {cart.totalItems}{' '}
-            </span>{' '}
+              {cart.totalItems}
+            </span>&nbsp;
             件商品
             <br />
             訂單小計{' '}
