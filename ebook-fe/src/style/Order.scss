@@ -1,4 +1,4 @@
-@import './global.scss' ;
+@import './global.scss';
 
 .orderCardBackground {
   background: $primary;
@@ -11,27 +11,27 @@
 
   @media (min-width: 600px) and (max-width: 1200px) {
     .orderText {
-     font-size: calc(1.2rem + (1.3 - 1.2) * ((100vw - 600px) / (1200 - 600)));
+      font-size: calc(1.2rem + (1.3 - 1.2) * ((100vw - 600px) / (1200 - 600)));
     }
   }
   @media (min-width: 1200px) {
     .orderText {
-       font-size: 1.3rem; 
+      font-size: 1.3rem;
     }
-}
+  }
 }
 
-.top-to-btm{
+.top-to-btm {
   position: relative;
 }
-.icon-position{
+.icon-position {
   position: fixed;
   bottom: 40px;
   right: 25px;
   z-index: 20;
 }
-.icon-style{
-  background-color: #661F1E;
+.icon-style {
+  background-color: #661f1e;
   border: 2px solid #fff;
   border-radius: 50%;
   height: 50px;
@@ -39,40 +39,46 @@
   color: #fff;
   cursor: pointer;
   animation: movebtn 3s ease-in-out infinite;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
-.icon-style:hover{
+.icon-style:hover {
   animation: none;
   background: #fff;
-  color: #661F1E;
-  border: 2px solid #661F1E;
+  color: #661f1e;
+  border: 2px solid #661f1e;
 }
 @keyframes movebtn {
-  0%{
+  0% {
     transform: translateY(0px);
   }
-  25%{
+  25% {
     transform: translateY(20px);
   }
-  50%{
+  50% {
     transform: translateY(0px);
   }
-  75%{
+  75% {
     transform: translateY(-20px);
   }
-  100%{
+  100% {
     transform: translateY(0px);
   }
 }
 
 //Book Cover
-.book-cover{
-  height: auto;
+.book-cover {
+  height: auto !important;
 }
 
 //Date Pick
-.date-pick{
+.date-pick {
   border-color: $primary;
 }
 
-
+//Mobile-card
+@media (max-width: 600px) {
+  .mobile-card {
+    width: 240px !important;
+    margin:auto;
+  }
+}

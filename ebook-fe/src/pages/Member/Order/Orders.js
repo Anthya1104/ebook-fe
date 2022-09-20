@@ -17,10 +17,9 @@ import data from './OrderData.json'
 import '../../../style/Order.scss'
 
 function Orders() {
-  const [startDate, setDate] = useState()
-  const [endDate, setDate] = useState()
+  // const [Date, setDate] = useState()
 
-  console.log('Date', date)
+  // console.log('Date', date)
   const orderId = 1
   return (
     <>
@@ -35,11 +34,11 @@ function Orders() {
           return (
             <Card sx={{ maxwidth: 1067 }} className="mb-3">
               <div className="row">
-                <div className="col-md-4">
+                <div className="col-md-4 mobile-card">
                   <CardMedia
-                    className="img-fluid mx-2 my-2 shadow"
+                    className="mx-2 my-2 shadow book-cover"
                     component="img"
-                    height="140"
+                    // height="140"
                     image={Book}
                     alt="book"
                   />
