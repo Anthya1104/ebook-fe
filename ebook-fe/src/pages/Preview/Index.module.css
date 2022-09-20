@@ -1,5 +1,7 @@
 :root {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   /*顏色*/
   --color1: #661f1e;
   --color2: #df9d6e;
@@ -8,68 +10,104 @@
   --color5: #c0724a;
   --color6: #d9d9d9;
   /*距離*/
-  --1: 0.25rem;
-  --2: 0.5rem;
-  --3: 0.75rem;
-  --4: 1rem;
-  --5: 1.25rem;
-  --6: 1.5rem;
-  --7: 1.75rem;
-  --8: 2rem;
+  --1: 5px;
+  --2: 10px;
+  --3: 15px;
+  --4: 20px;
+  --5: 25px;
+  --6: 30px;
+  --7: 35px;
+  --8: 40px;
 }
 
-.header {
+.headers {
+  max-height: 130px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--color1);
-}
-
-.icons {
-  display: flex;
-  margin-top: var(--5);
-}
-
-.iconsLi {
-  padding: var(--4);
-  color: var(--color2);
+  flex-direction: row;
   text-align: center;
-  line-height: 2rem;
   background: var(--color1);
+}
+
+.iconStart {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-left: -32px;
+}
+
+.iconLi {
+  padding: var(--2) var(--2) 0 var(--2);
+  border-radius: 20px;
+}
+
+.iconLi:hover {
+  background: var(--color3);
+}
+
+.iconLi p {
+  color: var(--color2);
+  padding-top: var(--2);
+}
+
+.iconLi a {
+  text-decoration: none;
 }
 
 .hover {
-  background: var(--color3);
-  width: 300px;
-  color: var(--color1);
-  text-align: left;
-  border: 1px solid var(--color1);
-  border-top: none;
-  border-radius: 0 20px 20px 20px;
-  padding: var(--3);
   display: none;
+  width: 250px;
+  text-align: left;
+  background: var(--color3);
+  padding: var(--2);
   position: absolute;
+  margin: -15px 0 0 -10px;
+  border-radius: 0 20px 20px 20px;
 }
 
-.iconsLi:hover {
+.iconLi:hover .hover {
+  display: block;
+  float: left;
+}
+
+.iconButton {
+  background: var(--color1);
+  border: none;
+  color: var(--color2);
+}
+
+.iconButton:hover {
+  background: var(--color3);
+}
+
+.title {
+  color: var(--color4);
+  justify-content: center;
+}
+
+.iconEnd {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.iconEndButton {
+  background: var(--color1);
+  border: none;
+  color: var(--color2);
+  padding: 10px 10px 0 10px;
+}
+
+.iconEndButton:hover {
   background: var(--color3);
   border-radius: 20px;
 }
 
-.iconsLi:hover .hover {
-  display: block;
-  transform: translate(-17px, -5px);
+.iconEndButton p {
+  padding-top: var(--2);
 }
 
-.title {
-  font-size: 20px;
+.footer {
   text-align: center;
-  line-height: var(--8);
-  color: var(--color3);
-}
-
-.pdfJs {
-  width: 100%;
-  padding: var(--8) 0;
-  background: var(--color3);
+  color: var(--color4);
+  background: var(--color1);
 }

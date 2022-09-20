@@ -10,7 +10,7 @@ function Navbar() {
           <h4>Home</h4>
         </NavLink>
         <div className="menu d-flex justify-content-start align-items-center mx-2">
-          <NavLink className="mx-2" activeClassName="selected" to="/Login">
+          <NavLink className="mx-2" activeclassname="selected" to="/Login">
             <p className="">Login</p>
           </NavLink>
           <NavLink className="mx-2" to="/Mart">
