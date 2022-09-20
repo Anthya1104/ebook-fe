@@ -123,6 +123,10 @@ $Bookshelf_recent_translateY: 40px;
     h5,h6{
            display:none;
     }
+    .Bookshelf-recent-percentage{
+      font-size:90px;
+      transform: translate(10px,5px);
+    }
  
     }
 }
@@ -235,6 +239,25 @@ $Bookshelf_recent_translateY: 40px;
       transform:translateX(3px);
     }
   }
+  .Bookshelf-date-sort{
+    
+    display:flex;
+    align-items: center;
+    background:$primary;
+    color:$body-bg;
+    svg{
+      margin-right:5px;
+    }
+  }
+  .Bookshelf-date-sort-toggled{
+    display:flex;
+    align-items: center;
+    background:$danger;
+    color:$body-bg;
+    svg{
+      margin-right:5px;
+    }
+  }
 }
 
 // 書卡片
@@ -242,10 +265,11 @@ $Bookshelf_recent_translateY: 40px;
 // 自切
 .Bookshelf-on-category-list{
   display:flex;
-  margin:15px auto;
+  
   @media(max-width:$mobile-break-point){
     flex-direction: column;
     align-items: center;
+    margin:15px auto;
   }
 }
 .Bookshelf-bookCollection{

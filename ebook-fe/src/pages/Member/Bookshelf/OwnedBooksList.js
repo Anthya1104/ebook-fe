@@ -39,12 +39,22 @@ function OwnedBooksList() {
 
   // 目前在哪個分類
   const [onCategory, setOnCategory] = useState('')
-  // TODO: make a filter with all conditions
-  // const [onFiltered, setOnfiltered]=useState([])
-  // append各種狀況
 
   // 先嘗試只篩類別
   const [onCategoryList, setOnCategoryList] = useState([])
+
+  // 同時篩 類別, 閱讀進度, 日期sort
+  // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
+  const [bookFilterParams, setBookFilterParams] = useState({
+    category: '',
+    is_read: true,
+    date_sort_toggled: true,
+    search_param: '',
+  })
+
+  // isRead 切換
+  // toggle reference: https://www.npmjs.com/package/react-toggle
+  const [isRead, setIsRead] = useState(true)
 
   useEffect(() => {
     const getCategories = async () => {
@@ -85,9 +95,6 @@ function OwnedBooksList() {
   // TODO:處理 tab 切換
   // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
-  // isRead 切換
-  // toggle reference: https://www.npmjs.com/package/react-toggle
-  const [isRead, setIsRead] = useState(false)
   const distingReading = () => {
     if (isRead) {
       return (
@@ -96,14 +103,13 @@ function OwnedBooksList() {
           <div className="toggle-inside"></div>
         </>
       )
-    } else {
-      return (
-        <>
-          <div className="toggle-inside"></div>
-          <div className="px-2">尚未閱讀</div>
-        </>
-      )
     }
+    return (
+      <>
+        <div className="toggle-inside"></div>
+        <div className="px-2">尚未閱讀</div>
+      </>
+    )
   }
 
   const createBookList = (bookList) => {
@@ -160,6 +166,10 @@ function OwnedBooksList() {
                 }
                 onClick={() => {
                   setOnCategory(categoryValue)
+                  setBookFilterParams({
+                    ...bookFilterParams,
+                    category: categoryValue.id,
+                  })
                 }}
               >
                 <div className="btn">{categoryValue.category_name}</div>
@@ -195,9 +205,55 @@ function OwnedBooksList() {
             </svg>
           </li>
         </ul>
-        {/* TODO: 如果還有時間再處理 先處理已讀未讀/分頁 */}
-        {/* dropdown selection */}
-        {/* <DropdownSelection /> */}
+        {/* TODO: 改成只篩日期排序*/}
+        <div className="d-flex justify-content-end align-items-center">
+          <button
+            className={
+              bookFilterParams.date_sort_toggled
+                ? 'btn Bookshelf-date-sort'
+                : 'btn Bookshelf-date-sort-toggled'
+            }
+            onClick={() => {
+              setBookFilterParams({
+                ...bookFilterParams,
+                date_sort_toggled: !bookFilterParams.date_sort_toggled,
+              })
+            }}
+          >
+            {bookFilterParams.date_sort_toggled === true ? (
+              <>
+                <svg
+                  width="23"
+                  height="18"
+                  viewBox="0 0 23 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.4998 7.75H16.2498C16.94 7.75 17.4998 7.19023 17.4998 6.5C17.4998 5.80977 16.94 5.25 16.2498 5.25H12.535C11.8447 5.25 11.285 5.80977 11.285 6.5C11.285 7.19023 11.8084 7.75 12.4998 7.75ZM12.4998 12.75H18.7498C19.44 12.75 19.9998 12.1902 19.9998 11.5C19.9998 10.8098 19.44 10.25 18.7498 10.25H12.535C11.8447 10.25 11.285 10.8098 11.285 11.5C11.285 12.1902 11.8084 12.75 12.4998 12.75ZM12.4998 2.75H13.7498C14.44 2.75 14.9647 2.19023 14.9647 1.5C14.9647 0.809766 14.4049 0.25 13.7498 0.25H12.4998C11.8096 0.25 11.2498 0.809766 11.2498 1.5C11.2498 2.19023 11.8084 2.75 12.4998 2.75ZM21.2498 15.25H12.535C11.8447 15.25 11.285 15.8098 11.285 16.5C11.285 17.1902 11.8447 17.75 12.535 17.75H21.2498C21.94 17.75 22.4998 17.1902 22.4998 16.5C22.4998 15.8098 21.9412 15.25 21.2498 15.25ZM7.51543 11.918L6.24981 13.3008V1.50117C6.24981 0.809766 5.69122 0.25 4.99981 0.25C4.3084 0.25 3.74981 0.809766 3.74981 1.50117V13.298L2.48418 11.918C2.23762 11.6491 1.90059 11.5125 1.56192 11.5125C1.2604 11.5125 0.957622 11.6211 0.717779 11.8412C0.208794 12.308 0.17481 13.0998 0.640865 13.6095L4.04321 17.363C4.51665 17.881 5.41274 17.881 5.88657 17.363L9.28891 13.6095C9.75532 13.0998 9.72094 12.3084 9.212 11.8412C8.77325 11.375 7.98418 11.4102 7.51543 11.918Z"
+                    fill="#F5F5F5"
+                  />
+                </svg>
+              </>
+            ) : (
+              <>
+                <svg
+                  width="23"
+                  height="18"
+                  viewBox="0 0 23 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.5803 17.0955C16.8186 17.3534 17.1507 17.5018 17.5023 17.5018C17.8539 17.5018 18.1859 17.3534 18.4242 17.0955L21.8621 13.3451C22.327 12.8373 22.2957 12.0442 21.784 11.5793C21.2722 11.1144 20.483 11.1457 20.0182 11.6575L18.7524 13.0365L18.7524 1.25013C18.7524 0.558646 18.1937 -6.0879e-06 17.5023 -6.02745e-06C16.8108 -5.967e-06 16.2521 0.558646 16.2521 1.25013L16.2521 13.0365L14.9864 11.6536C14.5215 11.1457 13.7284 11.1105 13.2206 11.5754C12.7127 12.0403 12.6775 12.8334 13.1424 13.3412L16.5803 17.0916L16.5803 17.0955ZM10.0015 17.5018C10.693 17.5018 11.2516 16.9432 11.2516 16.2517C11.2516 15.5602 10.693 15.0016 10.0015 15.0016L8.75135 15.0016C8.05987 15.0016 7.50122 15.5602 7.50122 16.2517C7.50122 16.9432 8.05987 17.5018 8.75135 17.5018L10.0015 17.5018ZM10.0015 12.5013C10.693 12.5013 11.2516 11.9427 11.2516 11.2512C11.2516 10.5597 10.693 10.001 10.0015 10.001L6.25108 10.001C5.55961 10.001 5.00095 10.5597 5.00095 11.2512C5.00095 11.9427 5.55961 12.5013 6.25108 12.5013L10.0015 12.5013ZM10.0015 7.50078C10.693 7.50078 11.2516 6.94213 11.2516 6.25065C11.2516 5.55917 10.693 5.00052 10.0015 5.00052L3.75082 5.00052C3.05934 5.00052 2.50069 5.55917 2.50069 6.25065C2.50069 6.94213 3.05934 7.50078 3.75082 7.50078L10.0015 7.50078ZM10.0015 2.50026C10.693 2.50026 11.2516 1.9416 11.2516 1.25013C11.2516 0.558647 10.693 -5.43216e-06 10.0015 -5.37171e-06L1.25056 -4.60668e-06C0.559079 -4.54623e-06 0.00042685 0.558648 0.00042691 1.25013C0.00042697 1.94161 0.559079 2.50026 1.25056 2.50026L10.0015 2.50026Z"
+                    fill="#F5F5F5"
+                  />
+                </svg>
+              </>
+            )}
+            日期
+          </button>
+        </div>
       </div>
       {/* toggle */}
       <div className="d-flex justify-content-end">
@@ -209,6 +265,10 @@ function OwnedBooksList() {
           }
           onClick={() => {
             setIsRead(!isRead)
+            setBookFilterParams({
+              ...bookFilterParams,
+              is_read: !bookFilterParams.is_read,
+            })
           }}
         >
           {distingReading()}
