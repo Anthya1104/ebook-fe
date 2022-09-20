@@ -41,10 +41,9 @@ function ProductList(props) {
   }, [])
 
   useEffect(() => {
-    if(cat){
-      setProductsDisplay(products.filter((v,i)=> v.book_category===cat))
+    if (cat) {
+      setProductsDisplay(products.filter((v, i) => v.book_category === cat))
     }
-    
   }, [cat])
 
   const messageModal = (
@@ -61,11 +60,11 @@ function ProductList(props) {
               <Modal.Title>成功加入購物車</Modal.Title>
             </Modal.Header>
             <Modal.Footer>
-              <Button variant="btn co-btn" onClick={handleClose}>
+              <Button variant="btn btn-primary" onClick={handleClose}>
                 繼續購物
               </Button>
               <Button
-                variant="btn co-btn"
+                variant="btn btn-primary"
                 onClick={() => {
                   // 導向購物車頁面
                   // props.history.push('/')
@@ -88,11 +87,10 @@ function ProductList(props) {
       {productsDisplay.map((v, i) => {
         return (
           <>
-            <div className="col-3 mb-4" key={v.id}>
-              {/* 怎麼帶id??? */}
+            <div className="col-12 col-sm-3 mb-4" key={v.id}>
               <div className="card ProductList-card">
                 <Link to={'/Cart/ProductDetail/' + v.id}>
-                  {console.log('/Cart/ProductDetail/' + v.id)}
+                  {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
                   <img
                     src={v.book_img}
                     className="card-img-top ProductList-card-img-top"
@@ -112,10 +110,10 @@ function ProductList(props) {
                     <p className="card-text text-danger">$ {v.price}元</p>
                   </div>
                 </Link>
-                <div className="card-footer">
+                <div className="my-2 ">
                   <button
                     type="button"
-                    className="btn  co-btn"
+                    className="btn btn-primary me-2 "
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
@@ -127,7 +125,7 @@ function ProductList(props) {
                   >
                     加入購物車
                   </button>
-                  <button className="btn  co-btn">加入收藏</button>
+                  <button className="btn btn-primary">加入收藏</button>
                 </div>
               </div>
             </div>

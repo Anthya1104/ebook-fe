@@ -9,8 +9,8 @@ function ProductDetail() {
   return (
     <>
 
-        <div>
-          ProductDetail:{productId}
+        <div className='mt-5'>
+          {/* ProductDetail:{productId} */}
           <ProductInfo productId={productId} />
         </div>
     </>

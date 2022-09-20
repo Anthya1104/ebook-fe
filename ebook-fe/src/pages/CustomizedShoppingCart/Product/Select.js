@@ -46,26 +46,81 @@ function DefaultExample({ cat, setCat }) {
           </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#"
-          >社會科學 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('社會科學')
+            }}
+          >
+            社會科學
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">生活風格 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('生活風格')
+            }}
+          >
+            生活風格
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">藝術設計 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('藝術設計')
+            }}
+          >
+            藝術設計
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">自然科普 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('自然科普')
+            }}
+          >
+            自然科普
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">旅遊觀光 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('旅遊觀光')
+            }}
+          >
+            旅遊觀光
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">醫療保健 </a>
+        <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('醫療保健')
+            }}
+          >
+            醫療保健
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">勵志成長 </a>
+        <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('勵志成長')
+            }}
+          >
+            勵志成長
+          </a>
         </ListGroup.Item>
       </ListGroup>
 
