@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Bookcover from '../../../img/book.jpg'
 // axios
 import axios from 'axios'
@@ -35,12 +36,16 @@ const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
 function OwnedBooksList() {
   // customized Category states
   const [getCategories, setGetCategories] = useState([])
+
+  // 目前在哪個分類
   const [onCategory, setOnCategory] = useState('')
   // TODO: make a filter with all conditions
   // const [onFiltered, setOnfiltered]=useState([])
   // append各種狀況
+
   // 先嘗試只篩類別
   const [onCategoryList, setOnCategoryList] = useState([])
+
   useEffect(() => {
     const getCategories = async () => {
       let response = await axios.get(`${API_URL}/bookshelf/custom-categories`)
@@ -110,9 +115,11 @@ function OwnedBooksList() {
     return (
       <>
         <div key={bookList.id} className="Bookshelf-bookCollection">
-          <div className="bookCover">
-            <img className="contain-fit" src={Bookcover} alt="bookCover" />
-          </div>
+          <Link to={`${bookList.id}`}>
+            <div className="bookCover">
+              <img className="contain-fit" src={Bookcover} alt="bookCover" />
+            </div>
+          </Link>
           <ul className="my-2 d-flex-column justify-content-center align-items-center">
             <li className="d-flex justify-content-center align-items-center">
               <Box sx={{ width: 115, left: 5 }}>
@@ -141,6 +148,7 @@ function OwnedBooksList() {
       {/* Customized Category */}
       <div className="Bookshelf-customized-category d-flex justify-content-between">
         <ul className="d-flex my-2 align-items-center">
+          {/* 把category 鋪出來 */}
           {getCategories.map((categoryValue) => {
             return (
               <li
