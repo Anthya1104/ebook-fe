@@ -205,6 +205,7 @@ function RecentBook() {
                             <div className="mx-3">
                               <StarRating
                                 setScoreFromStarRating={setScoreFromStarRating}
+                                color={'#F5F5F5'}
                               />
                             </div>
                           </div>
@@ -224,6 +225,7 @@ function RecentBook() {
                                 setReviewParam({
                                   ...reviewParam,
                                   review_comments: '',
+                                  review_score: 0,
                                 })
                               }}
                             >
