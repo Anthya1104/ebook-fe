@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 function Navbar() {
   return (
     <>
-      <div className="navbar d-flex justify-content-start">
+      <div className="navbar">
         <div className="d-flex p-2 align-items-center">
           <NavLink to="/">
             <h4>Home</h4>

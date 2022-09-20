@@ -81,7 +81,10 @@ function App() {
           <Route path="Cart" element={<ShoppingCart />}>
             <Route index element={<SingleCart />} />
             <Route path="product-list" element={<ProductList />} />
-            <Route path="ProductDetail/:productId" element={<ProductDetail />} />
+            <Route
+              path="ProductDetail/:productId"
+              element={<ProductDetail />}
+            />
             <Route path="Checkout" element={<Checkout />} />
           </Route>
           <Route path="chat" element={<Chat />} />
