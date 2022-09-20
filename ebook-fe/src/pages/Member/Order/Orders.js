@@ -17,7 +17,9 @@ import data from './OrderData.json'
 import '../../../style/Order.scss'
 
 function Orders() {
-  const [date, setDate] = useState()
+  const [startDate, setDate] = useState()
+  const [endDate, setDate] = useState()
+
   console.log('Date', date)
   const orderId = 1
   return (
