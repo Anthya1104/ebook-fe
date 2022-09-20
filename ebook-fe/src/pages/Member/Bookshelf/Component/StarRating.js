@@ -5,23 +5,23 @@ import Rating from '@mui/material/Rating'
 import StarOutlineIcon from '@mui/icons-material/StarOutline'
 import StarRate from '@mui/icons-material/StarRate'
 
-function StarRating(props) {
+function StarRating({ setScoreFromStarRating, color, defaultValue }) {
   const [value, setValue] = useState(0)
 
   // 回傳start score
   useEffect(() => {
-    props.setScoreFromStarRating(value)
+    setScoreFromStarRating(value)
   }, [value])
 
   const StyledRating = styled(Rating)({
     '& .MuiRating-iconEmpty': {
-      color: '#F5F5F5',
+      color: color,
     },
     '& .MuiRating-iconFilled': {
-      color: '#F5F5F5',
+      color: color,
     },
     '& .MuiRating-iconHover': {
-      color: '#F5F5F5',
+      color: color,
     },
   })
 
@@ -35,6 +35,7 @@ function StarRating(props) {
         <StyledRating
           name="simple-controlled"
           value={value}
+          defaultValue={3}
           onChange={(event, newValue) => {
             setValue(newValue)
           }}

@@ -205,7 +205,7 @@ function OwnedBooksList() {
             </svg>
           </li>
         </ul>
-        {/* TODO: 改成只篩日期排序*/}
+
         <div className="d-flex justify-content-end align-items-center">
           <button
             className={
@@ -256,7 +256,7 @@ function OwnedBooksList() {
         </div>
       </div>
       {/* toggle */}
-      <div className="d-flex justify-content-end">
+      <div className="Bookshelf-is-read-toggle">
         <button
           className={
             isRead
