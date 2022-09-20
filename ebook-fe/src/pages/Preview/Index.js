@@ -1,5 +1,5 @@
 import React from 'react'
-import iconBack from '../../img/back.png'
+import iconBack from '../../img/Back.png'
 import iconMenu from '../../img/main-menu.png'
 import iconBook from '../../img/book.png'
 import iconCart from '../../img/shopping-cart.png'
