@@ -1,4 +1,4 @@
-import { useState, useParam } from 'react'
+import { useState, useParam, useEffect } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,8 +14,6 @@ import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
 import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
 import ProductFilter from '../Product/ProductFilter/ProductFilter'
-
-
 
 function ProductList(props) {
   // 對話盒使用
@@ -35,6 +33,18 @@ function ProductList(props) {
     handleShow()
   }
 
+  const [cat, setCat] = useState('')
+  const [productsDisplay, setProductsDisplay] = useState([])
+
+  useEffect(() => {
+    setProductsDisplay(products)
+  }, [])
+
+  useEffect(() => {
+    if (cat) {
+      setProductsDisplay(products.filter((v, i) => v.book_category === cat))
+    }
+  }, [cat])
 
   const messageModal = (
     <>
@@ -74,7 +84,7 @@ function ProductList(props) {
   const display = (
     //TEST//
     <div className="row row-cols-1 row-cols-md-4 g-4 ">
-      {products.map((v, i) => {
+      {productsDisplay.map((v, i) => {
         return (
           <>
             <div className="col" key={v.id}>
@@ -132,11 +142,11 @@ function ProductList(props) {
       <TopCategory />
       <SearchBar />
       <ProductFilter />
-      <div className='my-5'></div>
+      <div className="my-5"></div>
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
         <div className="me-5">
-          <Select />
+          <Select cat={cat} setCat={setCat} />
         </div>
         <div>
           {messageModal}

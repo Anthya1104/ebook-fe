@@ -1,7 +1,7 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import './Select.scss'
 
-function DefaultExample() {
+function DefaultExample({ cat, setCat }) {
   return (
     <div>
       <h4>篩選條件</h4>
@@ -24,10 +24,26 @@ function DefaultExample() {
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">分類</ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">商業理財 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('商業理財')
+            }}
+          >
+            商業理財
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">文學小說 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('文學小說')
+            }}
+          >
+            文學小說
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
           <a href="#">社會科學 </a>
