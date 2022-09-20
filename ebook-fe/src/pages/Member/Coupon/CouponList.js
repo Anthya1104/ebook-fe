@@ -11,6 +11,7 @@ import Cards from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
+import { useState } from 'react'
 // import ScrollToTop from './ScrollToTop'
 import couponData from './marketing.json'
 // import couponData from './coupon.json'
@@ -33,9 +34,11 @@ import couponz from '../../../img/test-coupon.png'
 
 function CouponList() {
   // const couponId = 1
+  // const [ticket setTicket] = useState("");
   return (
     <>
       <div className="container d-flex flex-column">
+      {/* 麵包屑 */}
         <div className="ms-5">
           <Breadcrumb>
             <Breadcrumb.Item href="http://localhost:3005">首頁</Breadcrumb.Item>
@@ -43,6 +46,7 @@ function CouponList() {
             <Breadcrumb.Item active>優惠券</Breadcrumb.Item>
           </Breadcrumb>
         </div>
+        
         <div className="d-flex justify-content-end">
           <div className="coupon-dropdown col-3 mb-4 dp">
             <DropdownButton
