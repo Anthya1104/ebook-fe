@@ -12,7 +12,7 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { useState } from 'react'
-// import ScrollToTop from './ScrollToTop'
+import ScrollToTop from './Component/ScrollToTop'
 import couponData from './marketing.json'
 // import couponData from './coupon.json'
 import business from '../../../img/business.png'
@@ -38,6 +38,7 @@ function CouponList() {
   return (
     <>
       <div className="container d-flex flex-column">
+        <ScrollToTop />
       {/* 麵包屑 */}
         <div className="ms-5">
           <Breadcrumb>
@@ -47,8 +48,8 @@ function CouponList() {
           </Breadcrumb>
         </div>
         
-        <div className="d-flex justify-content-end">
-          <div className="coupon-dropdown col-3 mb-4 dp">
+        <div className="d-flex justify-content-end me-2ㄞ">
+          <div className="coupon-dropdown col-3 mb-4 dp me-5">
             <DropdownButton
               align="end"
               title="優惠券排序"
