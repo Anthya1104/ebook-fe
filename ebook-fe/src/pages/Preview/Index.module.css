@@ -1,18 +1,75 @@
-:local :root {
-  /*clock*/
-}
-
-.iconsStart {
-}
-
-.title {
-}
-
-.iconaEnd {
-}
-
-.main {
+:root {
+  box-sizing: border-box;
+  /*顏色*/
+  --color1: #661f1e;
+  --color2: #df9d6e;
+  --color3: #efd3ce;
+  --color4: #f5f5f5;
+  --color5: #c0724a;
+  --color6: #d9d9d9;
+  /*距離*/
+  --1: 0.25rem;
+  --2: 0.5rem;
+  --3: 0.75rem;
+  --4: 1rem;
+  --5: 1.25rem;
+  --6: 1.5rem;
+  --7: 1.75rem;
+  --8: 2rem;
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color1);
+}
+
+.icons {
+  display: flex;
+  margin-top: var(--5);
+}
+
+.iconsLi {
+  padding: var(--4);
+  color: var(--color2);
+  text-align: center;
+  line-height: 2rem;
+  background: var(--color1);
+}
+
+.hover {
+  background: var(--color3);
+  width: 300px;
+  color: var(--color1);
+  text-align: left;
+  border: 1px solid var(--color1);
+  border-top: none;
+  border-radius: 0 20px 20px 20px;
+  padding: var(--3);
+  display: none;
+  position: absolute;
+}
+
+.iconsLi:hover {
+  background: var(--color3);
+  border-radius: 20px;
+}
+
+.iconsLi:hover .hover {
+  display: block;
+  transform: translate(-17px, -5px);
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+  line-height: var(--8);
+  color: var(--color3);
+}
+
+.pdfJs {
+  width: 100%;
+  padding: var(--8) 0;
+  background: var(--color3);
 }
