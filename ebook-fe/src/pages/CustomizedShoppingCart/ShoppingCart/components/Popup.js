@@ -19,7 +19,7 @@ function Example() {
         {/* <Modal.Header closeButton> */}
           <Modal.Title></Modal.Title>
         {/* </Modal.Header> */}
-        <Modal.Body>訂單已成立</Modal.Body>
+        <Modal.Body className='Popup-text-style my-4'>訂單已成立</Modal.Body>
         <Modal.Footer>
           {/* <Button variant="btn co-btn" onClick={handleClose}>
             關閉
