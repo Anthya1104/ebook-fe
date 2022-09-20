@@ -31,8 +31,37 @@ function OwnedBooks() {
         <RecentBook />
         {/* 書櫃標題 */}
 
-        <div className="Bookshelf_tabs d-flex-column py-3">
-          <div className="d-flex justify-content-left m-2">
+        {/* Bookshelf Tab Mobile */}
+        <div className="Bookshelf-mobile-container d-flex justify-content-center">
+          <Button
+            className={
+              bookToggleState === 1
+                ? ' btn Bookshelf-mobile-tab active'
+                : 'btn Bookshelf-mobile-tab'
+            }
+            onClick={() => {
+              setbookToggleState(1)
+            }}
+          >
+            <h5>我的書櫃</h5>
+          </Button>
+          <Button
+            className={
+              bookToggleState === 2
+                ? ' btn Bookshelf-mobile-tab active'
+                : 'btn Bookshelf-mobile-tab'
+            }
+            onClick={() => {
+              setbookToggleState(2)
+            }}
+          >
+            <h5>我的評論</h5>
+          </Button>
+        </div>
+
+        <div className="Bookshelf-tabs d-flex-column py-3">
+          {/* desktop category tab */}
+          <div className="Bookshelf-desktop-tab m-2">
             <Button
               className={
                 bookToggleState === 1

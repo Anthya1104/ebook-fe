@@ -210,13 +210,23 @@ function RecentBook() {
                           </div>
                           {/* <input type="textarea" /> */}
                           <textarea
+                            id="Bookshelf-popup-review-input"
                             col="4"
                             row="500"
                             placeholder="請輸入評論"
+                            value={reviewParam.review_comments}
                             onChange={reviewOnChangeHandler}
                           ></textarea>
                           <div className="d-flex justify-content-end my-2 mx-3">
-                            <Button className="btn btn-primary mx-2">
+                            <Button
+                              className="btn btn-primary mx-2"
+                              onClick={() => {
+                                setReviewParam({
+                                  ...reviewParam,
+                                  review_comments: '',
+                                })
+                              }}
+                            >
                               清空
                             </Button>
                             <Button

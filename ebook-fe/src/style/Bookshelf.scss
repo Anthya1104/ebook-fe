@@ -179,9 +179,43 @@ $Bookshelf_recent_translateY: 40px;
 // 大分類
 .Bookshelf-tabs{
   transform: translateY(50px);
+  @media(max-width:$mobile-break-point){
+    transform:translateY(0)
+  }
+  .Bookshelf-desktop-tab{
+    display:flex;
+    justify-content:left;
+    
+    @media(max-width:$mobile-break-point){
+      display:none;
+    }
+  }
+
+}
+.Bookshelf-mobile-tab{
+  
+  display:none;
+  justify-content:center;
+  align-content:center;
+  text-align: center;
+  margin-top:20px;
+  padding-top:15px;
+  width:100%;
+  background:$body-bg;
+  color:$primary;
+
+  &:hover{
+    background:$primary;
+    color:$body-bg;
+  }
+  @media(max-width:$mobile-break-point){
+    display:flex;
+  }
+
 }
 
 .Bookshelf_category{
+  
   width: 150px;
   margin-right:30px;
   color:$primary;
@@ -213,6 +247,9 @@ $Bookshelf_recent_translateY: 40px;
   
       // viewBox:"0 0 500 12";
     }
+    @media(max-width:$mobile-break-point){
+      display:none;
+    }
   }
 }
 
@@ -240,6 +277,9 @@ $Bookshelf_recent_translateY: 40px;
     }
   }
   .Bookshelf-date-sort{
+    @media(max-width:$mobile-break-point){
+      display:none;
+    }
     
     display:flex;
     align-items: center;
@@ -250,6 +290,9 @@ $Bookshelf_recent_translateY: 40px;
     }
   }
   .Bookshelf-date-sort-toggled{
+    @media(max-width:$mobile-break-point){
+      display:none;
+    }
     display:flex;
     align-items: center;
     background:$danger;
@@ -257,9 +300,16 @@ $Bookshelf_recent_translateY: 40px;
     svg{
       margin-right:5px;
     }
+
   }
 }
-
+    .Bookshelf-is-read-toggle{
+      display:flex;
+      justify-content: end;
+      @media(max-width:$mobile-break-point){
+        display:none;
+      }
+    }
 // 書卡片
 
 // 自切
