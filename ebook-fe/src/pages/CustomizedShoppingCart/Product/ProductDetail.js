@@ -8,10 +8,11 @@ function ProductDetail() {
   const { productId } = useParams()
   return (
     <>
-      <div>
-        ProductDetail:{productId}
-        <ProductInfo productId={productId} />
-      </div>
+
+        <div>
+          ProductDetail:{productId}
+          <ProductInfo productId={productId} />
+        </div>
     </>
   )
 }

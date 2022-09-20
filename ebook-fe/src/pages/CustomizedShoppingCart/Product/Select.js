@@ -46,7 +46,8 @@ function DefaultExample({ cat, setCat }) {
           </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">社會科學 </a>
+          <a href="#"
+          >社會科學 </a>
         </ListGroup.Item>
         <ListGroup.Item>
           <a href="#">生活風格 </a>

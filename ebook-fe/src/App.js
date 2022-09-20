@@ -37,11 +37,14 @@ import ShoppingCart from './pages/CustomizedShoppingCart/ShoppingCart'
 import ProductList from './pages/CustomizedShoppingCart/Product/ProductList'
 import SingleCart from './pages/CustomizedShoppingCart/ShoppingCart/SingleCart'
 import Checkout from './pages/CustomizedShoppingCart/ShoppingCart/components/Checkout'
+import ScrollToTop from './Component/ScrollToTop'
 
 function App() {
   return (
     <BrowserRouter>
+         <ScrollToTop>
       <Routes>
+ 
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="Login" element={<Login />} />
@@ -90,7 +93,7 @@ function App() {
           {/* 404未找到的頁面路由，需放在最下方 */}
           <Route path="*" element={<NotFound />} />
         </Route>
-      </Routes>
+      </Routes></ScrollToTop>
     </BrowserRouter>
   )
 }

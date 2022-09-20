@@ -11,7 +11,7 @@ import Checkout from './components/Checkout'
 // import Products from './pages/Product/Products'
 
 // 切換頁面捲動至最上方
-// import ScrollToTop from './components/ScrollToTop'
+import ScrollToTop from '../../../Component/ScrollToTop'
 
 // 匯入 Cart 要用的 ContextProvider
 import { CartProvider } from '../utils/useCart'
@@ -25,9 +25,9 @@ function ShoppingCart() {
     <SecondCartProvider localStorageKey="secondCart">
       <CartProvider>
         {/* <MainContent> */}
-          {/* <ScrollToTop> */}
+          <ScrollToTop>
             <Outlet />
-          {/* </ScrollToTop> */}
+          </ScrollToTop>
         {/* </MainContent> */}
       </CartProvider>
     </SecondCartProvider>
