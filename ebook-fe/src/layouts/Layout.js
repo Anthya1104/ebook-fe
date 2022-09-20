@@ -1,6 +1,6 @@
 import Footer from './Footer'
 import Navbar from './Navbar'
-import CollapsibleExample from './Navbar2'
+// import CollapsibleExample from './Navbar2'
 import { Outlet } from 'react-router-dom'
 
 function Layout() {
@@ -8,7 +8,7 @@ function Layout() {
     <>
       {/* 導覽列 */}
       <Navbar />
-      <CollapsibleExample />
+      {/* <CollapsibleExample /> */}
 
       <div className="container-xxl d-flex-column justify-context-center">
         <Outlet />
