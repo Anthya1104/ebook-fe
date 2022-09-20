@@ -270,6 +270,11 @@ function RecentBook() {
         reviewParam
       )
       setDataReady(false)
+      // TODO:還有問題
+      if (response.request.status === 400) {
+        return alert('沒有成功儲存喔')
+      }
+
       notify()
     }
     submitReview()
