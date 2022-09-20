@@ -1,13 +1,10 @@
 import { React, useState } from 'react'
-import { Link } from 'react-router-dom'
 import RecentBook from './Component/RecentBook'
 import Button from 'react-bootstrap/Button'
 import OwnedBooksList from './OwnedBooksList'
 import BookReviesList from './BookReviewList'
 
 function OwnedBooks() {
-  const ownedBookId = 1
-
   // tab state
   const [bookToggleState, setbookToggleState] = useState(1)
   return (
