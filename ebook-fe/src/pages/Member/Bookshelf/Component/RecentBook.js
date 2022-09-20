@@ -91,6 +91,18 @@ function RecentBook() {
       progress: undefined,
     })
 
+  const warning = () =>
+    toast.warn('請確認評論或評分是否填妥唷！', {
+      className: 'Bookshelf-toast-black-background',
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+
   const createRecentBook = (recentBook) => {
     return recentBook.map((recentBookValue) => {
       // console.log('recetnBookValue', recentBookValue)
@@ -216,7 +228,7 @@ function RecentBook() {
                                   !reviewParam.review_score ||
                                   !reviewParam.review_comments
                                 ) {
-                                  return alert('請填好資料')
+                                  return warning()
                                 }
                                 console.log('資料送出', reviewParam)
                                 setDataReady(true)
@@ -290,7 +302,8 @@ function RecentBook() {
       {/* <div>RecentBook</div> */}
       {createRecentBook(recentBook)}
       {/* {console.log('createRecentBook', createRecentBook(recentBook))} */}
-      {/* toast test */}
+
+      {/* success toast */}
       <ToastContainer
         position="top-center"
         autoClose={1500}
