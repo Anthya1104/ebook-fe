@@ -92,14 +92,14 @@ function MemberIndex() {
             </li>
 
             <li className="member-item col-4 m-5">
-              <a className="member-word" href="#">
+              <Link className="member-word" to="/Member/coupon">
                 <img
                   className="member-icon"
                   src={require('../pages/memberindexcategory/card.png')}
                 />
                 <br />
                 我的優惠券{' '}
-              </a>
+              </Link>
             </li>
 
             <li className="member-item col-4 m-5">
