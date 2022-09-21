@@ -1,24 +1,31 @@
 import { useState } from 'react'
-import '../../../../style/Order.scss'
 
 function DatePick() {
-  const [date, setDate] = useState()
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
 
-  console.log('Date', date)
+  // console.log('Date', date)
 
   return (
     <div className="main mb-3">
       <div className="d-flex">
         <input
-          className="date-pick"
           type="date"
-          onChange={(e) => setDate(e.target.value)}
-        />{' '}
-        -{' '}
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+        />
+        <span className="m-1">-</span>
         <input
-          className="date-pick"
           type="date"
-          onChange={(e) => setDate(e.target.value)}
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
         />
         <div>
           <a href="#" className="btn btn-primary ms-2">

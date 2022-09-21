@@ -10,7 +10,7 @@ import Chat from '../../../img/Chat.png'
 import Back from '../../../img/Back.png'
 import DetailLine from '../../../img/DetailLine.png'
 import DetailDash from '../../../img/DetailDash.svg'
-import data from './OrderDetailData.json'
+import data from './newOrderDetail.json'
 import '../../../style/Order.scss'
 
 function OrderDetail() {
@@ -18,9 +18,8 @@ function OrderDetail() {
   return (
     <>
       <div className="container">
-        {data.filter((v, i) => {
-          return (v.order_id = 1(console.log(data)))
-        })}
+        {/* {console.log(data[2].data)} */}
+
         <Card sx={{ maxWidth: 1067, height: 200 }}>
           <div className="orderCardBackground">
             <CardContent>
@@ -31,16 +30,24 @@ function OrderDetail() {
                   component="div"
                   className="mb-3 text-white "
                 >
-                  訂單總額:$800
+                  {/* 透過後端求總金額 */}
+                  訂單總額:?
                 </Typography>
               </div>
+
               <div className="d-flex justify-content-center">
                 <Typography
                   variant="body1"
                   color="text.secondary"
                   className=" mb-3 text-white"
                 >
-                  訂單日期:2022/09
+                  {data.map((dateValue) => {
+                    return (
+                      <>
+                        <div> 訂單日期：{dateValue.date}</div>
+                      </>
+                    )
+                  })}
                 </Typography>
               </div>
               <div className="d-flex justify-content-around">
@@ -55,7 +62,8 @@ function OrderDetail() {
                   component="div"
                   className="mb-3 text-white"
                 >
-                  共10本<br></br>商品數量
+                  {/* 透過後端求總比數 */}
+                  &nbsp;共10本<br></br>商品數量
                 </Typography>
                 <div>
                   <img className="img-fluid" src={DetailLine} alt="Line" />
@@ -66,7 +74,14 @@ function OrderDetail() {
                   component="div"
                   className="mb-5 text-white"
                 >
-                  已完成<br></br>訂單狀態
+                  {data.map((statusValue) => {
+                    return (
+                      <>
+                        <div> &nbsp;&nbsp;{statusValue.status}</div>
+                      </>
+                    )
+                  })}
+                  訂單狀態
                 </Typography>
                 <Link className="mx-2" to="/Chat">
                   <img src={Chat} alt="Chat" />
@@ -83,7 +98,7 @@ function OrderDetail() {
                   <CardMedia
                     className="mx-2 my-2 shadow"
                     component="img"
-                    image={Book}
+                    image={v.book_img}
                     alt="book"
                   />
                 </div>
@@ -94,29 +109,29 @@ function OrderDetail() {
                     component="div"
                     className="mb-3 orderText"
                   >
-                    原子習慣
+                    {v.book_name}
                   </Typography>
                   <Typography variant="h6" className="mb-2 orderText">
-                    細微改變帶來巨大成就的實證法則
+                    {v.book_subtitle}
                   </Typography>
                   <Typography variant="body2" className="mb-2 orderText">
-                    作者：詹姆斯．克利爾
+                    作者：{v.author}
                   </Typography>
                   <Typography variant="body2" className="mb-3 orderText">
-                    原文作者： James Clear
+                    譯者： {v.translator}
                   </Typography>
                   <Typography variant="body2" className="mb-3 orderText">
-                    譯者： 蔡世偉
+                    出版社：{v.book_subtitle}
                   </Typography>
                   <Typography variant="body2" className="mb-3 orderText">
-                    出版社：方智出版
+                    出版日期：{v.publisher}
                   </Typography>
                   <Typography variant="body2" className="mb-3 orderText">
-                    出版日期：2019/06/01
+                    語言：{v.language}
                   </Typography>
                   <Typography variant="body2" className="mb-3 orderText">
-                    語言：繁體中文
-                  </Typography>{' '}
+                    售價：{v.price}
+                  </Typography>
                 </CardContent>
                 <img className="img-fluid" src={DetailDash} alt="Dash"></img>
               </div>
