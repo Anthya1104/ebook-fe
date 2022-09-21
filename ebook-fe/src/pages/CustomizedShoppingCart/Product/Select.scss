@@ -1,19 +1,25 @@
 .product-select {
-    width: 200px;
-    margin-bottom: 20px;
+  width: 200px;
+  margin-bottom: 20px;
 }
 
+.Select-title {
+  font-weight: bolder;
+  padding-bottom: 10px;
+  border-bottom: 2px dotted #661f1e;
+  margin-bottom: 20px;
+}
 
 // 為什麼要寫在global才有效??
 .product-title {
-    background: #661F1E; 
-    color: white;
+  background: #661f1e;
+  color: white;
 }
 
 .product-select a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h3 {
-    color: #661F1E;
+  color: #661f1e;
 }

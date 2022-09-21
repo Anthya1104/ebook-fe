@@ -10,6 +10,8 @@ import { useState } from 'react' //要用useState的話，要先用這句
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 
+import './SingleCart.scss'
+
 // cart init
 // initialState = {
 //   items: [],
@@ -50,7 +52,7 @@ function SingleCart(props) {
       <Bar step={step} />
       {/* <h1>單一個購物車範例</h1> */}
       <p className="text-nowrap bd-highlight">
-        /pages/ShoppingCart/SingleCart.js
+        {/* /pages/ShoppingCart/SingleCart.js */}
       </p>
 
       {/* 連自各測試頁 */}
@@ -63,10 +65,10 @@ function SingleCart(props) {
           {/* <h4>購物車列表</h4> */}
 
           {/* 新加的 */}
-          <div>
+          <div className=''>
             <div
               className={`btn SingleCart-tab ${
-                tab === 'cart' ? 'active-state' : ''
+                tab === 'cart' ? 'SingleCart-active-state' : ''
               }`}
               onClick={onClickTab('cart')}
             >
@@ -74,7 +76,7 @@ function SingleCart(props) {
             </div>
             <div
               className={`btn SingleCart-tab ${
-                tab === 'wishList' ? 'active-state' : ''
+                tab === 'wishList' ? 'SingleCart-active-state' : ''
               }`}
               onClick={onClickTab('wishList')}
             >
