@@ -4,8 +4,8 @@ import './Bar.scss'
 function Bar({ step }) {
   return (
     <>
-      <div class="container">
-        <ul class="progressbar">
+      <div className="container my-5">
+        <ul className="progressbar">
           <li class="active">購物車</li>
           <li className={step === 2 || step === 3 ? 'active' : ''}>確認商品</li>
           <li className={step === 3 ? 'active' : ''}>付款</li>

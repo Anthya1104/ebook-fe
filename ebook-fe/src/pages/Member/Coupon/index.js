@@ -4,8 +4,10 @@ import { Outlet } from 'react-router-dom'
 function Coupon() {
   return (
     <>
-      <div>Coupon Index</div>
-      <Outlet />
+      <dvi className="CouponPage">
+        {/* <div>Coupon Index</div> */}
+        <Outlet />
+      </dvi>
     </>
   )
 }

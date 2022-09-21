@@ -359,6 +359,7 @@ $Bookshelf_recent_translateY: 40px;
   justify-content: center;
   border-bottom: 1px dashed $primary;
   margin-bottom: 30px;
+  padding:50px;
 
   .col-sm-3{
     display:flex;
@@ -395,4 +396,19 @@ $Bookshelf_recent_translateY: 40px;
     }
 
   }
+}
+
+.Reviews-pagination-area{
+  margin-bottom: 50px;
+  .Reviews-page-location{
+  transform: translateY(8px);
+}
+
+.prev, .next{
+  .Bookshelf-arrow{
+    @media(max-width:$mobile-break-point){
+      display:flex;
+    }
+  }
+}
 }
