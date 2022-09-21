@@ -87,15 +87,14 @@
 .tab_background {
   width: 105px;
   margin-left: 15px;
-  background: $primary;
   border:1px solid rgba(0,0,0,0);
   border-radius: 12px 0 12px 0;
   transform: skew(-25deg);
   transition:.4s;
-  &:active{
-    background: $primary;
   }
-}
+.tab_background:active{
+    color: #661f1e;
+  }
 .btn_word{
   transform: skew(20deg);
 }
