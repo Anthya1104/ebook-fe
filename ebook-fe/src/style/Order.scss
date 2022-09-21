@@ -93,7 +93,6 @@
   transform: skew(-25deg);
   transition:.4s;
   &:active{
-    color:$body-bg;
     background: $primary;
   }
 }
