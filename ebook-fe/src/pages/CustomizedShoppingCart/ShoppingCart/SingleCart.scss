@@ -1,0 +1,64 @@
+.SingleCart-active-state {
+  background: #661f1e;
+  color: white;
+  border-radius: 0;
+  border: 1px solid #661f1e;
+  &:hover {
+    border-radius: none; //why沒效???
+    border: 1px solid #661f1e;
+  }
+}
+
+//名稱&小計這條
+.SingleCart-topnav {
+  background: #661f1e;
+  color: white;
+}
+
+//輸入折扣碼
+.ListItemsWithHook-coupon-input {
+  color: #b48c8c;
+  border: 1px solid #b48c8c;
+  border-radius: 5px;
+  width: 250px;
+  height: 35px;
+}
+
+.ListItemsWithHook-placeholder ::placeholder {
+  color: #b48c8c;
+  padding: 5px;
+}
+
+.ListItemsWithHook-coupon-btn {
+  background: #efd3ce;
+  border: 2px solid #efd3ce;
+  margin-left: 10px;
+  width: 80px;
+  height: 35px;
+  border-radius: 5px;
+  color: #661f1e;
+  font-weight: 600;
+  &:hover {
+    // border: 1px solid #661F1E;
+    color: white;
+  }
+}
+
+//字體強調 桃紅色
+.ListItemsWithHook-text-em-color {
+  color: #bf245d;
+  font-weight: bolder;
+}
+
+//Pay頁面
+.Pay-text-style {
+  font-weight: bolder;
+}
+
+.Pay-input-style {
+  border: 1px solid #661f1e;
+}
+
+.Popup-text-style {
+  font-weight:bolder;
+}

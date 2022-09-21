@@ -1,25 +1,25 @@
 .ProductInfo {
   .ProductInfo-img {
-    width: 369px;
-    height: 510px;
+    width: 400px;
+    height: 500px;
     box-shadow: 15px 15px 25px 0 rgba($color: #000000, $alpha: 0.25);
   }
   .ProductInfo-title {
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 28px;
     line-height: 22px;
     color: #000000;
     margin-bottom: 10px;
   }
   .ProductInfo-subTitle {
-    font-weight: 300;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 16px;
     line-height: 19px;
     color: #8D4343;
     margin-bottom: 10px;
   }
   .ProductInfo-bookInfo {
-    font-weight: 300;
+    font-weight: 600;
     font-size: 14px;
     line-height: 19px;
     color: #000000;
@@ -39,7 +39,7 @@
     text-decoration: none;
   }
   p {
-
+    color:#000000
   }
 }
 
@@ -50,4 +50,10 @@
       height: 350px;
     }
   }
+}
+
+
+//後來加的
+.ProductInfo-font-weight {
+  font-weight: 600;
 }
