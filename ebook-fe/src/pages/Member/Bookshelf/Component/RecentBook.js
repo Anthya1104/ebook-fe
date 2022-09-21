@@ -8,6 +8,9 @@ import Button from 'react-bootstrap/Button'
 import Popup from 'reactjs-popup'
 // Star Rating Importing
 import StarRating from './StarRating'
+// reactToastify importing
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 // test avatar img importing
 import Avatar from '../../../../img/book.jpg'
@@ -23,6 +26,17 @@ function RecentBook() {
 
   // data from star rating
   const [scoreFromStarRating, setScoreFromStarRating] = useState(0)
+
+  // submitted data
+  const [reviewParam, setReviewParam] = useState({
+    member_id: 1,
+    book_id: '',
+    review_score: 0,
+    review_comments: '',
+  })
+
+  // data ready
+  const [dataReady, setDataReady] = useState(false)
 
   // the most recent read book from DB
   const [recentBook, setRecentBook] = useState([])
@@ -42,11 +56,63 @@ function RecentBook() {
     getRecentBook()
   }, [])
 
+  // 設定評論 book_id
+  useEffect(() => {
+    // TODO:question : 為什麼 如果沒寫 recentBook.length 這個判別 會壞掉
+    if (recentBook.length !== 0) {
+      let [data] = [...recentBook]
+      console.log('recentBookId', data)
+
+      return setReviewParam({ ...reviewParam, book_id: data.id })
+    }
+  }, [recentBook])
+
+  // 把starRating的分數存進submit data
+  useEffect(() => {
+    setReviewParam({ ...reviewParam, review_score: scoreFromStarRating })
+  }, [scoreFromStarRating])
+
+  const reviewOnChangeHandler = (e) => {
+    setReviewParam({ ...reviewParam, review_comments: e.target.value })
+  }
+
+  // review post toastify
+  // TODO:研究改顏色
+  // https://fkhadra.github.io/react-toastify/how-to-style
+  const notify = () =>
+    toast.info('成功送出資料', {
+      className: 'Bookshelf-toast-black-background',
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+
+  const warning = () =>
+    toast.warn('請確認評論或評分是否填妥唷！', {
+      className: 'Bookshelf-toast-black-background',
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+
   const createRecentBook = (recentBook) => {
     return recentBook.map((recentBookValue) => {
-      console.log('recetnBookValue', recentBookValue)
+      // console.log('recetnBookValue', recentBookValue)
+
       return (
         <>
+          <div className="Bookshelf-mobile-recent-title">
+            <h5>{recentBookValue.book_name}</h5>
+            <h6>{recentBookValue.author}</h6>
+          </div>
           <div className="position-relative my-5" key={recentBookValue.id}>
             <div className="Bookshelf-recent-book-container d-flex justify-content-left align-items-center">
               <img
@@ -67,7 +133,7 @@ function RecentBook() {
             </div>
             <div className="position-absolute top-0 Bookshelf-recent-info">
               <h5>{recentBookValue.book_name}</h5>
-              <h6>詹姆斯‧克利爾</h6>
+              <h6>{recentBookValue.author}</h6>
             </div>
             <div className="position-absolute bottom-0 Bookshelf-recent-info">
               <p className="Bookshelf-recent-percentage">{readProcess + '%'}</p>
@@ -105,28 +171,85 @@ function RecentBook() {
                     {(close) => (
                       <div className="Bookshelf-popup-reviews p-2 rounded">
                         <Button
-                          className="btn btn-primary float-end rounded-circle"
+                          className="Bookshelf-close-btn btn btn-primary float-end rounded-circle"
                           onClick={close}
                         >
                           &times;
                         </Button>
                         <div className="d-flex-column m-2">
-                          <div className="d-flex m-2 align-items-center">
-                            <div className="Bookshelf-recentbook-avatar mx-2">
+                          <div className="d-flex my-3 align-items-center">
+                            <div className="Bookshelf-recentbook-avatar mx-3">
                               <img
                                 className="cover-fit rounded-circle"
                                 alt="avatar"
                                 src={Avatar}
                               />
                             </div>
+                            <div className="mx-2">
+                              <svg
+                                width="2"
+                                height="44"
+                                viewBox="0 0 2 44"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M1 1.74512L0.999998 42.7451"
+                                  stroke="#B48C8C"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                />
+                              </svg>
+                            </div>
                             {/* reference : https://mui.com/material-ui/react-rating/ */}
-                            <StarRating
-                              setScoreFromStarRating={setScoreFromStarRating}
-                            />
-                            {console.log(scoreFromStarRating)}
+                            <div className="mx-3">
+                              <StarRating
+                                setScoreFromStarRating={setScoreFromStarRating}
+                                color={'#F5F5F5'}
+                              />
+                            </div>
                           </div>
-                          <input type="textarea" />
-                          <div></div>
+                          {/* <input type="textarea" /> */}
+                          <textarea
+                            id="Bookshelf-popup-review-input"
+                            col="4"
+                            row="500"
+                            placeholder="請輸入評論"
+                            value={reviewParam.review_comments}
+                            onChange={reviewOnChangeHandler}
+                          ></textarea>
+                          <div className="d-flex justify-content-end my-2 mx-3">
+                            <Button
+                              className="btn btn-primary mx-2"
+                              onClick={() => {
+                                setReviewParam({
+                                  ...reviewParam,
+                                  review_comments: '',
+                                  review_score: 0,
+                                })
+                              }}
+                            >
+                              清空
+                            </Button>
+                            <Button
+                              className="btn btn-primary"
+                              onClick={() => {
+                                if (
+                                  !reviewParam.member_id ||
+                                  !reviewParam.book_id ||
+                                  !reviewParam.review_score ||
+                                  !reviewParam.review_comments
+                                ) {
+                                  return warning()
+                                }
+                                console.log('資料送出', reviewParam)
+                                setDataReady(true)
+                                close()
+                              }}
+                            >
+                              送出
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     )}
@@ -148,6 +271,27 @@ function RecentBook() {
     })
   }
 
+  // 確定review Data 都有存到 -> post request
+  useEffect(() => {
+    if (!dataReady) {
+      return console.log('資料不齊全喔')
+    }
+    const submitReview = async () => {
+      let response = await axios.post(
+        `${API_URL}/reviews/post-review`,
+        reviewParam
+      )
+      setDataReady(false)
+      // TODO:還有問題
+      if (response.request.status === 400) {
+        return alert('沒有成功儲存喔')
+      }
+
+      notify()
+    }
+    submitReview()
+  }, [dataReady])
+
   // chart.js book_progress
   // 動態資料連動方法 -> 使用
   ChartJS.register(ArcElement, Tooltip, Legend)
@@ -157,7 +301,7 @@ function RecentBook() {
     labels: [],
     datasets: [
       {
-        label: '# of Votes',
+        label: '# of Progress',
         data: [readProcess, 100 - readProcess],
         backgroundColor: ['rgb(102,31,30)', 'rgba(0, 0, 0, 0)'],
         cutout: 140,
@@ -174,7 +318,20 @@ function RecentBook() {
     <>
       {/* <div>RecentBook</div> */}
       {createRecentBook(recentBook)}
-      {console.log('createRecentBook', createRecentBook(recentBook))}
+      {/* {console.log('createRecentBook', createRecentBook(recentBook))} */}
+
+      {/* success toast */}
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   )
 }
