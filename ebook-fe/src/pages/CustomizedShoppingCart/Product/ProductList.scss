@@ -21,3 +21,19 @@
 .ProductList-text-decoration {
     text-decoration: none;
 }
+
+@media (max-width:600px) {
+    .ProductList-showTopCategory {
+        display: none;
+    }
+    .ProductList-showSelect {
+        display: none;
+    }
+    .ProductList-card-outer {
+        display: flex;
+        justify-content: center;
+    }
+    .ProductList-card {
+        width: 300px;
+    }
+}

@@ -21,6 +21,7 @@ function DefaultExample({ cat, setCat }) {
         </ListGroup.Item>
       </ListGroup>
 
+{/*       
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">分類</ListGroup.Item>
         <ListGroup.Item>
@@ -122,7 +123,7 @@ function DefaultExample({ cat, setCat }) {
             勵志成長
           </a>
         </ListGroup.Item>
-      </ListGroup>
+      </ListGroup> */}
 
       <ListGroup className="product-select">
         <ListGroup.Item className="product-title">出版社</ListGroup.Item>

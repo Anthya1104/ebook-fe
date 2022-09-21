@@ -82,12 +82,11 @@ function ProductList(props) {
   )
 
   const display = (
-    //TEST//
     <div className="row">
       {productsDisplay.map((v, i) => {
         return (
           <>
-            <div className="col-12 col-sm-3 mb-4" key={v.id}>
+            <div className="col-12 col-sm-3 mb-4 ProductList-card-outer" key={v.id}>
               <div className="card ProductList-card">
                 <Link to={'/Cart/ProductDetail/' + v.id}>
                   {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
@@ -113,7 +112,7 @@ function ProductList(props) {
                 <div className="my-2 ">
                   <button
                     type="button"
-                    className="btn btn-primary me-2 "
+                    className="btn btn-primary me-2"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
@@ -138,13 +137,15 @@ function ProductList(props) {
   return (
     <>
       {/* <h1>商品列表頁範例</h1> */}
-      <TopCategory />
+      <div className="ProductList-showTopCategory">
+      <TopCategory cat={cat} setCat={setCat} />
+      </div>
       {/* <SearchBar /> */}
       {/* <ProductFilter /> */}
       <div className="my-5"></div>
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
-        <div className="me-5">
+        <div className="me-5 ProductList-showSelect">
           <Select cat={cat} setCat={setCat} />
         </div>
         <div>
