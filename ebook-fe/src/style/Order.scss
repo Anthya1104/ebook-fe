@@ -79,11 +79,27 @@
 @media (max-width: 600px) {
   .mobile-card {
     width: 240px !important;
-    margin:auto;
+    margin: auto;
   }
 }
 
-//order-tab
-// .tab_background{
-//   background-image: url('../img/tab_background.svg');
-// }
+// order-tab
+.tab_background {
+  width: 105px;
+  margin-left: 15px;
+  background: $primary;
+  border:1px solid rgba(0,0,0,0);
+  border-radius: 12px 0 12px 0;
+  transform: skew(-25deg);
+  transition:.4s;
+  &:active{
+    color:$body-bg;
+    background: $primary;
+  }
+}
+.btn_word{
+  transform: skew(20deg);
+}
+.tab_fix {
+  margin-left: -1px;
+}

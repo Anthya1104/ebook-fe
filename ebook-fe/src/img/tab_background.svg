@@ -1,17 +1,9 @@
-<svg width="191" height="46" viewBox="0 0 191 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_1207_7693)">
-<path d="M178.364 3H41.3384C35.5303 3 30.009 5.52489 26.21 9.91828L-0.000106812 40.2291H137.025C142.833 40.2291 148.354 37.7042 152.153 33.3108L178.364 3Z" fill="#661F1E"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="125px" height="30px" viewBox="0 0 124 30" version="1.1">
 <defs>
-<filter id="filter0_d_1207_7693" x="0" y="0.5" width="190.364" height="45.229" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="8" dy="1.5"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1207_7693"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1207_7693" result="shape"/>
-</filter>
+<image id="image14" width="124" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAAeCAYAAADuInrvAAAABmJLR0QA/wD/AP+gvaeTAAAEEElEQVRoge2bTWgcVRzAf//ZiQG/QKgiJplMYjSFKkUDJYIUSvGkHgS1SEVBaJONFDzUiyL4cfHkoUJLkyh6UEQ8CFJEPPmBqOhB6KWg7X7AIoSK2CS7mZ2Z52HmZSZpJtmd2W0OeT8Y3uxsZt4ffvxf3v/tG6F/CDAAWMBNcTsAlFKtvibxPaU+xrNXCOLWA3xgLXU07T51qmWXiGSXnjlwYHloZeVmoA20+tTvnua/wcHgw0uXxomkKyAkSSYA+iFcACm77sNBGB5D1BGQ/SxfG1ztQ2eGdcKBZvMY8CfRyCmbvlfQB+En3JEXRckbgQrHoy4392voB6J47XytVieSrUgyPIzPgR4Kn3Pdu30VforiSK+eaeiYxfO12ndE2aVFt1OHHuKxetFbeWxs0g/DX8HIvtEo4Vv23TlHNF/Smd0mkh7ErR9fKz7ezt17z4jv2z8Bw0WfZeiai5TsR+cvX36AZEbe2uII6IXwlyYnb7Nbqz+AHCwUtiEPfwdWafqDK1eGSWS3gVWgSSR6jUi2p2/KPaS/CZa91vzEyN4VmqFYT8WyAzbK1qJ9UpmtyS28MTpyBsWTuUM25CVUyPHFSsUmke2TZHWLjRM2lb45l/CZ0dHTIC8XidqQE1GnF6rVJZIM1tI9kkxvx5/V5tu7Fn7CcZ5QqHeLxGzIh8DCfKX+G5HskESyPraVDV0KLzvOlAifYda8dwH19dFqrUyykLJZtkfGMJ6mY+GzrusGwgXglgJRG/JxkdLAc8/CNFuXX1q6rrsz6agsOzUxcfua7/2I4sFCYRvy0LBtf/rsXw2H7cuv9cWV7dgxw09OTQ20fO8LI3tXWFZiPR7L3qn88jt54M5r6UtL74vwWN6IDbkJVKiOL9Qrt5JkdsflVxbbZvjJ0ZHXEWaKRG3Ii7yyUK//Q87yK4vMDJ9xnKcVvF0kZEM+FPLeQrX6BwXKryy2zPDZseFDSvg463tDX7kwVK2+SsHyK4vrZumzruuGKvwFuKtA0IYcCPyu2v7h+UbjITr89StHHwllx7kjEPkZ1P2FIjfkoWKL9cjZSsUlytxC5VcW60P2qYmJwQC+NLJ3AUW9pDgay9aTsxaJ7K7LryzWha+1vUWEw0UeZsiB4nvbsg6dq9X2kWSxHrq17K7LryxsgBnXeUspni/yIEPXXFWKd+ZrtTMCB4kEeyQbFrR4PYR3PSPfCplxnBeU8BFme+mNYAXUNyJ8rrzgq/lGY5xkiPaIZubp/9N6fbxwZmtsSqoigZiVtD5iwb/Ksq6eq1SqAvfFl4eAFZJdpl6q1ZL17tOeyIaNWZ1+NWiQ5K0Ric/NCNA7FKmtw1wvOEyd95TNEvW7XulWtvg7Q3H0lmLYWFfrmXjPstqwh/kfEtTRjg32t78AAAAASUVORK5CYII="/>
 </defs>
+<g id="surface1">
+<use xlink:href="#image14"/>
+</g>
 </svg>

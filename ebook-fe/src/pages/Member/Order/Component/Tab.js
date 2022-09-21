@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 function Tab(props) {
-  const [tab, setTab] = useState('order')
+  const [tab, setTab] = useState('')
   const onClickTab = (tab) => () => {
     setTab(tab)
   }
@@ -9,29 +9,35 @@ function Tab(props) {
   return (
     <>
       <div
-        className={`btn btn-primary tab_background ${
-          tab === 'totalOrder' ? 'SingleOrder-active-state' : ''
-        }`}
+        className={
+          tab === 'totalOrder'
+            ? 'btn  tab_background btn-primary-reverse SingleOrder-active-state'
+            : 'btn  tab_background btn-primary-reverse '
+        }
         onClick={onClickTab('totalOrder')}
       >
-        所有訂單
+        <p className="btn_word">所有訂單</p>
       </div>
       <div
-        className={`btn btn-primary tab_background ${
-          tab === 'finishOrder' ? 'SingleOrder-active-state' : ''
-        }`}
+        className={
+          tab === 'finishOrder'
+            ? 'btn  tab_background btn-primary-reverse tab_fix SingleOrder-active-state'
+            : 'btn  tab_background btn-primary-reverse tab_fix'
+        }
         onClick={onClickTab('finishOrder')}
       >
-        已完成
+        <p className="btn_word">已完成</p>
       </div>
-      <div
-        className={`btn btn-primary tab_background ${
-          tab === 'cancelOrder' ? 'SingleOrder-active-state' : ''
-        }`}
+      <button
+        className={
+          tab === 'cancelOrder'
+            ? 'btn  tab_background btn-primary-reverse tab_fix SingleOrder-active-state'
+            : 'btn  tab_background btn-primary-reverse tab_fix '
+        }
         onClick={onClickTab('cancelOrder')}
       >
-        已取消
-      </div>
+        <p className="btn_word">已取消</p>
+      </button>
     </>
   )
 }
