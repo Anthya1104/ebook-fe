@@ -37,7 +37,8 @@ function BookReviewList() {
     totalPage: 1,
   })
 
-  // MUI custom palette
+  // MUI style palette
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -91,7 +92,7 @@ function BookReviewList() {
           <>
             <div
               key={reviewValue.id}
-              className="Bookshelf-review-container row "
+              className="Bookshelf-review-container row"
             >
               <div className="col-sm-3">
                 <div className="Bookshelf-book-card m-2">
@@ -144,7 +145,16 @@ function BookReviewList() {
       })}
       {/* pagination */}
       <div className="Reviews-pagination-area d-flex justify-content-center">
-        <div className="prev">
+        <div
+          className="prev"
+          onClick={() => {
+            setGetPage({
+              ...getPage,
+              onPage:
+                getPage.onPage === 1 ? getPage.onPage : getPage.onPage - 1,
+            })
+          }}
+        >
           <img
             className="Bookshelf-arrow img-flip m-2"
             alt="arrow-l"
@@ -166,7 +176,18 @@ function BookReviewList() {
             </Stack>
           </ThemeProvider>
         </div>
-        <div className="next">
+        <div
+          className="next"
+          onClick={() => {
+            setGetPage({
+              ...getPage,
+              onPage:
+                getPage.onPage === getPage.totalPage
+                  ? getPage.onPage + 0
+                  : getPage.onPage + 1,
+            })
+          }}
+        >
           <img className="Bookshelf-arrow m-2" alt="arrow-r" src={ArrowRight} />
         </div>
       </div>
