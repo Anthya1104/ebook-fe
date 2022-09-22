@@ -42,7 +42,7 @@
     // flex-wrap: wrap;
     justify-content: center;
     // background: #000;
-    width: 220px;
+    width: 240px;
     height: 360px;
   }
   .ProductList-card {
@@ -53,10 +53,13 @@
   .ProductList-card-img-top {
     // background: rgb(186, 149, 155);
     height: 200px;
+    width: 200px;
   }
   .card-body {
     background: white;
     height: 120px;
+    width: 200px;
+    // background: #000;
   }
   .ProductList-bookname {
     font-size: 16px;
@@ -69,8 +72,5 @@
     // background:yellow;
     font-size: 10px;
   }
-  .ProductList-mobile-btn-outer {
-    // background: #000;
-    // padd
-  }
+  
 }
