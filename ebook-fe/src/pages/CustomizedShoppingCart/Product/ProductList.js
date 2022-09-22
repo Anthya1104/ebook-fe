@@ -12,7 +12,7 @@ import products from '../data/products.json'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
-// import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
+import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
 // import ProductFilter from '../Product/ProductFilter/ProductFilter'
 
 function ProductList(props) {
@@ -143,7 +143,7 @@ function ProductList(props) {
       {/* <div className="testtest ">
       <TopCategory cat={cat} setCat={setCat} />
       </div> */}
-      {/* <SearchBar /> */}
+      <SearchBar />
       {/* <ProductFilter /> */}
       <div className="my-5"></div>
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
