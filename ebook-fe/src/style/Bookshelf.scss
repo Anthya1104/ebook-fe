@@ -133,9 +133,10 @@ $Bookshelf_recent_translateY: 40px;
 
 // recent books popup reviews
 .Bookshelf-popup-reviews{
+  transform: translateX(350px);
   width: 500px;
   background: $primary;
- color:#fff;
+  color:#fff;
  textarea{
   padding:15px;
   width:100%;
