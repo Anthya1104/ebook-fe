@@ -21,10 +21,23 @@
     margin: 0 auto;
 }
 
+//手機版分類篩選
+.TopCategory-mobile-version {
+    display: none;
+}
 
-// .cart-nav{
-//     display:flex;
-//     justify-content:center;
-// }
-
-
+@media (max-width: 480px) {
+   .TopCategory-mobile-version {
+    display: block;
+    background: #EFD3CE;
+   }
+   .TopCategory-mobile-version-text {
+    font-size: 10px;
+    // background: #EFD3CE;
+   }
+//    .testtest {
+//     width: 100px;
+//     height: 40px;
+//     background: #000;
+//    }
+}

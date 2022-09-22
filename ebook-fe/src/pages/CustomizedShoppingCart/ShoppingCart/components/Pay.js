@@ -31,7 +31,7 @@ function ListItemsWithHook({ tab, handleStep }) {
           <thead>
             <tr className="SingleCart-topnav">
               {/* <th>id</th> */}
-              <th>名稱</th>
+              <th>商品明細</th>
               {/* <th>單價</th> */}
               {/* <th>數量</th> */}
               <th>小計</th>
@@ -117,22 +117,22 @@ function ListItemsWithHook({ tab, handleStep }) {
             -
             <Form.Control
               className="Pay-input-style"
-              type=""
-              id=""
+              type="password"
+              id="inputPassword5"
               style={{ width: 80 }}
             />
             -
             <Form.Control
               className="Pay-input-style"
-              type=""
-              id=""
+              type="password"
+              id="inputPassword5"
               style={{ width: 80 }}
             />
             -
             <Form.Control
               className="Pay-input-style"
-              type=""
-              id=""
+              type="password"
+              id="inputPassword5"
               style={{ width: 80 }}
             />
           </div>
