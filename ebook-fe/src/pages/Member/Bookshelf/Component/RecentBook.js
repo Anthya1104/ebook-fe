@@ -53,20 +53,11 @@ function RecentBook() {
       // 設定閱讀進度
       setProgressData(response.data[0].reading_progress)
       // console.log('progressdata', progressData)
+      // 設定評論book_id
+      setReviewParam({ ...reviewParam, book_id: response.data[0].product_id })
     }
     getRecentBook()
   }, [])
-
-  // 設定評論 book_id
-  useEffect(() => {
-    // TODO:question : 為什麼 如果沒寫 recentBook.length 這個判別 會壞掉
-    if (recentBook.length !== 0) {
-      let [data] = [...recentBook]
-      console.log('recentBookId', data)
-
-      return setReviewParam({ ...reviewParam, book_id: data.id })
-    }
-  }, [recentBook])
 
   // 把starRating的分數存進submit data
   useEffect(() => {
