@@ -37,7 +37,7 @@ function OwnedBookDetail() {
 
       {updateDone ? (
         <>
-          <Navigate to="/Preview" />
+          <Navigate to="/Preview" state={{ ownedBookId }} />
         </>
       ) : (
         <></>

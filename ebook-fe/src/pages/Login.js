@@ -4,7 +4,9 @@ import '../style/Login.scss'
 function Login() {
   return (
     <>
-      <div className="login-area"></div>
+      <div className="container-xxl d-flex-column justify-context-center">
+        <div className="login-area"></div>
+      </div>
     </>
   )
 }
