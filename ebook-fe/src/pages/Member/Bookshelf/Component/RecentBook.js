@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import BookCover from '../../../../img/book.jpg'
 import ArrowRight from '../../../../img/recent_book_arrow_r.svg'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
@@ -149,12 +150,11 @@ function RecentBook() {
 
               <div className="Bookshelf-recent-btn mx-3">
                 <div className="mb-2">
-                  <Button
-                    className="btn btn-primary-reverse"
-                    onClick={() => {}}
-                  >
-                    繼續閱讀
-                  </Button>
+                  <Link to={`/Member/bookshelf/${recentBook[0].product_id}`}>
+                    <Button className="btn btn-primary-reverse">
+                      繼續閱讀
+                    </Button>
+                  </Link>
                 </div>
                 {/* popup 評論 window */}
                 {/* reference: https://react-popup.elazizi.com/ */}
