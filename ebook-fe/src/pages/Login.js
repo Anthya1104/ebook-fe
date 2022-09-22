@@ -1,9 +1,12 @@
 import React from 'react'
+import '../style/Login.scss'
 
 function Login() {
   return (
     <>
-      <h1>Login</h1>
+      <div className="container-xxl d-flex-column justify-context-center">
+        <div className="login-area"></div>
+      </div>
     </>
   )
 }

@@ -12,9 +12,7 @@ function Pagination({ gotoPage, length, pageSize, setPageSize }) {
       pageSize,
     })
 
-  // update pageSize when perPage changes
   useEffect(() => {
-    // don't forget set to Number
     setPageSize(Number(perPage))
   }, [perPage, setPageSize])
 

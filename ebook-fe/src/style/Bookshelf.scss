@@ -405,7 +405,12 @@ $Bookshelf_recent_translateY: 40px;
 }
 
 .prev, .next{
+  & :hover{
+      cursor: pointer;
+    }
   .Bookshelf-arrow{
+    
+    
     @media(max-width:$mobile-break-point){
       display:flex;
     }
