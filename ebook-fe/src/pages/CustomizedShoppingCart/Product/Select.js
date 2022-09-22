@@ -131,16 +131,16 @@ function DefaultExample({ cat, setCat }) {
           <a href="#">閱閱出版社 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">時代雜誌 </a>
+          <a href="#">人文出版</a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">蘋果日報 </a>
+          <a href="#">三棵樹文化 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">博客來書店 </a>
+          <a href="#">中新書店 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">誠品書局</a>
+          <a href="#">閱書局</a>
         </ListGroup.Item>
       </ListGroup>
     </div>

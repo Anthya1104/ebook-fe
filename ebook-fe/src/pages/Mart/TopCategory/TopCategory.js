@@ -8,7 +8,7 @@ import './TopCategory.scss'
 function DefaultExample({ cat, setCat }) {
   return (
     <>
-      <div className="mt-5 cart-nav ProductList-showTopCategory">
+      <div className="mt-5 cart-nav ProductList-showTopCategory ms-4">
         <a
           className=""
           href="#"
