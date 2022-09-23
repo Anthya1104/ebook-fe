@@ -50,6 +50,7 @@ function BookReviewList() {
   // pagination 用 change Page
   const handleChangePage = (event, newPage) => {
     setGetPage({ ...getPage, onPage: newPage })
+    ScrollToTop()
   }
 
   // getPage改變 -> 先 render Review 資料
@@ -85,6 +86,10 @@ function BookReviewList() {
       color: '#661F1E',
     },
   })
+
+  const ScrollToTop = () => {
+    window.scrollTo(0, 450)
+  }
   return (
     <>
       {getReview.map((reviewValue) => {
@@ -153,6 +158,7 @@ function BookReviewList() {
               onPage:
                 getPage.onPage === 1 ? getPage.onPage : getPage.onPage - 1,
             })
+            ScrollToTop()
           }}
         >
           <img
@@ -186,6 +192,7 @@ function BookReviewList() {
                   ? getPage.onPage + 0
                   : getPage.onPage + 1,
             })
+            ScrollToTop()
           }}
         >
           <img className="Bookshelf-arrow m-2" alt="arrow-r" src={ArrowRight} />
