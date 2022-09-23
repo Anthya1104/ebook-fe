@@ -1,6 +1,5 @@
-import React from 'react'
-// import PriceRangeRadio from './PriceRangeRadio'
-import newTab from './newTab'
+import { useState } from 'react';
+
 
 function FilterBar(props) {
   const { tabTypes, tabs, setTabs } = props
