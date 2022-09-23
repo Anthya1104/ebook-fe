@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { API_URL } from '../../../utils/config'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import Card from '@mui/material/Card'
@@ -6,9 +8,6 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-// import DatePick from './Component/DatePick'
-// import Pagination from './Component/Pagination'
-// import FilterBar from './Component/FilterBar'
 import Book from '../../../img/book.jpg'
 import BreadCrumb from './Component/BreadCrumb'
 import ScrollToTop from './Component/ScrollToTop'
@@ -16,9 +15,12 @@ import line from '../../../img/line.svg'
 import dash from '../../../img/dash.svg'
 import { data } from './OrderData'
 import '../../../style/Order.scss'
+// import paginationBar from './Component/paginationBar'
 
 function Orders() {
   const [order, setOrder] = useState(data)
+  // const [pageNow, setPageNow] = useState(1)
+  // const [lastPage, setLastPage] = useState(0)
 
   const onButtonClick = (key, e) => {
     let cTemp = []
@@ -63,6 +65,22 @@ function Orders() {
     }
     setOrder(cTemp)
   }
+  // const onSearch = (key, e) => {
+  //   const [postAll, setPostAll] = useState([])
+  //   const [search, setSearch] = useState(data)
+  //   const [keywordSearch, setKeywordSearch] = useState(data)
+  // }
+  // useEffect(() => {
+  //   const fetchPostAll = async () => {
+  //     const result = await axios.get(
+  //       `${API_URL}/community/searchList?search=${search}`
+  //     )
+  //     console.log(result.data)
+  //     setPostAll(result.data)
+  //   }
+  //   fetchPostAll()
+  // }, [search])
+
   return (
     <>
       <div className="container">
@@ -74,7 +92,7 @@ function Orders() {
 
         <div className="mobile-search">
           <div className="mb-3 d-flex justify-content-end">
-            <input placeholder="搜尋所有訂單" type="" />
+            <input placeholder="搜尋訂單編號" type="" />
             <div>
               <Button href="#" className="ms-2">
                 搜尋
@@ -136,6 +154,7 @@ function Orders() {
             </label>
           </div>
         </div>
+
         <div>
           <Button
             className="tab_background btn-primary-reverse"
@@ -188,7 +207,7 @@ function Orders() {
                     訂單日期:{o.date}
                   </Typography>
                   <Typography variant="body1" className="mb-3 orderText">
-                    商品數量
+                    商品數量:
                   </Typography>
                   <Typography
                     gutterBottom
@@ -212,15 +231,19 @@ function Orders() {
                   </Typography>
                   <CardActions className="justify-content-center">
                     <Link className="mx-2" to={`${o.id}`}>
-                      <button className="btn btn-primary ">完整訂單</button>
+                      <button className="btn btn-primary">完整訂單</button>
                     </Link>
                   </CardActions>
                 </CardContent>
               </div>
             </Card>
           ))}
-        {/* <Pagination /> */}
       </div>
+      {/* <paginationBar
+        lastPage={lastPage}
+        pageNow={pageNow}
+        setPageNow={setPageNow}
+      /> */}
     </>
   )
 }

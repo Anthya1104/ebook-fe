@@ -1,4 +1,6 @@
 import React from 'react'
+import axios from 'axios'
+import { API_URL } from '../../../utils/config'
 import { Link, useParams } from 'react-router-dom'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
