@@ -19,20 +19,34 @@ import '../../../style/Order.scss'
 
 function Orders() {
   const [order, setOrder] = useState(data)
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
 
   const onButtonClick = (key, e) => {
     let cTemp = []
     switch (key) {
-      case 'dateRange':
-        const startDate = new Date(setStartDate)
-        const endDate = new Date(setEndDate)
+      case 'dateRange1':
+        const startDate1 = new Date('2022-09-03')
+        const endDate1 = new Date('2022-10-03')
         cTemp = [...data].filter((od) => {
           const orderDate = new Date(od.date)
-          return orderDate - startDate > 0 && endDate - orderDate > 0
+          return orderDate - startDate1 > 0 && endDate1 - orderDate > 0
         })
-        break
+        break;
+      case 'dateRange2':
+        const startDate2 = new Date('2022-06-03')
+        const endDate2 = new Date('2022-09-03')
+        cTemp = [...data].filter((od) => {
+          const orderDate2 = new Date(od.date)
+          return orderDate2 - startDate2 > 0 && endDate2 - orderDate2 > 0
+        })
+        break;
+      case 'dateRange3':
+        const startDate3 = new Date('2021-09-03')
+        const endDate3 = new Date('2022-09-03')
+        cTemp = [...data].filter((od) => {
+          const orderDate3 = new Date(od.date)
+          return orderDate3 - startDate3 > 0 && endDate3 - orderDate3 > 0
+        })
+        break;
       case 'notFinished':
         cTemp = [...data].filter((od) => {
           return od.status === '已取消'
@@ -57,40 +71,31 @@ function Orders() {
         <ScrollToTop />
         <BreadCrumb />
         <img className="img-fluid" src={line} alt="line" />
-        <div className="d-flex justify-content-end">
-          <div className="main mb-3">
-            <div className="d-flex">
-              <input
-                type="date"
-                selected={startDate}
-              // onChange={(date) => setStartDate(date)}
-              // selectsStart
-              // startDate={startDate}
-              // endDate={endDate}
-              />
-              <span className="m-1">-</span>
-              <input
-                type="date"
-                selected={endDate}
-              // onChange={(date) => setEndDate(date)}
-              // selectsEnd
-              // startDate={startDate}
-              // endDate={endDate}
-              // minDate={startDate}
-              />
+
+
+        <div className="d-flex mobile-search">
+          <div className="mb-3">
+          <div className="form-check form-check-inline ">
+            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange1', e) }} />
+            <label className="form-check-label" for="inlineRadio1">過去1個月</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange2', e) }} />
+            <label className="form-check-label" for="inlineRadio2">過去3個月</label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange3', e) }} />
+            <label className="form-check-label" for="inlineRadio3">過去1年</label>
+          </div>
+          </div>
+            <div className="mb-3 d-flex">
+              <input placeholder="搜尋所有訂單" type="" />
               <div>
-                <Button
-                  href="#"
-                  className="ms-2"
-                  onClick={(e) => {
-                    onButtonClick('dateRange', e)
-                  }}
-                >
+                <Button href="#" className="ms-2">
                   搜尋
                 </Button>
               </div>
             </div>
-          </div>
         </div>
 
         <div>
@@ -121,6 +126,7 @@ function Orders() {
             <p className="btn_word">已取消</p>
           </Button>
         </div>
+
         {order &&
           order.map((o, i) => (
             <Card sx={{ maxwidth: 1067 }} className="mb-3" key={`order${i}`}>
