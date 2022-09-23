@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+import { useState } from 'react'
 
 function FilterBar(props) {
   const { tabTypes, tabs, setTabs } = props

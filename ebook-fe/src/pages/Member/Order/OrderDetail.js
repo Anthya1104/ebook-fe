@@ -53,8 +53,9 @@ function OrderDetail() {
                 <div>
                   <Link className="mx-2" to="/Member/order">
                     <img src={Back} alt="Back" />
-                  </Link><br></br>
-                    <h5 className="mx-2 text-white">返回</h5>
+                  </Link>
+                  <br></br>
+                  <h5 className="mx-2 text-white">返回</h5>
                 </div>
                 <Typography
                   gutterBottom
@@ -84,10 +85,11 @@ function OrderDetail() {
                   訂單狀態
                 </Typography>
                 <div>
-                <Link className="mx-2" to="/Chat">
-                  <img src={Chat} alt="Chat" />
-                </Link><br></br>
-                <h5 className="text-white">詢問客服</h5>
+                  <Link className="mx-2" to="/Chat">
+                    <img src={Chat} alt="Chat" />
+                  </Link>
+                  <br></br>
+                  <h5 className="text-white">詢問客服</h5>
                 </div>
               </div>
             </CardContent>

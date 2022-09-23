@@ -30,7 +30,7 @@ function Orders() {
           const orderDate = new Date(od.date)
           return orderDate - startDate1 > 0 && endDate1 - orderDate > 0
         })
-        break;
+        break
       case 'dateRange2':
         const startDate2 = new Date('2022-06-03')
         const endDate2 = new Date('2022-09-03')
@@ -38,7 +38,7 @@ function Orders() {
           const orderDate2 = new Date(od.date)
           return orderDate2 - startDate2 > 0 && endDate2 - orderDate2 > 0
         })
-        break;
+        break
       case 'dateRange3':
         const startDate3 = new Date('2021-09-03')
         const endDate3 = new Date('2022-09-03')
@@ -46,7 +46,7 @@ function Orders() {
           const orderDate3 = new Date(od.date)
           return orderDate3 - startDate3 > 0 && endDate3 - orderDate3 > 0
         })
-        break;
+        break
       case 'notFinished':
         cTemp = [...data].filter((od) => {
           return od.status === '已取消'
@@ -72,35 +72,70 @@ function Orders() {
         <BreadCrumb />
         <img className="img-fluid" src={line} alt="line" />
 
-
         <div className="mobile-search">
           <div className="mb-3 d-flex justify-content-end">
-              <input placeholder="搜尋所有訂單" type="" />
-              <div>
-                <Button href="#" className="ms-2">
-                  搜尋
-                </Button>
-              </div>
+            <input placeholder="搜尋所有訂單" type="" />
+            <div>
+              <Button href="#" className="ms-2">
+                搜尋
+              </Button>
+            </div>
           </div>
         </div>
         <div className="d-flex justify-content-end">
           <div className="form-check form-check-inline ">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange1', e) }} />
-            <label className="form-check-label" for="inlineRadio1">過去1個月</label>
+            <input
+              className="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              onClick={(e) => {
+                onButtonClick('dateRange1', e)
+              }}
+            />
+            <label className="form-check-label" for="inlineRadio1">
+              過去1個月
+            </label>
           </div>
           <div class="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange2', e) }} />
-            <label className="form-check-label" for="inlineRadio2">過去3個月</label>
+            <input
+              className="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              onClick={(e) => {
+                onButtonClick('dateRange2', e)
+              }}
+            />
+            <label className="form-check-label" for="inlineRadio2">
+              過去3個月
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange3', e) }} />
-            <label className="form-check-label" for="inlineRadio3">過去6個月</label>
+            <input
+              className="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              onClick={(e) => {
+                onButtonClick('dateRange3', e)
+              }}
+            />
+            <label className="form-check-label" for="inlineRadio3">
+              過去6個月
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange3', e) }} />
-            <label className="form-check-label" for="inlineRadio3">過去1年</label>
+            <input
+              className="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              onClick={(e) => {
+                onButtonClick('dateRange3', e)
+              }}
+            />
+            <label className="form-check-label" for="inlineRadio3">
+              過去1年
+            </label>
           </div>
-          </div>
+        </div>
         <div>
           <Button
             className="tab_background btn-primary-reverse"
