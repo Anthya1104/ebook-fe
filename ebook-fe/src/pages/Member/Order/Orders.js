@@ -73,8 +73,17 @@ function Orders() {
         <img className="img-fluid" src={line} alt="line" />
 
 
-        <div className="d-flex mobile-search">
-          <div className="mb-3">
+        <div className="mobile-search">
+          <div className="mb-3 d-flex justify-content-end">
+              <input placeholder="搜尋所有訂單" type="" />
+              <div>
+                <Button href="#" className="ms-2">
+                  搜尋
+                </Button>
+              </div>
+          </div>
+        </div>
+        <div className="d-flex justify-content-end">
           <div className="form-check form-check-inline ">
             <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange1', e) }} />
             <label className="form-check-label" for="inlineRadio1">過去1個月</label>
@@ -85,19 +94,13 @@ function Orders() {
           </div>
           <div className="form-check form-check-inline">
             <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange3', e) }} />
+            <label className="form-check-label" for="inlineRadio3">過去6個月</label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input className="form-check-input" type="radio" name="inlineRadioOptions" onClick={e => { onButtonClick('dateRange3', e) }} />
             <label className="form-check-label" for="inlineRadio3">過去1年</label>
           </div>
           </div>
-            <div className="mb-3 d-flex">
-              <input placeholder="搜尋所有訂單" type="" />
-              <div>
-                <Button href="#" className="ms-2">
-                  搜尋
-                </Button>
-              </div>
-            </div>
-        </div>
-
         <div>
           <Button
             className="tab_background btn-primary-reverse"
