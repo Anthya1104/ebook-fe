@@ -5,7 +5,7 @@ const data = [
     coupon_id: '2',
     sn: 'WW22070543',
     date: '2022-07-05 06:30:43',
-    status: '已完成',
+    status: '已取消',
     total: '945',
     valid: '1',
     "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
@@ -16,7 +16,7 @@ const data = [
     coupon_id: '4',
     sn: 'WW22060914',
     date: '2022-06-09 06:54:14',
-    status: '已完成',
+    status: '已取消',
     total: '1020',
     valid: '1',
     "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"

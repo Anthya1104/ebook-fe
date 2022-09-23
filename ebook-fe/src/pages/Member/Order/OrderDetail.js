@@ -5,9 +5,8 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import Book from '../../../img/book.jpg'
 import Chat from '../../../img/Chat.png'
-import Back from '../../../img/Back.png'
+import Back from '../../../img/Back.svg'
 import DetailLine from '../../../img/DetailLine.png'
 import DetailDash from '../../../img/DetailDash.svg'
 import data from './newOrderDetail.json'
@@ -54,7 +53,8 @@ function OrderDetail() {
                 <div>
                   <Link className="mx-2" to="/Member/order">
                     <img src={Back} alt="Back" />
-                  </Link>
+                  </Link><br></br>
+                    <h5 className="mx-2 text-white">返回</h5>
                 </div>
                 <Typography
                   gutterBottom
@@ -83,9 +83,12 @@ function OrderDetail() {
                   })}
                   訂單狀態
                 </Typography>
+                <div>
                 <Link className="mx-2" to="/Chat">
                   <img src={Chat} alt="Chat" />
-                </Link>{' '}
+                </Link><br></br>
+                <h5 className="text-white">詢問客服</h5>
+                </div>
               </div>
             </CardContent>
           </div>
