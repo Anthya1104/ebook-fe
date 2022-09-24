@@ -5,12 +5,12 @@ import { Outlet } from 'react-router-dom'
 import ProductDetail from './ProductDetail/ProductDetail'
 // import Products from '../Product/Products'
 
-
 function Mart() {
   return (
     <>
-
-      <Outlet />
+      <div className="container-xxl d-flex-column justify-context-center">
+        <Outlet />
+      </div>
     </>
   )
 }

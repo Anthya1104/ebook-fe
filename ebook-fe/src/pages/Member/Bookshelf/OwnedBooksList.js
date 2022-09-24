@@ -120,7 +120,11 @@ function OwnedBooksList() {
 
     return (
       <>
-        <div key={bookList.id} className="Bookshelf-bookCollection">
+        <div
+          key={bookList.id}
+          className="Bookshelf-bookCollection position-relative"
+        >
+          <div className="Bookshelf-hover-area position-absolute"></div>
           <Link to={`${bookList.id}`}>
             <div className="bookCover">
               <img className="contain-fit" src={Bookcover} alt="bookCover" />
