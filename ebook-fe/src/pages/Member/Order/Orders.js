@@ -19,8 +19,6 @@ import '../../../style/Order.scss'
 
 function Orders() {
   const [order, setOrder] = useState(data)
-  // const [pageNow, setPageNow] = useState(1)
-  // const [lastPage, setLastPage] = useState(0)
 
   const onButtonClick = (key, e) => {
     let cTemp = []
@@ -42,11 +40,19 @@ function Orders() {
         })
         break
       case 'dateRange3':
-        const startDate3 = new Date('2021-09-03')
+        const startDate3 = new Date('2022-03-03')
         const endDate3 = new Date('2022-09-03')
         cTemp = [...data].filter((od) => {
           const orderDate3 = new Date(od.date)
           return orderDate3 - startDate3 > 0 && endDate3 - orderDate3 > 0
+        })
+        break
+      case 'dateRange4':
+        const startDate4 = new Date('2021-09-03')
+        const endDate4 = new Date('2022-09-03')
+        cTemp = [...data].filter((od) => {
+          const orderDate4 = new Date(od.date)
+          return orderDate4 - startDate4 > 0 && endDate4 - orderDate4 > 0
         })
         break
       case 'notFinished':
@@ -146,7 +152,7 @@ function Orders() {
               type="radio"
               name="inlineRadioOptions"
               onClick={(e) => {
-                onButtonClick('dateRange3', e)
+                onButtonClick('dateRange4', e)
               }}
             />
             <label className="form-check-label" for="inlineRadio3">
