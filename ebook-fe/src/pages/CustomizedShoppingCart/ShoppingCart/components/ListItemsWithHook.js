@@ -5,6 +5,7 @@ import { useNavigate2 } from 'react-router-dom'
 // import ProductList from 'pages/Product/ProductList'
 // import ProductList from '../../../pages/Product/ProductList'
 import ProductList from '../../Product/ProductList'
+import CouponModal from '../components/CouponModal'
 
 function ListItemsWithHook({ tab, handleStep }) {
   // 使用hooks 解出所需的狀態與函式(自context)
@@ -120,6 +121,9 @@ function ListItemsWithHook({ tab, handleStep }) {
               type="submit"
               value="使用"
             />
+          </form>
+          <form>
+            <CouponModal/>
           </form>
         </div>
 
