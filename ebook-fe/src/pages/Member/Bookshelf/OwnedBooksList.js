@@ -73,28 +73,9 @@ function OwnedBooksList() {
     // console.log({ API_URL })
     // TODO:在這裡做 ownedBookList 切換
     // 把 Category post 到後端
-    const handleCategoryChange = async () => {
-      try {
-        // console.log(onCategory)
-        let response = await axios.post(
-          `${API_URL}/bookshelf/on-filter`,
-          { bookFilterParams },
-          {
-            withCredentials: true,
-          }
-        )
-        console.log(response.data)
 
-        if (response.data.length === 0) {
-          return setOnCategoryList(['nothing'])
-        }
-        setOnCategoryList(response.data)
-      } catch (e) {
-        console.error(e)
-      }
-    }
     handleCategoryChange()
-  }, [onCategory])
+  }, [bookFilterParams])
   // TODO:處理 tab 切換
   // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
@@ -113,6 +94,27 @@ function OwnedBooksList() {
         <div className="px-2">尚未閱讀</div>
       </>
     )
+  }
+
+  const handleCategoryChange = async () => {
+    try {
+      // console.log(onCategory)
+      let response = await axios.post(
+        `${API_URL}/bookshelf/on-filter`,
+        { bookFilterParams },
+        {
+          withCredentials: true,
+        }
+      )
+      console.log(response.data)
+
+      if (response.data.length === 0) {
+        return setOnCategoryList(['nothing'])
+      }
+      setOnCategoryList(response.data)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   const createBookList = (bookList) => {
