@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, FormControl, FormGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-// import './FilterKeyword.scss'
+import './FilterKeyword.scss'
 import { setInputValue, setSearchWord } from './filterKeyword-slice'
 
 function FilterKeyword() {
