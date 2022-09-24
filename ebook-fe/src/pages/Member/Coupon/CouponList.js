@@ -126,16 +126,6 @@ import social from '../../../img/social.png'
 
 import coupon from '../../../img/coupon.png'
 import couponz from '../../../img/test-coupon.png'
-// import coupon1 from '../../../img/coupon-business.png'
-// import coupon2 from '../../../img/coupon-novel.png'
-// import coupon3 from '../../../img/coupon-social.png'
-// import coupon4 from '../../../img/coupon-lifestyle.png'
-// import coupon5 from '../../../img/coupon-art.png'
-// import coupon6 from '../../../img/coupon-science.png'
-// import coupon7 from '../../../img/coupon-travel.png'
-// import coupon8 from '../../../img/coupon-medical.png'
-// import coupon9 from '../../../img/coupon-grow.png'
-// import coupon10 from '../../../img/coupon-new.png'
 
 function CouponList() {
   const [coupons, setCoupons] = useState(Coupon);

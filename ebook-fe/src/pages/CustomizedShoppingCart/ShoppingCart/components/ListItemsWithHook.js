@@ -99,8 +99,13 @@ function ListItemsWithHook({ tab, handleStep }) {
       <div>
         <div className="d-flex justify-content-between">
           <form>
-            <label className='ListItemsWithHook-placeholder'>
-              <input className='ListItemsWithHook-coupon-input' type="text" name="name" placeholder="請輸入優惠券折扣碼" />
+            <label className="ListItemsWithHook-placeholder">
+              <input
+                className="ListItemsWithHook-coupon-input"
+                type="text"
+                name="name"
+                placeholder="請輸入優惠券折扣碼"
+              />
             </label>
             <input
               className="ListItemsWithHook-coupon-btn"
@@ -112,8 +117,11 @@ function ListItemsWithHook({ tab, handleStep }) {
 
         <div className="d-flex justify-content-end co-text-color">
           共有&nbsp;&nbsp;
-          <span className="ListItemsWithHook-text-em-color"> {cart.totalItems}</span> &nbsp;
-          件商品
+          <span className="ListItemsWithHook-text-em-color">
+            {' '}
+            {cart.totalItems}
+          </span>{' '}
+          &nbsp; 件商品
         </div>
         <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
           訂單小計：$ {cart.cartTotal}
@@ -131,7 +139,11 @@ function ListItemsWithHook({ tab, handleStep }) {
         >
           繼續購物
         </button>
-        <button type="button" className="btn btn-primary-reverse" onClick={handleStep(2)}>
+        <button
+          type="button"
+          className="btn btn-primary-reverse"
+          onClick={handleStep(2)}
+        >
           結帳
         </button>
       </div>
