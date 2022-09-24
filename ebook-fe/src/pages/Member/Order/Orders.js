@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
 import { Link } from 'react-router-dom'
@@ -19,7 +19,7 @@ import '../../../style/Order.scss'
 
 function Orders() {
   const [order, setOrder] = useState(data)
-
+  // 日期篩選、狀態篩選
   const onButtonClick = (key, e) => {
     let cTemp = []
     switch (key) {
@@ -71,38 +71,44 @@ function Orders() {
     }
     setOrder(cTemp)
   }
-  // const onSearch = (key, e) => {
-  //   const [postAll, setPostAll] = useState([])
-  //   const [search, setSearch] = useState(data)
-  //   const [keywordSearch, setKeywordSearch] = useState(data)
-  // }
-  // useEffect(() => {
-  //   const fetchPostAll = async () => {
-  //     const result = await axios.get(
-  //       `${API_URL}/community/searchList?search=${search}`
-  //     )
-  //     console.log(result.data)
-  //     setPostAll(result.data)
-  //   }
-  //   fetchPostAll()
-  // }, [search])
+
+  const inputValue1 = useRef(undefined)
+
+  const onSnSearchClick = (e) => {
+    e.preventDefault()
+    const uniqueIds = []
+    const inputString = inputValue1.current.value
+    let tags = inputString.split(',').map((tag) => tag.replaceAll(' ', ''))
+    let searchSn = []
+    for (let tag of tags) {
+      let tmpAry = [...data].filter((book) => book.sn.indexOf(tag) !== -1)
+      searchSn = searchSn.concat([...tmpAry])
+    }
+    const unique = searchSn.filter((element) => {
+      const isDuplicate = uniqueIds.includes(element.id)
+      if (!isDuplicate) {
+        uniqueIds.push(element.id)
+        return true
+      }
+      return false
+    })
+    setOrder(unique)
+  }
 
   return (
     <>
       <div className="container">
-        {/* <FilterKeyword /> */}
-
         <ScrollToTop />
         <BreadCrumb />
         <img className="img-fluid" src={line} alt="line" />
 
         <div className="mobile-search">
           <div className="mb-3 d-flex justify-content-end">
-            <input placeholder="搜尋訂單編號" type="" />
+            <input ref={inputValue1} type="text" placeholder="搜尋訂單編號" />
             <div>
-              <Button href="#" className="ms-2">
+              <button onClick={onSnSearchClick} className="ms-2">
                 搜尋
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -245,11 +251,6 @@ function Orders() {
             </Card>
           ))}
       </div>
-      {/* <paginationBar
-        lastPage={lastPage}
-        pageNow={pageNow}
-        setPageNow={setPageNow}
-      /> */}
     </>
   )
 }
