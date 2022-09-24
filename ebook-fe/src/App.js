@@ -44,20 +44,20 @@ import { AuthContext } from './Context/auth'
 
 function App() {
   // 會員資料
-  // const [member, setMember] = useState(null)
+  const [member, setMember] = useState(null)
 
-  // useEffect(() => {
-  //   let getMember = async () => {
-  //     console.log('in APP: check if login')
-  //     let response = await axios.get(`${API_URL}/member`, {
-  //       withCredentials: true,
-  //     })
-  //     setMember(response.data)
-  //   }
-  //   getMember()
-  // }, [])
+  useEffect(() => {
+    let getMember = async () => {
+      console.log('in APP: check if login')
+      let response = await axios.get(`${API_URL}/member`, {
+        withCredentials: true,
+      })
+      setMember(response.data)
+    }
+    getMember()
+  }, [])
   return (
-    // <AuthContext.Provider value={{ member, setMember }}>
+    <AuthContext.Provider value={{ member, setMember }}>
       <BrowserRouter>
         <ScrollToTop>
           <Routes>
@@ -115,7 +115,7 @@ function App() {
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
-    // </AuthContext.Provider>
+    </AuthContext.Provider>
   )
 }
 

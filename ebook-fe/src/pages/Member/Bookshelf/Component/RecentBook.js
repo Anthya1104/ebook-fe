@@ -46,7 +46,9 @@ function RecentBook() {
   useEffect(() => {
     // call API
     const getRecentBook = async () => {
-      let response = await axios.get(`${API_URL}/bookshelf/recent-book`)
+      let response = await axios.get(`${API_URL}/bookshelf/recent-book`, {
+        withCredentials: true,
+      })
       setRecentBook(response.data)
       // console.log('recentbook', recentBook)
 
