@@ -35,8 +35,8 @@ function ListItemsWithHook({ tab, handleStep }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            <th>商品明細</th>
-            <th></th>
+            <th style={{ width: 200 }}>商品明細</th>
+            <th ></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
             <th>小計</th>

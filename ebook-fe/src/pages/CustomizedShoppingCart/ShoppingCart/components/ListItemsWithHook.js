@@ -26,7 +26,7 @@ function ListItemsWithHook({ tab, handleStep }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            <th>商品明細</th>
+            <th style={{ width: 180 }}>商品明細</th>
             <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
@@ -46,12 +46,13 @@ function ListItemsWithHook({ tab, handleStep }) {
                       className="card-img-top ProductList-card-img-top"
                       alt="..."
                     />
+                    
                   </td>
                   <td>{v.book_name}</td>
 
                   <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
-                  <td>
+                  <td className='ShoppingCart-BtnInMid'>
                     <button
                       type="button"
                       className="btn btn-primary-reverse me-3"
