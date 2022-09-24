@@ -38,7 +38,7 @@ function OwnedBooksList() {
   const [getCategories, setGetCategories] = useState([])
 
   // 目前在哪個分類
-  const [onCategory, setOnCategory] = useState('')
+  const [onCategory, setOnCategory] = useState({})
 
   // 先嘗試只篩類別
   const [onCategoryList, setOnCategoryList] = useState([])
@@ -46,7 +46,7 @@ function OwnedBooksList() {
   // 同時篩 類別, 閱讀進度, 日期sort
   // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
   const [bookFilterParams, setBookFilterParams] = useState({
-    category: '',
+    category: 1,
     is_read: true,
     date_sort_toggled: true,
     search_param: '',
@@ -63,7 +63,7 @@ function OwnedBooksList() {
       })
 
       setGetCategories(response.data)
-      setOnCategory(response.data[0])
+      // setOnCategory(response.data[0])
     }
     getCategories()
   }, [])
@@ -78,16 +78,13 @@ function OwnedBooksList() {
         // console.log(onCategory)
         let response = await axios.post(
           `${API_URL}/bookshelf/on-filter`,
-          [onCategory.local_id],
+          { bookFilterParams },
           {
             withCredentials: true,
           }
         )
-        // console.log(response.data)
+        console.log(response.data)
 
-        // TODO: createBookList()
-        // let filteredBookList = response.data
-        // createBookList(filteredBookList)
         if (response.data.length === 0) {
           return setOnCategoryList(['nothing'])
         }
@@ -178,7 +175,7 @@ function OwnedBooksList() {
                   setOnCategory(categoryValue)
                   setBookFilterParams({
                     ...bookFilterParams,
-                    category: categoryValue.id,
+                    category: categoryValue.local_id,
                   })
                 }}
               >

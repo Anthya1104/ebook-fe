@@ -34,7 +34,7 @@ function RecentBook() {
 
   // submitted data
   const [reviewParam, setReviewParam] = useState({
-    member_id: member.id,
+    member_id: '',
     book_id: '',
     review_score: 0,
     review_comments: '',
@@ -53,6 +53,7 @@ function RecentBook() {
       let response = await axios.get(`${API_URL}/bookshelf/recent-book`, {
         withCredentials: true,
       })
+      console.log('recentBook', response.data)
       setRecentBook(response.data)
       // console.log('recentbook', recentBook)
 
@@ -60,7 +61,11 @@ function RecentBook() {
       setProgressData(response.data[0].reading_progress)
       // console.log('progressdata', progressData)
       // 設定評論book_id
-      setReviewParam({ ...reviewParam, book_id: response.data[0].product_id })
+      setReviewParam({
+        ...reviewParam,
+        book_id: response.data[0].product_id,
+        member_id: response.data[0].member_id,
+      })
     }
     getRecentBook()
   }, [])
