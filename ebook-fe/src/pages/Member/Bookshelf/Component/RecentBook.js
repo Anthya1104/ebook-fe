@@ -15,11 +15,15 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // test avatar img importing
 import Avatar from '../../../../img/book.jpg'
+// auth
+import { useAuth } from '../../../../Context/auth'
 
 import axios from 'axios'
 import { API_URL } from '../../../../utils/config'
 
 function RecentBook() {
+  // auth
+  const { member, setMember } = useAuth()
   // Chart.js states
   // 動態做法: https://www.youtube.com/watch?v=UwlaPofs5cA&ab_channel=SeemaHolidayDeveloper
   // const [data, setData] = useState(newdata)
@@ -30,7 +34,7 @@ function RecentBook() {
 
   // submitted data
   const [reviewParam, setReviewParam] = useState({
-    member_id: 1,
+    member_id: member.id,
     book_id: '',
     review_score: 0,
     review_comments: '',
@@ -272,7 +276,8 @@ function RecentBook() {
     const submitReview = async () => {
       let response = await axios.post(
         `${API_URL}/reviews/post-review`,
-        reviewParam
+        reviewParam,
+        { withCredentials: true }
       )
       setDataReady(false)
       // TODO:還有問題
