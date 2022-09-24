@@ -12,7 +12,7 @@ import products from '../data/products.json'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
-import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
+// import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
 // import ProductFilter from '../Product/ProductFilter/ProductFilter'
 
 function ProductList(props) {
@@ -45,6 +45,19 @@ function ProductList(props) {
       setProductsDisplay(products.filter((v, i) => v.book_category === cat))
     }
   }, [cat])
+
+  //後加的
+  const [searchBook, setSearchBook] = useState('')
+
+  useEffect(() => {
+    if ((cat, searchBook)) {
+      setProductsDisplay(
+        products.filter(
+          (v, i) => v.book_category === cat || v.price_range === searchBook
+        )
+      )
+    }
+  }, [cat, searchBook])
 
   const messageModal = (
     <>
@@ -86,7 +99,10 @@ function ProductList(props) {
       {productsDisplay.map((v, i) => {
         return (
           <>
-            <div className="col-12 col-sm-3 mb-4 ProductList-card-outer" key={v.id}>
+            <div
+              className="col-12 col-sm-3 mb-4 ProductList-card-outer"
+              key={v.id}
+            >
               <div className="card ProductList-card">
                 <Link to={'/Cart/ProductDetail/' + v.id}>
                   {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
@@ -124,7 +140,9 @@ function ProductList(props) {
                   >
                     加入購物車
                   </button>
-                  <button className="btn btn-primary ProductList-mobile-btn">加入收藏</button>
+                  <button className="btn btn-primary ProductList-mobile-btn">
+                    加入收藏
+                  </button>
                 </div>
               </div>
             </div>
@@ -143,7 +161,7 @@ function ProductList(props) {
       {/* <div className="testtest ">
       <TopCategory cat={cat} setCat={setCat} />
       </div> */}
-      <SearchBar />
+      {/* <SearchBar /> */}
       {/* <ProductFilter /> */}
       <div className="my-5"></div>
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}

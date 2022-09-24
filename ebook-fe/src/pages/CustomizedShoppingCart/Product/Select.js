@@ -1,14 +1,18 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import './Select.scss'
 
-function DefaultExample({ cat, setCat }) {
+function DefaultExample({ cat, setCat }, {searchBook, setsearchBook}) {
   return (
     <div>
       <h4 className='Select-title'>篩選條件</h4>
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">價格</ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">100元 </a>
+          <a href="#"
+          onClick={(e) => {
+              e.preventDefault()
+              setsearchBook('A')
+            }}>100元 </a>
         </ListGroup.Item>
         <ListGroup.Item>
           <a href="#">101元~200元 </a>
