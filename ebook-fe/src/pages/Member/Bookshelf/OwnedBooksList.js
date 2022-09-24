@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 import Bookcover from '../../../img/book.jpg'
 // axios
 import axios from 'axios'
@@ -58,7 +58,9 @@ function OwnedBooksList() {
 
   useEffect(() => {
     const getCategories = async () => {
-      let response = await axios.get(`${API_URL}/bookshelf/custom-categories`)
+      let response = await axios.get(`${API_URL}/bookshelf/custom-categories`, {
+        withCredentials: true,
+      })
 
       setGetCategories(response.data)
       setOnCategory(response.data[0])
@@ -74,9 +76,13 @@ function OwnedBooksList() {
     const handleCategoryChange = async () => {
       try {
         // console.log(onCategory)
-        let response = await axios.post(`${API_URL}/bookshelf/on-filter`, [
-          onCategory.id,
-        ])
+        let response = await axios.post(
+          `${API_URL}/bookshelf/on-filter`,
+          [onCategory.local_id],
+          {
+            withCredentials: true,
+          }
+        )
         // console.log(response.data)
 
         // TODO: createBookList()
