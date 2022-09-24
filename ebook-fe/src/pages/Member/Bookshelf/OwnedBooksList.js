@@ -50,6 +50,7 @@ function OwnedBooksList() {
     is_read: true,
     date_sort_toggled: true,
     search_param: '',
+    on_page: 1,
   })
 
   // isRead 切換
