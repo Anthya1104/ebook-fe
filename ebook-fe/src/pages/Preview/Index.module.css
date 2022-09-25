@@ -24,19 +24,21 @@
   max-height: 130px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   text-align: center;
   background: var(--color1);
 }
 
 .iconStart {
   display: flex;
-  flex-direction: row;
-  justify-content: start;
+  /* flex-direction: row; */
+  /* justify-content: start; */
   margin-left: -32px;
 }
 
 .iconLi {
   padding: var(--2) var(--2) 0 var(--2);
+  margin: 0 var(--3);
   border-radius: 20px;
 }
 
@@ -80,8 +82,9 @@
 }
 
 .title {
-  color: var(--color4);
+  color: var(--color3);
   justify-content: center;
+  padding-top: var(--6);
 }
 
 .iconEnd {
@@ -95,6 +98,7 @@
   border: none;
   color: var(--color2);
   padding: 10px 10px 0 10px;
+  margin: 0 var(--3);
 }
 
 .iconEndButton:hover {
@@ -110,4 +114,9 @@
   text-align: center;
   color: var(--color4);
   background: var(--color1);
+}
+
+.a2 {
+  font-size: 30px;
+  margin: 0 auto;
 }

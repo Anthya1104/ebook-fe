@@ -8,11 +8,11 @@ function Layout() {
       {/* 導覽列 */}
       <Navbar />
 
-      <div className="container-xxl d-flex-column justify-context-center">
+      <div>
         <Outlet />
       </div>
       {/* 頁尾資訊 */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

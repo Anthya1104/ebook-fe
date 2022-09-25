@@ -1,11 +1,12 @@
 import React from 'react'
 import iconBack from '../../img/previewback.png'
 import iconMenu from '../../img/main-menu.png'
-import iconBook from '../../img/book.png'
-import iconCart from '../../img/shopping-cart.png'
 import iconShare from '../../img/share.png'
 import iconFull from '../../img/full-screen.png'
 import styles from '../Preview/Index.module.css'
+import CollectModal from './Modal/CollectModal'
+import ShoppingCart from './Modal/ShoppingCart'
+import ReactPDF from './React-pdf/ReactPDF(test3)'
 
 function Headers() {
   return (
@@ -40,24 +41,22 @@ function Headers() {
               </li>
             </div>
           </li>
-          <button className={styles.iconEndButton}>
-            <img src={iconBook} alt="" />
-            <p>收藏</p>
-          </button>
+          <div className={styles.iconEndButton}>
+            <CollectModal />
+          </div>
         </ul>
       </div>
       <div>
-        <h5 className={styles.title}>
+        <h4 className={styles.title}>
           聊不停的聰明問話術：<br></br>【超圖解】40個開場 • 接話 •
           打破心防的問話技巧，不用找話題，90%的話都讓對方說
-        </h5>
+        </h4>
       </div>
       <div>
         <ul className={styles.iconEnd}>
-          <button className={styles.iconEndButton}>
-            <img src={iconCart} alt="" />
-            <p>購物車</p>
-          </button>
+          <div className={styles.iconEndButton}>
+            <ShoppingCart />
+          </div>
 
           <button className={styles.iconEndButton}>
             <img src={iconShare} alt="" />
@@ -76,22 +75,22 @@ function Headers() {
 
 function Section() {
   return (
-    <object
-      width="100%"
-      height="400"
-      data="http://www.africau.edu/images/default/sample.pdf"
-      type="application/pdf"
-    ></object>
+    // <object
+    //   style={{ width: '100vw', height: '900px' }}
+    //   data="http://www.africau.edu/images/default/sample.pdf"
+    //   type="application/pdf"
+    // ></object>
+    <ReactPDF />
   )
 }
 
-function Footer() {
-  return (
-    <div className={styles.footer}>
-      <h6>第一章 &nbsp;&nbsp; 技巧1 &nbsp;&nbsp; 不懂就發問</h6>
-    </div>
-  )
-}
+// function Footer() {
+//   return (
+//     <div className={styles.footer}>
+//       <h6>第一章 &nbsp;&nbsp; 技巧1 &nbsp;&nbsp; 不懂就發問</h6>
+//     </div>
+//   )
+// }
 
 function Preview() {
   return (
@@ -100,7 +99,7 @@ function Preview() {
 
       <Section />
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
