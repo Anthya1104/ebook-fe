@@ -67,3 +67,10 @@
     filter: brightness(50%);
 }
 
+.homepage-collections .collection-list{
+    width: 100%;
+}
+
+.homepage-collections .collection-list>div{
+    position: relative;
+}

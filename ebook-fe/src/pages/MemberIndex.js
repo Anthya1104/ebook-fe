@@ -48,6 +48,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/order.png')}
+                    alt=""
                   />
                   <br />
                   訂單相關查詢{' '}
@@ -59,6 +60,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/memberedit.png')}
+                    alt=""
                   />
                   <br />
                   會員資料修改{' '}
@@ -70,6 +72,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/pwchange.png')}
+                    alt=""
                   />
                   <br />
                   修改密碼{' '}
@@ -83,6 +86,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/bookshelf.png')}
+                    alt=""
                   />
                   <br />
                   我的專屬書櫃{' '}
@@ -94,6 +98,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/card.png')}
+                    alt=""
                   />
                   <br />
                   我的優惠券{' '}
@@ -105,6 +110,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/plan.png')}
+                    alt=""
                   />
                   <br />
                   我的里程碑{' '}
@@ -118,6 +124,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/pay.png')}
+                    alt=""
                   />
                   <br />
                   支付綁定{' '}
@@ -129,6 +136,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/inmoney.png')}
+                    alt=""
                   />
                   <br />
                   儲值{' '}
@@ -140,6 +148,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/Q&A.png')}
+                    alt=""
                   />
                   <br />
                   常見問題{' '}
@@ -153,6 +162,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/gift.png')}
+                    alt=""
                   />
                   <br />
                   贈送紀錄{' '}
@@ -164,6 +174,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/notification.png')}
+                    alt=""
                   />
                   <br />
                   訊息通知紀錄{' '}
@@ -172,8 +183,10 @@ function MemberIndex() {
 
               <li className="member-item col-4 m-5">
                 <a className="member-word" href="#">
-                  <img className="member-icon"
-                  src={require('../pages/memberindexcategory/logout.png')}
+                  <img
+                    className="member-icon"
+                    src={require('../pages/memberindexcategory/logout.png')}
+                    alt=""
                   />
                   <br />
                   登出{' '}
