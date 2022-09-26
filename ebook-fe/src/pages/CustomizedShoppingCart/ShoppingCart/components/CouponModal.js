@@ -48,7 +48,7 @@ function CouponModal() {
             </div>
           </Modal.Header>
           <div>
-            <Modal.Body className="">
+            <Modal.Body className="CouponModal-inMiddle">
               <div className="d-flex flex-wrap coupon-modal-body ">
                 <Button variant="outline-light coupon-button d-flex">
                   <div className="coupon-button-img">

@@ -13,39 +13,39 @@ function ListItemsWithProps(props) {
         width="100%"
         cellSpacing="0"
       >
-
         <thead>
-          <tr>
+          <tr className="SingleCart-topnav">
             {/* <th>id</th> */}
-            <th>商品明細</th>
+            <th style={{ width: 160 }}>收藏商品</th>
             <th></th>
             <th></th>
             <th>單價</th>
-            <th>數量</th>
-            <th>小計</th>
-            <th>移除</th>
+            {/* <th>數量</th> */}
+            {/* <th>小計</th> */}
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {items.map((v, i) => {
-            {/* console.log(items) */}
+            {
+              /* console.log(items) */
+            }
             return (
               <tr key={v.id}>
                 {/* <td>{v.id}</td> */}
                 <td>
-                    <img
-                      style={{ width: 120, height: 160 }}
-                      src={v.book_img}
-                      className="card-img-top ProductList-card-img-top"
-                      alt="..."
-                    />
-                    
-                  </td>
+                  <img
+                    style={{ width: 120, height: 160 }}
+                    src={v.book_img}
+                    className="card-img-top ProductList-card-img-top"
+                    alt="..."
+                  />
+                </td>
                 <td>{v.name} </td>
                 <td>{v.book_name} </td>
-                <td>{v.price}</td>
+                <td>$ {v.price}</td>
 
-                <td>
+                {/* <td>
                   <div className="btn-group mr-2" role="group">
                     <button
                       type="button"
@@ -69,10 +69,10 @@ function ListItemsWithProps(props) {
                       +
                     </button>
                   </div>
-                </td>
-                <td>{v.itemTotal}</td>
-                <td>
-                  <button
+                </td> */}
+                {/* <td>{v.itemTotal}</td> */}
+                <td className="ShoppingCart-BtnInMid">
+                  {/* <button
                     type="button"
                     className="btn btn-light"
                     onClick={() => {
@@ -80,6 +80,15 @@ function ListItemsWithProps(props) {
                     }}
                   >
                     x
+                  </button> */}
+                  <button
+                    type="button"
+                    className="btn btn-primary-reverse me-3"
+                    onClick={() => {
+                      removeItem(v.id)
+                    }}
+                  >
+                    移除
                   </button>
                 </td>
               </tr>
@@ -87,18 +96,17 @@ function ListItemsWithProps(props) {
           })}
         </tbody>
       </table>
-      <div>
+      {/* <div>
         items: {cart.totalItems} / total: {cart.cartTotal}
         <br />
         {cart.isEmpty && '購物車為空'}
         <hr />
-      </div>
+      </div> */}
     </div>
   )
 }
 
 export default ListItemsWithProps
-
 
 // function ListItemsWithProps(props) {
 //   // 使用porps傳入所需的函式與狀態值
