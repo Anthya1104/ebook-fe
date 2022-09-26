@@ -1,10 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 import '../pages/Memberindex.scss'
 import MemberPic from './memberindexcategory/member.png'
 import Bar from './memberindexcategory/裝飾bar-1 1.png'
+// auth
+import { useAuth } from '../Context/auth'
 
 function MemberIndex() {
+  const { member, setMember } = useAuth()
+  if (!member) {
+    return (
+      <>
+        <Navigate to="/Login" />
+      </>
+    )
+  }
   return (
     <>
       <div className="container-xxl d-flex-column justify-context-center">
