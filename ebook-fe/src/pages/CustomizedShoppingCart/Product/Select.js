@@ -1,14 +1,18 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import './Select.scss'
 
-function DefaultExample({ cat, setCat }) {
+function DefaultExample({ cat, setCat }, {searchBook, setsearchBook}) {
   return (
     <div>
       <h4 className='Select-title'>篩選條件</h4>
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">價格</ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">100元 </a>
+          <a href="#"
+          onClick={(e) => {
+              e.preventDefault()
+              setsearchBook('A')
+            }}>100元 </a>
         </ListGroup.Item>
         <ListGroup.Item>
           <a href="#">101元~200元 </a>
@@ -21,6 +25,7 @@ function DefaultExample({ cat, setCat }) {
         </ListGroup.Item>
       </ListGroup>
 
+{/*       
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">分類</ListGroup.Item>
         <ListGroup.Item>
@@ -122,7 +127,7 @@ function DefaultExample({ cat, setCat }) {
             勵志成長
           </a>
         </ListGroup.Item>
-      </ListGroup>
+      </ListGroup> */}
 
       <ListGroup className="product-select">
         <ListGroup.Item className="product-title">出版社</ListGroup.Item>
@@ -130,16 +135,16 @@ function DefaultExample({ cat, setCat }) {
           <a href="#">閱閱出版社 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">時代雜誌 </a>
+          <a href="#">人文出版</a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">蘋果日報 </a>
+          <a href="#">三棵樹文化 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">博客來書店 </a>
+          <a href="#">中新書店 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">誠品書局</a>
+          <a href="#">閱書局</a>
         </ListGroup.Item>
       </ListGroup>
     </div>

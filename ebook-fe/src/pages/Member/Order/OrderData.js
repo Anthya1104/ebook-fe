@@ -5,10 +5,11 @@ const data = [
     coupon_id: '2',
     sn: 'WW22070543',
     date: '2022-07-05 06:30:43',
-    status: '已完成',
+    status: '已取消',
     total: '945',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '2',
@@ -16,10 +17,11 @@ const data = [
     coupon_id: '4',
     sn: 'WW22060914',
     date: '2022-06-09 06:54:14',
-    status: '已完成',
+    status: '已取消',
     total: '1020',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '3',
@@ -30,7 +32,8 @@ const data = [
     status: '已完成',
     total: '250',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '4',
@@ -41,7 +44,8 @@ const data = [
     status: '已完成',
     total: '245',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '5',
@@ -52,7 +56,8 @@ const data = [
     status: '已完成',
     total: '650',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '6',
@@ -63,7 +68,8 @@ const data = [
     status: '已完成',
     total: '250',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '7',
@@ -74,7 +80,8 @@ const data = [
     status: '已完成',
     total: '350',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '8',
@@ -85,7 +92,8 @@ const data = [
     status: '已完成',
     total: '260',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '9',
@@ -96,7 +104,8 @@ const data = [
     status: '已完成',
     total: '350',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '10',
@@ -107,7 +116,8 @@ const data = [
     status: '已完成',
     total: '245',
     valid: '1',
-    "book_img": "https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940"
+    book_img:
+      'https://s3.amazonaws.com/virginia.webrand.com/virginia/344/JCM0tE3HfNd/c7f1deb86f8f7f3591e4ed019ca09451.jpg?1660237940',
   },
   {
     id: '11',
@@ -485,7 +495,7 @@ const data = [
     coupon_id: '13',
     sn: 'WW22021439',
     date: '2022-02-14 06:33:39',
-    status: '已完成',
+    status: '已取消',
     total: '1760',
     valid: '1',
   },
@@ -495,7 +505,7 @@ const data = [
     coupon_id: '12',
     sn: 'WW22070312',
     date: '2022-07-03 09:20:12',
-    status: '已完成',
+    status: '已取消',
     total: '5000',
     valid: '1',
   },
@@ -505,7 +515,7 @@ const data = [
     coupon_id: '7',
     sn: 'WW22070325',
     date: '2022-07-03 09:20:25',
-    status: '已完成',
+    status: '已取消',
     total: '2500',
     valid: '1',
   },

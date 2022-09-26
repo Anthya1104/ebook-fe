@@ -7,7 +7,7 @@
 //ScrollToTop
 .orderText {
   color: $primary;
-  font-size: 1.2rem;
+  font-size: 20px !important;
 
   @media (min-width: 600px) and (max-width: 1200px) {
     .orderText {
@@ -81,6 +81,9 @@
     width: 240px !important;
     margin: auto;
   }
+  .mobile-search {
+    margin: auto !important;
+  }
 }
 
 // order-tab
@@ -101,3 +104,4 @@
 .tab_fix {
   margin-left: -1px;
 }
+
