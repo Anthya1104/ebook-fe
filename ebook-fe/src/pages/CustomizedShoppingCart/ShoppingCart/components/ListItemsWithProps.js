@@ -1,3 +1,5 @@
+// import ProductList from '../../Product/ProductList'
+
 function ListItemsWithProps(props) {
   // 使用porps傳入所需的函式與狀態值
   const { cart, items, plusOne, minusOne, removeItem } = props
@@ -16,6 +18,8 @@ function ListItemsWithProps(props) {
           <tr>
             {/* <th>id</th> */}
             <th>商品明細</th>
+            <th></th>
+            <th></th>
             <th>單價</th>
             <th>數量</th>
             <th>小計</th>
@@ -24,10 +28,21 @@ function ListItemsWithProps(props) {
         </thead>
         <tbody>
           {items.map((v, i) => {
+            {/* console.log(items) */}
             return (
               <tr key={v.id}>
                 {/* <td>{v.id}</td> */}
+                <td>
+                    <img
+                      style={{ width: 120, height: 160 }}
+                      src={v.book_img}
+                      className="card-img-top ProductList-card-img-top"
+                      alt="..."
+                    />
+                    
+                  </td>
                 <td>{v.name} </td>
+                <td>{v.book_name} </td>
                 <td>{v.price}</td>
 
                 <td>

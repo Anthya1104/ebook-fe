@@ -6,14 +6,14 @@ import { useCart } from '../utils/useCart'
 
 import Select from './Select'
 import './ProductList.scss'
-
-import products from '../data/products.json'
-
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
-// import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
-// import ProductFilter from '../Product/ProductFilter/ProductFilter'
+
+import { useSecondCart } from '../utils/useSecondCart'
+
+// 商品範例
+import products from '../data/products.json'
 
 function ProductList(props) {
   // 對話盒使用
@@ -24,12 +24,13 @@ function ProductList(props) {
   const navigate = useNavigate()
 
   const { addItem } = useCart()
+  const { addSecondItem } = useSecondCart()
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
   const showModal = (name) => {
-    setProductName(name + '已成功加入購物車')
+    setProductName('產品：' + name + '已成功加入購物車')
     handleShow()
   }
 
@@ -60,39 +61,57 @@ function ProductList(props) {
   }, [cat, searchBook])
 
   const messageModal = (
-    <>
-      <div className="d-flex">
-        <div>
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>成功加入購物車</Modal.Title>
-            </Modal.Header>
-            <Modal.Footer>
-              <Button variant="btn btn-primary" onClick={handleClose}>
-                繼續購物
-              </Button>
-              <Button
-                variant="btn btn-primary"
-                onClick={() => {
-                  // 導向購物車頁面
-                  // props.history.push('/')
-                  // navigate('/', { replace: true })
-                  navigate('/Cart')
-                }}
-              >
-                前往購物車結帳
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </div>
-      </div>
-    </>
+    <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+      <Modal.Header closeButton>
+        <Modal.Title>加入購物車訊息</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{productName} </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          繼續購物
+        </Button>
+        <Button
+          variant="primary"
+          onClick={() => {
+            // 導向購物車頁面
+            // props.history.push('/')
+            navigate('/Cart', { replace: true })
+          }}
+        >
+          前往購物車結帳
+        </Button>
+      </Modal.Footer>
+    </Modal>
   )
+
+  const messageModal2 = (
+    <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+      <Modal.Header closeButton>
+        <Modal.Title>加入購物車訊息</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{productName} </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          繼續購物
+        </Button>
+        <Button
+          variant="primary"
+          onClick={() => {
+            // 導向購物車頁面
+            // props.history.push('/')
+            navigate('/', { replace: true })
+          }}
+        >
+          前往購物車結帳
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  )
+
+  const showModal2 = (name) => {
+    setProductName('產品：' + name + '已成功加入收藏')
+    handleShow()
+  }
 
   const display = (
     <div className="row">
@@ -140,8 +159,19 @@ function ProductList(props) {
                   >
                     加入購物車
                   </button>
-                  <button className="btn btn-primary ProductList-mobile-btn">
-                    加入收藏
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => {
+                      // 商品原本無數量屬性(quantity)，要先加上
+                      const item = { ...v, quantity: 1 }
+                      // 注意: 重覆加入會自動+1產品數量
+                      addSecondItem(item)
+                      // 呈現跳出對話盒
+                      showModal2(v.name)
+                    }}
+                  >
+                    收藏
                   </button>
                 </div>
               </div>

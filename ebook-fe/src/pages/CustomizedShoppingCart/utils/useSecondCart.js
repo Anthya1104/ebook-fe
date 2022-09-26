@@ -35,7 +35,7 @@ export const SecondCartProvider = ({
     }
   }, [state])
 
-  const addItem = (item) => {
+  const addSecondItem = (item) => {
     dispatch({
       type: 'ADD_ITEM',
       payload: item,
@@ -93,7 +93,7 @@ export const SecondCartProvider = ({
       value={{
         cart: state,
         items: state.items,
-        addItem,
+        addSecondItem,
         removeItem,
         updateItem,
         clearCart,

@@ -39,6 +39,8 @@ import SingleCart from './pages/CustomizedShoppingCart/ShoppingCart/SingleCart'
 import Checkout from './pages/CustomizedShoppingCart/ShoppingCart/components/Checkout'
 import ScrollToTop from './Component/ScrollToTop'
 
+import WishList from './pages/CustomizedShoppingCart/ShoppingCart/WishList'
+
 function App() {
   return (
     <BrowserRouter>
@@ -80,6 +82,7 @@ function App() {
             {/* 購物車 */}
             <Route path="Cart" element={<ShoppingCart />}>
               <Route index element={<SingleCart />} />
+              <Route path="WishList" element={<WishList />} />
               <Route path="product-list" element={<ProductList />} />
               <Route
                 path="ProductDetail/:productId"
