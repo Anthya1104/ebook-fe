@@ -25,6 +25,7 @@ function Orders() {
       let response = await axios.get(
         `${API_URL}/order/get-order?member_id=${member.id}`
       )
+      setOrder(response.data)
       console.log(response.data)
     }
     getOrder()
