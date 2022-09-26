@@ -42,6 +42,11 @@ import axios from 'axios'
 import { API_URL } from './utils/config'
 import { AuthContext } from './Context/auth'
 import TestPage from './pages/TestPage'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(fas, fab)
 
 function App() {
   // 會員資料

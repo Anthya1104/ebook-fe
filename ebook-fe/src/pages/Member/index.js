@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Navigate, Outlet, Link } from 'react-router-dom'
 import SideNavi from '../../img/navi_bar.svg'
 import '../../style/MemberGlobal.scss'
 import DecoBar from '../../img/deco_bar.png'
 import Button from 'react-bootstrap/Button'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
-
-library.add(fas)
-
+// auth
+import { useAuth } from '../../Context/auth'
+import axios from 'axios'
+import { API_URL } from '../../utils/config'
 function Member() {
+  const { member, setMember } = useAuth()
+  if (!member) {
+    return (
+      <>
+        <Navigate to="/Login" />
+      </>
+    )
+  }
   const sideNavContents = [
     {
       value: '訂單相關',
@@ -55,11 +62,14 @@ function Member() {
       value: '訊息通知紀錄',
       url: 'message',
     },
-    {
-      value: '登出',
-      url: 'logout',
-    },
   ]
+
+  const logoutHandler = async () => {
+    let response = await axios.get(`${API_URL}/auth/logout`, {
+      withCredentials: true,
+    })
+    setMember(null)
+  }
 
   return (
     <>
@@ -83,6 +93,14 @@ function Member() {
                   </>
                 )
               })}
+              <li className="my-2">
+                <Button
+                  className="btn btn-primary-reverse Member-nav-contents"
+                  onClick={logoutHandler}
+                >
+                  登出
+                </Button>
+              </li>
             </ul>
           </div>
           <Outlet />

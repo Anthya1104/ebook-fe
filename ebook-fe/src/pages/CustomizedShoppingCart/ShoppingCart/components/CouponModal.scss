@@ -1,0 +1,44 @@
+.coupon-button{
+    margin: 16px;
+    width: 343px;
+    height: 147px;
+    background-image: url("../../../../img/coupon-bg.png") ;
+    // background: #DF9D6E !important;
+    // color: transparent !important;
+    padding: 0px;
+}
+
+.coupon-button-img{
+    padding: 40px 25px;
+}
+// @media (max-width:800px) {
+//     .coupon-modal-body{
+//         height: 600px;
+//     }
+// }
+.coupon-p{
+    margin-top: 10px;
+}
+
+.coupon-p p{
+    line-height: .6;
+}
+
+.choose{
+    color: white;
+    text-align: center !important;
+}
+
+.modal-bg{
+    background-color: #C0724A;
+}
+
+.modal-content-bg{
+    background-color: #C0724A;
+    height: 100vh;
+}
+
+// .outline-light{
+//     color: #8D4343 !important;
+//     border: 2px solid #8D4343;
+// }
