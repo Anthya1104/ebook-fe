@@ -21,12 +21,12 @@ import { API_URL } from '../../../utils/config'
 import products from '../data/products.json'
 
 function ProductList(props) {
+  const getProductList = async () => {
+    let response = await axios.get(`${API_URL}/market/product-list`)
+    console.log(response.data)
+    setProductsDisplay(response.data)
+  }
   useEffect(() => {
-    const getProductList = async () => {
-      let response = await axios.get(`${API_URL}/market/product-list`)
-      console.log(response.data)
-      setProductsDisplay(response.data)
-    }
     getProductList()
   }, [])
   // 對話盒使用
@@ -56,6 +56,9 @@ function ProductList(props) {
   // }, [])
 
   useEffect(() => {
+    // if (!cat) {
+    //   return getProductList()
+    // } else
     if (cat) {
       setProductsDisplay(products.filter((v, i) => v.book_category === cat))
     }
@@ -154,7 +157,7 @@ function ProductList(props) {
 
   const display = (
     <div className="row">
-      {product && productsDisplay.map((v, i) => {
+      {productsDisplay.map((v, i) => {
         return (
           <>
             <div
