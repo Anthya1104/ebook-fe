@@ -35,8 +35,8 @@ function ListItemsWithHook({ tab, handleStep }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            {/* <th>id</th> */}
-            <th>名稱</th>
+            <th style={{ width: 200 }}>商品明細</th>
+            <th ></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
             <th>小計</th>
@@ -47,6 +47,14 @@ function ListItemsWithHook({ tab, handleStep }) {
           {items.map((v, i) => {
             return (
               <tr key={v.id}>
+                <td>
+                  <img
+                    style={{ width: 120, height: 160 }}
+                    src={v.book_img}
+                    className="card-img-top ProductList-card-img-top"
+                    alt="..."
+                  />
+                </td>
                 <td>{v.book_name} </td>
                 <td>$ {v.price}</td>
                 {/* 設定tab是購物車還是收藏 */}
@@ -106,8 +114,8 @@ function ListItemsWithHook({ tab, handleStep }) {
             共有&nbsp;
             <span className="ListItemsWithHook-text-em-color">
               {cart.totalItems}
-            </span>&nbsp;
-            件商品
+            </span>
+            &nbsp; 件商品
             <br />
             訂單小計{' '}
             <span className="ListItemsWithHook-text-em-color">

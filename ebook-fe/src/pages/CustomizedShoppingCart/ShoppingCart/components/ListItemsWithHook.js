@@ -5,6 +5,7 @@ import { useNavigate2 } from 'react-router-dom'
 // import ProductList from 'pages/Product/ProductList'
 // import ProductList from '../../../pages/Product/ProductList'
 import ProductList from '../../Product/ProductList'
+import CouponModal from '../components/CouponModal'
 
 function ListItemsWithHook({ tab, handleStep }) {
   // 使用hooks 解出所需的狀態與函式(自context)
@@ -26,8 +27,8 @@ function ListItemsWithHook({ tab, handleStep }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            {/* <th>id</th> */}
-            <th>名稱</th>
+            <th style={{ width: 180 }}>商品明細</th>
+            <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
             <th>小計</th>
@@ -39,12 +40,20 @@ function ListItemsWithHook({ tab, handleStep }) {
             return (
               <>
                 <tr key={v.id}>
-                  {/* <td>{v.book_img}</td> */}
+                  <td>
+                    <img
+                      style={{ width: 120, height: 160 }}
+                      src={v.book_img}
+                      className="card-img-top ProductList-card-img-top"
+                      alt="..."
+                    />
+                    
+                  </td>
                   <td>{v.book_name}</td>
 
-                  <td>$ {v.price}</td>
+                  <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
-                  <td>
+                  <td className='ShoppingCart-BtnInMid'>
                     <button
                       type="button"
                       className="btn btn-primary-reverse me-3"
@@ -112,6 +121,9 @@ function ListItemsWithHook({ tab, handleStep }) {
               type="submit"
               value="使用"
             />
+          </form>
+          <form>
+            <CouponModal/>
           </form>
         </div>
 
