@@ -15,7 +15,7 @@ function HomePage() {
         {/* 首頁預設背景 */}
         <div className="homepage-bg">
           <img
-            className="homepagebackground"
+            className="homepagebackground cover-fit"
             src={Homepagebackground}
             alt="homepagebackground"
           />
