@@ -15,7 +15,6 @@ import line from '../../../img/line.svg'
 import dash from '../../../img/dash.svg'
 import { data } from './OrderData'
 import '../../../style/Order.scss'
-// import paginationBar from './Component/paginationBar'
 import { useAuth } from '../../../Context/auth'
 function Orders() {
   const { member, setMember } = useAuth()

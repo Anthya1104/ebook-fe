@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
+import { useAuth } from '../../../Context/auth'
 import { Link, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Card from '@mui/material/Card'
@@ -16,7 +17,17 @@ import data from './newOrderDetail.json'
 import '../../../style/Order.scss'
 
 function OrderDetail() {
+  const { member, setMember } = useAuth()
   const { orderId } = useParams()
+  useEffect(() => {
+    const getOrder = async () => {
+      let response = await axios.get(
+        `${API_URL}/order/get-order?member_id=${member.id}&order=${orderId}`
+      )
+      console.log(response.data)
+    }
+    getOrder()
+  }, [])
   return (
     <>
       <div className="container">
