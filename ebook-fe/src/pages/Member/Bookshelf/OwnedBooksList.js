@@ -198,6 +198,7 @@ function OwnedBooksList() {
   }
   return (
     <>
+    {/* TODO:卡片hover -> 用 onPointerEnter -> 1. 設定 container 包含 目前的 card 內容 -> 新增一個 position-absolute 且位置在 下方的 box -> 設定 overflow:hidden 先藏起來 -> const onPointerEnter = (e) => {} -> 使用state判別有沒有 onPointerEnter, 改變 state -> 三元判斷 */}
       {/* 卡片 hover 參考 : https://codepen.io/chhiring90/pen/zLJLBG */}
       {/* Customized Category */}
       <div className="Bookshelf-customized-category d-flex justify-content-between">
