@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import Bookcover from '../../../img/book.jpg'
+// img arrow
+import ArrowRight from '../../../img/recent_book_arrow_r.svg'
 // axios
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
@@ -9,11 +11,15 @@ import { API_URL } from '../../../utils/config'
 import Button from 'react-bootstrap/Button'
 // MUI importing
 import Box from '@mui/material/Box'
-import { styled } from '@mui/material/styles'
+import { createTheme, styled } from '@mui/material/styles'
 import LinearProgress, {
   linearProgressClasses,
 } from '@mui/material/LinearProgress'
 import DropdownSelection from './Component/DropdownSelection'
+// pagination
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
+import { ThemeProvider } from '@emotion/react'
 
 // customized MUI Linear Progress
 const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -33,6 +39,16 @@ const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }))
 
+// MUI style palette
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#B48C8C',
+    },
+  },
+})
+
 function OwnedBooksList() {
   // customized Category states
   const [getCategories, setGetCategories] = useState([])
@@ -51,6 +67,12 @@ function OwnedBooksList() {
     date_sort_toggled: true,
     search_param: '',
     on_page: 1,
+  })
+
+  //頁面資訊
+  const [getPage, setGetPage] = useState({
+    onPage: 1,
+    totalPage: 1,
   })
 
   // isRead 切換
@@ -78,6 +100,7 @@ function OwnedBooksList() {
 
     handleCategoryChange()
   }, [bookFilterParams])
+
   // TODO:處理 tab 切換
   // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
@@ -110,10 +133,11 @@ function OwnedBooksList() {
       )
       console.log(response.data)
 
-      if (response.data.length === 0) {
+      if (response.data.data.length === 0) {
         return setOnCategoryList(['nothing'])
       }
-      setOnCategoryList(response.data)
+      setOnCategoryList(response.data.data)
+      setGetPage({ ...getPage, totalPage: response.data.pagination.lastPage })
     } catch (e) {
       console.error(e)
     }
@@ -159,6 +183,17 @@ function OwnedBooksList() {
     )
   }
 
+  // pagination 用 change Page
+  const handleChangePage = (event, newPage) => {
+    setGetPage({ ...getPage, onPage: newPage })
+    setBookFilterParams({ ...bookFilterParams, on_page: newPage })
+    ScrollToTop()
+  }
+
+  // 分頁後向上捲動
+  const ScrollToTop = () => {
+    window.scrollTo(0, 450)
+  }
   return (
     <>
       {/* 卡片 hover 參考 : https://codepen.io/chhiring90/pen/zLJLBG */}
@@ -289,6 +324,56 @@ function OwnedBooksList() {
         {onCategoryList.map((listValue) => {
           return createBookList(listValue)
         })}
+      </div>
+      {/* pagination */}
+      <div className="Reviews-pagination-area d-flex justify-content-center">
+        <div
+          className="prev"
+          onClick={() => {
+            setGetPage({
+              ...getPage,
+              onPage:
+                getPage.onPage === 1 ? getPage.onPage : getPage.onPage - 1,
+            })
+            ScrollToTop()
+          }}
+        >
+          <img
+            className="Bookshelf-arrow img-flip m-2"
+            alt="arrow-l"
+            src={ArrowRight}
+          />
+        </div>
+        <div className="Reviews-page-location m-2">
+          {console.log(getPage.totalPage)}
+          <ThemeProvider theme={theme}>
+            <Stack spacing={2}>
+              <Pagination
+                count={getPage.totalPage}
+                color="primary"
+                page={getPage.onPage}
+                hideNextButton={true}
+                hidePrevButton={true}
+                onChange={handleChangePage}
+              />
+            </Stack>
+          </ThemeProvider>
+        </div>
+        <div
+          className="next"
+          onClick={() => {
+            setGetPage({
+              ...getPage,
+              onPage:
+                getPage.onPage === getPage.totalPage
+                  ? getPage.onPage + 0
+                  : getPage.onPage + 1,
+            })
+            ScrollToTop()
+          }}
+        >
+          <img className="Bookshelf-arrow m-2" alt="arrow-r" src={ArrowRight} />
+        </div>
       </div>
     </>
   )
