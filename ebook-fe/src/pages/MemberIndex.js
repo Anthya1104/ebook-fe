@@ -8,13 +8,13 @@ import { useAuth } from '../Context/auth'
 
 function MemberIndex() {
   const { member, setMember } = useAuth()
-  if (!member) {
-    return (
-      <>
-        <Navigate to="/Login" />
-      </>
-    )
-  }
+  // if (!member) {
+  //   return (
+  //     <>
+  //       <Navigate to="/Login" />
+  //     </>
+  //   )
+  // }
   return (
     <>
       <div className="container-xxl d-flex-column justify-context-center">
