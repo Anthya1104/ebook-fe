@@ -29,9 +29,9 @@ function ListItemsWithHook({ tab, handleStep }) {
           cellSpacing="0"
         >
           <thead>
-            <tr className="cart-topnav">
-              {/* <th>id</th> */}
-              <th>名稱</th>
+            <tr className="SingleCart-topnav">
+              <th style={{ width: 200 }}>商品明細</th>
+              <th></th>
               {/* <th>單價</th> */}
               {/* <th>數量</th> */}
               <th>小計</th>
@@ -42,6 +42,14 @@ function ListItemsWithHook({ tab, handleStep }) {
             {items.map((v, i) => {
               return (
                 <tr key={v.id}>
+                <td>
+                  <img
+                    style={{ width: 120, height: 160 }}
+                    src={v.book_img}
+                    className="card-img-top ProductList-card-img-top"
+                    alt="..."
+                  />
+                </td>
                   <td>{v.book_name} </td>
                   <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
@@ -84,42 +92,71 @@ function ListItemsWithHook({ tab, handleStep }) {
         </table>
 
         <div>
-          <div>
-            <div className="cart-topnav py-2 ps-2">訂單資訊 </div>
+          <div className="my-5">
+            <div className="SingleCart-topnav py-2 ps-2">訂單資訊 </div>
             <br />
-            共有 {cart.totalItems}件商品
+            共有&nbsp;
+            <span className="ListItemsWithHook-text-em-color">
+              {cart.totalItems}
+            </span>
+            &nbsp;件商品
             <br />
-            訂單小計：$ {cart.cartTotal}
+            訂單小計&nbsp;
+            <span className="ListItemsWithHook-text-em-color">
+              $ {cart.cartTotal}
+            </span>
             <br />
             {cart.isEmpty && '購物車為空'}
-            <hr />
+            {/* <hr /> */}
           </div>
         </div>
 
         <div>
-          <div className="cart-topnav py-2 ps-2"> 付款方式：信用卡</div>
+          <div className="SingleCart-topnav py-2 ps-2"> 付款方式：信用卡</div>
           <br />
-          <div className="d-flex">
+          <div className="d-flex Pay-text-style">
             <Form.Label htmlFor=" ">信用卡號：</Form.Label>
             <Form.Control
+              className="Pay-input-style"
               type="password"
               id="inputPassword5"
-              style={{ width: 100 }}
+              style={{ width: 80 }}
             />
             -
-            <Form.Control type="" id="" style={{ width: 100 }} />
+            <Form.Control
+              className="Pay-input-style"
+              type="password"
+              id="inputPassword5"
+              style={{ width: 80 }}
+            />
             -
-            <Form.Control type="" id="" style={{ width: 100 }} />
+            <Form.Control
+              className="Pay-input-style"
+              type="password"
+              id="inputPassword5"
+              style={{ width: 80 }}
+            />
             -
-            <Form.Control type="" id="" style={{ width: 100 }} />
+            <Form.Control
+              className="Pay-input-style"
+              type="password"
+              id="inputPassword5"
+              style={{ width: 80 }}
+            />
           </div>
-          <div className="d-flex mt-3">
+          <div className="d-flex mt-3 Pay-text-style">
             <Form.Label htmlFor="inputPassword5">持卡人姓名：</Form.Label>
-            <Form.Control type="" id="" style={{ width: 200 }} />
+            <Form.Control
+              className="Pay-input-style"
+              type=""
+              id=""
+              style={{ width: 200 }}
+            />
           </div>
-          <div className="d-flex mt-3">
+          <div className="d-flex mt-3 Pay-text-style">
             有效年月：
             <Form.Select
+              className="Pay-input-style me-1"
               aria-label="Default select example"
               style={{ width: 100 }}
             >
@@ -138,6 +175,7 @@ function ListItemsWithHook({ tab, handleStep }) {
               <option value="12">12</option>
             </Form.Select>
             <Form.Select
+              className="Pay-input-style"
               aria-label="Default select example"
               style={{ width: 100 }}
             >
@@ -154,9 +192,14 @@ function ListItemsWithHook({ tab, handleStep }) {
             </Form.Select>
           </div>
         </div>
-        <div className="d-flex mt-3">
+        <div className="d-flex mt-3 Pay-text-style">
           <Form.Label htmlFor="inputPassword5">背面末三碼：</Form.Label>
-          <Form.Control type="" id="" style={{ width: 200 }} />
+          <Form.Control
+            className="Pay-input-style"
+            type=""
+            id=""
+            style={{ width: 200 }}
+          />
         </div>
 
         <div className="d-flex justify-content-end">

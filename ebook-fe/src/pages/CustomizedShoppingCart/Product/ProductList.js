@@ -1,4 +1,4 @@
-import { useState, useParam } from 'react'
+import { useState, useParam, useEffect } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
@@ -12,6 +12,8 @@ import products from '../data/products.json'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
+// import SearchBar from '../../CustomizedShoppingCart/Product/SearchBar/SearchBar'
+// import ProductFilter from '../Product/ProductFilter/ProductFilter'
 
 function ProductList(props) {
   // 對話盒使用
@@ -31,6 +33,32 @@ function ProductList(props) {
     handleShow()
   }
 
+  const [cat, setCat] = useState('')
+  const [productsDisplay, setProductsDisplay] = useState([])
+
+  useEffect(() => {
+    setProductsDisplay(products)
+  }, [])
+
+  useEffect(() => {
+    if (cat) {
+      setProductsDisplay(products.filter((v, i) => v.book_category === cat))
+    }
+  }, [cat])
+
+  //後加的
+  const [searchBook, setSearchBook] = useState('')
+
+  useEffect(() => {
+    if ((cat, searchBook)) {
+      setProductsDisplay(
+        products.filter(
+          (v, i) => v.book_category === cat || v.price_range === searchBook
+        )
+      )
+    }
+  }, [cat, searchBook])
+
   const messageModal = (
     <>
       <div className="d-flex">
@@ -45,11 +73,11 @@ function ProductList(props) {
               <Modal.Title>成功加入購物車</Modal.Title>
             </Modal.Header>
             <Modal.Footer>
-              <Button variant="btn co-btn" onClick={handleClose}>
+              <Button variant="btn btn-primary" onClick={handleClose}>
                 繼續購物
               </Button>
               <Button
-                variant="btn co-btn"
+                variant="btn btn-primary"
                 onClick={() => {
                   // 導向購物車頁面
                   // props.history.push('/')
@@ -67,22 +95,23 @@ function ProductList(props) {
   )
 
   const display = (
-    //TEST//
-    <div className="row row-cols-1 row-cols-md-4 g-4 ">
-      {products.map((v, i) => {
+    <div className="row">
+      {productsDisplay.map((v, i) => {
         return (
           <>
-            <div className="col" key={v.id}>
-              {/* 怎麼帶id??? */}
+            <div
+              className="col-12 col-sm-3 mb-4 ProductList-card-outer"
+              key={v.id}
+            >
               <div className="card ProductList-card">
                 <Link to={'/Cart/ProductDetail/' + v.id}>
-                  {console.log('/Cart/ProductDetail/' + v.id)}
+                  {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
                   <img
                     src={v.book_img}
                     className="card-img-top ProductList-card-img-top"
                     alt="..."
                   />
-                  <div className="card-body">
+                  <div className="card-body ProductList-card-body">
                     <h5 className="card-title ProductList-bookname">
                       {v.book_name}
                     </h5>
@@ -96,10 +125,10 @@ function ProductList(props) {
                     <p className="card-text text-danger">$ {v.price}元</p>
                   </div>
                 </Link>
-                <div className="card-footer">
+                <div className="my-2 ProductList-mobile-btn-outer">
                   <button
                     type="button"
-                    className="btn  co-btn"
+                    className="btn btn-primary me-2 ProductList-mobile-btn"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
@@ -111,7 +140,9 @@ function ProductList(props) {
                   >
                     加入購物車
                   </button>
-                  <button className="btn  co-btn">加入收藏</button>
+                  <button className="btn btn-primary ProductList-mobile-btn">
+                    加入收藏
+                  </button>
                 </div>
               </div>
             </div>
@@ -124,12 +155,19 @@ function ProductList(props) {
   return (
     <>
       {/* <h1>商品列表頁範例</h1> */}
-      <TopCategory />
-      <div className='my-5'></div>
+      {/* <div className="ProductList-showTopCategory"> */}
+      <TopCategory cat={cat} setCat={setCat} />
+      {/* </div> */}
+      {/* <div className="testtest ">
+      <TopCategory cat={cat} setCat={setCat} />
+      </div> */}
+      {/* <SearchBar /> */}
+      {/* <ProductFilter /> */}
+      <div className="my-5"></div>
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
-        <div className="me-5">
-          <Select />
+        <div className="me-5 ProductList-showSelect">
+          <Select cat={cat} setCat={setCat} />
         </div>
         <div>
           {messageModal}

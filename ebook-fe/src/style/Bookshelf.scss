@@ -133,9 +133,10 @@ $Bookshelf_recent_translateY: 40px;
 
 // recent books popup reviews
 .Bookshelf-popup-reviews{
+  transform: translateX(350px);
   width: 500px;
   background: $primary;
- color:#fff;
+  color:#fff;
  textarea{
   padding:15px;
   width:100%;
@@ -260,7 +261,10 @@ $Bookshelf_recent_translateY: 40px;
     padding:0;
     list-style: none;
     li{
-      font-size: 1.0 rem;
+      font-size: 1 rem;
+      @media(max-width:$mobile-break-point){
+        width:80px;
+      }
 
     }      
     .active{
@@ -324,8 +328,18 @@ $Bookshelf_recent_translateY: 40px;
 }
 .Bookshelf-bookCollection{
   margin:15px auto;
+
   @media(max-width:$mobile-break-point){
     align-items: center;
+  }
+  // TODO:再想想怎麼處理 card hover
+  .Bookshelf-hover-area{
+    display:none;
+    margin:auto;
+    background:$warning;
+    width: 230px;
+    height: 350px;
+    z-index:2;
   }
   ul{
     list-style:none;
@@ -359,6 +373,7 @@ $Bookshelf_recent_translateY: 40px;
   justify-content: center;
   border-bottom: 1px dashed $primary;
   margin-bottom: 30px;
+  padding:50px;
 
   .col-sm-3{
     display:flex;
@@ -395,4 +410,24 @@ $Bookshelf_recent_translateY: 40px;
     }
 
   }
+}
+
+.Reviews-pagination-area{
+  margin-bottom: 50px;
+  .Reviews-page-location{
+  transform: translateY(8px);
+}
+
+.prev, .next{
+  & :hover{
+      cursor: pointer;
+    }
+  .Bookshelf-arrow{
+    
+    
+    @media(max-width:$mobile-break-point){
+      display:flex;
+    }
+  }
+}
 }

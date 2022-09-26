@@ -1,14 +1,18 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import './Select.scss'
 
-function DefaultExample() {
+function DefaultExample({ cat, setCat }, {searchBook, setsearchBook}) {
   return (
     <div>
-      <h4>篩選條件</h4>
+      <h4 className='Select-title'>篩選條件</h4>
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">價格</ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">100元 </a>
+          <a href="#"
+          onClick={(e) => {
+              e.preventDefault()
+              setsearchBook('A')
+            }}>100元 </a>
         </ListGroup.Item>
         <ListGroup.Item>
           <a href="#">101元~200元 </a>
@@ -21,36 +25,109 @@ function DefaultExample() {
         </ListGroup.Item>
       </ListGroup>
 
+{/*       
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">分類</ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">商業理財 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('商業理財')
+            }}
+          >
+            商業理財
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">文學小說 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('文學小說')
+            }}
+          >
+            文學小說
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">社會科學 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('社會科學')
+            }}
+          >
+            社會科學
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">生活風格 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('生活風格')
+            }}
+          >
+            生活風格
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">藝術設計 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('藝術設計')
+            }}
+          >
+            藝術設計
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">自然科普 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('自然科普')
+            }}
+          >
+            自然科普
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">旅遊觀光 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('旅遊觀光')
+            }}
+          >
+            旅遊觀光
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">醫療保健 </a>
+        <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('醫療保健')
+            }}
+          >
+            醫療保健
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">勵志成長 </a>
+        <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setCat('勵志成長')
+            }}
+          >
+            勵志成長
+          </a>
         </ListGroup.Item>
-      </ListGroup>
+      </ListGroup> */}
 
       <ListGroup className="product-select">
         <ListGroup.Item className="product-title">出版社</ListGroup.Item>
@@ -58,16 +135,16 @@ function DefaultExample() {
           <a href="#">閱閱出版社 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">時代雜誌 </a>
+          <a href="#">人文出版</a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">蘋果日報 </a>
+          <a href="#">三棵樹文化 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">博客來書店 </a>
+          <a href="#">中新書店 </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">誠品書局</a>
+          <a href="#">閱書局</a>
         </ListGroup.Item>
       </ListGroup>
     </div>

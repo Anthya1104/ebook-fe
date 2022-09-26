@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 import Bookcover from '../../../img/book.jpg'
+// img arrow
+import ArrowRight from '../../../img/recent_book_arrow_r.svg'
 // axios
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
@@ -9,11 +11,15 @@ import { API_URL } from '../../../utils/config'
 import Button from 'react-bootstrap/Button'
 // MUI importing
 import Box from '@mui/material/Box'
-import { styled } from '@mui/material/styles'
+import { createTheme, styled } from '@mui/material/styles'
 import LinearProgress, {
   linearProgressClasses,
 } from '@mui/material/LinearProgress'
 import DropdownSelection from './Component/DropdownSelection'
+// pagination
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
+import { ThemeProvider } from '@emotion/react'
 
 // customized MUI Linear Progress
 const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -33,12 +39,22 @@ const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }))
 
+// MUI style palette
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#B48C8C',
+    },
+  },
+})
+
 function OwnedBooksList() {
   // customized Category states
   const [getCategories, setGetCategories] = useState([])
 
   // 目前在哪個分類
-  const [onCategory, setOnCategory] = useState('')
+  const [onCategory, setOnCategory] = useState({})
 
   // 先嘗試只篩類別
   const [onCategoryList, setOnCategoryList] = useState([])
@@ -46,10 +62,17 @@ function OwnedBooksList() {
   // 同時篩 類別, 閱讀進度, 日期sort
   // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
   const [bookFilterParams, setBookFilterParams] = useState({
-    category: '',
+    category: 1,
     is_read: true,
     date_sort_toggled: true,
     search_param: '',
+    on_page: 1,
+  })
+
+  //頁面資訊
+  const [getPage, setGetPage] = useState({
+    onPage: 1,
+    totalPage: 1,
   })
 
   // isRead 切換
@@ -58,9 +81,12 @@ function OwnedBooksList() {
 
   useEffect(() => {
     const getCategories = async () => {
-      let response = await axios.get(`${API_URL}/bookshelf/custom-categories`)
+      let response = await axios.get(`${API_URL}/bookshelf/custom-categories`, {
+        withCredentials: true,
+      })
 
       setGetCategories(response.data)
+      console.log('firstRender', response.data)
       setOnCategory(response.data[0])
     }
     getCategories()
@@ -71,27 +97,10 @@ function OwnedBooksList() {
     // console.log({ API_URL })
     // TODO:在這裡做 ownedBookList 切換
     // 把 Category post 到後端
-    const handleCategoryChange = async () => {
-      try {
-        // console.log(onCategory)
-        let response = await axios.post(`${API_URL}/bookshelf/on-filter`, [
-          onCategory.id,
-        ])
-        // console.log(response.data)
 
-        // TODO: createBookList()
-        // let filteredBookList = response.data
-        // createBookList(filteredBookList)
-        if (response.data.length === 0) {
-          return setOnCategoryList(['nothing'])
-        }
-        setOnCategoryList(response.data)
-      } catch (e) {
-        console.error(e)
-      }
-    }
     handleCategoryChange()
-  }, [onCategory])
+  }, [bookFilterParams])
+
   // TODO:處理 tab 切換
   // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
@@ -112,6 +121,30 @@ function OwnedBooksList() {
     )
   }
 
+  const handleCategoryChange = async () => {
+    try {
+      // console.log(onCategory)
+      let response = await axios.post(
+        `${API_URL}/bookshelf/on-filter`,
+        { bookFilterParams },
+        {
+          withCredentials: true,
+        }
+      )
+      console.log(response.data)
+
+      if (response.data.data.length === 0) {
+        setOnCategoryList(['nothing'])
+        setGetPage({ ...getPage, totalPage: 1 })
+        return
+      }
+      setOnCategoryList(response.data.data)
+      setGetPage({ ...getPage, totalPage: response.data.pagination.lastPage })
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   const createBookList = (bookList) => {
     if (onCategoryList[0] === 'nothing') {
       // 如果沒抓到資料
@@ -120,7 +153,11 @@ function OwnedBooksList() {
 
     return (
       <>
-        <div key={bookList.id} className="Bookshelf-bookCollection">
+        <div
+          key={bookList.id}
+          className="Bookshelf-bookCollection position-relative"
+        >
+          <div className="Bookshelf-hover-area position-absolute"></div>
           <Link to={`${bookList.id}`}>
             <div className="bookCover">
               <img className="contain-fit" src={Bookcover} alt="bookCover" />
@@ -148,8 +185,20 @@ function OwnedBooksList() {
     )
   }
 
+  // pagination 用 change Page
+  const handleChangePage = (event, newPage) => {
+    setGetPage({ ...getPage, onPage: newPage })
+    setBookFilterParams({ ...bookFilterParams, on_page: newPage })
+    ScrollToTop()
+  }
+
+  // 分頁後向上捲動
+  const ScrollToTop = () => {
+    window.scrollTo(0, 450)
+  }
   return (
     <>
+    {/* TODO:卡片hover -> 用 onPointerEnter -> 1. 設定 container 包含 目前的 card 內容 -> 新增一個 position-absolute 且位置在 下方的 box -> 設定 overflow:hidden 先藏起來 -> const onPointerEnter = (e) => {} -> 使用state判別有沒有 onPointerEnter, 改變 state -> 三元判斷 */}
       {/* 卡片 hover 參考 : https://codepen.io/chhiring90/pen/zLJLBG */}
       {/* Customized Category */}
       <div className="Bookshelf-customized-category d-flex justify-content-between">
@@ -168,7 +217,7 @@ function OwnedBooksList() {
                   setOnCategory(categoryValue)
                   setBookFilterParams({
                     ...bookFilterParams,
-                    category: categoryValue.id,
+                    category: categoryValue.local_id,
                   })
                 }}
               >
@@ -278,6 +327,56 @@ function OwnedBooksList() {
         {onCategoryList.map((listValue) => {
           return createBookList(listValue)
         })}
+      </div>
+      {/* pagination */}
+      <div className="Reviews-pagination-area d-flex justify-content-center">
+        <div
+          className="prev"
+          onClick={() => {
+            setGetPage({
+              ...getPage,
+              onPage:
+                getPage.onPage === 1 ? getPage.onPage : getPage.onPage - 1,
+            })
+            ScrollToTop()
+          }}
+        >
+          <img
+            className="Bookshelf-arrow img-flip m-2"
+            alt="arrow-l"
+            src={ArrowRight}
+          />
+        </div>
+        <div className="Reviews-page-location m-2">
+          {console.log(getPage.totalPage)}
+          <ThemeProvider theme={theme}>
+            <Stack spacing={2}>
+              <Pagination
+                count={getPage.totalPage}
+                color="primary"
+                page={getPage.onPage}
+                hideNextButton={true}
+                hidePrevButton={true}
+                onChange={handleChangePage}
+              />
+            </Stack>
+          </ThemeProvider>
+        </div>
+        <div
+          className="next"
+          onClick={() => {
+            setGetPage({
+              ...getPage,
+              onPage:
+                getPage.onPage === getPage.totalPage
+                  ? getPage.onPage + 0
+                  : getPage.onPage + 1,
+            })
+            ScrollToTop()
+          }}
+        >
+          <img className="Bookshelf-arrow m-2" alt="arrow-r" src={ArrowRight} />
+        </div>
       </div>
     </>
   )
