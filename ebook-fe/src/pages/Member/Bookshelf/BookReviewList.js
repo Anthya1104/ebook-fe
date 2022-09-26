@@ -58,7 +58,10 @@ function BookReviewList() {
     try {
       const reviewData = async () => {
         let response = await axios.get(
-          `${API_URL}/reviews/get-reviews?page=${getPage.onPage}`
+          `${API_URL}/reviews/get-reviews?page=${getPage.onPage}`,
+          {
+            withCredentials: true,
+          }
         )
 
         setGetReview(response.data.data)

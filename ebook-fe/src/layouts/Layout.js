@@ -9,7 +9,7 @@ function Layout() {
       <Navbar />
 
       {/* <div className="container-xxl d-flex-column justify-context-center"> */}
-        <Outlet />
+      <Outlet />
       {/* </div> */}
       {/* 頁尾資訊 */}
       <Footer />

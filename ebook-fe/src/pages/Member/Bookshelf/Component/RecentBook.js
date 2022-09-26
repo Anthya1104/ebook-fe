@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import BookCover from '../../../../img/book.jpg'
 import ArrowRight from '../../../../img/recent_book_arrow_r.svg'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
@@ -14,11 +15,15 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // test avatar img importing
 import Avatar from '../../../../img/book.jpg'
+// auth
+import { useAuth } from '../../../../Context/auth'
 
 import axios from 'axios'
 import { API_URL } from '../../../../utils/config'
 
 function RecentBook() {
+  // auth
+  const { member, setMember } = useAuth()
   // Chart.js states
   // 動態做法: https://www.youtube.com/watch?v=UwlaPofs5cA&ab_channel=SeemaHolidayDeveloper
   // const [data, setData] = useState(newdata)
@@ -29,7 +34,7 @@ function RecentBook() {
 
   // submitted data
   const [reviewParam, setReviewParam] = useState({
-    member_id: 1,
+    member_id: '',
     book_id: '',
     review_score: 0,
     review_comments: '',
@@ -45,27 +50,25 @@ function RecentBook() {
   useEffect(() => {
     // call API
     const getRecentBook = async () => {
-      let response = await axios.get(`${API_URL}/bookshelf/recent-book`)
+      let response = await axios.get(`${API_URL}/bookshelf/recent-book`, {
+        withCredentials: true,
+      })
+      console.log('recentBook', response.data)
       setRecentBook(response.data)
       // console.log('recentbook', recentBook)
 
       // 設定閱讀進度
       setProgressData(response.data[0].reading_progress)
       // console.log('progressdata', progressData)
+      // 設定評論book_id
+      setReviewParam({
+        ...reviewParam,
+        book_id: response.data[0].product_id,
+        member_id: response.data[0].member_id,
+      })
     }
     getRecentBook()
   }, [])
-
-  // 設定評論 book_id
-  useEffect(() => {
-    // TODO:question : 為什麼 如果沒寫 recentBook.length 這個判別 會壞掉
-    if (recentBook.length !== 0) {
-      let [data] = [...recentBook]
-      console.log('recentBookId', data)
-
-      return setReviewParam({ ...reviewParam, book_id: data.id })
-    }
-  }, [recentBook])
 
   // 把starRating的分數存進submit data
   useEffect(() => {
@@ -149,12 +152,11 @@ function RecentBook() {
 
               <div className="Bookshelf-recent-btn mx-3">
                 <div className="mb-2">
-                  <Button
-                    className="btn btn-primary-reverse"
-                    onClick={() => {}}
-                  >
-                    繼續閱讀
-                  </Button>
+                  <Link to={`/Member/bookshelf/${recentBook[0].product_id}`}>
+                    <Button className="btn btn-primary-reverse">
+                      繼續閱讀
+                    </Button>
+                  </Link>
                 </div>
                 {/* popup 評論 window */}
                 {/* reference: https://react-popup.elazizi.com/ */}
@@ -279,7 +281,8 @@ function RecentBook() {
     const submitReview = async () => {
       let response = await axios.post(
         `${API_URL}/reviews/post-review`,
-        reviewParam
+        reviewParam,
+        { withCredentials: true }
       )
       setDataReady(false)
       // TODO:還有問題
