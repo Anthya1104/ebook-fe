@@ -63,28 +63,30 @@ function Member() {
 
   return (
     <>
-      <div className="d-flex justify-content-left my-3">
-        <div className="Member-side-nav d-flex-column align-items-center m-2 p-3">
-          <h3 className="d-flex justify-content-center">會員專區</h3>
-          <img alt="deco-bar" src={DecoBar} />
-          {/* tabs */}
-          <ul className="d-flex-column align-items-center">
-            {sideNavContents.map((navContent, contentIndex) => {
-              return (
-                <>
-                  <li className="my-2" key={sideNavContents.indexOf()}>
-                    <Link to={sideNavContents[contentIndex].url}>
-                      <Button className="btn btn-primary-reverse Member-nav-contents">
-                        {sideNavContents[contentIndex].value}
-                      </Button>
-                    </Link>
-                  </li>
-                </>
-              )
-            })}
-          </ul>
+      <div className="container-xxl d-flex-column justify-context-center">
+        <div className="d-flex justify-content-left my-3">
+          <div className="Member-side-nav d-flex-column align-items-center m-2 p-3">
+            <h3 className="d-flex justify-content-center">會員專區</h3>
+            <img alt="deco-bar" src={DecoBar} />
+            {/* tabs */}
+            <ul className="d-flex-column align-items-center">
+              {sideNavContents.map((navContent, contentIndex) => {
+                return (
+                  <>
+                    <li className="my-2" key={sideNavContents.indexOf()}>
+                      <Link to={sideNavContents[contentIndex].url}>
+                        <Button className="btn btn-primary-reverse Member-nav-contents">
+                          {sideNavContents[contentIndex].value}
+                        </Button>
+                      </Link>
+                    </li>
+                  </>
+                )
+              })}
+            </ul>
+          </div>
+          <Outlet />
         </div>
-        <Outlet />
       </div>
     </>
   )

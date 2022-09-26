@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import BookCover from '../../../../img/book.jpg'
 import ArrowRight from '../../../../img/recent_book_arrow_r.svg'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
@@ -52,20 +53,11 @@ function RecentBook() {
       // 設定閱讀進度
       setProgressData(response.data[0].reading_progress)
       // console.log('progressdata', progressData)
+      // 設定評論book_id
+      setReviewParam({ ...reviewParam, book_id: response.data[0].product_id })
     }
     getRecentBook()
   }, [])
-
-  // 設定評論 book_id
-  useEffect(() => {
-    // TODO:question : 為什麼 如果沒寫 recentBook.length 這個判別 會壞掉
-    if (recentBook.length !== 0) {
-      let [data] = [...recentBook]
-      console.log('recentBookId', data)
-
-      return setReviewParam({ ...reviewParam, book_id: data.id })
-    }
-  }, [recentBook])
 
   // 把starRating的分數存進submit data
   useEffect(() => {
@@ -149,12 +141,11 @@ function RecentBook() {
 
               <div className="Bookshelf-recent-btn mx-3">
                 <div className="mb-2">
-                  <Button
-                    className="btn btn-primary-reverse"
-                    onClick={() => {}}
-                  >
-                    繼續閱讀
-                  </Button>
+                  <Link to={`/Member/bookshelf/${recentBook[0].product_id}`}>
+                    <Button className="btn btn-primary-reverse">
+                      繼續閱讀
+                    </Button>
+                  </Link>
                 </div>
                 {/* popup 評論 window */}
                 {/* reference: https://react-popup.elazizi.com/ */}

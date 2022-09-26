@@ -25,9 +25,11 @@ function ShoppingCart() {
     <SecondCartProvider localStorageKey="secondCart">
       <CartProvider>
         {/* <MainContent> */}
-          <ScrollToTop>
+        <ScrollToTop>
+          <div className="container-xxl d-flex-column justify-context-center">
             <Outlet />
-          </ScrollToTop>
+          </div>
+        </ScrollToTop>
         {/* </MainContent> */}
       </CartProvider>
     </SecondCartProvider>

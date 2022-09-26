@@ -16,20 +16,22 @@ import ProductInfo from './ProductPage/ProductInfo'
 function Products() {
   return (
     <>
-      <div>Products</div>
-      <Link className="mx-2" to="/Mart/SearchResult">
-        Search
-      </Link>
-      <Category />
-      <Card />
-      <Breadcrumb />
-      <Dropdown />
-      <Select />
-      <TopCategory />
-      <Tabbed />
-      <CartTable />
-      <ProductPage />
-      <ProductInfo />
+      <div className="container-xxl d-flex-column justify-context-center">
+        <div>Products</div>
+        <Link className="mx-2" to="/Mart/SearchResult">
+          Search
+        </Link>
+        <Category />
+        <Card />
+        <Breadcrumb />
+        <Dropdown />
+        <Select />
+        <TopCategory />
+        <Tabbed />
+        <CartTable />
+        <ProductPage />
+        <ProductInfo />
+      </div>
     </>
   )
 }
