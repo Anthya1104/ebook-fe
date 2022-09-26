@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
@@ -53,7 +54,7 @@ function OrderDetail() {
               <div className="d-flex justify-content-around">
                 <div>
                   <Link className="mx-2" to="/Member/order">
-                    <img src={Back} alt="Back" />
+                    <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
                   </Link>
                 </div>
                 <Typography

@@ -4,6 +4,10 @@ import SideNavi from '../../img/navi_bar.svg'
 import '../../style/MemberGlobal.scss'
 import DecoBar from '../../img/deco_bar.png'
 import Button from 'react-bootstrap/Button'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(fas)
 
 function Member() {
   const sideNavContents = [
