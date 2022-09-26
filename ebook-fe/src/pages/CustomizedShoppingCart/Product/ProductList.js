@@ -1,4 +1,4 @@
-import { useState, useParam, useEffect } from 'react'
+import { useState, useParam, useEffect, useRef } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
@@ -12,13 +12,27 @@ import TopCategory from '../../Mart/TopCategory/TopCategory'
 
 import { useSecondCart } from '../utils/useSecondCart'
 
+import axios from 'axios'
+import { API_URL } from '../../../utils/config'
+
+// import SearchBar from './SearchBar/SearchBar'
+
 // 商品範例
 import products from '../data/products.json'
 
 function ProductList(props) {
+  useEffect(() => {
+    const getProductList = async () => {
+      let response = await axios.get(`${API_URL}/market/product-list`)
+      console.log(response.data)
+      setProductsDisplay(response.data)
+    }
+    getProductList()
+  }, [])
   // 對話盒使用
   const [show, setShow] = useState(false)
   // 對話盒中的商品名稱
+  const [product, setProduct] = useState(products)
   const [productName, setProductName] = useState('')
 
   const navigate = useNavigate()
@@ -37,9 +51,9 @@ function ProductList(props) {
   const [cat, setCat] = useState('')
   const [productsDisplay, setProductsDisplay] = useState([])
 
-  useEffect(() => {
-    setProductsDisplay(products)
-  }, [])
+  // useEffect(() => {
+  //   setProductsDisplay(products)
+  // }, [])
 
   useEffect(() => {
     if (cat) {
@@ -59,6 +73,31 @@ function ProductList(props) {
       )
     }
   }, [cat, searchBook])
+  //搜尋功能
+  const inputValue1 = useRef(undefined)
+
+  const onProductSearchClick = (e) => {
+    e.preventDefault()
+    const uniqueIds = []
+    const inputString = inputValue1.current.value
+    let tags = inputString.split(',').map((tag) => tag.replaceAll(' ', ''))
+    let searchSn = []
+    for (let tag of tags) {
+      let tmpAry = [...products].filter(
+        (book) => book.book_name.indexOf(tag) !== -1
+      )
+      searchSn = searchSn.concat([...tmpAry])
+    }
+    const unique = searchSn.filter((element) => {
+      const isDuplicate = uniqueIds.includes(element.id)
+      if (!isDuplicate) {
+        uniqueIds.push(element.id)
+        return true
+      }
+      return false
+    })
+    setProduct(unique)
+  }
 
   const messageModal = (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -115,7 +154,7 @@ function ProductList(props) {
 
   const display = (
     <div className="row">
-      {productsDisplay.map((v, i) => {
+      {product && productsDisplay.map((v, i) => {
         return (
           <>
             <div
