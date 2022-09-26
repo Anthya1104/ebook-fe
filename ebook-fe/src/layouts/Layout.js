@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 // import CollapsibleExample from './Navbar2'
 import { Outlet } from 'react-router-dom'
 
+
 function Layout() {
   return (
     <>
@@ -11,7 +12,7 @@ function Layout() {
       {/* <CollapsibleExample /> */}
 
       {/* <div className="container-xxl d-flex-column justify-context-center"> */}
-        <Outlet />
+      <Outlet />
       {/* </div> */}
       {/* 頁尾資訊 */}
       <Footer />

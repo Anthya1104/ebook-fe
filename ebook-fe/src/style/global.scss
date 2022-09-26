@@ -74,11 +74,17 @@ $mobile-break-point:768px;
     color:$body-bg;
     svg{
       fill:$body-bg;
+      path{
+        fill:$body-bg;
+      }
     }
   }
 
   svg{
     fill:$secondary;
+    path{
+      fill:$secondary;
+    }
   }
 }
 .product-category-active{
@@ -98,7 +104,7 @@ $mobile-break-point:768px;
 }
 
 .toggle-primary{
-  padding:5px;
+  padding:2px;
   border:2px solid $info;
   border-radius: 30px;
   background:$info;
@@ -114,7 +120,7 @@ $mobile-break-point:768px;
   
 }
 .toggle-primary-active{
-  padding:5px;
+  padding:2px;
   border:2px solid $primary;
   border-radius: 30px;
   background:$body-bg;

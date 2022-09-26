@@ -9,8 +9,8 @@ import EbookLogo from '../pages/memberindexcategory/EK-logo-final-2.png'
 function Navbar() {
   return (
     <>
-      <div className="navbar justify-content-start">
-        <div className="navbar-links d-flex p-2 align-items-center">
+      <div className="navbar">
+        <div className="d-flex p-2 align-items-center">
           <NavLink to="/">
             <img className="ebooklogo" src={EbookLogo} alt="ebooklogo" />
           </NavLink>
@@ -22,7 +22,7 @@ function Navbar() {
           <h6 className="navbar-separate">|</h6>
 
           <div className="menu d-flex justify-content-start align-items-center mx-2">
-            <NavLink className="menu-list mx-4" to="/Mart">
+            <NavLink className="menu-list mx-4" to="/Cart/product-list">
               商品分類
             </NavLink>
 
@@ -39,10 +39,6 @@ function Navbar() {
             </NavLink>
 
             <h6 className="navbar-separate">|</h6>
-
-            <NavLink className="menu-list mx-4" to="/">
-              關於我們
-            </NavLink>
 
             <NavLink className="menu-list mx-1" to="/Materials">
               Material Reference
@@ -102,7 +98,7 @@ function Navbar() {
                 />
               </NavLink>
 
-              <NavLink className="menu-2-icon mx-2" to="/Preview">
+              <NavLink className="menu-2-icon mx-2" to="/Cart">
                 <img
                   className="navbar-shoppingcart"
                   src={Shoppingcart}
