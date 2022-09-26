@@ -15,7 +15,9 @@
 
 .member-icon{
     width: 60px;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
 }
 
 .member-pic{
@@ -36,6 +38,9 @@
     text-decoration: none;
     font-weight: bold;
     font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .member-header{

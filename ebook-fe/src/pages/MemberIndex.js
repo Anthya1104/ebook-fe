@@ -172,9 +172,8 @@ function MemberIndex() {
 
               <li className="member-item col-4 m-5">
                 <a className="member-word" href="#">
-                  <img
-                    className="member-icon"
-                    src={require('../pages/memberindexcategory/logout.png')}
+                  <img className="member-icon"
+                  src={require('../pages/memberindexcategory/logout.png')}
                   />
                   <br />
                   登出{' '}
