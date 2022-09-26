@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import iconBack from '../../img/previewback.png'
 import iconMenu from '../../img/main-menu.png'
 import iconShare from '../../img/share.png'
@@ -14,10 +15,10 @@ function Headers() {
       <div>
         <ul className={styles.iconStart}>
           <li className={styles.iconLi}>
-            <a href="#">
+            <Link to="/Member/bookshelf">
               <img src={iconBack} alt="" />
               <p>返回</p>
-            </a>
+            </Link>
           </li>
           <li className={styles.iconLi}>
             <img src={iconMenu} alt="" />

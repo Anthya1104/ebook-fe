@@ -115,9 +115,9 @@ function App() {
               <Route path="materials" element={<Materials />} />
               {/* <Route path="SingleCart" element={<SingleCart />} /> */}
               {/* <Route path="Test" element={<Test />} /> */}
-              <Route path="Preview" element={<Preview />} />
             </Route>
             <Route path="test" element={<TestPage />} />
+            <Route path="Preview" element={<Preview />} />
             {/* 404未找到的頁面路由，需放在最下方 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
