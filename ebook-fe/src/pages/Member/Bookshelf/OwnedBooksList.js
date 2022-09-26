@@ -134,7 +134,9 @@ function OwnedBooksList() {
       console.log(response.data)
 
       if (response.data.data.length === 0) {
-        return setOnCategoryList(['nothing'])
+        setOnCategoryList(['nothing'])
+        setGetPage({ ...getPage, totalPage: 1 })
+        return
       }
       setOnCategoryList(response.data.data)
       setGetPage({ ...getPage, totalPage: response.data.pagination.lastPage })
