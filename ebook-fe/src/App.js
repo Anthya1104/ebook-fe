@@ -41,23 +41,25 @@ import ScrollToTop from './Component/ScrollToTop'
 import axios from 'axios'
 import { API_URL } from './utils/config'
 import { AuthContext } from './Context/auth'
+import TestPage from './pages/TestPage'
 
 function App() {
   // 會員資料
-  // const [member, setMember] = useState(null)
+  const [member, setMember] = useState(null)
 
-  // useEffect(() => {
-  //   let getMember = async () => {
-  //     console.log('in APP: check if login')
-  //     let response = await axios.get(`${API_URL}/member`, {
-  //       withCredentials: true,
-  //     })
-  //     setMember(response.data)
-  //   }
-  //   getMember()
-  // }, [])
+  useEffect(() => {
+    let getMember = async () => {
+      console.log('in APP: check if login')
+      let response = await axios.get(`${API_URL}/member`, {
+        withCredentials: true,
+      })
+      setMember(response.data)
+    }
+    getMember()
+  }, [])
+
   return (
-    // <AuthContext.Provider value={{ member, setMember }}>
+    <AuthContext.Provider value={{ member, setMember }}>
       <BrowserRouter>
         <ScrollToTop>
           <Routes>
@@ -109,13 +111,14 @@ function App() {
               {/* <Route path="SingleCart" element={<SingleCart />} /> */}
               {/* <Route path="Test" element={<Test />} /> */}
               <Route path="Preview" element={<Preview />} />
-              {/* 404未找到的頁面路由，需放在最下方 */}
-              <Route path="*" element={<NotFound />} />
             </Route>
+            <Route path="test" element={<TestPage />} />
+            {/* 404未找到的頁面路由，需放在最下方 */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
-    // </AuthContext.Provider>
+    </AuthContext.Provider>
   )
 }
 

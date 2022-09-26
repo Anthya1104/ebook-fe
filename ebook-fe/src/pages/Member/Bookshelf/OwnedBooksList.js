@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 import Bookcover from '../../../img/book.jpg'
 // axios
 import axios from 'axios'
@@ -38,7 +38,7 @@ function OwnedBooksList() {
   const [getCategories, setGetCategories] = useState([])
 
   // 目前在哪個分類
-  const [onCategory, setOnCategory] = useState('')
+  const [onCategory, setOnCategory] = useState({})
 
   // 先嘗試只篩類別
   const [onCategoryList, setOnCategoryList] = useState([])
@@ -46,10 +46,11 @@ function OwnedBooksList() {
   // 同時篩 類別, 閱讀進度, 日期sort
   // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
   const [bookFilterParams, setBookFilterParams] = useState({
-    category: '',
+    category: 1,
     is_read: true,
     date_sort_toggled: true,
     search_param: '',
+    on_page: 1,
   })
 
   // isRead 切換
@@ -58,9 +59,12 @@ function OwnedBooksList() {
 
   useEffect(() => {
     const getCategories = async () => {
-      let response = await axios.get(`${API_URL}/bookshelf/custom-categories`)
+      let response = await axios.get(`${API_URL}/bookshelf/custom-categories`, {
+        withCredentials: true,
+      })
 
       setGetCategories(response.data)
+      console.log('firstRender', response.data)
       setOnCategory(response.data[0])
     }
     getCategories()
@@ -71,27 +75,9 @@ function OwnedBooksList() {
     // console.log({ API_URL })
     // TODO:在這裡做 ownedBookList 切換
     // 把 Category post 到後端
-    const handleCategoryChange = async () => {
-      try {
-        // console.log(onCategory)
-        let response = await axios.post(`${API_URL}/bookshelf/on-filter`, [
-          onCategory.id,
-        ])
-        // console.log(response.data)
 
-        // TODO: createBookList()
-        // let filteredBookList = response.data
-        // createBookList(filteredBookList)
-        if (response.data.length === 0) {
-          return setOnCategoryList(['nothing'])
-        }
-        setOnCategoryList(response.data)
-      } catch (e) {
-        console.error(e)
-      }
-    }
     handleCategoryChange()
-  }, [onCategory])
+  }, [bookFilterParams])
   // TODO:處理 tab 切換
   // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
@@ -110,6 +96,27 @@ function OwnedBooksList() {
         <div className="px-2">尚未閱讀</div>
       </>
     )
+  }
+
+  const handleCategoryChange = async () => {
+    try {
+      // console.log(onCategory)
+      let response = await axios.post(
+        `${API_URL}/bookshelf/on-filter`,
+        { bookFilterParams },
+        {
+          withCredentials: true,
+        }
+      )
+      console.log(response.data)
+
+      if (response.data.length === 0) {
+        return setOnCategoryList(['nothing'])
+      }
+      setOnCategoryList(response.data)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   const createBookList = (bookList) => {
@@ -172,7 +179,7 @@ function OwnedBooksList() {
                   setOnCategory(categoryValue)
                   setBookFilterParams({
                     ...bookFilterParams,
-                    category: categoryValue.id,
+                    category: categoryValue.local_id,
                   })
                 }}
               >

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
 import { useAuth } from '../../Context/auth'
 import axios from 'axios'
 import { API_URL } from '../../utils/config'
 
 function LoginArea() {
   // 從 auth context 拿 member, setMember
-  // const { member, setMember } = useAuth()
+  const { member, setMember } = useAuth()
   const [loginMember, setLoginMember] = useState({})
   const [isLogin, setIsLogin] = useState(false)
 
@@ -13,7 +14,7 @@ function LoginArea() {
     setLoginMember({ ...loginMember, [e.target.name]: e.target.value })
   }
   const submitHandler = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     console.log(loginMember)
     let response = await axios.post(`${API_URL}/auth/login`, loginMember, {
       // 為了可以跨源存取 cookie
@@ -21,8 +22,13 @@ function LoginArea() {
     })
     console.log(response.data)
     // 把資料存進 context
-    // setMember(response.data)
+    setMember(response.data)
     setIsLogin(true)
+  }
+
+  // 如果是登入狀態
+  if (isLogin || member) {
+    return <Navigate to="/member-index" />
   }
   return (
     <>
