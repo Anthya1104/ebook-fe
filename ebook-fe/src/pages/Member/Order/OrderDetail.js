@@ -55,7 +55,7 @@ function OrderDetail() {
               <div className="d-flex justify-content-around">
                 <div>
                   <Link className="mx-2" to="/Member/order">
-                    <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
+                    <img src={Back} />
                   </Link>
                   <br></br>
                   <h5 className="mx-2 text-white">返回</h5>

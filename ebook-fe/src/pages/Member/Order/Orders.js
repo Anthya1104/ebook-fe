@@ -18,6 +18,13 @@ import '../../../style/Order.scss'
 // import paginationBar from './Component/paginationBar'
 
 function Orders() {
+  useEffect(() => {
+    const getOrder = async () => {
+      let response = await axios.get(`${API_URL}/order/get-order`)
+      console.log(response.data)
+    }
+    getOrder()
+  }, [])
   const [order, setOrder] = useState(data)
   // 日期篩選、狀態篩選
   const onButtonClick = (key, e) => {
