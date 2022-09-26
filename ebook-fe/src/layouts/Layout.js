@@ -6,7 +6,7 @@ function Layout() {
   return (
     <>
       {/* 導覽列 */}
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div>
         <Outlet />

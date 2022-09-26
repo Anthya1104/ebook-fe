@@ -6,7 +6,7 @@ import iconFull from '../../img/full-screen.png'
 import styles from '../Preview/Index.module.css'
 import CollectModal from './Modal/CollectModal'
 import ShoppingCart from './Modal/ShoppingCart'
-import ReactPDF from './React-pdf/ReactPDF(test3)'
+import ReactPDF from './React-pdf/ReactPDF(test5)'
 
 function Headers() {
   return (
