@@ -27,7 +27,6 @@ function WishList(props) {
         hook。
       </div> */}
 
-  
       <div>
         <ListItemsWithProps
           cart={secondCart.cart}
@@ -47,8 +46,6 @@ function WishList(props) {
         >
           繼續購物
         </button>
-
-        
       </div>
       {/* </Link> */}
     </>

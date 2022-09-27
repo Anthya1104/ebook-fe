@@ -158,7 +158,7 @@ function ProductList(props) {
                   {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
                   <img
                     src={v.book_img}
-                    className="card-img-top ProductList-card-img-top"
+                    className="card-img-top ProductList-card-img-top img-fluid"
                     alt="..."
                   />
                   <div className="card-body ProductList-card-body">
@@ -192,7 +192,7 @@ function ProductList(props) {
                   </button>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary ProductList-mobile-btn"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
