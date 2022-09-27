@@ -62,7 +62,7 @@ function OwnedBooksList() {
   // 同時篩 類別, 閱讀進度, 日期sort
   // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
   const [bookFilterParams, setBookFilterParams] = useState({
-    category: 1,
+    category: 0,
     is_read: true,
     date_sort_toggled: true,
     search_param: '',
@@ -87,7 +87,7 @@ function OwnedBooksList() {
 
       setGetCategories(response.data)
       console.log('firstRender', response.data)
-      setOnCategory(response.data[0])
+      // setOnCategory(response.data[0])
     }
     getCategories()
   }, [])
@@ -198,11 +198,27 @@ function OwnedBooksList() {
   }
   return (
     <>
-    {/* TODO:卡片hover -> 用 onPointerEnter -> 1. 設定 container 包含 目前的 card 內容 -> 新增一個 position-absolute 且位置在 下方的 box -> 設定 overflow:hidden 先藏起來 -> const onPointerEnter = (e) => {} -> 使用state判別有沒有 onPointerEnter, 改變 state -> 三元判斷 */}
+      {/* TODO:卡片hover -> 用 onPointerEnter -> 1. 設定 container 包含 目前的 card 內容 -> 新增一個 position-absolute 且位置在 下方的 box -> 設定 overflow:hidden 先藏起來 -> const onPointerEnter = (e) => {} -> 使用state判別有沒有 onPointerEnter, 改變 state -> 三元判斷 */}
       {/* 卡片 hover 參考 : https://codepen.io/chhiring90/pen/zLJLBG */}
       {/* Customized Category */}
       <div className="Bookshelf-customized-category d-flex justify-content-between">
         <ul className="d-flex my-2 align-items-center">
+          <li
+            className={
+              !onCategory.category_name
+                ? 'p-2 d-flex align-items-center active'
+                : 'p-2 d-flex align-items-center'
+            }
+            onClick={() => {
+              setOnCategory('')
+              setBookFilterParams({
+                ...bookFilterParams,
+                category: 0,
+              })
+            }}
+          >
+            <div className="btn">所有藏書</div>
+          </li>
           {/* 把category 鋪出來 */}
           {getCategories.map((categoryValue) => {
             return (
