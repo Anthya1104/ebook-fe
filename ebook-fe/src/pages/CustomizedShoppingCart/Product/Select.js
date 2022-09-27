@@ -30,10 +30,26 @@ function DefaultExample({ searchBook, setSearchBook }) {
           </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">201元~300元 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setSearchBook('C')
+            }}
+          >
+            201元~300元{' '}
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="#">300元以上 </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setSearchBook('D')
+            }}
+          >
+            300元以上{' '}
+          </a>
         </ListGroup.Item>
       </ListGroup>
 

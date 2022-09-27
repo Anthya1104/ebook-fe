@@ -6,7 +6,7 @@ import LinkItems from './components/LinkItems'
 // 這裡要改用傳入props的方式來呈現清單
 import ListItemsWithProps from './components/ListItemsWithProps'
 
-function MultipleCart(props) {
+function WishList(props) {
   const firstCart = useCart()
   const secondCart = useSecondCart()
 
@@ -36,4 +36,4 @@ function MultipleCart(props) {
   )
 }
 
-export default MultipleCart
+export default WishList
