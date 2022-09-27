@@ -6,6 +6,7 @@ import { useNavigate2 } from 'react-router-dom'
 // import ProductList from '../../../pages/Product/ProductList'
 import ProductList from '../../Product/ProductList'
 import CouponModal from '../components/CouponModal'
+import { useSecondCart } from '../../utils/useSecondCart'
 
 function ListItemsWithHook({ tab, handleStep }) {
   // 使用hooks 解出所需的狀態與函式(自context)
@@ -15,6 +16,8 @@ function ListItemsWithHook({ tab, handleStep }) {
   const handleClick = (path) => () => {
     navigate(path)
   }
+
+  const { addSecondItem } = useSecondCart()
 
   return (
     <div>
@@ -69,7 +72,9 @@ function ListItemsWithHook({ tab, handleStep }) {
                         type="button"
                         className="btn btn-primary-reverse"
                         onClick={() => {
+                          const item = { ...v, quantity: 1 }
                           removeItem(v.id)
+                          addSecondItem(item)
                         }}
                       >
                         移入收藏
