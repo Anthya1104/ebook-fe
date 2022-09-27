@@ -69,7 +69,6 @@ function RecentBook({ setGetRecentBookData }) {
       })
     }
     getRecentBook()
-
   }, [])
 
   // 把starRating的分數存進submit data
@@ -147,8 +146,8 @@ function RecentBook({ setGetRecentBookData }) {
               <div className="recent-book-img p-1">
                 <img
                   className="contain-fit"
-                  alt="recent-book"
-                  src={BookCover}
+                  alt={recentBookValue.book_name}
+                  src={recentBookValue.book_img}
                 />
               </div>
 
