@@ -63,6 +63,9 @@ function BookReviewList() {
             withCredentials: true,
           }
         )
+        if (!response) {
+          return setGetPage({ ...getPage, totalPage: 1 })
+        }
 
         setGetReview(response.data.data)
         setGetPage({ ...getPage, totalPage: response.data.pagination.lastPage })
@@ -175,9 +178,9 @@ function BookReviewList() {
           <ThemeProvider theme={theme}>
             <Stack spacing={2}>
               <Pagination
-                count={getPage.totalPage}
+                count={getPage.totalPage || 1}
                 color="primary"
-                page={getPage.onPage}
+                page={getPage.onPage || 1}
                 hideNextButton={true}
                 hidePrevButton={true}
                 onChange={handleChangePage}

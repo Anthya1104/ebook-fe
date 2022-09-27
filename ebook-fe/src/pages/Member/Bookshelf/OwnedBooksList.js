@@ -143,11 +143,6 @@ function OwnedBooksList() {
   }
 
   const createBookList = (bookList) => {
-    if (onCategoryList[0] === 'nothing') {
-      // 如果沒抓到資料
-      return <div>nothing</div>
-    }
-
     return (
       <>
         <div
@@ -336,11 +331,16 @@ function OwnedBooksList() {
           {distingReading()}
         </button>
       </div>
-      <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4">
-        {onCategoryList.map((listValue) => {
-          return createBookList(listValue)
-        })}
-      </div>
+      {onCategoryList[0] === 'nothing' ? (
+        <div>這個分類沒有任何藏書唷，趕快去買新書，或新增一本已有藏書！</div>
+      ) : (
+        <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4">
+          {onCategoryList.map((listValue) => {
+            return createBookList(listValue)
+          })}
+        </div>
+      )}
+
       {/* pagination */}
       <div className="Reviews-pagination-area d-flex justify-content-center">
         <div

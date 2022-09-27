@@ -21,7 +21,7 @@ import { useAuth } from '../../../../Context/auth'
 import axios from 'axios'
 import { API_URL } from '../../../../utils/config'
 
-function RecentBook() {
+function RecentBook(setGetRecentBookData) {
   // auth
   const { member, setMember } = useAuth()
   // Chart.js states
@@ -55,6 +55,7 @@ function RecentBook() {
       })
       console.log('recentBook', response.data)
       setRecentBook(response.data)
+      setGetRecentBookData(response.data)
       // console.log('recentbook', recentBook)
 
       // 設定閱讀進度
@@ -324,7 +325,7 @@ function RecentBook() {
       {recentBook === [] ? (
         createRecentBook(recentBook)
       ) : (
-        <div className="d-flex justify-content-center m-2">
+        <div className="Bookshelf-nonbook-info d-flex justify-content-center">
           <h3>這個帳號目前沒有任何藏書唷</h3>
         </div>
       )}
