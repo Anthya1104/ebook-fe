@@ -50,10 +50,70 @@ function BookReviewList() {
     },
   })
 
+  // create review handler
+  const createReviewHandler = () => {
+    return getReview.map((reviewValue) => {
+      return (
+        <>
+          <div key={reviewValue.id} className="Bookshelf-review-container row">
+            <div className="col-sm-3">
+              <div className="Bookshelf-book-card m-2">
+                <div className="Bookshelf-card-img mb-2">
+                  <img
+                    alt={reviewValue.book_name}
+                    src={reviewValue.book_img}
+                    className="cover-fit"
+                  ></img>
+                </div>
+                {/* star rating */}
+                <div>
+                  <Box
+                    sx={{
+                      '& > legend': { mt: 2 },
+                    }}
+                  >
+                    <StyledRating
+                      name="simple-controlled"
+                      defaultValue={reviewValue.star_rating}
+                      onChange={(event, newValue) => {
+                        setValue(newValue)
+                      }}
+                      icon={<StarRate fontSize="30px" />}
+                      emptyIcon={<StarOutlineIcon fontSize="25px" />}
+                      readOnly
+                    />
+                  </Box>
+                </div>
+                <div className="Review-book-name">{reviewValue.book_name}</div>
+                <div className="Review-update-time">
+                  {reviewValue.create_time}
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-9">
+              <div className="Review-comments m-2 p-3">
+                <p>{reviewValue.content}</p>
+              </div>
+              <div className="Review-comments-btn m-2">
+                <Button
+                  className="btn btn-primary-reverse m-2"
+                  onClick={(e) => {
+                    editHandler()
+                  }}
+                >
+                  編輯
+                </Button>
+                <Button className="btn btn-primary-reverse m-2">刪除</Button>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    })
+  }
   // editHandler
-  const editHandler = (e) => {
-    e.preventdefault()
-    console.log('edit')
+  const editHandler = () => {
+    setIsEdit(true)
   }
 
   // pagination 用 change Page
@@ -113,70 +173,7 @@ function BookReviewList() {
           目前沒有留言，趕快去看書寫書評！
         </div>
       ) : (
-        getReview.map((reviewValue) => {
-          return (
-            <>
-              <div
-                key={reviewValue.id}
-                className="Bookshelf-review-container row"
-              >
-                <div className="col-sm-3">
-                  <div className="Bookshelf-book-card m-2">
-                    <div className="Bookshelf-card-img mb-2">
-                      <img
-                        alt={reviewValue.book_name}
-                        src={reviewValue.book_img}
-                        className="cover-fit"
-                      ></img>
-                    </div>
-                    {/* star rating */}
-                    <div>
-                      <Box
-                        sx={{
-                          '& > legend': { mt: 2 },
-                        }}
-                      >
-                        <StyledRating
-                          name="simple-controlled"
-                          defaultValue={reviewValue.star_rating}
-                          onChange={(event, newValue) => {
-                            setValue(newValue)
-                          }}
-                          icon={<StarRate fontSize="30px" />}
-                          emptyIcon={<StarOutlineIcon fontSize="25px" />}
-                          readOnly
-                        />
-                      </Box>
-                    </div>
-                    <div className="Review-book-name">
-                      {reviewValue.book_name}
-                    </div>
-                    <div className="Review-update-time">
-                      {reviewValue.create_time}
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-9">
-                  <div className="Review-comments m-2 p-3">
-                    <p>{reviewValue.content}</p>
-                  </div>
-                  <div className="Review-comments-btn m-2">
-                    {/* TODO:問老師 為什麼onClick 無效 */}
-                    <button
-                      className="btn btn-primary-reverse m-2"
-                      onClick={console.log('edit')}
-                    >
-                      編輯
-                    </button>
-                    <button className="btn btn-primary-reverse m-2">
-                      刪除
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </>
-          )
-        })
+        createReviewHandler()
       )}
       {/* pagination */}
       <div className="Reviews-pagination-area d-flex justify-content-center">
