@@ -136,7 +136,10 @@ function CouponList() {
   useEffect(() => {
     const getCoupon = async () => {
       let response = await axios.get(
-        `${API_URL}/order/get-coupon?member_id=${member.id}`
+        `${API_URL}/coupon`,
+        {
+          withCredentials: true,
+        }
       )
       setCoupons(response.data)
       console.log(response.data)

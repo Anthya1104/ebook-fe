@@ -34,9 +34,10 @@ function Navbar() {
 
             <h6 className="navbar-separate">|</h6>
 
-            <NavLink className="menu-list mx-4" to="/Chat">
+            {/* <NavLink className="menu-list mx-4" to="/Chat">
               聊天室
-            </NavLink>
+            </NavLink> */}
+            <a className='mx-4 text-decoration-none' href="http://localhost:3000/chats">聊天室</a>
 
             <h6 className="navbar-separate">|</h6>
 

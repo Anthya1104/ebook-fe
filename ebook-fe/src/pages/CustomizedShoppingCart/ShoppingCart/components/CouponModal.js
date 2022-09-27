@@ -4,16 +4,7 @@ import Modal from 'react-bootstrap/Modal'
 import './CouponModal.scss'
 // import '../../../../img/coupon.png'
 import '../../../../img/coupon-bg.png'
-import coupon1 from '../../../../img/coupon-business.png'
-import coupon2 from '../../../../img/coupon-novel.png'
-import coupon3 from '../../../../img/coupon-social.png'
-import coupon4 from '../../../../img/coupon-lifestyle.png'
-import coupon5 from '../../../../img/coupon-art.png'
-import coupon6 from '../../../../img/coupon-science.png'
-import coupon7 from '../../../../img/coupon-travel.png'
-import coupon8 from '../../../../img/coupon-medical.png'
-import coupon9 from '../../../../img/coupon-grow.png'
-import coupon10 from '../../../../img/coupon-new.png'
+import { Link } from 'react-router-dom'
 import { Coupon } from '../../../Member/Coupon/marketing'
 
 function CouponModal({ setCouponAmount }) {
@@ -73,6 +64,7 @@ function CouponModal({ setCouponAmount }) {
                     variant="outline-light coupon-button d-flex"
                     onClick={() => setCouponAmount(c.Coupon_discount)}
                   >
+                  {/* <Modal.Header closeButton></Modal.Header> */}
                     <div className="coupon-button-img">
                       <img src={c.url} alt="coupon_image" />
                     </div>
