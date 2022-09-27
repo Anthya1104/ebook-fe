@@ -35,6 +35,8 @@ function ProductList(props) {
   const [product, setProduct] = useState(products)
   const [productName, setProductName] = useState('')
   const [productTitle, setProductTitle] = useState('')
+  const [productBtn, setProductBtn] = useState('')
+  // const [navigateLink, setNavigateLink] = useState('')
 
   const navigate = useNavigate()
 
@@ -46,17 +48,23 @@ function ProductList(props) {
 
   const showModal = (name) => {
     setProductName('已成功加入購物車')
-    setProductTitle('購物車')
+    setProductTitle('加入購物車')
+    setProductBtn('前往結帳')
+    // setNavigateLink('/Cart')
     handleShow()
   }
 
   const showModal2 = (name) => {
-    setProductName( '已成功加入收藏')
-    setProductTitle('收藏')
+    setProductName('已成功加入收藏')
+    setProductTitle('加入收藏')
+    setProductBtn('前往我的收藏')
+    // setNavigateLink('/Cart/WishList')
     handleShow()
   }
 
   const [cat, setCat] = useState('')
+  const [searchBook, setSearchBook] = useState('')
+  const [searchBookName, setSearchBookName] = useState('')
   const [productsDisplay, setProductsDisplay] = useState([])
 
   // useEffect(() => {
@@ -72,18 +80,21 @@ function ProductList(props) {
     }
   }, [cat])
 
-  //後加的
-  const [searchBook, setSearchBook] = useState('')
-
   useEffect(() => {
-    if ((cat, searchBook)) {
+    if (searchBook) {
       setProductsDisplay(
-        products.filter(
-          (v, i) => v.book_category === cat || v.price_range === searchBook
-        )
+        products.filter((v, i) => v.price_range === searchBook)
       )
     }
-  }, [cat, searchBook])
+  }, [searchBook])
+
+  useEffect(() => {
+    if (searchBookName.length) {
+      setProductsDisplay(
+        products.filter((v, i) => v.book_name.includes(searchBookName))
+      )
+    }
+  }, [searchBookName])
 
   const messageModal = (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -103,7 +114,7 @@ function ProductList(props) {
             navigate('/Cart', { replace: true })
           }}
         >
-          前往購物車結帳
+          {productBtn}
         </Button>
       </Modal.Footer>
     </Modal>
@@ -119,21 +130,19 @@ function ProductList(props) {
         <Button variant="primary" onClick={handleClose}>
           繼續購物
         </Button>
-        <Button
+        {/* <Button
           variant="primary"
           onClick={() => {
             // 導向購物車頁面
             // props.history.push('/')
-            navigate('/', { replace: true })
+            navigate('/Cart/WishList', { replace: true })
           }}
         >
-          前往購物車結帳
-        </Button>
+          {productBtn}
+        </Button> */}
       </Modal.Footer>
     </Modal>
   )
-
-
 
   const display = (
     <div className="row">
@@ -208,6 +217,7 @@ function ProductList(props) {
     <>
       {/* <h1>商品列表頁範例</h1> */}
       {/* <div className="ProductList-showTopCategory"> */}
+
       <TopCategory cat={cat} setCat={setCat} />
       {/* </div> */}
       {/* <div className="testtest ">
@@ -219,7 +229,12 @@ function ProductList(props) {
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">
-          <Select cat={cat} setCat={setCat} />
+          <input
+            type="text"
+            value={searchBookName}
+            onChange={(e) => setSearchBookName(e.target.value)}
+          />
+          <Select searchBook={searchBook} setSearchBook={setSearchBook} />
         </div>
         <div>
           {messageModal}

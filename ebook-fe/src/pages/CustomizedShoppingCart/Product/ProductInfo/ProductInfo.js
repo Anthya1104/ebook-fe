@@ -28,6 +28,7 @@ function ProductInfo(productId) {
     // 對話盒中的商品名稱
     const [product, setProduct] = useState('')
     const [productName, setProductName] = useState('')
+    const [productTitle, setProductTitle] = useState('')
 
     const navigate = useNavigate()
 
@@ -37,14 +38,10 @@ function ProductInfo(productId) {
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    const showModal = (name) => {
-      setProductName('產品：' + name + '已成功加入購物車')
-      handleShow()
-    }
     const messageModal = (
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>加入購物車訊息</Modal.Title>
+          <Modal.Title>加入購物車</Modal.Title>
         </Modal.Header>
         <Modal.Body>已成功加入購物車</Modal.Body>
         <Modal.Footer>
@@ -56,7 +53,7 @@ function ProductInfo(productId) {
             onClick={() => {
               // 導向購物車頁面
               // props.history.push('/')
-              navigate('/Cart')
+              navigate('/Cart', { replace: true })
             }}
           >
             前往購物車結帳
@@ -73,7 +70,7 @@ function ProductInfo(productId) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>加入購物車訊息</Modal.Title>
+          <Modal.Title>{productTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{productName} </Modal.Body>
         <Modal.Footer>
@@ -94,9 +91,16 @@ function ProductInfo(productId) {
       </Modal>
     )
 
+    const showModal = (name) => {
+      setProductName('產品：' + name + '已成功加入購物車')
+      handleShow()
+      setProductTitle('加入購物車')
+    }
+
     const showModal2 = (name) => {
       setProductName('產品：' + name + '已成功加入收藏')
       handleShow()
+      setProductTitle('加入收藏')
     }
 
     return (
@@ -108,7 +112,7 @@ function ProductInfo(productId) {
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>加入購物車訊息</Modal.Title>
+            <Modal.Title>加入購物車</Modal.Title>
           </Modal.Header>
           <Modal.Body>已成功加入購物車</Modal.Body>
           <Modal.Footer>
@@ -269,7 +273,7 @@ function ProductInfo(productId) {
                 fill="#661F1E"
               />
             </svg>
-            <p className="mb-5">{v.author_details}</p>
+            <p className="mb-5">{v.translator_details}</p>
 
             <h4 className="ProductInfo-font-weight" id="recommended">
               好評推薦
