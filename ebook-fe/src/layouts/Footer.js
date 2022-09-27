@@ -54,7 +54,7 @@ function Footer() {
               <MDBRow>
                 <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
                   <h5 className="text-uppercase mb-1">
-                    <img src={information} alt=""/>
+                    <img src={information} alt="" />
                     &nbsp;&nbsp;缺Ebook
                   </h5>
                   <img className="mb-3" src={line} alt="" />
@@ -84,8 +84,8 @@ function Footer() {
                 </MDBCol>
 
                 <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-                <h5 className="text-uppercase mb-1">
-                    <img src={cooperation} alt=""/>
+                  <h5 className="text-uppercase mb-1">
+                    <img src={cooperation} alt="" />
                     &nbsp;&nbsp;合作提案
                   </h5>
                   <img className="mb-3" src={line} alt="" />
@@ -115,8 +115,8 @@ function Footer() {
                 </MDBCol>
 
                 <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-                <h5 className="text-uppercase mb-1">
-                    <img src={service} alt=""/>
+                  <h5 className="text-uppercase mb-1">
+                    <img src={service} alt="" />
                     &nbsp;&nbsp;顧客服務
                   </h5>
                   <img className="mb-3" src={line} alt="" />
@@ -146,8 +146,12 @@ function Footer() {
                 </MDBCol>
 
                 <MDBCol lg="3" md="6" className="mb-4 mb-md-0">
-                <h5 className="text-uppercase mb-1">
-                    <img src={social} alt=""/>
+                  <h5 className="text-uppercase mb-1">
+                    {/* <img src={social} alt=""/> */}
+                    <FontAwesomeIcon
+                      icon="fa-brands fa-facebook-messenger"
+                      style={{ color: 'F9BF29' }}
+                    />
                     &nbsp;&nbsp;社群連結
                   </h5>
                   <img className="mb-3" src={line} alt="" />
