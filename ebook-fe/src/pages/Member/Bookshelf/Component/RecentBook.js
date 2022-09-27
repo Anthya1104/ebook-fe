@@ -321,13 +321,13 @@ function RecentBook(setGetRecentBookData) {
   return (
     <>
       {/* <div>RecentBook</div> */}
-
-      {recentBook === [] ? (
-        createRecentBook(recentBook)
-      ) : (
+      {console.log(recentBook.length)}
+      {recentBook.length === 0 ? (
         <div className="Bookshelf-nonbook-info d-flex justify-content-center">
           <h3>這個帳號目前沒有任何藏書唷</h3>
         </div>
+      ) : (
+        createRecentBook(recentBook)
       )}
       {/* {console.log('createRecentBook', createRecentBook(recentBook))} */}
 

@@ -98,62 +98,73 @@ function BookReviewList() {
   }
   return (
     <>
-      {getReview.map((reviewValue) => {
-        return (
-          <>
-            <div
-              key={reviewValue.id}
-              className="Bookshelf-review-container row"
-            >
-              <div className="col-sm-3">
-                <div className="Bookshelf-book-card m-2">
-                  <div className="Bookshelf-card-img mb-2">
-                    <img
-                      alt="bookCover"
-                      src={BookCover}
-                      className="cover-fit"
-                    ></img>
-                  </div>
-                  {/* star rating */}
-                  <div>
-                    <Box
-                      sx={{
-                        '& > legend': { mt: 2 },
-                      }}
-                    >
-                      <StyledRating
-                        name="simple-controlled"
-                        defaultValue={reviewValue.star_rating}
-                        onChange={(event, newValue) => {
-                          setValue(newValue)
+      {console.log('getreview', getReview)}
+      {getReview.length === 0 ? (
+        <div className="d-flex justify-content-center p-3">
+          目前沒有留言，趕快去看書寫書評！
+        </div>
+      ) : (
+        getReview.map((reviewValue) => {
+          return (
+            <>
+              <div
+                key={reviewValue.id}
+                className="Bookshelf-review-container row"
+              >
+                <div className="col-sm-3">
+                  <div className="Bookshelf-book-card m-2">
+                    <div className="Bookshelf-card-img mb-2">
+                      <img
+                        alt="bookCover"
+                        src={BookCover}
+                        className="cover-fit"
+                      ></img>
+                    </div>
+                    {/* star rating */}
+                    <div>
+                      <Box
+                        sx={{
+                          '& > legend': { mt: 2 },
                         }}
-                        icon={<StarRate fontSize="30px" />}
-                        emptyIcon={<StarOutlineIcon fontSize="25px" />}
-                        readOnly
-                      />
-                    </Box>
+                      >
+                        <StyledRating
+                          name="simple-controlled"
+                          defaultValue={reviewValue.star_rating}
+                          onChange={(event, newValue) => {
+                            setValue(newValue)
+                          }}
+                          icon={<StarRate fontSize="30px" />}
+                          emptyIcon={<StarOutlineIcon fontSize="25px" />}
+                          readOnly
+                        />
+                      </Box>
+                    </div>
+                    <div className="Review-book-name">
+                      {reviewValue.book_name}
+                    </div>
+                    <div className="Review-update-time">
+                      {reviewValue.create_time}
+                    </div>
                   </div>
-                  <div className="Review-book-name">
-                    {reviewValue.book_name}
+                </div>
+                <div className="col-sm-9">
+                  <div className="Review-comments m-2 p-3">
+                    <p>{reviewValue.content}</p>
                   </div>
-                  <div className="Review-update-time">
-                    {reviewValue.create_time}
+                  <div className="Review-comments-btn m-2">
+                    <Button className="btn btn-primary-reverse m-2">
+                      編輯
+                    </Button>
+                    <Button className="btn btn-primary-reverse m-2">
+                      刪除
+                    </Button>
                   </div>
                 </div>
               </div>
-              <div className="col-sm-9">
-                <div className="Review-comments m-2 p-3">
-                  <p>{reviewValue.content}</p>
-                </div>
-                <div className="Review-comments-btn m-2">
-                  <Button className="btn btn-primary-reverse m-2">編輯</Button>
-                  <Button className="btn btn-primary-reverse m-2">刪除</Button>
-                </div>
-              </div>
-            </div>
-          </>
-        )
-      })}
+            </>
+          )
+        })
+      )}
       {/* pagination */}
       <div className="Reviews-pagination-area d-flex justify-content-center">
         <div
