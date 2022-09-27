@@ -37,6 +37,9 @@ function BookReviewList() {
     totalPage: 1,
   })
 
+  // isEdit
+  const [isEdit, setIsEdit] = useState(false)
+
   // MUI style palette
 
   const theme = createTheme({
@@ -46,6 +49,12 @@ function BookReviewList() {
       },
     },
   })
+
+  // editHandler
+  const editHandler = (e) => {
+    e.preventdefault()
+    console.log('edit')
+  }
 
   // pagination 用 change Page
   const handleChangePage = (event, newPage) => {
@@ -152,12 +161,16 @@ function BookReviewList() {
                     <p>{reviewValue.content}</p>
                   </div>
                   <div className="Review-comments-btn m-2">
-                    <Button className="btn btn-primary-reverse m-2">
+                    {/* TODO:問老師 為什麼onClick 無效 */}
+                    <button
+                      className="btn btn-primary-reverse m-2"
+                      onClick={console.log('edit')}
+                    >
                       編輯
-                    </Button>
-                    <Button className="btn btn-primary-reverse m-2">
+                    </button>
+                    <button className="btn btn-primary-reverse m-2">
                       刪除
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>
