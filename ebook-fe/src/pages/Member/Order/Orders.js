@@ -12,6 +12,7 @@ import Book from '../../../img/book.jpg'
 import BreadCrumb from './Component/BreadCrumb'
 import ScrollToTop from './Component/ScrollToTop'
 import line from '../../../img/line.svg'
+import example from '../../../img/order_example.svg'
 import dash from '../../../img/dash.svg'
 import { data } from './OrderData'
 import '../../../style/Order.scss'
@@ -215,7 +216,7 @@ function Orders() {
                   <CardMedia
                     className="mx-2 my-2 shadow book-cover"
                     component="img"
-                    image={o.book_img}
+                    image={example}
                     alt="book"
                   />
                 </div>
