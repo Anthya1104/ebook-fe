@@ -47,6 +47,8 @@ function WishList(props) {
         >
           繼續購物
         </button>
+
+        
       </div>
       {/* </Link> */}
     </>

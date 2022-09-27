@@ -1,8 +1,10 @@
 // import ProductList from '../../Product/ProductList'
+import { useCart } from '../../utils/useCart'
 
 function ListItemsWithProps(props) {
   // 使用porps傳入所需的函式與狀態值
   const { cart, items, plusOne, minusOne, removeItem } = props
+  const { addItem } = useCart()
 
   return (
     <div>
@@ -43,7 +45,7 @@ function ListItemsWithProps(props) {
                 </td>
                 <td>{v.name} </td>
                 <td>{v.book_name} </td>
-                <td>$ {v.price}</td>
+                <td>${v.price}</td>
 
                 {/* <td>
                   <div className="btn-group mr-2" role="group">
@@ -90,6 +92,19 @@ function ListItemsWithProps(props) {
                   >
                     移除
                   </button>
+
+                  <button
+                        type="button"
+                        className="btn btn-primary-reverse"
+                        onClick={() => {
+                          const item = { ...v, quantity: 1 }
+                          removeItem(v.id)
+                          addItem(item)
+                        }}
+                      >
+                        移入購物車
+                      </button>
+
                 </td>
               </tr>
             )
