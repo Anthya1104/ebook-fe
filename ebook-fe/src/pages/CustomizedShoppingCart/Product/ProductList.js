@@ -34,6 +34,7 @@ function ProductList(props) {
   // 對話盒中的商品名稱
   const [product, setProduct] = useState(products)
   const [productName, setProductName] = useState('')
+  const [productTitle, setProductTitle] = useState('')
 
   const navigate = useNavigate()
 
@@ -45,11 +46,13 @@ function ProductList(props) {
 
   const showModal = (name) => {
     setProductName('已成功加入購物車')
+    setProductTitle('購物車')
     handleShow()
   }
 
   const showModal2 = (name) => {
     setProductName( '已成功加入收藏')
+    setProductTitle('收藏')
     handleShow()
   }
 
@@ -81,36 +84,11 @@ function ProductList(props) {
       )
     }
   }, [cat, searchBook])
-  //搜尋功能
-  // const inputValue1 = useRef(undefined)
-
-  // const onProductSearchClick = (e) => {
-  //   e.preventDefault()
-  //   const uniqueIds = []
-  //   const inputString = inputValue1.current.value
-  //   let tags = inputString.split(',').map((tag) => tag.replaceAll(' ', ''))
-  //   let searchSn = []
-  //   for (let tag of tags) {
-  //     let tmpAry = [...products].filter(
-  //       (book) => book.book_name.indexOf(tag) !== -1
-  //     )
-  //     searchSn = searchSn.concat([...tmpAry])
-  //   }
-  //   const unique = searchSn.filter((element) => {
-  //     const isDuplicate = uniqueIds.includes(element.id)
-  //     if (!isDuplicate) {
-  //       uniqueIds.push(element.id)
-  //       return true
-  //     }
-  //     return false
-  //   })
-  //   setProduct(unique)
-  // }
 
   const messageModal = (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
       <Modal.Header closeButton>
-        <Modal.Title>訊息</Modal.Title>
+        <Modal.Title>{productTitle}</Modal.Title>
       </Modal.Header>
       <Modal.Body>{productName} </Modal.Body>
       <Modal.Footer>
@@ -134,14 +112,14 @@ function ProductList(props) {
   const messageModal2 = (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
       <Modal.Header closeButton>
-        <Modal.Title>加入收藏</Modal.Title>
+        <Modal.Title>{productTitle}</Modal.Title>
       </Modal.Header>
       <Modal.Body>{productName} </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="primary" onClick={handleClose}>
           繼續購物
         </Button>
-        {/* <Button
+        <Button
           variant="primary"
           onClick={() => {
             // 導向購物車頁面
@@ -150,7 +128,7 @@ function ProductList(props) {
           }}
         >
           前往購物車結帳
-        </Button> */}
+        </Button>
       </Modal.Footer>
     </Modal>
   )
@@ -244,8 +222,8 @@ function ProductList(props) {
           <Select cat={cat} setCat={setCat} />
         </div>
         <div>
-        {messageModal2}
           {messageModal}
+          {messageModal2}
           {display}
         </div>
       </div>

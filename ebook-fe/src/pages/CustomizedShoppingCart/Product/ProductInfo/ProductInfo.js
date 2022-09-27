@@ -49,15 +49,17 @@ function ProductInfo(productId) {
         <Modal.Body>已成功加入購物車</Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
-          繼續購物
+            繼續購物
           </Button>
-          <Button variant="primary" 
-          onClick={() => {
+          <Button
+            variant="primary"
+            onClick={() => {
               // 導向購物車頁面
               // props.history.push('/')
               navigate('/Cart')
-            }}>
-          前往購物車結帳
+            }}
+          >
+            前往購物車結帳
           </Button>
         </Modal.Footer>
       </Modal>
@@ -104,24 +106,27 @@ function ProductInfo(productId) {
         購買
       </Button> */}
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>加入購物車訊息</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>已成功加入購物車</Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-          繼續購物
-          </Button>
-          <Button variant="primary" onClick={() => {
-              // 導向購物車頁面
-              // props.history.push('/')
-              navigate('/Cart', { replace: true })
-            }}>
-          前往購物車結帳
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>加入購物車訊息</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>已成功加入購物車</Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>
+              繼續購物
+            </Button>
+            <Button
+              variant="primary"
+              onClick={() => {
+                // 導向購物車頁面
+                // props.history.push('/')
+                navigate('/Cart', { replace: true })
+              }}
+            >
+              前往購物車結帳
+            </Button>
+          </Modal.Footer>
+        </Modal>
         {/* /// */}
 
         <Row className="mb-5">
@@ -168,7 +173,17 @@ function ProductInfo(productId) {
                     </Button>
                   </ButtonGroup>
                   <ButtonGroup className="me-2">
-                    <Button className="btn-danger mb-2">
+                    <Button
+                      className="btn-danger mb-2"
+                      onClick={() => {
+                        // 商品原本無數量屬性(quantity)，要先加上
+                        const item = { ...v, quantity: 1 }
+                        // 注意: 重覆加入會自動+1產品數量
+                        addSecondItem(item)
+                        // 呈現跳出對話盒
+                        showModal2(v.name)
+                      }}
+                    >
                       <img src={HeartIcon} alt="heart" /> 收藏
                     </Button>
                   </ButtonGroup>
