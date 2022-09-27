@@ -115,8 +115,8 @@ function BookReviewList() {
                   <div className="Bookshelf-book-card m-2">
                     <div className="Bookshelf-card-img mb-2">
                       <img
-                        alt="bookCover"
-                        src={BookCover}
+                        alt={reviewValue.book_name}
+                        src={reviewValue.book_img}
                         className="cover-fit"
                       ></img>
                     </div>

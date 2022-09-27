@@ -92,6 +92,17 @@ function OwnedBooksList() {
     getCategories()
   }, [])
 
+  // 改變分類、已讀未讀 -> 重製
+  useEffect(() => {
+    setBookFilterParams({ ...bookFilterParams, on_page: 1 })
+    setGetPage({ ...getPage, onPage: 1 })
+  }, [onCategory])
+
+  useEffect(() => {
+    setBookFilterParams({ ...bookFilterParams, on_page: 1 })
+    setGetPage({ ...getPage, onPage: 1 })
+  }, [isRead])
+
   useEffect(() => {
     handleCategoryChange()
   }, [bookFilterParams])
@@ -347,8 +358,11 @@ function OwnedBooksList() {
           onClick={() => {
             setGetPage({
               ...getPage,
-              onPage:
-                getPage.onPage === 1 ? getPage.onPage : getPage.onPage - 1,
+              onPage: getPage.onPage === 1 ? 1 : getPage.onPage - 1,
+            })
+            setBookFilterParams({
+              ...bookFilterParams,
+              on_page: getPage.onPage === 1 ? 1 : getPage.onPage - 1,
             })
             ScrollToTop()
           }}
@@ -381,7 +395,14 @@ function OwnedBooksList() {
               ...getPage,
               onPage:
                 getPage.onPage === getPage.totalPage
-                  ? getPage.onPage + 0
+                  ? getPage.onPage
+                  : getPage.onPage + 1,
+            })
+            setBookFilterParams({
+              ...bookFilterParams,
+              on_page:
+                getPage.onPage === getPage.totalPage
+                  ? getPage.onPage
                   : getPage.onPage + 1,
             })
             ScrollToTop()
