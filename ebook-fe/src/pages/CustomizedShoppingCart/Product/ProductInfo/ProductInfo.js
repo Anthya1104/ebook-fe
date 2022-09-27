@@ -11,29 +11,119 @@ import CartIcon from '../../../../img/icon-cart.svg'
 import TrialIcon from '../../../../img/icon-trial.svg'
 import HeartIcon from '../../../../img/icon-heart.svg'
 import { Modal, Button } from 'react-bootstrap'
-
+import { useNavigate } from 'react-router-dom'
 // import { DATA } from './MockData'
 // import MemberComment from './MemberComment/MemberComment'
 
 import productsDetail from '../../data/products.json'
 
 import { useCart } from '../../utils/useCart'
+import { useSecondCart } from '../../utils/useSecondCart'
 import { useState, useParam } from 'react'
 
 function ProductInfo(productId) {
   function CreateBookInfo(v) {
-    const { addItem } = useCart()
-    const [productName, setProductName] = useState('')
+    // 對話盒使用
     const [show, setShow] = useState(false)
+    // 對話盒中的商品名稱
+    const [product, setProduct] = useState('')
+    const [productName, setProductName] = useState('')
+
+    const navigate = useNavigate()
+
+    const { addItem } = useCart()
+    const { addSecondItem } = useSecondCart()
+
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+
     const showModal = (name) => {
-      setProductName(name + '已成功加入購物車')
+      setProductName('產品：' + name + '已成功加入購物車')
+      handleShow()
+    }
+    const messageModal = (
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>加入購物車訊息</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>已成功加入購物車</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+          繼續購物
+          </Button>
+          <Button variant="primary" 
+          onClick={() => {
+              // 導向購物車頁面
+              // props.history.push('/')
+              navigate('/Cart')
+            }}>
+          前往購物車結帳
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    )
+
+    const messageModal2 = (
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>加入購物車訊息</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{productName} </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            繼續購物
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              // 導向購物車頁面
+              // props.history.push('/')
+              navigate('/Cart', { replace: true })
+            }}
+          >
+            前往購物車結帳
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    )
+
+    const showModal2 = (name) => {
+      setProductName('產品：' + name + '已成功加入收藏')
       handleShow()
     }
 
     return (
       <>
+        {/* /// */}
+        {/* <Button className="btn-danger" variant="" onClick={handleShow}>
+        購買
+      </Button> */}
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>加入購物車訊息</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>已成功加入購物車</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+          繼續購物
+          </Button>
+          <Button variant="primary" onClick={() => {
+              // 導向購物車頁面
+              // props.history.push('/')
+              navigate('/Cart', { replace: true })
+            }}>
+          前往購物車結帳
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        {/* /// */}
+
         <Row className="mb-5">
           <Col>
             <img className="ProductInfo-img" src={v.book_img} alt="商品圖" />
@@ -53,16 +143,11 @@ function ProductInfo(productId) {
                 售價：<span>$</span>
                 <span className="ProductInfo-bookInfo-price">{v.price}</span>
               </div>
-              <div className='ProductInfo-btn-position'>
-              <ButtonToolbar className="mt-5 ">
-                <ButtonGroup className="me-2 ">
-                  {/* <Button className="btn-danger" size="sm">
-                    <img src={CartIcon} alt="buy" /> 購買
-                  </Button> */}
-                  <Button className="btn-danger me-2 mb-2">
-                    <img
-                      src={CartIcon}
-                      alt="buy"
+              <div className="ProductInfo-btn-position">
+                <ButtonToolbar className="mt-5 ">
+                  <ButtonGroup className="me-2 ">
+                    <Button
+                      className="btn-danger me-2 mb-2"
                       onClick={() => {
                         // 商品原本無數量屬性(quantity)，要先加上
                         const item = { ...v, quantity: 1 }
@@ -71,21 +156,23 @@ function ProductInfo(productId) {
                         // 呈現跳出對話盒
                         showModal(v.name)
                       }}
-                    />{' '}
-                    購買
-                  </Button>
-                </ButtonGroup>
-                <ButtonGroup className="me-2">
-                  <Button className="btn-danger me-2 mb-2">
-                    <img src={TrialIcon} alt="trial" /> 試閱
-                  </Button>
-                </ButtonGroup>
-                <ButtonGroup className="me-2">
-                  <Button className="btn-danger mb-2">
-                    <img src={HeartIcon} alt="heart" /> 收藏
-                  </Button>
-                </ButtonGroup>
-              </ButtonToolbar>
+                    >
+                      <img src={CartIcon} alt="buy" />
+                      購買
+                    </Button>
+                  </ButtonGroup>
+
+                  <ButtonGroup className="me-2">
+                    <Button className="btn-danger me-2 mb-2">
+                      <img src={TrialIcon} alt="trial" /> 試閱
+                    </Button>
+                  </ButtonGroup>
+                  <ButtonGroup className="me-2">
+                    <Button className="btn-danger mb-2">
+                      <img src={HeartIcon} alt="heart" /> 收藏
+                    </Button>
+                  </ButtonGroup>
+                </ButtonToolbar>
               </div>
             </div>
           </Col>
@@ -118,7 +205,8 @@ function ProductInfo(productId) {
             <h4 className="ProductInfo-font-weight" id="detail">
               詳細書訊
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"
@@ -135,7 +223,8 @@ function ProductInfo(productId) {
             <h4 className="ProductInfo-font-weight" id="aboutAuthor">
               作者簡介
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"
@@ -152,7 +241,8 @@ function ProductInfo(productId) {
             <h4 className="ProductInfo-font-weight" id="aboutTranslator">
               譯者簡介
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"
@@ -169,7 +259,8 @@ function ProductInfo(productId) {
             <h4 className="ProductInfo-font-weight" id="recommended">
               好評推薦
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"
