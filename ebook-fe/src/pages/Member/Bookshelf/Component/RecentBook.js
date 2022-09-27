@@ -21,7 +21,7 @@ import { useAuth } from '../../../../Context/auth'
 import axios from 'axios'
 import { API_URL } from '../../../../utils/config'
 
-function RecentBook(setGetRecentBookData) {
+function RecentBook({ setGetRecentBookData }) {
   // auth
   const { member, setMember } = useAuth()
   // Chart.js states
@@ -69,6 +69,7 @@ function RecentBook(setGetRecentBookData) {
       })
     }
     getRecentBook()
+
   }, [])
 
   // 把starRating的分數存進submit data
