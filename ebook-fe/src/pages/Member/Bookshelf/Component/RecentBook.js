@@ -320,7 +320,14 @@ function RecentBook() {
   return (
     <>
       {/* <div>RecentBook</div> */}
-      {createRecentBook(recentBook)}
+
+      {recentBook === [] ? (
+        createRecentBook(recentBook)
+      ) : (
+        <div className="d-flex justify-content-center m-2">
+          <h3>這個帳號目前沒有任何藏書唷</h3>
+        </div>
+      )}
       {/* {console.log('createRecentBook', createRecentBook(recentBook))} */}
 
       {/* success toast */}
