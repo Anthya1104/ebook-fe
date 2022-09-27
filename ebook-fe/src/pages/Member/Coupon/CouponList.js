@@ -133,19 +133,17 @@ import { useAuth } from '../../../Context/auth'
 function CouponList() {
   const { member, setMember } = useAuth()
   const [coupons, setCoupons] = useState(Coupon)
+
   useEffect(() => {
     const getCoupon = async () => {
-      let response = await axios.get(
-        `${API_URL}/coupon`,
-        {
-          withCredentials: true,
-        }
-      )
-      setCoupons(response.data)
-      console.log(response.data)
+      let response = await axios.get(`${API_URL}/coupon/get-coupon`, {
+        withCredentials: true,
+      })
+      console.log(response)
     }
     getCoupon()
   }, [])
+
   const onSelected = (e) => {
     const index = e.target.value
     let cTemp = []
@@ -160,7 +158,6 @@ function CouponList() {
         cTemp = [...coupons].sort(
           (a, b) => new Date(b.Coupon_sdte) - new Date(a.Coupon_sdte)
         )
-        break
         cTemp = [...coupons].sort(
           (a, b) => new Date(b.Coupon_edte) - new Date(a.Coupon_edte)
         )
