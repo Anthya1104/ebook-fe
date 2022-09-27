@@ -147,7 +147,11 @@ function OwnedBooksList() {
           <div className="Bookshelf-hover-area position-absolute"></div>
           <Link to={`${bookList.id}`}>
             <div className="bookCover">
-              <img className="contain-fit" src={Bookcover} alt="bookCover" />
+              <img
+                className="contain-fit"
+                src={bookList.book_img}
+                alt={bookList.book_name}
+              />
             </div>
           </Link>
           <ul className="my-2 d-flex-column justify-content-center align-items-center">
