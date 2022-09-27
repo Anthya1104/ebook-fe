@@ -4,9 +4,20 @@ import './Select.scss'
 function SelectPrice({ searchBook, setSearchBook }) {
   return (
     <div>
-      <h4 className="Select-title">篩選條件</h4>
+      
       <ListGroup className="product-select mb-4">
         <ListGroup.Item className="product-title">價格</ListGroup.Item>
+        <ListGroup.Item>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setSearchBook(searchBook)
+            }}
+          >
+            全部
+          </a>
+        </ListGroup.Item>
         <ListGroup.Item>
           <a
             href="#"

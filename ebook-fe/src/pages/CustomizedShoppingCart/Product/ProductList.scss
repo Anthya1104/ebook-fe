@@ -26,6 +26,13 @@
     height: 160px;
 }
 
+//搜尋書名的輸入框
+.ProductList-SearchBookNameBox {
+  width: 200px;
+  border: #661f1e 2px solid;
+  border-radius: 5px;
+}
+
 @media (max-width: 600px) {
   //最上面分類篩選區
   .ProductList-showTopCategory {

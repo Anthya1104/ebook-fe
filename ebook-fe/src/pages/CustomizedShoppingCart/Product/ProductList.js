@@ -107,6 +107,7 @@ function ProductList(props) {
         products.filter((v, i) => v.publisher === searchPublisher)
       )
     }
+    // setProductsDisplay(products)
   }, [searchPublisher])
 
   const messageModal = (
@@ -242,23 +243,18 @@ function ProductList(props) {
       {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">
+        <div className='mb-3'>
+        <h4 className="Select-title">篩選條件</h4>
           <input
+            className='ProductList-SearchBookNameBox'
             type="text"
             value={searchBookName}
+            placeholder="搜尋書名"
             onChange={(e) => setSearchBookName(e.target.value)}
           />
-          {/* <Select
-            searchBook={searchBook}
-            setSearchBook={setSearchBook}
-
-            searchPublisher={searchPublisher}
-            setSearchPublisher={setSearchPublisher}
-          /> */}
-          <SelectPrice 
-            searchBook={searchBook}
-            setSearchBook={setSearchBook}
-          />
-          <SelectPublisher 
+          </div>
+          <SelectPrice searchBook={searchBook} setSearchBook={setSearchBook} />
+          <SelectPublisher
             searchPublisher={searchPublisher}
             setSearchPublisher={setSearchPublisher}
           />

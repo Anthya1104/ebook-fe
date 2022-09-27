@@ -11,6 +11,17 @@ function SelectPublisher({ searchPublisher, setSearchPublisher }) {
             href="#"
             onClick={(e) => {
               e.preventDefault()
+              setSearchPublisher('')
+            }}
+          >
+            全部
+          </a>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
               setSearchPublisher('閱閱出版社')
             }}
           >
