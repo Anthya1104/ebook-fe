@@ -93,11 +93,6 @@ function OwnedBooksList() {
   }, [])
 
   useEffect(() => {
-    // console.log(onCategory)
-    // console.log({ API_URL })
-    // TODO:在這裡做 ownedBookList 切換
-    // 把 Category post 到後端
-
     handleCategoryChange()
   }, [bookFilterParams])
 
