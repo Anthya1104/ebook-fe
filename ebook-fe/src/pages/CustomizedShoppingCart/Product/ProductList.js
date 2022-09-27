@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { useCart } from '../utils/useCart'
 
-// import Select from './Select'
-
 import './ProductList.scss'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
@@ -16,9 +14,7 @@ import { useSecondCart } from '../utils/useSecondCart'
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
 
-// import SearchBar from './SearchBar/SearchBar'
 
-// 商品範例
 import products from '../data/products.json'
 import SelectPrice from './SelectPrice'
 import SelectPublisher from './SelectPublisher'
@@ -100,7 +96,7 @@ function ProductList(props) {
     }
   }, [searchBookName])
 
-  //依出版社
+  //依出版社搜尋
   useEffect(() => {
     if (searchPublisher) {
       setProductsDisplay(
@@ -229,29 +225,19 @@ function ProductList(props) {
 
   return (
     <>
-      {/* <h1>商品列表頁範例</h1> */}
-      {/* <div className="ProductList-showTopCategory"> */}
-
       <TopCategory cat={cat} setCat={setCat} />
-      {/* </div> */}
-      {/* <div className="testtest ">
-      <TopCategory cat={cat} setCat={setCat} />
-      </div> */}
-      {/* <SearchBar /> */}
-      {/* <ProductFilter /> */}
       <div className="my-5"></div>
-      {/* <p className="text-nowrap bd-highlight">/pages/Product/ProductList.js</p> */}
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">
-        <div className='mb-3'>
-        <h4 className="Select-title">篩選條件</h4>
-          <input
-            className='ProductList-SearchBookNameBox'
-            type="text"
-            value={searchBookName}
-            placeholder="搜尋書名"
-            onChange={(e) => setSearchBookName(e.target.value)}
-          />
+          <div className="mb-3">
+            <h4 className="Select-title">篩選條件</h4>
+            <input
+              className="ProductList-SearchBookNameBox"
+              type="text"
+              value={searchBookName}
+              placeholder="搜尋書名"
+              onChange={(e) => setSearchBookName(e.target.value)}
+            />
           </div>
           <SelectPrice searchBook={searchBook} setSearchBook={setSearchBook} />
           <SelectPublisher

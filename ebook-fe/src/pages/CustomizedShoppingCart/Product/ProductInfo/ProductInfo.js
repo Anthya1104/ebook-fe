@@ -135,7 +135,9 @@ function ProductInfo(productId) {
 
         <Row className="mb-5">
           <Col>
-            <img className="ProductInfo-img" src={v.book_img} alt="商品圖" />
+            <div className='ProductInfo_img_position'>
+              <img className="ProductInfo-img" src={v.book_img} alt="商品圖" />
+            </div>
           </Col>
           <Col>
             <div>
@@ -152,47 +154,48 @@ function ProductInfo(productId) {
                 售價：<span>$</span>
                 <span className="ProductInfo-bookInfo-price">{v.price}</span>
               </div>
-              <div className="ProductInfo-btn-position">
-                <ButtonToolbar className="mt-5 ">
-                  <ButtonGroup className="me-2 ">
-                    <Button
-                      className="btn-danger me-2 mb-2"
-                      onClick={() => {
-                        // 商品原本無數量屬性(quantity)，要先加上
-                        const item = { ...v, quantity: 1 }
-                        // 注意: 重覆加入會自動+1產品數量
-                        addItem(item)
-                        // 呈現跳出對話盒
-                        showModal(v.name)
-                      }}
-                    >
-                      <img src={CartIcon} alt="buy" />
-                      購買
-                    </Button>
-                  </ButtonGroup>
+            </div>
 
-                  <ButtonGroup className="me-2">
-                    <Button className="btn-danger me-2 mb-2">
-                      <img src={TrialIcon} alt="trial" /> 試閱
-                    </Button>
-                  </ButtonGroup>
-                  <ButtonGroup className="me-2">
-                    <Button
-                      className="btn-danger mb-2"
-                      onClick={() => {
-                        // 商品原本無數量屬性(quantity)，要先加上
-                        const item = { ...v, quantity: 1 }
-                        // 注意: 重覆加入會自動+1產品數量
-                        addSecondItem(item)
-                        // 呈現跳出對話盒
-                        showModal2(v.name)
-                      }}
-                    >
-                      <img src={HeartIcon} alt="heart" /> 收藏
-                    </Button>
-                  </ButtonGroup>
-                </ButtonToolbar>
-              </div>
+            <div className="ProductInfo-btn-position">
+              <ButtonToolbar className="mt-5 ">
+                <ButtonGroup className="me-2 ">
+                  <Button
+                    className="btn-danger me-2 mb-2"
+                    onClick={() => {
+                      // 商品原本無數量屬性(quantity)，要先加上
+                      const item = { ...v, quantity: 1 }
+                      // 注意: 重覆加入會自動+1產品數量
+                      addItem(item)
+                      // 呈現跳出對話盒
+                      showModal(v.name)
+                    }}
+                  >
+                    <img src={CartIcon} alt="buy" />
+                    購買
+                  </Button>
+                </ButtonGroup>
+
+                <ButtonGroup className="me-2">
+                  <Button className="btn-danger me-2 mb-2">
+                    <img src={TrialIcon} alt="trial" /> 試閱
+                  </Button>
+                </ButtonGroup>
+                <ButtonGroup className="me-2">
+                  <Button
+                    className="btn-danger mb-2"
+                    onClick={() => {
+                      // 商品原本無數量屬性(quantity)，要先加上
+                      const item = { ...v, quantity: 1 }
+                      // 注意: 重覆加入會自動+1產品數量
+                      addSecondItem(item)
+                      // 呈現跳出對話盒
+                      showModal2(v.name)
+                    }}
+                  >
+                    <img src={HeartIcon} alt="heart" /> 收藏
+                  </Button>
+                </ButtonGroup>
+              </ButtonToolbar>
             </div>
           </Col>
         </Row>
