@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 import { useCart } from '../utils/useCart'
 
-import Select from './Select'
+// import Select from './Select'
+
 import './ProductList.scss'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
@@ -19,6 +20,8 @@ import { API_URL } from '../../../utils/config'
 
 // 商品範例
 import products from '../data/products.json'
+import SelectPrice from './SelectPrice'
+import SelectPublisher from './SelectPublisher'
 
 function ProductList(props) {
   const getProductList = async () => {
@@ -66,6 +69,7 @@ function ProductList(props) {
   const [searchBook, setSearchBook] = useState('')
   const [searchBookName, setSearchBookName] = useState('')
   const [productsDisplay, setProductsDisplay] = useState([])
+  const [searchPublisher, setSearchPublisher] = useState('')
 
   // useEffect(() => {
   //   setProductsDisplay(products)
@@ -95,6 +99,15 @@ function ProductList(props) {
       )
     }
   }, [searchBookName])
+
+  //依出版社
+  useEffect(() => {
+    if (searchPublisher) {
+      setProductsDisplay(
+        products.filter((v, i) => v.publisher === searchPublisher)
+      )
+    }
+  }, [searchPublisher])
 
   const messageModal = (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -234,7 +247,21 @@ function ProductList(props) {
             value={searchBookName}
             onChange={(e) => setSearchBookName(e.target.value)}
           />
-          <Select searchBook={searchBook} setSearchBook={setSearchBook} />
+          {/* <Select
+            searchBook={searchBook}
+            setSearchBook={setSearchBook}
+
+            searchPublisher={searchPublisher}
+            setSearchPublisher={setSearchPublisher}
+          /> */}
+          <SelectPrice 
+            searchBook={searchBook}
+            setSearchBook={setSearchBook}
+          />
+          <SelectPublisher 
+            searchPublisher={searchPublisher}
+            setSearchPublisher={setSearchPublisher}
+          />
         </div>
         <div>
           {messageModal}
