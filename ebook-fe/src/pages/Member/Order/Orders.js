@@ -16,8 +16,20 @@ import dash from '../../../img/dash.svg'
 import { data } from './OrderData'
 import '../../../style/Order.scss'
 // import paginationBar from './Component/paginationBar'
-
+import { useAuth } from '../../../Context/auth'
 function Orders() {
+  const { member, setMember } = useAuth()
+  console.log('member from context', member.id)
+  useEffect(() => {
+    const getOrder = async () => {
+      let response = await axios.get(
+        `${API_URL}/order/get-order?member_id=${member.id}`
+      )
+      setOrder(response.data)
+      console.log(response.data)
+    }
+    getOrder()
+  }, [])
   const [order, setOrder] = useState(data)
   // 日期篩選、狀態篩選
   const onButtonClick = (key, e) => {

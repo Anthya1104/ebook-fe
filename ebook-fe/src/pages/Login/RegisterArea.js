@@ -2,7 +2,23 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../utils/config'
 
+// reactToastify importing
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 function RegisterArea() {
+  // toast
+  const notify = () =>
+    toast.info('註冊成功', {
+      className: 'Bookshelf-toast-black-background',
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   const [member, setMember] = useState({})
   const onChangeHandler = (e) => {
     setMember({ ...member, [e.target.name]: e.target.value })
@@ -15,6 +31,14 @@ function RegisterArea() {
     } catch (e) {
       console.error(e)
     }
+    setMember({
+      ...member,
+      name: '',
+      account: '',
+      password: '',
+      confirmPassword: '',
+    })
+    notify()
   }
   return (
     <>
@@ -67,6 +91,17 @@ function RegisterArea() {
           送出
         </button>
       </form>
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   )
 }

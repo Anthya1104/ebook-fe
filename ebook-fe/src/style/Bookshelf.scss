@@ -28,6 +28,11 @@ $Bookshelf_recent_translateY: 40px;
   }
 }
 
+// recent book non book info
+.Bookshelf-nonbook-info{
+  margin-top:60px
+}
+
 // mobile title
 .Bookshelf-mobile-recent-title{
   display:none;
@@ -282,7 +287,9 @@ $Bookshelf_recent_translateY: 40px;
   }
   .Bookshelf-date-sort{
     @media(max-width:$mobile-break-point){
-      display:none;
+      svg{
+        display:none;
+      }
     }
     
     display:flex;
@@ -295,7 +302,9 @@ $Bookshelf_recent_translateY: 40px;
   }
   .Bookshelf-date-sort-toggled{
     @media(max-width:$mobile-break-point){
-      display:none;
+      svg{
+        display:none;
+      }
     }
     display:flex;
     align-items: center;
@@ -310,9 +319,7 @@ $Bookshelf_recent_translateY: 40px;
     .Bookshelf-is-read-toggle{
       display:flex;
       justify-content: end;
-      @media(max-width:$mobile-break-point){
-        display:none;
-      }
+
     }
 // 書卡片
 
