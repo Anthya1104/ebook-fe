@@ -2,7 +2,9 @@ import React from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import '../pages/Memberindex.scss'
 import MemberPic from './memberindexcategory/member.png'
-import Bar from './memberindexcategory/裝飾bar-1 1.png'
+import Bar from './memberindexcategory/decobar-2.png'
+import BarDesktop from './memberindexcategory/decobar.png'
+import Progressbar from './memberindexcategory/progress.jpg'
 // auth
 import { useAuth } from '../Context/auth'
 
@@ -23,31 +25,41 @@ function MemberIndex() {
             <img className="member-pic" src={MemberPic} alt="memberpic" />
           </div>
 
-          <div className="">
+          <div className="member-info">
             <ul className="member-information">
-              <li className="">
+              <li className="member-information-1">
                 <a>會員姓名 : 王大明</a>
               </li>
-              <li>
+              <li className="member-information-2">
                 <a>會員等級 : 銀卡</a>
               </li>
             </ul>
           </div>
 
-          <div className="">
+          <div className="member-info">
             <ul className="member-information">
-              <li className="">
+              <li className="member-information-3">
                 <a>會員帳號 : wangdaming</a>
               </li>
-              <li>
+              <li className="member-information-4">
                 <a>加入會員日 : 2022/08/02 </a>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* 進度條 */}
+        <div className="progress-bar">
+          <img className="progressbar" src={Progressbar} alt="progressbar" />
+        </div>
+
+        {/* 裝飾bar */}
+        
+        <div className="member-bar-desktop">
+          <img src={BarDesktop} alt="bar" />
+        </div>
         <div className="member-bar">
-          <img className="bar" src={Bar} alt="bar" />
+          <img src={Bar} alt="bar" />
         </div>
 
         <div className="member-container">
