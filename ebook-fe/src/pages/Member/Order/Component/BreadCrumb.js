@@ -6,7 +6,7 @@ function BreadCrumb() {
     <div>
       <Breadcrumb>
         <Breadcrumb.Item href="http://localhost:3000/">首頁</Breadcrumb.Item>
-        <Breadcrumb.Item href="http://localhost:3000/member-index">
+        <Breadcrumb.Item href="http://localhost:3000/Member">
           會員專區
         </Breadcrumb.Item>
         <Breadcrumb.Item active>我的訂單</Breadcrumb.Item>
