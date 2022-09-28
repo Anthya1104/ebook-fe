@@ -19,6 +19,8 @@ import products from '../data/products.json'
 import SelectPrice from './SelectPrice'
 import SelectPublisher from './SelectPublisher'
 import Slick from './Slick'
+// import DropdownSelectPublisher from './DropdownSelectPublisher'
+import DropdownSelect from './DropdownSelect'
 
 function ProductList(props) {
   const getProductList = async () => {
@@ -228,6 +230,8 @@ function ProductList(props) {
     <>
       <TopCategory cat={cat} setCat={setCat} />
       <Slick />
+      <DropdownSelect />
+      {/* <DropdownSelectPublisher /> */}
       <div className="my-5"></div>
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">
