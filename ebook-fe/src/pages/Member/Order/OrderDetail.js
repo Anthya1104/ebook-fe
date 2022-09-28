@@ -3,17 +3,15 @@ import axios from 'axios'
 import { API_URL } from '../../../utils/config'
 import { useAuth } from '../../../Context/auth'
 import { Link, useParams } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import Chat from '../../../img/Chat.png'
-import Back from '../../../img/Back.svg'
+import Back from '../../../img/back.png'
 import DetailLine from '../../../img/DetailLine.png'
 import DetailDash from '../../../img/DetailDash.svg'
-import data from './newOrderDetail.json'
+import ScrollToTop from './Component/ScrollToTop'
 import '../../../style/Order.scss'
 
 function OrderDetail() {
@@ -22,16 +20,20 @@ function OrderDetail() {
   const [orderDetail, setOrderDetail] = useState([])
   const [orderDate, setOrderDate] = useState('')
   const [orderStatus, setOrderStatus] = useState('')
+  const [orderTotal, setOrderTotal] = useState('')
+  const [orderAmount, setOrderAmount] = useState('')
   useEffect(() => {
     const getOrder = async () => {
       let response = await axios.get(
         `${API_URL}/order/get-order?member_id=${member.id}&order=${orderId}`,
         { withCredentials: true }
       )
-      console.log('orderDetail', response.data)
-      setOrderDetail(response.data)
-      setOrderDate(response.data[0].date)
-      setOrderStatus(response.data[0].status)
+      console.log('orderDetail', response.data.detailData)
+      setOrderDetail(response.data.detailData)
+      setOrderDate(response.data.detailData[0].date)
+      setOrderStatus(response.data.detailData[0].status)
+      setOrderTotal(response.data.priceDetail.itemsPrice)
+      setOrderAmount(response.data.priceDetail.totalItems)
     }
     getOrder()
   }, [])
@@ -52,9 +54,18 @@ function OrderDetail() {
     )
   }
 
+  const createOrderTotal = () => {
+    return <>訂單總額:{orderTotal}</>
+  }
+
+  const createOrderAmount = () => {
+    return <>{orderAmount}</>
+  }
+
   return (
     <>
       <div className="container">
+      <ScrollToTop />
         <Card sx={{ maxWidth: 1067, height: 200 }}>
           <div className="orderCardBackground">
             <CardContent>
@@ -65,8 +76,7 @@ function OrderDetail() {
                   component="div"
                   className="mb-3 text-white "
                 >
-                  {/* 透過後端求總金額 */}
-                  訂單總額:?
+                  {createOrderTotal()}
                 </Typography>
               </div>
 
@@ -94,7 +104,7 @@ function OrderDetail() {
                   className="mb-3 text-white"
                 >
                   {/* 透過後端求總比數 */}
-                  &nbsp;共10本<br></br>商品數量
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{createOrderAmount()}<br></br>商品數量
                 </Typography>
                 <div>
                   <img className="img-fluid" src={DetailLine} alt="Line" />
