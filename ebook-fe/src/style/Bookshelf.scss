@@ -52,6 +52,11 @@ $Bookshelf_recent_translateY: 40px;
     }
   }
 }
+.Bookshelf-recent-book{
+  @media(max-width:$mobile-break-point){
+    transform: translateY(-10px);
+  }
+}
 .Bookshelf-recent-book-container{
     @media(max-width:$mobile-break-point){
     justify-content: center;
