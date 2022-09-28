@@ -1,5 +1,6 @@
 // import ProductList from '../../Product/ProductList'
 import { useCart } from '../../utils/useCart'
+import { Link } from 'react-router-dom'
 
 function ListItemsWithProps(props) {
   // 使用porps傳入所需的函式與狀態值
@@ -36,12 +37,14 @@ function ListItemsWithProps(props) {
               <tr key={v.id}>
                 {/* <td>{v.id}</td> */}
                 <td>
-                  <img
-                    style={{ width: 120, height: 160 }}
-                    src={v.book_img}
-                    className="card-img-top ProductList-card-img-top"
-                    alt="..."
-                  />
+                  <Link to={'/Cart/ProductDetail/' + v.id}>
+                    <img
+                      style={{ width: 120, height: 160 }}
+                      src={v.book_img}
+                      className="card-img-top ProductList-card-img-top"
+                      alt="..."
+                    />
+                  </Link>
                 </td>
                 <td>{v.name} </td>
                 <td>{v.book_name} </td>
@@ -94,17 +97,16 @@ function ListItemsWithProps(props) {
                   </button>
 
                   <button
-                        type="button"
-                        className="btn btn-primary-reverse"
-                        onClick={() => {
-                          const item = { ...v, quantity: 1 }
-                          removeItem(v.id)
-                          addItem(item)
-                        }}
-                      >
-                        移入購物車
-                      </button>
-
+                    type="button"
+                    className="btn btn-primary-reverse"
+                    onClick={() => {
+                      const item = { ...v, quantity: 1 }
+                      removeItem(v.id)
+                      addItem(item)
+                    }}
+                  >
+                    移入購物車
+                  </button>
                 </td>
               </tr>
             )

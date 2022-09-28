@@ -7,6 +7,7 @@ import { useNavigate2 } from 'react-router-dom'
 import ProductList from '../../Product/ProductList'
 import CouponModal from '../components/CouponModal'
 import { useSecondCart } from '../../utils/useSecondCart'
+import { Link } from 'react-router-dom'
 
 function ListItemsWithHook({ tab, handleStep }) {
   // 使用hooks 解出所需的狀態與函式(自context)
@@ -44,19 +45,21 @@ function ListItemsWithHook({ tab, handleStep }) {
               <>
                 <tr key={v.id}>
                   <td>
-                    <img
-                      style={{ width: 120, height: 160 }}
-                      src={v.book_img}
-                      className="card-img-top ProductList-card-img-top"
-                      alt="..."
-                    />
+                    <Link to={'/Cart/ProductDetail/' + v.id}>
+                      <img
+                        style={{ width: 120, height: 160 }}
+                        src={v.book_img}
+                        className="card-img-top ProductList-card-img-top"
+                        alt="..."
+                      />
+                    </Link>
                   </td>
                   <td>{v.book_name}</td>
-
                   <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
-                  <td className="ShoppingCart-BtnInMid"
-                  // style={{ width: 600 }}
+                  <td
+                    className="ShoppingCart-BtnInMid"
+                    // style={{ width: 600 }}
                   >
                     <button
                       type="button"
