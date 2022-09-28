@@ -1,3 +1,10 @@
+// .ProductList-display-mobile-position {
+//   // background: #000;
+//   display: flex;
+//   // width: 1000px;
+//   justify-content: start;
+// }
+
 .ProductList-bookname {
   color: #661f1e;
   font-weight: bolder;
@@ -10,6 +17,7 @@
 .ProductList-card {
   // background:pink;
   height: 540px;
+  width: 100%;
   text-align: center;
 }
 
@@ -99,8 +107,11 @@
     justify-content: end;
     margin-right: 75px;
   }
-  .ProductList-mobile-btn-outer{
+  .ProductList-mobile-btn-outer {
     // background: #000;
     padding: 10px;
+  }
+  .ProductList-card-body {
+    width: 215px;
   }
 }

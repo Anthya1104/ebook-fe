@@ -14,7 +14,6 @@ import { useSecondCart } from '../utils/useSecondCart'
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
 
-
 import products from '../data/products.json'
 import SelectPrice from './SelectPrice'
 import SelectPublisher from './SelectPublisher'
@@ -84,9 +83,13 @@ function ProductList(props) {
 
   useEffect(() => {
     if (searchBook) {
-      setProductsDisplay(
-        products.filter((v, i) => v.price_range === searchBook)
-      )
+      if (searchBook === 'ALL') {
+        setProductsDisplay(products)
+      } else {
+        setProductsDisplay(
+          products.filter((v, i) => v.price_range === searchBook)
+        )
+      }
     }
   }, [searchBook])
 
@@ -101,9 +104,13 @@ function ProductList(props) {
   //依出版社搜尋
   useEffect(() => {
     if (searchPublisher) {
-      setProductsDisplay(
-        products.filter((v, i) => v.publisher === searchPublisher)
-      )
+      if (searchPublisher === 'ALL') {
+        setProductsDisplay(products)
+      } else {
+        setProductsDisplay(
+          products.filter((v, i) => v.publisher === searchPublisher)
+        )
+      }
     }
     // setProductsDisplay(products)
   }, [searchPublisher])
@@ -162,7 +169,7 @@ function ProductList(props) {
         return (
           <>
             <div
-              className="col-4 col-sm-3 mb-4 ProductList-card-outer"
+              className="col-8 col-md-3 mb-4 ProductList-card-outer"
               key={v.id}
             >
               <div className="card ProductList-card">

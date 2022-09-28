@@ -71,7 +71,7 @@ function ProductInfo(productId) {
               navigate('/Cart', { replace: true })
             }}
           >
-             {productBtn}
+            {productBtn}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -106,8 +106,6 @@ function ProductInfo(productId) {
       </Modal>
     )
 
-    
-
     return (
       <>
         {/* /// */}
@@ -126,10 +124,14 @@ function ProductInfo(productId) {
             </Button>
             <Button
               variant="primary"
-              onClick={() => {
+              onClick={(e) => {
                 // 導向購物車頁面
                 // props.history.push('/')
-                navigate('/Cart', { replace: true })
+                if (e.target.innerHTML === '前往我的收藏') {
+                  navigate('/Cart/WishList', { replace: true })
+                } else {
+                  navigate('/Cart', { replace: true })
+                }
               }}
             >
               {productBtn}

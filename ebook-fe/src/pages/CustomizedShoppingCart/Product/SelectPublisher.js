@@ -11,7 +11,7 @@ function SelectPublisher({ searchPublisher, setSearchPublisher }) {
             href="#"
             onClick={(e) => {
               e.preventDefault()
-              setSearchPublisher('')
+              setSearchPublisher('ALL')
             }}
           >
             全部
