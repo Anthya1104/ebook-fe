@@ -219,7 +219,7 @@ function Orders() {
 
         {filterOrder &&
           filterOrder.map((o, i) => (
-            <Card sx={{ maxwidth: 1067 }} className="mb-3" key={`order${i}`}>
+            <Card sx={{ maxwidth: 1067 }} className="mb-2" key={`order${i}`}>
               <div className="row">
                 <div className="col-md-5 mobile-card">
                   <CardMedia
@@ -230,35 +230,29 @@ function Orders() {
                   />
                 </div>
                 <CardContent className="col-md-5">
-                  <Typography variant="body1" className="mb-3 orderText">
-                    訂單編號:<br></br>
-                    {o.sn}
+                  <Typography
+                    variant="body1"
+                    className="orderText mb-3 order-mobile-text"
+                  >
+                    訂單編號:{o.sn}
                   </Typography>
-                  <Typography variant="body1" className="mb-3 orderText">
+                  <Typography
+                    variant="body1"
+                    className="orderText mb-3 order-mobile-text"
+                  >
                     訂單狀態:{o.status}
                   </Typography>
-                  <Typography variant="body1" className="mb-3 orderText">
+                  <Typography
+                    variant="body1"
+                    className="orderText mb-3 order-mobile-text"
+                  >
                     訂單日期:{o.date}
                   </Typography>
-                  <Typography variant="body1" className="mb-3 orderText">
-                    商品數量:
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    className="mb-3 orderText"
-                  >
-                    優惠券折扣:
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    className="mb-5 orderText"
-                  >
-                    訂單總額:
-                  </Typography>
+                  <CardActions className="col justify-content-center">
+                    <Link to={`${o.id}`}>
+                      <Button className="puzzle-button">完整訂單</Button>
+                    </Link>
+                  </CardActions>
                 </CardContent>
                 <CardActions className="col justify-content-center">
                   <Link to={`${o.id}`}>

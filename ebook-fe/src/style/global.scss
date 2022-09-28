@@ -115,11 +115,17 @@ $mobile-break-point:768px;
     width: 35px;
     border-radius: 50%;
     background:$body-bg;
+    @media(max-width:$mobile-break-point){
+      display:none;
+    }
 
   }
   
 }
 .toggle-primary-active{
+  @media(max-width:$mobile-break-point){
+    padding:5px;
+  }
   padding:2px;
   border:2px solid $primary;
   border-radius: 30px;
@@ -131,6 +137,10 @@ $mobile-break-point:768px;
     width: 35px;
     border-radius: 50%;
     background:$primary;
+    @media(max-width:$mobile-break-point){
+      
+      display:none;
+    }
 
   }
   

@@ -37,6 +37,9 @@ function BookReviewList() {
     totalPage: 1,
   })
 
+  // isEdit
+  const [isEdit, setIsEdit] = useState(false)
+
   // MUI style palette
 
   const theme = createTheme({
@@ -46,6 +49,72 @@ function BookReviewList() {
       },
     },
   })
+
+  // create review handler
+  const createReviewHandler = () => {
+    return getReview.map((reviewValue) => {
+      return (
+        <>
+          <div key={reviewValue.id} className="Bookshelf-review-container row">
+            <div className="col-sm-3">
+              <div className="Bookshelf-book-card m-2">
+                <div className="Bookshelf-card-img mb-2">
+                  <img
+                    alt={reviewValue.book_name}
+                    src={reviewValue.book_img}
+                    className="cover-fit"
+                  ></img>
+                </div>
+                {/* star rating */}
+                <div>
+                  <Box
+                    sx={{
+                      '& > legend': { mt: 2 },
+                    }}
+                  >
+                    <StyledRating
+                      name="simple-controlled"
+                      defaultValue={reviewValue.star_rating}
+                      onChange={(event, newValue) => {
+                        setValue(newValue)
+                      }}
+                      icon={<StarRate fontSize="30px" />}
+                      emptyIcon={<StarOutlineIcon fontSize="25px" />}
+                      readOnly
+                    />
+                  </Box>
+                </div>
+                <div className="Review-book-name">{reviewValue.book_name}</div>
+                <div className="Review-update-time">
+                  {reviewValue.create_time}
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-9">
+              <div className="Review-comments m-2 p-3">
+                <p>{reviewValue.content}</p>
+              </div>
+              <div className="Review-comments-btn m-2">
+                <Button
+                  className="btn btn-primary-reverse m-2"
+                  onClick={(e) => {
+                    editHandler()
+                  }}
+                >
+                  編輯
+                </Button>
+                <Button className="btn btn-primary-reverse m-2">刪除</Button>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    })
+  }
+  // editHandler
+  const editHandler = () => {
+    setIsEdit(true)
+  }
 
   // pagination 用 change Page
   const handleChangePage = (event, newPage) => {
@@ -63,6 +132,9 @@ function BookReviewList() {
             withCredentials: true,
           }
         )
+        if (!response) {
+          return setGetPage({ ...getPage, totalPage: 1 })
+        }
 
         setGetReview(response.data.data)
         setGetPage({ ...getPage, totalPage: response.data.pagination.lastPage })
@@ -95,62 +167,14 @@ function BookReviewList() {
   }
   return (
     <>
-      {getReview.map((reviewValue) => {
-        return (
-          <>
-            <div
-              key={reviewValue.id}
-              className="Bookshelf-review-container row"
-            >
-              <div className="col-sm-3">
-                <div className="Bookshelf-book-card m-2">
-                  <div className="Bookshelf-card-img mb-2">
-                    <img
-                      alt="bookCover"
-                      src={BookCover}
-                      className="cover-fit"
-                    ></img>
-                  </div>
-                  {/* star rating */}
-                  <div>
-                    <Box
-                      sx={{
-                        '& > legend': { mt: 2 },
-                      }}
-                    >
-                      <StyledRating
-                        name="simple-controlled"
-                        defaultValue={reviewValue.star_rating}
-                        onChange={(event, newValue) => {
-                          setValue(newValue)
-                        }}
-                        icon={<StarRate fontSize="30px" />}
-                        emptyIcon={<StarOutlineIcon fontSize="25px" />}
-                        readOnly
-                      />
-                    </Box>
-                  </div>
-                  <div className="Review-book-name">
-                    {reviewValue.book_name}
-                  </div>
-                  <div className="Review-update-time">
-                    {reviewValue.create_time}
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-9">
-                <div className="Review-comments m-2 p-3">
-                  <p>{reviewValue.content}</p>
-                </div>
-                <div className="Review-comments-btn m-2">
-                  <Button className="btn btn-primary-reverse m-2">編輯</Button>
-                  <Button className="btn btn-primary-reverse m-2">刪除</Button>
-                </div>
-              </div>
-            </div>
-          </>
-        )
-      })}
+      {console.log('getreview', getReview)}
+      {getReview.length === 0 ? (
+        <div className="d-flex justify-content-center p-3">
+          目前沒有留言，趕快去看書寫書評！
+        </div>
+      ) : (
+        createReviewHandler()
+      )}
       {/* pagination */}
       <div className="Reviews-pagination-area d-flex justify-content-center">
         <div
@@ -175,9 +199,9 @@ function BookReviewList() {
           <ThemeProvider theme={theme}>
             <Stack spacing={2}>
               <Pagination
-                count={getPage.totalPage}
+                count={getPage.totalPage || 1}
                 color="primary"
-                page={getPage.onPage}
+                page={getPage.onPage || 1}
                 hideNextButton={true}
                 hidePrevButton={true}
                 onChange={handleChangePage}
