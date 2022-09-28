@@ -196,6 +196,13 @@ $Bookshelf_recent_translateY: 40px;
       display:none;
     }
   }
+  .Bookshelf-non-notify{
+    @media(max-width:$mobile-break-point){
+      display:flex;
+      justify-content:center;
+      margin:15px;
+    }
+  }
 
 }
 .Bookshelf-mobile-tab{

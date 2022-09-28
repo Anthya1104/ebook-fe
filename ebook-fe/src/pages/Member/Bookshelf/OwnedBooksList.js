@@ -342,7 +342,9 @@ function OwnedBooksList() {
         </button>
       </div>
       {onCategoryList[0] === 'nothing' ? (
-        <div>這個分類沒有任何藏書唷，趕快去買新書，或新增一本已有藏書！</div>
+        <div className="Bookshelf-non-notify">
+          這個分類沒有任何藏書唷，趕快去買新書，或新增一本已有藏書！
+        </div>
       ) : (
         <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4">
           {onCategoryList.map((listValue) => {
