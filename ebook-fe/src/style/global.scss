@@ -20,6 +20,7 @@ $mobile-break-point:768px;
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
 .btn-primary{
   border-radius: 0;
   &:hover{
@@ -104,6 +105,9 @@ $mobile-break-point:768px;
 }
 
 .toggle-primary{
+  @media(max-width:$mobile-break-point){
+    padding:5px;
+  }
   padding:2px;
   border:2px solid $info;
   border-radius: 30px;
