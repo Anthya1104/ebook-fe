@@ -17,7 +17,8 @@ import ArrowRight from '../../../img/recent_book_arrow_r.svg'
 // React Bootstra
 import Button from 'react-bootstrap/Button'
 // reactToastify importing
-import { ToastContainer, toast } from 'react-toastify'
+// 不用放 container -> 因為 recentBook 那個 component 已經放了
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 // axios
 import axios from 'axios'
@@ -57,7 +58,7 @@ function BookReviewList() {
   })
 
   // data ready
-  const [dataReady, setDataReady] = useState(false)
+  const [reviewDataReady, setReviewDataReady] = useState(false)
 
   // MUI style palette
 
@@ -75,7 +76,7 @@ function BookReviewList() {
   // review post toastify
   // TODO:研究改顏色
   // https://fkhadra.github.io/react-toastify/how-to-style
-  const notify = () =>
+  const notifyDownSide = () =>
     toast.info('成功送出資料', {
       className: 'Bookshelf-toast-black-background',
       position: 'top-center',
@@ -218,7 +219,7 @@ function BookReviewList() {
                         return warning()
                       }
                       console.log('資料送出', reviewParam)
-                      setDataReady(true)
+                      setReviewDataReady(true)
                     }}
                   >
                     儲存
@@ -288,7 +289,7 @@ function BookReviewList() {
 
   // 送出 review
   useEffect(() => {
-    if (!dataReady) {
+    if (!reviewDataReady) {
       return console.log('資料不齊全喔')
     }
     const submitReview = async () => {
@@ -297,16 +298,17 @@ function BookReviewList() {
         reviewParam,
         { withCredentials: true }
       )
-      setDataReady(false)
+      setReviewDataReady(false)
       // TODO:還有問題
       if (response.request.status === 400) {
         return alert('沒有成功儲存喔')
       }
 
-      notify()
+      notifyDownSide()
+      setIsEdit('')
     }
     submitReview()
-  }, [dataReady])
+  }, [reviewDataReady])
 
   // default
   const StyledRating = styled(Rating)({
@@ -396,17 +398,6 @@ function BookReviewList() {
           <img className="Bookshelf-arrow m-2" alt="arrow-r" src={ArrowRight} />
         </div>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </>
   )
 }
