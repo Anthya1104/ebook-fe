@@ -248,17 +248,18 @@ function Orders() {
                   >
                     訂單日期:{o.date}
                   </Typography>
+                  <Typography
+                    variant="h5"
+                    className="orderText order-mobile-text"
+                  >
+                    訂單總額:
+                  </Typography>
                   <CardActions className="col justify-content-center">
                     <Link to={`${o.id}`}>
                       <Button className="puzzle-button">完整訂單</Button>
                     </Link>
                   </CardActions>
                 </CardContent>
-                <CardActions className="col justify-content-center">
-                  <Link to={`${o.id}`}>
-                    <Button className="puzzle-button ">完整訂單</Button>
-                  </Link>
-                </CardActions>
               </div>
             </Card>
           ))}
