@@ -52,6 +52,11 @@ $Bookshelf_recent_translateY: 40px;
     }
   }
 }
+.Bookshelf-recent-book{
+  @media(max-width:$mobile-break-point){
+    transform: translateY(-10px);
+  }
+}
 .Bookshelf-recent-book-container{
     @media(max-width:$mobile-break-point){
     justify-content: center;
@@ -194,6 +199,13 @@ $Bookshelf_recent_translateY: 40px;
     
     @media(max-width:$mobile-break-point){
       display:none;
+    }
+  }
+  .Bookshelf-non-notify{
+    @media(max-width:$mobile-break-point){
+      display:flex;
+      justify-content:center;
+      margin:15px;
     }
   }
 
@@ -434,6 +446,7 @@ $Bookshelf_recent_translateY: 40px;
   width:100%;
   height:70%;
   padding:15px;
+  margin-bottom:15px;
   border-radius: 15px;
 }
 
