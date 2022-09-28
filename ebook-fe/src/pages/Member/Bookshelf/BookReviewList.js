@@ -16,13 +16,22 @@ import Stack from '@mui/material/Stack'
 import ArrowRight from '../../../img/recent_book_arrow_r.svg'
 // React Bootstra
 import Button from 'react-bootstrap/Button'
+// reactToastify importing
+// 不用放 container -> 因為 recentBook 那個 component 已經放了
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 // axios
 import axios from 'axios'
 // API URL
 import { API_URL } from '../../..//utils/config'
 import { ThemeProvider } from '@emotion/react'
 
+// auth
+import { useAuth } from '../../../Context/auth'
+
 function BookReviewList() {
+  // auth
+  const { member, setMember } = useAuth()
   const [scoreFromStarRating, setScoreFromStarRating] = useState(0)
 
   // star Rating
@@ -42,10 +51,14 @@ function BookReviewList() {
 
   // editted parameter
   const [reviewParam, setReviewParam] = useState({
+    member_id: '',
     book_id: '',
     review_score: '',
     review_comments: '',
   })
+
+  // data ready
+  const [reviewDataReady, setReviewDataReady] = useState(false)
 
   // MUI style palette
 
@@ -59,6 +72,33 @@ function BookReviewList() {
       },
     },
   })
+
+  // review post toastify
+  // TODO:研究改顏色
+  // https://fkhadra.github.io/react-toastify/how-to-style
+  const notifyDownSide = () =>
+    toast.info('成功送出資料', {
+      className: 'Bookshelf-toast-black-background',
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+
+  const warning = () =>
+    toast.warn('請確認評論或評分是否填妥唷！', {
+      className: 'Bookshelf-toast-black-background',
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
 
   // create review handler
   const createReviewHandler = () => {
@@ -92,7 +132,7 @@ function BookReviewList() {
                     >
                       <StyledRatingOnEdit
                         name="simple-controlled"
-                        defaultValue={reviewValue.star_rating}
+                        defaultValue={reviewParam.review_score}
                         onChange={(event, newValue) => {
                           setValue(newValue)
                         }}
@@ -108,7 +148,7 @@ function BookReviewList() {
                     >
                       <StyledRating
                         name="simple-controlled"
-                        defaultValue={reviewParam.review_score}
+                        defaultValue={reviewValue.star_rating}
                         onChange={(event, newValue) => {
                           setValue(newValue)
                         }}
@@ -140,7 +180,8 @@ function BookReviewList() {
                   onChange={(e) => {
                     setReviewParam({
                       ...reviewParam,
-                      book_id: reviewValue.id,
+                      member_id: member.id,
+                      book_id: reviewValue.product_id,
                       review_comments: e.target.value,
                     })
                   }}
@@ -166,7 +207,23 @@ function BookReviewList() {
                   >
                     清空
                   </Button>
-                  <Button className="btn btn-primary-reverse m-2">儲存</Button>
+                  <Button
+                    className="btn btn-primary-reverse m-2"
+                    onClick={() => {
+                      if (
+                        !reviewParam.member_id ||
+                        !reviewParam.book_id ||
+                        !reviewParam.review_score ||
+                        !reviewParam.review_comments
+                      ) {
+                        return warning()
+                      }
+                      console.log('資料送出', reviewParam)
+                      setReviewDataReady(true)
+                    }}
+                  >
+                    儲存
+                  </Button>
                 </div>
               ) : (
                 <div className="Review-comments-btn m-2">
@@ -225,10 +282,33 @@ function BookReviewList() {
     }
   }, [getPage.onPage])
 
-  // 回傳start score
+  // 儲存start score
   useEffect(() => {
     setReviewParam({ ...reviewParam, review_score: value })
   }, [value])
+
+  // 送出 review
+  useEffect(() => {
+    if (!reviewDataReady) {
+      return console.log('資料不齊全喔')
+    }
+    const submitReview = async () => {
+      let response = await axios.post(
+        `${API_URL}/reviews/post-review`,
+        reviewParam,
+        { withCredentials: true }
+      )
+      setReviewDataReady(false)
+      // TODO:還有問題
+      if (response.request.status === 400) {
+        return alert('沒有成功儲存喔')
+      }
+
+      notifyDownSide()
+      setIsEdit('')
+    }
+    submitReview()
+  }, [reviewDataReady])
 
   // default
   const StyledRating = styled(Rating)({

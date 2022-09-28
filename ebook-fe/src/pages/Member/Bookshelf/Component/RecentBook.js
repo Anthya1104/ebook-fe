@@ -117,7 +117,10 @@ function RecentBook({ setGetRecentBookData }) {
             <h5>{recentBookValue.book_name}</h5>
             <h6>{recentBookValue.author}</h6>
           </div>
-          <div className="position-relative my-5" key={recentBookValue.id}>
+          <div
+            className="Bookshelf-recent-book position-relative my-5"
+            key={recentBookValue.id}
+          >
             <div className="Bookshelf-recent-book-container d-flex justify-content-left align-items-center">
               <img
                 className="Bookshelf-arrow img-flip m-2"
