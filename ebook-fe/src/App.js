@@ -45,7 +45,7 @@ import TestPage from './pages/TestPage'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import WishList from './pages/CustomizedShoppingCart/ShoppingCart/WishList'
+import WishList from '../src/pages/CustomizedShoppingCart/ShoppingCart/WishList'
 
 library.add(fas, fab)
 
@@ -105,13 +105,13 @@ function App() {
               {/* 購物車 */}
               <Route path="Cart" element={<ShoppingCart />}>
                 <Route index element={<SingleCart />} />
-                <Route path="WishList" element={<WishList />} />
                 <Route path="product-list" element={<ProductList />} />
                 <Route
                   path="ProductDetail/:productId"
                   element={<ProductDetail />}
                 />
                 <Route path="Checkout" element={<Checkout />} />
+                <Route path="WishList" element={<WishList />} />
               </Route>
               <Route path="chat" element={<Chat />} />
               <Route path="materials" element={<Materials />} />

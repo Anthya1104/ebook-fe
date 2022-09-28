@@ -12,7 +12,7 @@ function SelectPrice({ searchBook, setSearchBook }) {
             href="#"
             onClick={(e) => {
               e.preventDefault()
-              setSearchBook(searchBook)
+              setSearchBook('ALL')
             }}
           >
             全部

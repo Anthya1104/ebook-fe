@@ -14,7 +14,7 @@ import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 // import { DATA } from './MockData'
 // import MemberComment from './MemberComment/MemberComment'
-
+import products from '../../data/products.json'
 import productsDetail from '../../data/products.json'
 
 import { useCart } from '../../utils/useCart'
@@ -26,9 +26,10 @@ function ProductInfo(productId) {
     // 對話盒使用
     const [show, setShow] = useState(false)
     // 對話盒中的商品名稱
-    const [product, setProduct] = useState('')
+    const [product, setProduct] = useState(products)
     const [productName, setProductName] = useState('')
     const [productTitle, setProductTitle] = useState('')
+    const [productBtn, setProductBtn] = useState('')
 
     const navigate = useNavigate()
 
@@ -37,6 +38,20 @@ function ProductInfo(productId) {
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+
+    const showModal = (name) => {
+      setProductName('已成功加入購物車')
+      handleShow()
+      setProductTitle('加入購物車')
+      setProductBtn('前往結帳')
+    }
+
+    const showModal2 = (name) => {
+      setProductName('已成功加入收藏')
+      handleShow()
+      setProductTitle('加入收藏')
+      setProductBtn('前往我的收藏')
+    }
 
     const messageModal = (
       <Modal show={show} onHide={handleClose}>
@@ -56,7 +71,7 @@ function ProductInfo(productId) {
               navigate('/Cart', { replace: true })
             }}
           >
-            前往購物車結帳
+            {productBtn}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -91,18 +106,6 @@ function ProductInfo(productId) {
       </Modal>
     )
 
-    const showModal = (name) => {
-      setProductName('產品：' + name + '已成功加入購物車')
-      handleShow()
-      setProductTitle('加入購物車')
-    }
-
-    const showModal2 = (name) => {
-      setProductName('產品：' + name + '已成功加入收藏')
-      handleShow()
-      setProductTitle('加入收藏')
-    }
-
     return (
       <>
         {/* /// */}
@@ -112,22 +115,26 @@ function ProductInfo(productId) {
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>加入購物車</Modal.Title>
+            <Modal.Title>{productTitle}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>已成功加入購物車</Modal.Body>
+          <Modal.Body>{productName}</Modal.Body>
           <Modal.Footer>
             <Button variant="primary" onClick={handleClose}>
               繼續購物
             </Button>
             <Button
               variant="primary"
-              onClick={() => {
+              onClick={(e) => {
                 // 導向購物車頁面
                 // props.history.push('/')
-                navigate('/Cart', { replace: true })
+                if (e.target.innerHTML === '前往我的收藏') {
+                  navigate('/Cart/WishList', { replace: true })
+                } else {
+                  navigate('/Cart', { replace: true })
+                }
               }}
             >
-              前往購物車結帳
+              {productBtn}
             </Button>
           </Modal.Footer>
         </Modal>
@@ -135,7 +142,7 @@ function ProductInfo(productId) {
 
         <Row className="mb-5">
           <Col>
-            <div className='ProductInfo_img_position'>
+            <div className="ProductInfo_img_position">
               <img className="ProductInfo-img" src={v.book_img} alt="商品圖" />
             </div>
           </Col>

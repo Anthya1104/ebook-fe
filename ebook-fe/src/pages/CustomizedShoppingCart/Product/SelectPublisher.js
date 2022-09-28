@@ -11,7 +11,7 @@ function SelectPublisher({ searchPublisher, setSearchPublisher }) {
             href="#"
             onClick={(e) => {
               e.preventDefault()
-              setSearchPublisher('')
+              setSearchPublisher('ALL')
             }}
           >
             全部
@@ -48,9 +48,9 @@ function SelectPublisher({ searchPublisher, setSearchPublisher }) {
           <a href="#"
           onClick={(e) => {
               e.preventDefault()
-              setSearchPublisher('中新書店')
+              setSearchPublisher('中新書局')
             }}
-          >中新書店 </a>
+          >中新書局 </a>
         </ListGroup.Item>
         <ListGroup.Item>
           <a href="#"
