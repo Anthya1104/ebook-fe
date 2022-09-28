@@ -35,7 +35,7 @@ function StarRating({ setScoreFromStarRating, color, defaultValue }) {
         <StyledRating
           name="simple-controlled"
           value={value}
-          defaultValue={3}
+          defaultValue={defaultValue}
           onChange={(event, newValue) => {
             setValue(newValue)
           }}

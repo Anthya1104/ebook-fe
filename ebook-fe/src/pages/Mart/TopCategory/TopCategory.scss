@@ -26,8 +26,9 @@
     display: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
    .TopCategory-mobile-version {
+    // display: flex;
     display: block;
     background: #EFD3CE;
    }

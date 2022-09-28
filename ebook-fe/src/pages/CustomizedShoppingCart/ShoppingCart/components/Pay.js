@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router-dom'
 import Popup from './Popup'
 
-function ListItemsWithHook({ tab, handleStep }) {
+function Pay({ tab, handleStep }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
@@ -217,4 +217,4 @@ function ListItemsWithHook({ tab, handleStep }) {
   )
 }
 
-export default ListItemsWithHook
+export default Pay
