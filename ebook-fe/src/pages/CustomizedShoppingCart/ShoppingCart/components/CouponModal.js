@@ -17,23 +17,6 @@ function CouponModal({ setCouponAmount }) {
     setShow(true)
   }
 
-  const [promoCode, setPromoCode] = useState('')
-  const [discount, setDiscount] = useState(0)
-
-  const onEnterPromoCode = (event) => {
-    setPromoCode(event.target.value)
-  }
-
-  const checkPromoCode = () => {
-    for (var i = 0; i < Coupon.length; i++) {
-      if (promoCode === Coupon[i].Coupon_code) {
-        return
-      }
-    }
-
-    alert('Sorry, the Promotional code you entered is not valid!')
-  }
-
   return (
     <>
       {values.map((v, idx) => (

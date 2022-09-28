@@ -10,12 +10,12 @@ import { useState } from 'react'
 import { useSecondCart } from '../../utils/useSecondCart'
 import { Link } from 'react-router-dom'
 
-function ListItemsWithHook({ tab, handleStep }) {
+function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
 
-  const [couponAmount, setCouponAmount] = useState(0)
+  const [couponAmount, setCouponAmount] = useState(couponAmount0)
 
   const handleClick = (path) => () => {
     navigate(path)
@@ -172,7 +172,7 @@ function ListItemsWithHook({ tab, handleStep }) {
         <button
           type="button"
           className="btn btn-primary-reverse"
-          onClick={handleStep(2)}
+          onClick={handleStep(2, couponAmount)}
         >
           結帳
         </button>
