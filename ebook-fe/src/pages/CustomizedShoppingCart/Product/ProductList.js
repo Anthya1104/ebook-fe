@@ -18,6 +18,7 @@ import { API_URL } from '../../../utils/config'
 import products from '../data/products.json'
 import SelectPrice from './SelectPrice'
 import SelectPublisher from './SelectPublisher'
+import Slick from './Slick'
 
 function ProductList(props) {
   const getProductList = async () => {
@@ -155,12 +156,12 @@ function ProductList(props) {
   )
 
   const display = (
-    <div className="row">
+    <div className="row ProductList-display-mobile-position ">
       {productsDisplay.map((v, i) => {
         return (
           <>
             <div
-              className="col-12 col-sm-3 mb-4 ProductList-card-outer"
+              className="col-4 col-sm-3 mb-4 ProductList-card-outer"
               key={v.id}
             >
               <div className="card ProductList-card">
@@ -226,6 +227,7 @@ function ProductList(props) {
   return (
     <>
       <TopCategory cat={cat} setCat={setCat} />
+      <Slick />
       <div className="my-5"></div>
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">

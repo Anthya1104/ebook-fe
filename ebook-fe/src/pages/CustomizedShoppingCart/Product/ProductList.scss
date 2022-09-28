@@ -11,11 +11,13 @@
   // background:pink;
   height: 540px;
   text-align: center;
+  
 }
 
 .ProductList-card-img-top {
   // background: rgb(186, 149, 155);
   height: 320px;
+  
 }
 
 .ProductList-text-decoration {
@@ -24,6 +26,7 @@
 
 .ProductList-card-body {
     height: 160px;
+    // border-radius:  0 0 5px 5px;
 }
 
 //搜尋書名的輸入框
@@ -32,6 +35,9 @@
   border: #661f1e 2px solid;
   border-radius: 5px;
 }
+
+
+
 
 @media (max-width: 600px) {
   //最上面分類篩選區
@@ -53,17 +59,14 @@
     height: 360px;
   }
   .ProductList-card {
-    // background:pink;
     height: 200px;
     background: white;
     border: none;
     text-align: center;
   }
   .ProductList-card-img-top {
-    // background: rgb(186, 149, 155);
     height: 200px;
     width: 160px;
-    
   }
   .card-body {
     background: white;
@@ -83,4 +86,10 @@
     font-size: 10px;
   }
   
+  .ProductList-display-mobile-position {
+    // background: #000;
+    display: flex;
+    justify-content: center;
+
+  }
 }
