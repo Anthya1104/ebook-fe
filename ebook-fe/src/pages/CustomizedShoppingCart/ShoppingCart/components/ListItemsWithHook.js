@@ -120,22 +120,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       <div>
         <div className="d-flex">
           <form>
-            <label className="ListItemsWithHook-placeholder">
-              <input
-                className="ListItemsWithHook-coupon-input"
-                type="text"
-                name="name"
-                placeholder="請輸入優惠券折扣碼"
-              />
-            </label>
-            <input
-              className="ListItemsWithHook-coupon-btn"
-              type="submit"
-              value="使用"
-            />
-          </form>
-          <form>
-            <CouponModal />
+            <CouponModal setCouponAmount={setCouponAmount} />
           </form>
         </div>
 
