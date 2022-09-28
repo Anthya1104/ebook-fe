@@ -7,7 +7,7 @@ import iconFull from '../../img/full-screen.png'
 import styles from '../Preview/Index.module.css'
 import CollectModal from './Modal/CollectModal'
 import ShoppingCart from './Modal/ShoppingCart'
-import ReactPDF from './React-pdf/ReactPDF(test5)'
+import ReactPDF from './React-pdf/ReactPDF(test3)'
 
 function Headers() {
   return (
@@ -20,26 +20,28 @@ function Headers() {
               <p>返回</p>
             </Link>
           </li>
-          <li className={styles.iconLi}>
-            <img src={iconMenu} alt="" />
-            <p>目錄</p>
-            <div className={styles.hover}>
-              <h6>書籍章節</h6>
+          <li className={styles.book}>
+            <button>
+              <img src={iconMenu} alt="" />
+              <p>目錄</p>
+            </button>
+            <div>
+              <h5>書籍段落</h5>
               <li>
-                <a href="#">推薦序 &nbsp; 好人緣，從『學會發問開始』</a>
+                <a href="#">1.目錄</a>
               </li>
               <li>
-                <a href="#">第一章 &nbsp; 技巧1 &nbsp; 不懂就發問</a>
+                <a href="#">2.for-of</a>
               </li>
               <li>
-                <a href="#">第二章 &nbsp; 技巧2 &nbsp; 不懂就發問</a>
+                <a href="#">3.生成器Generators</a>
               </li>
               <li>
-                <a href="#">第三章 &nbsp; 技巧3 &nbsp; 不懂就發問</a>
+                <a href="#">4.模板字串符</a>
               </li>
-              <li>
-                <a href="#">第四章 &nbsp; 技巧4 &nbsp; 不懂就發問</a>
-              </li>
+              {/* <li>
+                <a href="#">第五本書</a>
+              </li> */}
             </div>
           </li>
           <div className={styles.iconEndButton}>
@@ -48,9 +50,7 @@ function Headers() {
         </ul>
       </div>
       <div>
-        <h4 className={styles.title}>
-          聊不停的聰明問話術：<br></br>【超圖解】40個開場 • 接話 •
-          打破心防的問話技巧，不用找話題，90%的話都讓對方說
+        <h4 className={styles.title}>金錢心理學：<br/>打破你對金錢的迷思，學會聰明花費
         </h4>
       </div>
       <div>

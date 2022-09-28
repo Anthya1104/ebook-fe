@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import WebViewer from '@pdftron/webviewer'
+import Back from '../../../img/Preview2_back.png'
 import './App.css'
 
 const App = () => {
@@ -10,7 +11,7 @@ const App = () => {
     WebViewer(
       {
         path: '/webviewer/lib',
-        initialDoc: '/files/PDFTRON_about.pdf',
+        initialDoc: '/files/原子習慣.pdf',
       },
       viewer.current
     ).then((instance) => {
@@ -36,7 +37,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="webviewer" ref={viewer}></div>
+      <div className="header">
+        <button className="headerButton">
+          <img src={Back} alt="" />
+        </button>
+        原子習慣
+      </div>
+      <div>
+        <div className="webviewer" ref={viewer}></div>
+      </div>
     </div>
   )
 }

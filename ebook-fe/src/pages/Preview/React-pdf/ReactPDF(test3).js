@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import Pdf from './Tigra.pdf'
+import Pdf from './金錢心理學：打破你對金錢的迷思，學會聰明花費 (傑夫．克萊斯勒 [傑夫．克萊斯勒]) (1-11).pdf'
 import LeftIcon from '../../../img/left-arrow.png'
 import RightIcon from '../../../img/right-arrow.png'
 
@@ -71,10 +71,10 @@ function App() {
       <div
         style={{ background: '#661f1e', color: '#efd3ce', textAlign: 'center' }}
       >
-        <p>
+        <h4 style={{ height: '40' }}>
           Page {pageNumber} of {numPages}
-        </p>
-        <h6>第一章 &nbsp;&nbsp; 技巧1 &nbsp;&nbsp; 不懂就發問</h6>
+        </h4>
+        <h5>作者：傑夫．克萊斯勒</h5>
       </div>
     </div>
   )

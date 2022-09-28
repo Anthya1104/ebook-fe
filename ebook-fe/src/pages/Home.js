@@ -34,7 +34,7 @@ function Home() {
       <HomePage />
       <Slider />
       <div className="main">
-        <div className="container">
+        <div className="home-container">
           <div className="panel active" style={{ background: `url(${bgImg})` }}>
             <img src={icon1} alt="" />
             <h2>你阿嬤</h2>

@@ -57,13 +57,14 @@ export default function AlertDialogSlide() {
             textAlign: 'center',
             fontSize: '30px',
             color: '#c0724a',
+            transitionDelay: '0.3s',
           }}
         >
           <p>
             幫你放購物車了拉，給我買喔！ <br /> Bitch！
           </p>
         </DialogTitle>
-        <DialogContent style={{ margin: '0 auto' }}>
+        <DialogContent style={{ margin: '0 auto', transitionDelay: '0.3s' }}>
           <DialogContentText id="alert-dialog-slide-description">
             <img src={iconCheack} alt="" />
           </DialogContentText>
