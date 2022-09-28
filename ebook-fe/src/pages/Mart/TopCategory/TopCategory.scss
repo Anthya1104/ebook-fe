@@ -28,9 +28,9 @@
 
 @media (max-width: 600px) {
    .TopCategory-mobile-version {
-    display: none;
-    // display: block;
-    // background: #EFD3CE;
+    // display: flex;
+    display: block;
+    background: #EFD3CE;
    }
    .TopCategory-mobile-version-text {
     font-size: 10px;

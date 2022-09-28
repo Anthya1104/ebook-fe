@@ -18,7 +18,7 @@ import { API_URL } from '../../../utils/config'
 import products from '../data/products.json'
 import SelectPrice from './SelectPrice'
 import SelectPublisher from './SelectPublisher'
-import Slick from './Slick'
+// import Slick from './Slick'
 // import DropdownSelectPublisher from './DropdownSelectPublisher'
 import DropdownSelect from './DropdownSelect'
 
@@ -38,7 +38,6 @@ function ProductList(props) {
   const [productName, setProductName] = useState('')
   const [productTitle, setProductTitle] = useState('')
   const [productBtn, setProductBtn] = useState('')
-  // const [navigateLink, setNavigateLink] = useState('')
 
   const navigate = useNavigate()
 
@@ -229,7 +228,7 @@ function ProductList(props) {
   return (
     <>
       <TopCategory cat={cat} setCat={setCat} />
-      <Slick />
+      {/* <Slick /> */}
       <DropdownSelect />
       {/* <DropdownSelectPublisher /> */}
       <div className="my-5"></div>

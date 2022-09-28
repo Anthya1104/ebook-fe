@@ -19,7 +19,7 @@ export default function App() {
       '醫療保健',
       '勵志成長',
     ].map((category) => (
-      <div >
+      <div>
         <a 
         className="mt-2 ProductList-Slick-text"
         href='#'>{category}</a>
