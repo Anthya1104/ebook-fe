@@ -2,19 +2,21 @@ import React from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import '../pages/Memberindex.scss'
 import MemberPic from './memberindexcategory/member.png'
-import Bar from './memberindexcategory/裝飾bar-1 1.png'
+import Bar from './memberindexcategory/decobar-2.png'
+import BarDesktop from './memberindexcategory/decobar.png'
+import Progressbar from './memberindexcategory/progress.jpg'
 // auth
 import { useAuth } from '../Context/auth'
 
 function MemberIndex() {
   const { member, setMember } = useAuth()
-  if (!member) {
-    return (
-      <>
-        <Navigate to="/Login" />
-      </>
-    )
-  }
+  // if (!member) {
+  //   return (
+  //     <>
+  //       <Navigate to="/Login" />
+  //     </>
+  //   )
+  // }
   return (
     <>
       <div className="container-xxl d-flex-column justify-context-center">
@@ -23,31 +25,41 @@ function MemberIndex() {
             <img className="member-pic" src={MemberPic} alt="memberpic" />
           </div>
 
-          <div className="">
+          <div className="member-info">
             <ul className="member-information">
-              <li className="">
+              <li className="member-information-1">
                 <a>會員姓名 : 王大明</a>
               </li>
-              <li>
+              <li className="member-information-2">
                 <a>會員等級 : 銀卡</a>
               </li>
             </ul>
           </div>
 
-          <div className="">
+          <div className="member-info">
             <ul className="member-information">
-              <li className="">
+              <li className="member-information-3">
                 <a>會員帳號 : wangdaming</a>
               </li>
-              <li>
+              <li className="member-information-4">
                 <a>加入會員日 : 2022/08/02 </a>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* 進度條 */}
+        <div className="progress-bar">
+          <img className="progressbar" src={Progressbar} alt="progressbar" />
+        </div>
+
+        {/* 裝飾bar */}
+        
+        <div className="member-bar-desktop">
+          <img src={BarDesktop} alt="bar" />
+        </div>
         <div className="member-bar">
-          <img className="bar" src={Bar} alt="bar" />
+          <img src={Bar} alt="bar" />
         </div>
 
         <div className="member-container">
@@ -58,6 +70,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/order.png')}
+                    alt=""
                   />
                   <br />
                   訂單相關查詢{' '}
@@ -69,6 +82,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/memberedit.png')}
+                    alt=""
                   />
                   <br />
                   會員資料修改{' '}
@@ -80,6 +94,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/pwchange.png')}
+                    alt=""
                   />
                   <br />
                   修改密碼{' '}
@@ -93,6 +108,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/bookshelf.png')}
+                    alt=""
                   />
                   <br />
                   我的專屬書櫃{' '}
@@ -104,6 +120,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/card.png')}
+                    alt=""
                   />
                   <br />
                   我的優惠券{' '}
@@ -115,6 +132,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/plan.png')}
+                    alt=""
                   />
                   <br />
                   我的里程碑{' '}
@@ -128,6 +146,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/pay.png')}
+                    alt=""
                   />
                   <br />
                   支付綁定{' '}
@@ -139,6 +158,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/inmoney.png')}
+                    alt=""
                   />
                   <br />
                   儲值{' '}
@@ -150,6 +170,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/Q&A.png')}
+                    alt=""
                   />
                   <br />
                   常見問題{' '}
@@ -163,6 +184,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/gift.png')}
+                    alt=""
                   />
                   <br />
                   贈送紀錄{' '}
@@ -174,6 +196,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/notification.png')}
+                    alt=""
                   />
                   <br />
                   訊息通知紀錄{' '}
@@ -185,6 +208,7 @@ function MemberIndex() {
                   <img
                     className="member-icon"
                     src={require('../pages/memberindexcategory/logout.png')}
+                    alt=""
                   />
                   <br />
                   登出{' '}

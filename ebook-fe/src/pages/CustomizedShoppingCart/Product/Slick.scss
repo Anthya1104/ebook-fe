@@ -1,0 +1,24 @@
+.ProductList-Slick {
+    // background: #000;
+    font-size: 14px;
+    display: none;
+    // border: 2px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.ProductList-Slick-text {
+    text-decoration: none;
+    color:#661f1e;
+    font-weight: bolder;
+    &:active {
+        // color: black;
+    }
+}
+
+@media (max-width: 600px) {
+    .ProductList-Slick {
+        display: block;
+    }
+}

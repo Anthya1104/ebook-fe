@@ -87,7 +87,7 @@ function NavbarMobile() {
             <NavLink to="/Cart" style={{ textDecoration: 'none' }}>
               <li>購物車</li>
             </NavLink>
-            <NavLink to="/Login" style={{ textDecoration: 'none' }}>
+            <NavLink to="/Cart/WishList" style={{ textDecoration: 'none' }}>
               <li>願望清單</li>
             </NavLink>
             <NavLink to="/Member/bookshelf" style={{ textDecoration: 'none' }}>
