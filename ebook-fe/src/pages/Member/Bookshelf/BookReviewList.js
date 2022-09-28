@@ -38,7 +38,14 @@ function BookReviewList() {
   })
 
   // isEdit
-  const [isEdit, setIsEdit] = useState(false)
+  const [isEdit, setIsEdit] = useState('')
+
+  // editted parameter
+  const [reviewParam, setReviewParam] = useState({
+    book_id: '',
+    review_score: '',
+    review_comments: '',
+  })
 
   // MUI style palette
 
@@ -46,6 +53,9 @@ function BookReviewList() {
     palette: {
       primary: {
         main: '#B48C8C',
+      },
+      secondary: {
+        main: '#F5F5F5',
       },
     },
   })
@@ -55,7 +65,14 @@ function BookReviewList() {
     return getReview.map((reviewValue) => {
       return (
         <>
-          <div key={reviewValue.id} className="Bookshelf-review-container row">
+          <div
+            key={reviewValue.id}
+            className={
+              reviewValue.book_name === isEdit
+                ? 'Bookshelf-review-container Bookshelf-review-container-active row'
+                : 'Bookshelf-review-container row'
+            }
+          >
             <div className="col-sm-3">
               <div className="Bookshelf-book-card m-2">
                 <div className="Bookshelf-card-img mb-2">
@@ -67,44 +84,104 @@ function BookReviewList() {
                 </div>
                 {/* star rating */}
                 <div>
-                  <Box
-                    sx={{
-                      '& > legend': { mt: 2 },
-                    }}
-                  >
-                    <StyledRating
-                      name="simple-controlled"
-                      defaultValue={reviewValue.star_rating}
-                      onChange={(event, newValue) => {
-                        setValue(newValue)
+                  {reviewValue.book_name === isEdit ? (
+                    <Box
+                      sx={{
+                        '& > legend': { mt: 2 },
                       }}
-                      icon={<StarRate fontSize="30px" />}
-                      emptyIcon={<StarOutlineIcon fontSize="25px" />}
-                      readOnly
-                    />
-                  </Box>
+                    >
+                      <StyledRatingOnEdit
+                        name="simple-controlled"
+                        defaultValue={reviewValue.star_rating}
+                        onChange={(event, newValue) => {
+                          setValue(newValue)
+                        }}
+                        icon={<StarRate fontSize="30px" />}
+                        emptyIcon={<StarOutlineIcon fontSize="25px" />}
+                      />
+                    </Box>
+                  ) : (
+                    <Box
+                      sx={{
+                        '& > legend': { mt: 2 },
+                      }}
+                    >
+                      <StyledRating
+                        name="simple-controlled"
+                        defaultValue={reviewParam.review_score}
+                        onChange={(event, newValue) => {
+                          setValue(newValue)
+                        }}
+                        icon={<StarRate fontSize="30px" />}
+                        emptyIcon={<StarOutlineIcon fontSize="25px" />}
+                        readOnly
+                      />
+                    </Box>
+                  )}
                 </div>
                 <div className="Review-book-name">{reviewValue.book_name}</div>
-                <div className="Review-update-time">
+                <div
+                  className={
+                    reviewValue.book_name === isEdit
+                      ? 'Review-update-time-active'
+                      : 'Review-update-time'
+                  }
+                >
                   {reviewValue.create_time}
                 </div>
               </div>
             </div>
             <div className="col-sm-9">
-              <div className="Review-comments m-2 p-3">
-                <p>{reviewValue.content}</p>
-              </div>
-              <div className="Review-comments-btn m-2">
-                <Button
-                  className="btn btn-primary-reverse m-2"
-                  onClick={(e) => {
-                    editHandler()
+              {reviewValue.book_name === isEdit ? (
+                <textarea
+                  value={reviewParam.review_comments}
+                  className="Review-comment-input"
+                  placeholder={reviewValue.content}
+                  onChange={(e) => {
+                    setReviewParam({
+                      ...reviewParam,
+                      book_id: reviewValue.id,
+                      review_comments: e.target.value,
+                    })
                   }}
-                >
-                  編輯
-                </Button>
-                <Button className="btn btn-primary-reverse m-2">刪除</Button>
-              </div>
+                ></textarea>
+              ) : (
+                <div className="Review-comments m-2 p-3">
+                  <p>{reviewValue.content}</p>
+                </div>
+              )}
+              {reviewValue.book_name === isEdit ? (
+                <div className="Review-comments-btn m-2">
+                  <Button
+                    name={reviewValue.book_name}
+                    className="btn btn-primary-reverse m-2"
+                    onClick={(e) => {
+                      setReviewParam({
+                        ...reviewParam,
+                        book_id: '',
+                        review_comments: '',
+                        review_score: '',
+                      })
+                    }}
+                  >
+                    清空
+                  </Button>
+                  <Button className="btn btn-primary-reverse m-2">儲存</Button>
+                </div>
+              ) : (
+                <div className="Review-comments-btn m-2">
+                  <Button
+                    name={reviewValue.book_name}
+                    className="btn btn-primary-reverse m-2"
+                    onClick={(e) => {
+                      editHandler(e)
+                    }}
+                  >
+                    編輯
+                  </Button>
+                  <Button className="btn btn-primary-reverse m-2">刪除</Button>
+                </div>
+              )}
             </div>
           </div>
         </>
@@ -112,8 +189,11 @@ function BookReviewList() {
     })
   }
   // editHandler
-  const editHandler = () => {
-    setIsEdit(true)
+  const editHandler = (e) => {
+    setIsEdit(e.target.name)
+    // e.target.parentNode.parentNode.parentNode.className =
+    //   'Bookshelf-review-container row Bookshelf-review-container-active'
+    console.log('isedit', e.target.name)
   }
 
   // pagination 用 change Page
@@ -147,9 +227,10 @@ function BookReviewList() {
 
   // 回傳start score
   useEffect(() => {
-    setScoreFromStarRating(value)
+    setReviewParam({ ...reviewParam, review_score: value })
   }, [value])
 
+  // default
   const StyledRating = styled(Rating)({
     '& .MuiRating-iconEmpty': {
       color: '#661F1E',
@@ -159,6 +240,18 @@ function BookReviewList() {
     },
     '& .MuiRating-iconHover': {
       color: '#661F1E',
+    },
+  })
+  // isEdit
+  const StyledRatingOnEdit = styled(Rating)({
+    '& .MuiRating-iconEmpty': {
+      color: '#F5F5F5',
+    },
+    '& .MuiRating-iconFilled': {
+      color: '#F5F5F5',
+    },
+    '& .MuiRating-iconHover': {
+      color: '#F5F5F5',
     },
   })
 
