@@ -28,6 +28,11 @@ $Bookshelf_recent_translateY: 40px;
   }
 }
 
+// recent book non book info
+.Bookshelf-nonbook-info{
+  margin-top:60px
+}
+
 // mobile title
 .Bookshelf-mobile-recent-title{
   display:none;
@@ -282,7 +287,9 @@ $Bookshelf_recent_translateY: 40px;
   }
   .Bookshelf-date-sort{
     @media(max-width:$mobile-break-point){
-      display:none;
+      svg{
+        display:none;
+      }
     }
     
     display:flex;
@@ -295,7 +302,9 @@ $Bookshelf_recent_translateY: 40px;
   }
   .Bookshelf-date-sort-toggled{
     @media(max-width:$mobile-break-point){
-      display:none;
+      svg{
+        display:none;
+      }
     }
     display:flex;
     align-items: center;
@@ -310,9 +319,7 @@ $Bookshelf_recent_translateY: 40px;
     .Bookshelf-is-read-toggle{
       display:flex;
       justify-content: end;
-      @media(max-width:$mobile-break-point){
-        display:none;
-      }
+
     }
 // 書卡片
 
@@ -374,6 +381,7 @@ $Bookshelf_recent_translateY: 40px;
   border-bottom: 1px dashed $primary;
   margin-bottom: 30px;
   padding:50px;
+  // background:red;
 
   .col-sm-3{
     display:flex;
@@ -390,8 +398,13 @@ $Bookshelf_recent_translateY: 40px;
         font-size:0.8rem;
         color:$secondary;
       }
+      .Review-update-time-active{
+        font-size:0.8rem;
+        color:$light;
+      }
     }
   }
+
   .col-sm-9{
     
     display:flex;
@@ -410,6 +423,18 @@ $Bookshelf_recent_translateY: 40px;
     }
 
   }
+}
+
+.Bookshelf-review-container-active{
+  background-color:$danger;
+  color:$body-bg;
+  
+}
+.Review-comment-input{
+  width:100%;
+  height:70%;
+  padding:15px;
+  border-radius: 15px;
 }
 
 .Reviews-pagination-area{

@@ -37,6 +37,16 @@ function BookReviewList() {
     totalPage: 1,
   })
 
+  // isEdit
+  const [isEdit, setIsEdit] = useState('')
+
+  // editted parameter
+  const [reviewParam, setReviewParam] = useState({
+    book_id: '',
+    review_score: '',
+    review_comments: '',
+  })
+
   // MUI style palette
 
   const theme = createTheme({
@@ -44,8 +54,147 @@ function BookReviewList() {
       primary: {
         main: '#B48C8C',
       },
+      secondary: {
+        main: '#F5F5F5',
+      },
     },
   })
+
+  // create review handler
+  const createReviewHandler = () => {
+    return getReview.map((reviewValue) => {
+      return (
+        <>
+          <div
+            key={reviewValue.id}
+            className={
+              reviewValue.book_name === isEdit
+                ? 'Bookshelf-review-container Bookshelf-review-container-active row'
+                : 'Bookshelf-review-container row'
+            }
+          >
+            <div className="col-sm-3">
+              <div className="Bookshelf-book-card m-2">
+                <div className="Bookshelf-card-img mb-2">
+                  <img
+                    alt={reviewValue.book_name}
+                    src={reviewValue.book_img}
+                    className="cover-fit"
+                  ></img>
+                </div>
+                {/* star rating */}
+                <div>
+                  {reviewValue.book_name === isEdit ? (
+                    <Box
+                      sx={{
+                        '& > legend': { mt: 2 },
+                      }}
+                    >
+                      <StyledRatingOnEdit
+                        name="simple-controlled"
+                        defaultValue={reviewValue.star_rating}
+                        onChange={(event, newValue) => {
+                          setValue(newValue)
+                        }}
+                        icon={<StarRate fontSize="30px" />}
+                        emptyIcon={<StarOutlineIcon fontSize="25px" />}
+                      />
+                    </Box>
+                  ) : (
+                    <Box
+                      sx={{
+                        '& > legend': { mt: 2 },
+                      }}
+                    >
+                      <StyledRating
+                        name="simple-controlled"
+                        defaultValue={reviewParam.review_score}
+                        onChange={(event, newValue) => {
+                          setValue(newValue)
+                        }}
+                        icon={<StarRate fontSize="30px" />}
+                        emptyIcon={<StarOutlineIcon fontSize="25px" />}
+                        readOnly
+                      />
+                    </Box>
+                  )}
+                </div>
+                <div className="Review-book-name">{reviewValue.book_name}</div>
+                <div
+                  className={
+                    reviewValue.book_name === isEdit
+                      ? 'Review-update-time-active'
+                      : 'Review-update-time'
+                  }
+                >
+                  {reviewValue.create_time}
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-9">
+              {reviewValue.book_name === isEdit ? (
+                <textarea
+                  value={reviewParam.review_comments}
+                  className="Review-comment-input"
+                  placeholder={reviewValue.content}
+                  onChange={(e) => {
+                    setReviewParam({
+                      ...reviewParam,
+                      book_id: reviewValue.id,
+                      review_comments: e.target.value,
+                    })
+                  }}
+                ></textarea>
+              ) : (
+                <div className="Review-comments m-2 p-3">
+                  <p>{reviewValue.content}</p>
+                </div>
+              )}
+              {reviewValue.book_name === isEdit ? (
+                <div className="Review-comments-btn m-2">
+                  <Button
+                    name={reviewValue.book_name}
+                    className="btn btn-primary-reverse m-2"
+                    onClick={(e) => {
+                      setReviewParam({
+                        ...reviewParam,
+                        book_id: '',
+                        review_comments: '',
+                        review_score: '',
+                      })
+                    }}
+                  >
+                    清空
+                  </Button>
+                  <Button className="btn btn-primary-reverse m-2">儲存</Button>
+                </div>
+              ) : (
+                <div className="Review-comments-btn m-2">
+                  <Button
+                    name={reviewValue.book_name}
+                    className="btn btn-primary-reverse m-2"
+                    onClick={(e) => {
+                      editHandler(e)
+                    }}
+                  >
+                    編輯
+                  </Button>
+                  <Button className="btn btn-primary-reverse m-2">刪除</Button>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )
+    })
+  }
+  // editHandler
+  const editHandler = (e) => {
+    setIsEdit(e.target.name)
+    // e.target.parentNode.parentNode.parentNode.className =
+    //   'Bookshelf-review-container row Bookshelf-review-container-active'
+    console.log('isedit', e.target.name)
+  }
 
   // pagination 用 change Page
   const handleChangePage = (event, newPage) => {
@@ -63,6 +212,9 @@ function BookReviewList() {
             withCredentials: true,
           }
         )
+        if (!response) {
+          return setGetPage({ ...getPage, totalPage: 1 })
+        }
 
         setGetReview(response.data.data)
         setGetPage({ ...getPage, totalPage: response.data.pagination.lastPage })
@@ -75,9 +227,10 @@ function BookReviewList() {
 
   // 回傳start score
   useEffect(() => {
-    setScoreFromStarRating(value)
+    setReviewParam({ ...reviewParam, review_score: value })
   }, [value])
 
+  // default
   const StyledRating = styled(Rating)({
     '& .MuiRating-iconEmpty': {
       color: '#661F1E',
@@ -89,68 +242,32 @@ function BookReviewList() {
       color: '#661F1E',
     },
   })
+  // isEdit
+  const StyledRatingOnEdit = styled(Rating)({
+    '& .MuiRating-iconEmpty': {
+      color: '#F5F5F5',
+    },
+    '& .MuiRating-iconFilled': {
+      color: '#F5F5F5',
+    },
+    '& .MuiRating-iconHover': {
+      color: '#F5F5F5',
+    },
+  })
 
   const ScrollToTop = () => {
     window.scrollTo(0, 450)
   }
   return (
     <>
-      {getReview.map((reviewValue) => {
-        return (
-          <>
-            <div
-              key={reviewValue.id}
-              className="Bookshelf-review-container row"
-            >
-              <div className="col-sm-3">
-                <div className="Bookshelf-book-card m-2">
-                  <div className="Bookshelf-card-img mb-2">
-                    <img
-                      alt="bookCover"
-                      src={BookCover}
-                      className="cover-fit"
-                    ></img>
-                  </div>
-                  {/* star rating */}
-                  <div>
-                    <Box
-                      sx={{
-                        '& > legend': { mt: 2 },
-                      }}
-                    >
-                      <StyledRating
-                        name="simple-controlled"
-                        defaultValue={reviewValue.star_rating}
-                        onChange={(event, newValue) => {
-                          setValue(newValue)
-                        }}
-                        icon={<StarRate fontSize="30px" />}
-                        emptyIcon={<StarOutlineIcon fontSize="25px" />}
-                        readOnly
-                      />
-                    </Box>
-                  </div>
-                  <div className="Review-book-name">
-                    {reviewValue.book_name}
-                  </div>
-                  <div className="Review-update-time">
-                    {reviewValue.create_time}
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-9">
-                <div className="Review-comments m-2 p-3">
-                  <p>{reviewValue.content}</p>
-                </div>
-                <div className="Review-comments-btn m-2">
-                  <Button className="btn btn-primary-reverse m-2">編輯</Button>
-                  <Button className="btn btn-primary-reverse m-2">刪除</Button>
-                </div>
-              </div>
-            </div>
-          </>
-        )
-      })}
+      {console.log('getreview', getReview)}
+      {getReview.length === 0 ? (
+        <div className="d-flex justify-content-center p-3">
+          目前沒有留言，趕快去看書寫書評！
+        </div>
+      ) : (
+        createReviewHandler()
+      )}
       {/* pagination */}
       <div className="Reviews-pagination-area d-flex justify-content-center">
         <div
@@ -175,9 +292,9 @@ function BookReviewList() {
           <ThemeProvider theme={theme}>
             <Stack spacing={2}>
               <Pagination
-                count={getPage.totalPage}
+                count={getPage.totalPage || 1}
                 color="primary"
-                page={getPage.onPage}
+                page={getPage.onPage || 1}
                 hideNextButton={true}
                 hidePrevButton={true}
                 onChange={handleChangePage}

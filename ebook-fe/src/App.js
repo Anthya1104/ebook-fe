@@ -11,7 +11,7 @@ import Member from './pages/Member'
 import Preview from './pages/Preview/Index'
 import NotFound from './pages/NotFound'
 import Mart from './pages/Mart'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FavList from './pages/Cart/FavList'
 import ToBuyList from './pages/Cart/ToBuyList'
 import Products from './pages/Mart/Products'
@@ -38,69 +38,92 @@ import ProductList from './pages/CustomizedShoppingCart/Product/ProductList'
 import SingleCart from './pages/CustomizedShoppingCart/ShoppingCart/SingleCart'
 import Checkout from './pages/CustomizedShoppingCart/ShoppingCart/components/Checkout'
 import ScrollToTop from './Component/ScrollToTop'
+import axios from 'axios'
+import { API_URL } from './utils/config'
+import { AuthContext } from './Context/auth'
+import TestPage from './pages/TestPage'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
 
-import WishList from './pages/CustomizedShoppingCart/ShoppingCart/WishList'
+library.add(fas, fab)
 
 function App() {
-  return (
-    <BrowserRouter>
-      <ScrollToTop>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="Login" element={<Login />} />
-            <Route path="member-index" element={<MemberIndex />} />
-            <Route path="Member" element={<Member />}>
-              <Route index element={<OverView />} />
-              {/* 訂單 */}
-              <Route path="order" element={<Order />}>
-                <Route index element={<Orders />} />
-                <Route path=":orderId" element={<OrderDetail />} />
-              </Route>
-              {/* 書架 */}
-              <Route path="bookshelf" element={<Bookshelf />}>
-                <Route index element={<OwnedBooks />} />
+  // 會員資料
+  const [member, setMember] = useState(null)
 
-                <Route path=":ownedBookId" element={<OwnedBookDetail />} />
+  useEffect(() => {
+    let getMember = async () => {
+      console.log('in APP: check if login')
+      let response = await axios.get(`${API_URL}/member`, {
+        withCredentials: true,
+      })
+      setMember(response.data)
+    }
+    getMember()
+  }, [])
+
+  return (
+    <AuthContext.Provider value={{ member, setMember }}>
+      <BrowserRouter>
+        <ScrollToTop>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="Login" element={<Login />} />
+              <Route path="member-index" element={<MemberIndex />} />
+              <Route path="Member" element={<Member />}>
+                <Route index element={<OverView />} />
+                {/* 訂單 */}
+                <Route path="order" element={<Order />}>
+                  <Route index element={<Orders />} />
+                  <Route path=":orderId" element={<OrderDetail />} />
+                </Route>
+                {/* 書架 */}
+                <Route path="bookshelf" element={<Bookshelf />}>
+                  <Route index element={<OwnedBooks />} />
+
+                  <Route path=":ownedBookId" element={<OwnedBookDetail />} />
+                </Route>
+                {/* 優惠券 */}
+                <Route path="coupon" element={<Coupon />}>
+                  <Route index element={<CouponList />} />
+                  <Route path=":couponId" element={<CouponDetail />} />
+                </Route>
               </Route>
-              {/* 優惠券 */}
-              <Route path="coupon" element={<Coupon />}>
-                <Route index element={<CouponList />} />
-                <Route path=":couponId" element={<CouponDetail />} />
+              {/* 商城*/}
+              <Route path="Mart" element={<Mart />}>
+                <Route index element={<Products />} />
+                {/* <Route path="ProductDetail" element={<ProductDetail />} /> */}
+                <Route
+                  path="ProductDetail/:productId"
+                  element={<ProductDetail />}
+                />
+                <Route path="SearchResult" element={<SearchResult />} />
               </Route>
+              {/* 購物車 */}
+              <Route path="Cart" element={<ShoppingCart />}>
+                <Route index element={<SingleCart />} />
+                <Route path="product-list" element={<ProductList />} />
+                <Route
+                  path="ProductDetail/:productId"
+                  element={<ProductDetail />}
+                />
+                <Route path="Checkout" element={<Checkout />} />
+              </Route>
+              <Route path="chat" element={<Chat />} />
+              <Route path="materials" element={<Materials />} />
+              {/* <Route path="SingleCart" element={<SingleCart />} /> */}
+              {/* <Route path="Test" element={<Test />} /> */}
+              <Route path="Preview" element={<Preview />} />
             </Route>
-            {/* 商城*/}
-            <Route path="Mart" element={<Mart />}>
-              <Route index element={<Products />} />
-              {/* <Route path="ProductDetail" element={<ProductDetail />} /> */}
-              <Route
-                path="ProductDetail/:productId"
-                element={<ProductDetail />}
-              />
-              <Route path="SearchResult" element={<SearchResult />} />
-            </Route>
-            {/* 購物車 */}
-            <Route path="Cart" element={<ShoppingCart />}>
-              <Route index element={<SingleCart />} />
-              <Route path="WishList" element={<WishList />} />
-              <Route path="product-list" element={<ProductList />} />
-              <Route
-                path="ProductDetail/:productId"
-                element={<ProductDetail />}
-              />
-              <Route path="Checkout" element={<Checkout />} />
-            </Route>
-            <Route path="chat" element={<Chat />} />
-            <Route path="materials" element={<Materials />} />
-            {/* <Route path="SingleCart" element={<SingleCart />} /> */}
-            {/* <Route path="Test" element={<Test />} /> */}
-            <Route path="Preview" element={<Preview />} />
+            <Route path="test" element={<TestPage />} />
             {/* 404未找到的頁面路由，需放在最下方 */}
             <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </ScrollToTop>
-    </BrowserRouter>
+          </Routes>
+        </ScrollToTop>
+      </BrowserRouter>
+    </AuthContext.Provider>
   )
 }
 
