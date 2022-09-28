@@ -254,11 +254,6 @@ function Orders() {
                     </Link>
                   </CardActions>
                 </CardContent>
-                <CardActions className="col justify-content-center">
-                  <Link to={`${o.id}`}>
-                    <Button className="puzzle-button ">完整訂單</Button>
-                  </Link>
-                </CardActions>
               </div>
             </Card>
           ))}

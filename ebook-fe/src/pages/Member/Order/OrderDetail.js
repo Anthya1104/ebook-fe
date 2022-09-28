@@ -28,7 +28,7 @@ function OrderDetail() {
         `${API_URL}/order/get-order?member_id=${member.id}&order=${orderId}`,
         { withCredentials: true }
       )
-      console.log('orderDetail', response.data.detailData)
+      console.log('orderDetail', response.data)
       setOrderDetail(response.data.detailData)
       setOrderDate(response.data.detailData[0].date)
       setOrderStatus(response.data.detailData[0].status)
