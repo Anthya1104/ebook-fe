@@ -184,7 +184,7 @@ function CouponList() {
       <div className="container d-flex flex-column">
         <ScrollToTop />
         {/* 麵包屑 */}
-        <div className="ms-5">
+        <div className="cu-bd">
           <Breadcrumb>
             <Breadcrumb.Item href="http://localhost:3005">首頁</Breadcrumb.Item>
             <Breadcrumb.Item href="../../Member">會員專區</Breadcrumb.Item>
@@ -192,8 +192,8 @@ function CouponList() {
           </Breadcrumb>
         </div>
 
-        <div className="d-flex justify-content-end me-2">
-          <div className="coupon-dropdown col-3 mb-4 dp me-5 oprator">
+        <div className="d-flex justify-content-end dp-bd">
+          <div className="coupon-dropdown mb-4 dp-b">
             {/* <DropdownButton
               align="end"
               title="優惠券排序"
@@ -226,12 +226,12 @@ function CouponList() {
             </select>
           </div>
         </div>
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap justify-content-evenly">
           {coupons &&
             coupons.map((c, i) => (
               <Cards
                 sx={{ maxWidth: 343, height: 147 }}
-                className="mb-4  ms-5 coupon-bg coupon-card"
+                className="mb-4 coupon-card"
                 style={{ backgroundColor: 'rgba($color: #ffffff, $alpha: 0)' }}
               >
                 <div className="row g-0 " key={`coupon${i}`}>
