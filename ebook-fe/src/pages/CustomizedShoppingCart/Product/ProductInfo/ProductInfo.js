@@ -11,32 +11,140 @@ import CartIcon from '../../../../img/icon-cart.svg'
 import TrialIcon from '../../../../img/icon-trial.svg'
 import HeartIcon from '../../../../img/icon-heart.svg'
 import { Modal, Button } from 'react-bootstrap'
-
+import { useNavigate } from 'react-router-dom'
 // import { DATA } from './MockData'
 // import MemberComment from './MemberComment/MemberComment'
-
+import products from '../../data/products.json'
 import productsDetail from '../../data/products.json'
 
 import { useCart } from '../../utils/useCart'
+import { useSecondCart } from '../../utils/useSecondCart'
 import { useState, useParam } from 'react'
 
 function ProductInfo(productId) {
   function CreateBookInfo(v) {
-    const { addItem } = useCart()
-    const [productName, setProductName] = useState('')
+    // 對話盒使用
     const [show, setShow] = useState(false)
+    // 對話盒中的商品名稱
+    const [product, setProduct] = useState(products)
+    const [productName, setProductName] = useState('')
+    const [productTitle, setProductTitle] = useState('')
+    const [productBtn, setProductBtn] = useState('')
+
+    const navigate = useNavigate()
+
+    const { addItem } = useCart()
+    const { addSecondItem } = useSecondCart()
+
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+
     const showModal = (name) => {
-      setProductName(name + '已成功加入購物車')
+      setProductName('已成功加入購物車')
       handleShow()
+      setProductTitle('加入購物車')
+      setProductBtn('前往結帳')
     }
+
+    const showModal2 = (name) => {
+      setProductName('已成功加入收藏')
+      handleShow()
+      setProductTitle('加入收藏')
+      setProductBtn('前往我的收藏')
+    }
+
+    const messageModal = (
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>加入購物車</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>已成功加入購物車</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            繼續購物
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              // 導向購物車頁面
+              // props.history.push('/')
+              navigate('/Cart', { replace: true })
+            }}
+          >
+            {productBtn}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    )
+
+    const messageModal2 = (
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>{productTitle}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{productName} </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            繼續購物
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              // 導向購物車頁面
+              // props.history.push('/')
+              navigate('/Cart', { replace: true })
+            }}
+          >
+            前往購物車結帳
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    )
 
     return (
       <>
+        {/* /// */}
+        {/* <Button className="btn-danger" variant="" onClick={handleShow}>
+        購買
+      </Button> */}
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>{productTitle}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{productName}</Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>
+              繼續購物
+            </Button>
+            <Button
+              variant="primary"
+              onClick={(e) => {
+                // 導向購物車頁面
+                // props.history.push('/')
+                if (e.target.innerHTML === '前往我的收藏') {
+                  navigate('/Cart/WishList', { replace: true })
+                } else {
+                  navigate('/Cart', { replace: true })
+                }
+              }}
+            >
+              {productBtn}
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        {/* /// */}
+
         <Row className="mb-5">
           <Col>
-            <img className="ProductInfo-img" src={v.book_img} alt="商品圖" />
+            <div className="ProductInfo_img_position">
+              <img className="ProductInfo-img" src={v.book_img} alt="商品圖" />
+            </div>
           </Col>
           <Col>
             <div>
@@ -53,40 +161,48 @@ function ProductInfo(productId) {
                 售價：<span>$</span>
                 <span className="ProductInfo-bookInfo-price">{v.price}</span>
               </div>
-              <div className='ProductInfo-btn-position'>
+            </div>
+
+            <div className="ProductInfo-btn-position">
               <ButtonToolbar className="mt-5 ">
                 <ButtonGroup className="me-2 ">
-                  {/* <Button className="btn-danger" size="sm">
-                    <img src={CartIcon} alt="buy" /> 購買
-                  </Button> */}
-                  <Button className="btn-danger me-2 mb-2">
-                    <img
-                      src={CartIcon}
-                      alt="buy"
-                      onClick={() => {
-                        // 商品原本無數量屬性(quantity)，要先加上
-                        const item = { ...v, quantity: 1 }
-                        // 注意: 重覆加入會自動+1產品數量
-                        addItem(item)
-                        // 呈現跳出對話盒
-                        showModal(v.name)
-                      }}
-                    />{' '}
+                  <Button
+                    className="btn-danger me-2 mb-2"
+                    onClick={() => {
+                      // 商品原本無數量屬性(quantity)，要先加上
+                      const item = { ...v, quantity: 1 }
+                      // 注意: 重覆加入會自動+1產品數量
+                      addItem(item)
+                      // 呈現跳出對話盒
+                      showModal(v.name)
+                    }}
+                  >
+                    <img src={CartIcon} alt="buy" />
                     購買
                   </Button>
                 </ButtonGroup>
+
                 <ButtonGroup className="me-2">
                   <Button className="btn-danger me-2 mb-2">
                     <img src={TrialIcon} alt="trial" /> 試閱
                   </Button>
                 </ButtonGroup>
                 <ButtonGroup className="me-2">
-                  <Button className="btn-danger mb-2">
+                  <Button
+                    className="btn-danger mb-2"
+                    onClick={() => {
+                      // 商品原本無數量屬性(quantity)，要先加上
+                      const item = { ...v, quantity: 1 }
+                      // 注意: 重覆加入會自動+1產品數量
+                      addSecondItem(item)
+                      // 呈現跳出對話盒
+                      showModal2(v.name)
+                    }}
+                  >
                     <img src={HeartIcon} alt="heart" /> 收藏
                   </Button>
                 </ButtonGroup>
               </ButtonToolbar>
-              </div>
             </div>
           </Col>
         </Row>
@@ -118,7 +234,8 @@ function ProductInfo(productId) {
             <h4 className="ProductInfo-font-weight" id="detail">
               詳細書訊
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"
@@ -135,7 +252,8 @@ function ProductInfo(productId) {
             <h4 className="ProductInfo-font-weight" id="aboutAuthor">
               作者簡介
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"
@@ -152,7 +270,8 @@ function ProductInfo(productId) {
             <h4 className="ProductInfo-font-weight" id="aboutTranslator">
               譯者簡介
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"
@@ -164,12 +283,13 @@ function ProductInfo(productId) {
                 fill="#661F1E"
               />
             </svg>
-            <p className="mb-5">{v.author_details}</p>
+            <p className="mb-5">{v.translator_details}</p>
 
             <h4 className="ProductInfo-font-weight" id="recommended">
               好評推薦
             </h4>
-            <svg className='img-fluid'
+            <svg
+              className="img-fluid"
               width="1356"
               height="12"
               viewBox="0 0 1356 12"

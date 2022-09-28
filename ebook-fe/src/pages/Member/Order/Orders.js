@@ -12,13 +12,26 @@ import Book from '../../../img/book.jpg'
 import BreadCrumb from './Component/BreadCrumb'
 import ScrollToTop from './Component/ScrollToTop'
 import line from '../../../img/line.svg'
+import example from '../../../img/order_example.svg'
 import dash from '../../../img/dash.svg'
-import { data } from './OrderData'
 import '../../../style/Order.scss'
-// import paginationBar from './Component/paginationBar'
-
+import { useAuth } from '../../../Context/auth'
 function Orders() {
-  const [order, setOrder] = useState(data)
+  const { member, setMember } = useAuth()
+  console.log('member from context', member.id)
+  useEffect(() => {
+    const getOrder = async () => {
+      let response = await axios.get(
+        `${API_URL}/order/get-order?member_id=${member.id}`
+      )
+      setOrder(response.data)
+      setFilterOrder(response.data)
+      console.log(response.data)
+    }
+    getOrder()
+  }, [])
+  const [order, setOrder] = useState([])
+  const [filterOrder, setFilterOrder] = useState([])
   // 日期篩選、狀態篩選
   const onButtonClick = (key, e) => {
     let cTemp = []
@@ -26,7 +39,7 @@ function Orders() {
       case 'dateRange1':
         const startDate1 = new Date('2022-09-03')
         const endDate1 = new Date('2022-10-03')
-        cTemp = [...data].filter((od) => {
+        cTemp = [...order].filter((od) => {
           const orderDate = new Date(od.date)
           return orderDate - startDate1 > 0 && endDate1 - orderDate > 0
         })
@@ -34,7 +47,7 @@ function Orders() {
       case 'dateRange2':
         const startDate2 = new Date('2022-06-03')
         const endDate2 = new Date('2022-09-03')
-        cTemp = [...data].filter((od) => {
+        cTemp = [...order].filter((od) => {
           const orderDate2 = new Date(od.date)
           return orderDate2 - startDate2 > 0 && endDate2 - orderDate2 > 0
         })
@@ -42,7 +55,7 @@ function Orders() {
       case 'dateRange3':
         const startDate3 = new Date('2022-03-03')
         const endDate3 = new Date('2022-09-03')
-        cTemp = [...data].filter((od) => {
+        cTemp = [...order].filter((od) => {
           const orderDate3 = new Date(od.date)
           return orderDate3 - startDate3 > 0 && endDate3 - orderDate3 > 0
         })
@@ -50,26 +63,31 @@ function Orders() {
       case 'dateRange4':
         const startDate4 = new Date('2021-09-03')
         const endDate4 = new Date('2022-09-03')
-        cTemp = [...data].filter((od) => {
+        cTemp = [...order].filter((od) => {
           const orderDate4 = new Date(od.date)
           return orderDate4 - startDate4 > 0 && endDate4 - orderDate4 > 0
         })
         break
+      case 'all':
+        cTemp = [...order].filter((od) => {
+          return od.status === '已完成' && '已取消'
+        })
+        break
       case 'notFinished':
-        cTemp = [...data].filter((od) => {
+        cTemp = [...order].filter((od) => {
           return od.status === '已取消'
         })
         break
       case 'finished':
-        cTemp = [...data].filter((od) => {
+        cTemp = [...order].filter((od) => {
           return od.status === '已完成'
         })
         break
       default:
-        cTemp = [...data]
+        cTemp = [...order]
         break
     }
-    setOrder(cTemp)
+    setFilterOrder(cTemp)
   }
 
   const inputValue1 = useRef(undefined)
@@ -81,7 +99,7 @@ function Orders() {
     let tags = inputString.split(',').map((tag) => tag.replaceAll(' ', ''))
     let searchSn = []
     for (let tag of tags) {
-      let tmpAry = [...data].filter((book) => book.sn.indexOf(tag) !== -1)
+      let tmpAry = [...order].filter((book) => book.sn.indexOf(tag) !== -1)
       searchSn = searchSn.concat([...tmpAry])
     }
     const unique = searchSn.filter((element) => {
@@ -92,7 +110,7 @@ function Orders() {
       }
       return false
     })
-    setOrder(unique)
+    setFilterOrder(unique)
   }
 
   return (
@@ -106,7 +124,10 @@ function Orders() {
           <div className="mb-3 d-flex justify-content-end">
             <input ref={inputValue1} type="text" placeholder="搜尋訂單編號" />
             <div>
-              <button onClick={onSnSearchClick} className="ms-2">
+              <button
+                onClick={onSnSearchClick}
+                className="ms-2 btn btn-primary"
+              >
                 搜尋
               </button>
             </div>
@@ -123,7 +144,7 @@ function Orders() {
               }}
             />
             <label className="form-check-label" for="inlineRadio1">
-              過去1個月
+              近1個月
             </label>
           </div>
           <div class="form-check form-check-inline">
@@ -136,7 +157,7 @@ function Orders() {
               }}
             />
             <label className="form-check-label" for="inlineRadio2">
-              過去3個月
+              近3個月
             </label>
           </div>
           <div className="form-check form-check-inline">
@@ -149,7 +170,7 @@ function Orders() {
               }}
             />
             <label className="form-check-label" for="inlineRadio3">
-              過去6個月
+              近6個月
             </label>
           </div>
           <div className="form-check form-check-inline">
@@ -162,7 +183,7 @@ function Orders() {
               }}
             />
             <label className="form-check-label" for="inlineRadio3">
-              過去1年
+              近1年
             </label>
           </div>
         </div>
@@ -196,54 +217,40 @@ function Orders() {
           </Button>
         </div>
 
-        {order &&
-          order.map((o, i) => (
-            <Card sx={{ maxwidth: 1067 }} className="mb-3" key={`order${i}`}>
+        {filterOrder &&
+          filterOrder.map((o, i) => (
+            <Card sx={{ maxwidth: 1067 }} className="mb-2" key={`order${i}`}>
               <div className="row">
-                <div className="col-md-4 mobile-card">
+                <div className="col-md-5 mobile-card">
                   <CardMedia
-                    className="mx-2 my-2 shadow book-cover"
+                    className="mx-2 my-3 shadow book-cover"
                     component="img"
-                    image={o.book_img}
+                    image={example}
                     alt="book"
                   />
                 </div>
-                <CardContent className="col-md-8">
-                  <Typography variant="body1" className="mb-3 orderText">
+                <CardContent className="col-md-5">
+                  <Typography
+                    variant="body1"
+                    className="orderText mb-3 order-mobile-text"
+                  >
                     訂單編號:{o.sn}
                   </Typography>
-                  <Typography variant="body1" className="mb-3 orderText">
+                  <Typography
+                    variant="body1"
+                    className="orderText mb-3 order-mobile-text"
+                  >
                     訂單狀態:{o.status}
                   </Typography>
-                  <Typography variant="body1" className="mb-3 orderText">
+                  <Typography
+                    variant="body1"
+                    className="orderText mb-3 order-mobile-text"
+                  >
                     訂單日期:{o.date}
                   </Typography>
-                  <Typography variant="body1" className="mb-3 orderText">
-                    商品數量:
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    className="mb-3 orderText"
-                  >
-                    <img className="img-fluid" src={dash} alt="dash" />
-                    <br></br>
-                    尚未評價
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    className="mb-5 orderText"
-                  >
-                    <img className="img-fluid" src={dash} alt="dash" />
-                    <br></br>
-                    訂單總額:
-                  </Typography>
-                  <CardActions className="justify-content-center">
-                    <Link className="mx-2" to={`${o.id}`}>
-                      <button className="btn btn-primary">完整訂單</button>
+                  <CardActions className="col justify-content-center">
+                    <Link to={`${o.id}`}>
+                      <Button className="puzzle-button">完整訂單</Button>
                     </Link>
                   </CardActions>
                 </CardContent>

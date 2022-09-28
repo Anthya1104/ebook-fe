@@ -80,7 +80,7 @@ function SingleCart(props) {
               }`}
               onClick={onClickTab('wishList')}
             >
-              我的收藏
+              {/* 我的收藏 */}
             </div>
           </div>
           {/* 這裡要帶入參數 */}

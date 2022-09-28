@@ -57,7 +57,7 @@ function CouponModal({ setCouponAmount }) {
             </div>
           </Modal.Header>
           <div>
-            <Modal.Body className="">
+            <Modal.Body className="CouponModal-inMiddle">
               <div className="d-flex flex-wrap coupon-modal-body ">
                 {Coupon.map((c, i) => (
                   <Button
