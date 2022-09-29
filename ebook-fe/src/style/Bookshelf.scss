@@ -418,11 +418,26 @@ $Bookshelf_recent_translateY: 40px;
   }
 
   .col-sm-9{
-    
+    position:relative;
     display:flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
+    .Review-close-btn{
+      position:absolute;
+      top:-25px;
+      right:-30px;
+      background:rgba(0,0,0,0);
+      border: 1px solid rgba(0,0,0,0);
+      @media(max-width:$mobile-break-point){
+        top:-350px;
+      }
+      &:hover{
+        color:$body-bg;
+        background:none;
+        border:1px solid $body-bg;
+      }
+     }
     .Review-comments-btn{
       width:100%;
       
