@@ -63,7 +63,7 @@ function ListItemsWithHook({ tab, handleStep }) {
                   >
                     <button
                       type="button"
-                      className="btn btn-primary-reverse me-3"
+                      className="btn btn-primary-reverse me-3 ListItemsWithHook-mobile-btn-position"
                       onClick={() => {
                         removeItem(v.id)
                       }}
@@ -115,8 +115,8 @@ function ListItemsWithHook({ tab, handleStep }) {
       </table>
 
       <div>
-        <div className="d-flex justify-content-between">
-          <form>
+        <div className="d-flex justify-content-end">
+          {/* <form>
             <label className="ListItemsWithHook-placeholder">
               <input
                 className="ListItemsWithHook-coupon-input"
@@ -130,7 +130,7 @@ function ListItemsWithHook({ tab, handleStep }) {
               type="submit"
               value="使用"
             />
-          </form>
+          </form> */}
           <form>
             <CouponModal />
           </form>
