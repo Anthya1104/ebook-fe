@@ -1,3 +1,8 @@
+.cover-fit{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .member-item{
     text-decoration: none;
     list-style: none;
@@ -15,7 +20,9 @@
 
 .member-icon{
     width: 60px;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
 }
 
 .member-pic{
@@ -30,15 +37,20 @@
     font-weight: 600;
     line-height: 80px;
     margin-left: 50px;
+    margin-top: 60px;
 }
 
 .member-word{
     text-decoration: none;
     font-weight: bold;
     font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .member-header{
+    display: flex;
     margin-top: 100px;
     margin-left: 100px;
 }
@@ -48,12 +60,80 @@
     margin-bottom: 50px;
 }
 
-.member-bar{
+.member-bar-desktop{
+    display:flex;
+    justify-content: center;
+    margin:auto;
     margin-top: 80px;
     margin-left: 15px;
+
+    img{
+        margin:auto;
+    }
+    @media(max-width:600px){
+        display:none;
+    }
+}
+.member-bar{
+    display:none;
+    justify-content: center;
+    margin:auto;
+    margin-top: 40px;
+    margin-left: 15px;
+
+    img{
+        margin:auto;
+    }
+    @media(max-width:600px){
+        display:flex;
+    }
 }
 
+.progressbar{
+    width: 60%;
+    margin-left: 265px;
+    margin-top: 100px;
+}
 
+@media (max-width: 600px) {
+    .member-header{
+       flex-direction: column;
+    }
+
+    .member-pic{
+        width: 150px;
+        margin-left: -45px
+    }
+
+    .member-information{
+        font-size: 14px;
+        line-height: 40px;
+    }
+
+    .member-information-3{
+        margin-top: -135px;
+    }
+
+    .member-information-1{
+        margin-top: -215px;
+    }
+
+    .member-info{
+        margin-left: 75px;
+    }
+
+
+    .progressbar{
+        width: 90%;
+        margin-left: 27px;
+        margin-top: 40px;
+    }
+
+    .member-container{
+        margin-top: -1px;
+    }
+
+}
 
 
 

@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        <div className="d-flex p-2 align-items-center">
+        <div className="d-flex p-2 align-items-center menu-1">
           <NavLink to="/">
             <img className="ebooklogo" src={EbookLogo} alt="ebooklogo" />
           </NavLink>
@@ -34,19 +34,23 @@ function Navbar() {
 
             <h6 className="navbar-separate">|</h6>
 
-            <NavLink className="menu-list mx-4" to="/Chat">
+            {/* <NavLink className="menu-list mx-4" to="/Chat">
               聊天室
-            </NavLink>
-
-            <h6 className="navbar-separate">|</h6>
-
+            </NavLink> */}
+            <a
+              className="mx-4 text-decoration-none"
+              href="http://localhost:3000/chats"
+            >
+              聊天室
+            </a>
+            {/* 
             <NavLink className="menu-list mx-1" to="/Materials">
               Material Reference
-            </NavLink>
+            </NavLink> */}
 
-            <NavLink className="menu-list mx-1" to="/Preview">
+            {/* <NavLink className="menu-list mx-1" to="/Preview">
               Preview
-            </NavLink>
+            </NavLink> */}
           </div>
 
           <div className="menu-2 align-items-center justify-content-end d-flex">
@@ -90,7 +94,7 @@ function Navbar() {
                 {/* <p className="">Login</p> */}
               </NavLink>
 
-              <NavLink className="menu-2-icon mx-2" to="/Preview">
+              <NavLink className="menu-2-icon mx-2" to="/Cart/WishList">
                 <img
                   className="navbar-favoritelist"
                   src={Favoritelist}

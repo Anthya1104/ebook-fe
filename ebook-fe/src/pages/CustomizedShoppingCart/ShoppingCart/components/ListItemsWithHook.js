@@ -6,13 +6,16 @@ import { useNavigate2 } from 'react-router-dom'
 // import ProductList from '../../../pages/Product/ProductList'
 import ProductList from '../../Product/ProductList'
 import CouponModal from '../components/CouponModal'
+import { useState } from 'react'
 import { useSecondCart } from '../../utils/useSecondCart'
 import { Link } from 'react-router-dom'
 
-function ListItemsWithHook({ tab, handleStep }) {
+function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
+
+  const [couponAmount, setCouponAmount] = useState(couponAmount0)
 
   const handleClick = (path) => () => {
     navigate(path)
@@ -115,24 +118,9 @@ function ListItemsWithHook({ tab, handleStep }) {
       </table>
 
       <div>
-        <div className="d-flex justify-content-between">
+        <div className="d-flex">
           <form>
-            <label className="ListItemsWithHook-placeholder">
-              <input
-                className="ListItemsWithHook-coupon-input"
-                type="text"
-                name="name"
-                placeholder="請輸入優惠券折扣碼"
-              />
-            </label>
-            <input
-              className="ListItemsWithHook-coupon-btn"
-              type="submit"
-              value="使用"
-            />
-          </form>
-          <form>
-            <CouponModal />
+            <CouponModal setCouponAmount={setCouponAmount} />
           </form>
         </div>
 
@@ -144,8 +132,14 @@ function ListItemsWithHook({ tab, handleStep }) {
           </span>{' '}
           &nbsp; 件商品
         </div>
+        <div className="d-flex justify-content-end">
+          訂單小計: ＄{cart.cartTotal}
+        </div>
+        <div className="d-flex justify-content-end">
+          優惠金額: -{couponAmount}
+        </div>
         <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
-          訂單小計：$ {cart.cartTotal}
+          優惠後金額：$ {cart.cartTotal - couponAmount}
         </div>
 
         <br />
@@ -163,7 +157,7 @@ function ListItemsWithHook({ tab, handleStep }) {
         <button
           type="button"
           className="btn btn-primary-reverse"
-          onClick={handleStep(2)}
+          onClick={handleStep(2, couponAmount)}
         >
           結帳
         </button>

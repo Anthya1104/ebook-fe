@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BookCover from '../../../../img/book.jpg'
+import AvatarImg from '../../../../img/kitty-avatar.jpeg'
 import ArrowRight from '../../../../img/recent_book_arrow_r.svg'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
@@ -13,8 +14,6 @@ import StarRating from './StarRating'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-// test avatar img importing
-import Avatar from '../../../../img/book.jpg'
 // auth
 import { useAuth } from '../../../../Context/auth'
 
@@ -188,7 +187,7 @@ function RecentBook({ setGetRecentBookData }) {
                               <img
                                 className="cover-fit rounded-circle"
                                 alt="avatar"
-                                src={Avatar}
+                                src={AvatarImg}
                               />
                             </div>
                             <div className="mx-2">
