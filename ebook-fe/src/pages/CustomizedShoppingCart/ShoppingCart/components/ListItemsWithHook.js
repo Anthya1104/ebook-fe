@@ -8,11 +8,15 @@ import ProductList from '../../Product/ProductList'
 import CouponModal from '../components/CouponModal'
 import { useSecondCart } from '../../utils/useSecondCart'
 import { Link } from 'react-router-dom'
-
-function ListItemsWithHook({ tab, handleStep }) {
+import { useState } from 'react'
+function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
+
+  /// 9/29優惠券
+  const [couponAmount, setCouponAmount] = useState(couponAmount0)
+  ///
 
   const handleClick = (path) => () => {
     navigate(path)
@@ -58,12 +62,12 @@ function ListItemsWithHook({ tab, handleStep }) {
                   <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
                   <td
-                    className="ShoppingCart-BtnInMid"
+                    className="ShoppingCart-BtnInMid ListItemsWithHook-mobile-btn-position"
                     // style={{ width: 600 }}
                   >
                     <button
                       type="button"
-                      className="btn btn-primary-reverse me-3 ListItemsWithHook-mobile-btn-position"
+                      className="btn btn-primary-reverse me-3 "
                       onClick={() => {
                         removeItem(v.id)
                       }}
@@ -132,7 +136,7 @@ function ListItemsWithHook({ tab, handleStep }) {
             />
           </form> */}
           <form>
-            <CouponModal />
+            <CouponModal setCouponAmount={setCouponAmount} />
           </form>
         </div>
 
@@ -147,6 +151,15 @@ function ListItemsWithHook({ tab, handleStep }) {
         <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
           訂單小計：$ {cart.cartTotal}
         </div>
+
+        {/* /// 9/29優惠券*/}
+        <div className="d-flex justify-content-end">
+          優惠金額: -{couponAmount}
+        </div>
+        <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
+          優惠後金額：$ {cart.cartTotal - couponAmount}
+        </div>
+        {/* /// */}
 
         <br />
         {cart.isEmpty && '購物車為空'}

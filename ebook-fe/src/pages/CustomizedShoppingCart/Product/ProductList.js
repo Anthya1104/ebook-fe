@@ -1,14 +1,11 @@
 import { useState, useParam, useEffect, useRef } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-
 import { useCart } from '../utils/useCart'
-
 import './ProductList.scss'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
-
 import { useSecondCart } from '../utils/useSecondCart'
 
 import axios from 'axios'
@@ -149,16 +146,6 @@ function ProductList(props) {
         <Button variant="primary" onClick={handleClose}>
           繼續購物
         </Button>
-        {/* <Button
-          variant="primary"
-          onClick={() => {
-            // 導向購物車頁面
-            // props.history.push('/')
-            navigate('/Cart/WishList', { replace: true })
-          }}
-        >
-          {productBtn}
-        </Button> */}
       </Modal.Footer>
     </Modal>
   )
@@ -189,7 +176,6 @@ function ProductList(props) {
                       <h5 className="card-title ProductList-author">
                         {v.author}
                       </h5>
-                      {/* 這裡只是放一些商品的描述說明。這裡只是放一些商品的描述說明。 */}
                     </p>
                     <p className="card-text text-danger">$ {v.price}元</p>
                   </div>
@@ -235,9 +221,7 @@ function ProductList(props) {
   return (
     <>
       <TopCategory cat={cat} setCat={setCat} />
-      {/* <Slick /> */}
       <DropdownSelect />
-      {/* <DropdownSelectPublisher /> */}
       <div className="my-5"></div>
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">

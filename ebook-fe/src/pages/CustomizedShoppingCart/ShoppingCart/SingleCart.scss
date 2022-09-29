@@ -80,6 +80,7 @@
 
   //購物車手機板按鈕margin
   .ListItemsWithHook-mobile-btn-position {
-    margin-bottom: 10px;
+    display: flex;
+    flex-direction:column
   }
   }}

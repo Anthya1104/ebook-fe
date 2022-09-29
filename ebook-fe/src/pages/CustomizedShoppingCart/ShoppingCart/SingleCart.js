@@ -20,7 +20,7 @@ import './SingleCart.scss'
 //   cartTotal: 0,
 // }
 
-function SingleCart(props) {
+function SingleCart(props, couponAmount0) {
   //可從useCart中獲取的各方法與屬性，參考README檔中說明
   const {
     cart,
@@ -46,6 +46,10 @@ function SingleCart(props) {
   const handleStep = (step) => () => {
     setStep(step)
   }
+
+/// 9/29優惠券
+const [couponAmount, setCouponAmount] = useState(couponAmount0)
+///
 
   return (
     <>
@@ -88,7 +92,7 @@ function SingleCart(props) {
         </>
       ) : step === 2 ? (
         <div>
-          <Checkout handleStep={handleStep} />
+          <Checkout handleStep={handleStep} setCouponAmount={setCouponAmount}/>
         </div>
       ) : (
         <div>

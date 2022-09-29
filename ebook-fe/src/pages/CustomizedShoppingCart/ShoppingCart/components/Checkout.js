@@ -1,24 +1,20 @@
-// import React from 'react'
-
-// function Checkout() {
-//   return (
-//     <div>Checkout</div>
-//   )
-// }
-
-// export default Checkout
-
 // import { useCart } from '../../utils/useCart'
 import { useCart } from '../../../CustomizedShoppingCart/utils/useCart'
 import { useNavigate } from 'react-router-dom'
 import { useNavigate2 } from 'react-router-dom'
 // import ProductList from 'pages/Product/ProductList'
 import ProductList from '../../Product/ProductList'
+import CouponModal from '../components/CouponModal'
+import { useState } from 'react'
 
-function ListItemsWithHook({ tab, handleStep }) {
+function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
+
+  /// 9/29優惠券
+  const [couponAmount, setCouponAmount] = useState(couponAmount0)
+  ///
 
   const handleClick = (path) => () => {
     navigate(path)
@@ -36,7 +32,7 @@ function ListItemsWithHook({ tab, handleStep }) {
         <thead className="SingleCart-topnav">
           <tr>
             <th style={{ width: 200 }}>商品明細</th>
-            <th ></th>
+            <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
             <th>小計</th>
@@ -121,6 +117,12 @@ function ListItemsWithHook({ tab, handleStep }) {
             <span className="ListItemsWithHook-text-em-color">
               $ {cart.cartTotal}
             </span>
+            {/* /// 9/29優惠券*/}
+            <div className="d-flex">優惠金額: -{couponAmount}</div>
+            <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
+              優惠後金額：$ {cart.cartTotal - couponAmount}
+            </div>
+            {/* /// */}
             <br />
             <br />
             {cart.isEmpty && '購物車為空'}
