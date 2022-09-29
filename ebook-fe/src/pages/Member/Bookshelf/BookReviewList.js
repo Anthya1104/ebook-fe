@@ -173,6 +173,19 @@ function BookReviewList() {
             </div>
             <div className="col-sm-9">
               {reviewValue.book_name === isEdit ? (
+                <Button
+                  className="Review-close-btn btn btn-primary rounded-circle"
+                  onClick={() => {
+                    setIsEdit('')
+                  }}
+                >
+                  &times;
+                </Button>
+              ) : (
+                <></>
+              )}
+
+              {reviewValue.book_name === isEdit ? (
                 <textarea
                   value={reviewParam.review_comments}
                   className="Review-comment-input"

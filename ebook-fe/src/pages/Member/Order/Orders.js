@@ -22,7 +22,10 @@ function Orders() {
   useEffect(() => {
     const getOrder = async () => {
       let response = await axios.get(
-        `${API_URL}/order/get-order?member_id=${member.id}`
+        `${API_URL}/order/get-order?member_id=${member.id}`,
+        {
+          withCredentials: true,
+        }
       )
       setOrder(response.data)
       setFilterOrder(response.data)
