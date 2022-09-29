@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
@@ -16,6 +16,7 @@ import example from '../../../img/order_example.svg'
 import dash from '../../../img/dash.svg'
 import '../../../style/Order.scss'
 import { useAuth } from '../../../Context/auth'
+import { toast } from 'react-toastify'
 function Orders() {
   const { member, setMember } = useAuth()
   console.log('member from context', member.id)
@@ -26,7 +27,7 @@ function Orders() {
       )
       setOrder(response.data)
       setFilterOrder(response.data)
-      console.log(response.data)
+      console.log('data', order.length)
     }
     getOrder()
   }, [])
@@ -115,6 +116,16 @@ function Orders() {
 
   return (
     <>
+      {(() => {
+        if (order.length === 0) {
+          alert('尚無訂單，請先到商品頁購書喔!')
+          return (
+            <>
+              <Navigate to="/Cart/product-list" />
+            </>
+          )
+        }
+      })()}
       <div className="container">
         <ScrollToTop />
         <BreadCrumb />
