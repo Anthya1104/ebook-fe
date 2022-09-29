@@ -250,9 +250,15 @@ function Orders() {
                   </Typography>
                   <Typography
                     variant="h5"
+                    className="orderText mb-1 order-mobile-text"
+                  >
+                    優惠金額:{o.discount}
+                  </Typography>
+                  <Typography
+                    variant="h5"
                     className="orderText order-mobile-text"
                   >
-                    訂單總額:
+                    訂單總額:{o.total}
                   </Typography>
                   <CardActions className="col justify-content-center">
                     <Link to={`${o.id}`}>
