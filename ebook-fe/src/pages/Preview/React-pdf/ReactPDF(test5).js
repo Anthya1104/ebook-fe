@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import WebViewer from '@pdftron/webviewer'
 import Back from '../../../img/Preview2_back.png'
 import './App.css'
@@ -38,9 +39,11 @@ const App = () => {
   return (
     <div className="App">
       <div className="header">
-        <button className="headerButton">
-          <img src={Back} alt="" />
-        </button>
+        <Link to="/Member/bookshelf">
+          <button className="headerButton">
+            <img src={Back} alt="" />
+          </button>
+        </Link>
         原子習慣
       </div>
       <div>

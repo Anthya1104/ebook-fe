@@ -99,7 +99,7 @@ function Section() {
 function Preview() {
   return (
     <div>
-      <Headers />
+      {/* <Headers /> */}
 
       <Section />
 
