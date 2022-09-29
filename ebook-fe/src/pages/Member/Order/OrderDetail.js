@@ -65,7 +65,7 @@ function OrderDetail() {
   return (
     <>
       <div className="container">
-      <ScrollToTop />
+        <ScrollToTop />
         <Card sx={{ maxWidth: 1067, height: 200 }}>
           <div className="orderCardBackground">
             <CardContent>
@@ -104,7 +104,8 @@ function OrderDetail() {
                   className="mb-3 text-white"
                 >
                   {/* 透過後端求總比數 */}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{createOrderAmount()}<br></br>商品數量
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{createOrderAmount()}
+                  <br></br>商品數量
                 </Typography>
                 <div>
                   <img className="img-fluid" src={DetailLine} alt="Line" />
@@ -149,7 +150,7 @@ function OrderDetail() {
                       component="div"
                       className="mb-3"
                     >
-                      {v.book_name}
+                      <Link to={`/Cart/ProductDetail/${v.id}`}>{v.book_name}</Link>
                     </Typography>
                     <Typography variant="h6" className="mb-2">
                       {v.book_subtitle}
