@@ -45,6 +45,7 @@ import TestPage from './pages/TestPage'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import WishList from '../src/pages/CustomizedShoppingCart/ShoppingCart/WishList'
 
 library.add(fas, fab)
 
@@ -110,14 +111,15 @@ function App() {
                   element={<ProductDetail />}
                 />
                 <Route path="Checkout" element={<Checkout />} />
+                <Route path="WishList" element={<WishList />} />
               </Route>
               <Route path="chat" element={<Chat />} />
               <Route path="materials" element={<Materials />} />
               {/* <Route path="SingleCart" element={<SingleCart />} /> */}
               {/* <Route path="Test" element={<Test />} /> */}
+              <Route path="Preview" element={<Preview />} />
             </Route>
             <Route path="test" element={<TestPage />} />
-            <Route path="Preview" element={<Preview />} />
             {/* 404未找到的頁面路由，需放在最下方 */}
             <Route path="*" element={<NotFound />} />
           </Routes>

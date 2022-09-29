@@ -50,7 +50,10 @@ function Headers() {
         </ul>
       </div>
       <div>
-        <h4 className={styles.title}>金錢心理學：<br/>打破你對金錢的迷思，學會聰明花費
+        <h4 className={styles.title}>
+          金錢心理學：
+          <br />
+          打破你對金錢的迷思，學會聰明花費
         </h4>
       </div>
       <div>

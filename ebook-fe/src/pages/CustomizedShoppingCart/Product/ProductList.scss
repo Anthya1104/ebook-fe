@@ -1,3 +1,10 @@
+// .ProductList-display-mobile-position {
+//   // background: #000;
+//   display: flex;
+//   // width: 1000px;
+//   justify-content: start;
+// }
+
 .ProductList-bookname {
   color: #661f1e;
   font-weight: bolder;
@@ -10,6 +17,7 @@
 .ProductList-card {
   // background:pink;
   height: 540px;
+  width: 100%;
   text-align: center;
 }
 
@@ -23,10 +31,23 @@
 }
 
 .ProductList-card-body {
-    height: 160px;
+  height: 160px;
+  // border-radius:  0 0 5px 5px;
 }
 
-@media (max-width: 480px) {
+//搜尋書名的輸入框
+.ProductList-SearchBookNameBox {
+  width: 200px;
+  border: #661f1e 2px solid;
+  border-radius: 5px;
+}
+
+//價格及出版社dropdown 手機版使用
+.ProductList-select-dropdown {
+  display: none;
+}
+
+@media (max-width: 600px) {
   //最上面分類篩選區
   .ProductList-showTopCategory {
     display: none;
@@ -39,27 +60,27 @@
   //商品卡片
   .ProductList-card-outer {
     display: flex;
-    // flex-wrap: wrap;
     justify-content: center;
-    // background: #000;
     width: 240px;
-    height: 360px;
+    height: 400px;
+    margin-top: -10px;
   }
+
   .ProductList-card {
-    // background:pink;
     height: 200px;
+    background: white;
+    border: none;
     text-align: center;
   }
   .ProductList-card-img-top {
-    // background: rgb(186, 149, 155);
     height: 200px;
-    width: 200px;
+    width: 160px;
+    background: #000;
   }
   .card-body {
     background: white;
     height: 120px;
     width: 200px;
-    // background: #000;
   }
   .ProductList-bookname {
     font-size: 16px;
@@ -68,9 +89,29 @@
   .ProductList-author {
     font-size: 16px;
   }
+
   .ProductList-mobile-btn {
     // background:yellow;
     font-size: 10px;
   }
-  
+
+  .ProductList-display-mobile-position {
+    // background: #000;
+    display: flex;
+    justify-content: center;
+  }
+
+  //價格及出版社dropdown 手機版使用
+  .ProductList-select-dropdown {
+    display: flex;
+    justify-content: end;
+    margin-right: 75px;
+  }
+  .ProductList-mobile-btn-outer {
+    // background: #000;
+    padding: 10px;
+  }
+  .ProductList-card-body {
+    width: 215px;
+  }
 }

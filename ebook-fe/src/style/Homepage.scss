@@ -9,6 +9,28 @@
 //     height:100vh;
 // }
 
+.cover-fit{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.article{
+    position: relative;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+.section-top-page .top-collection{
+    overflow: hidden;
+}
+
+.homepage-collections{
+    position: relative;
+    overflow: hidden;
+}
 
 .homepage-collections .homepage-bg{
     // background-position: left top;
@@ -17,43 +39,207 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    opacity: .8;
+    // opacity: .8;
     filter: brightness(50%);
 }
 
-
-.books{
-    background-size: cover;
-    background-repeat: no-repeat;
+.homepage-collections .homepage-bg::after{
+    content: "";
+    opacity: .3;
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 76%, #000000 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    opacity: .8;
-    filter: brightness(50%);
 }
 
-.novel{
-    background-size: cover;
-    background-repeat: no-repeat;
+.homepage-collections .collection-banner-list{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    opacity: .8;
-    filter: brightness(50%);
 }
 
-.comic{
+.homepage-collections .collection-banner-list .banner-background{
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    opacity: .8;
+    opacity: 0;
     filter: brightness(50%);
+    transition: all .3s;
+    background-blend-mode: multiply;
 }
 
-.magazine{
-    background-size: cover;
-    background-repeat: no-repeat;
+
+
+
+// ---------------------------------------我是分隔線------------------------------------------
+// .books{
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     width: 100%;
+//     height: 100%;
+//     opacity: .8;
+//     filter: brightness(50%);
+// }
+
+// .novel{
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     width: 100%;
+//     height: 100%;
+//     opacity: .8;
+//     filter: brightness(50%);
+// }
+
+// .comic{
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     width: 100%;
+//     height: 100%;
+//     opacity: .8;
+//     filter: brightness(50%);
+// }
+
+// .magazine{
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     width: 100%;
+//     height: 100%;
+//     opacity: .8;
+//     filter: brightness(50%);
+// }
+
+// .audiobook{
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     width: 100%;
+//     height: 100%;
+//     opacity: .8;
+//     filter: brightness(50%);
+// }
+// ---------------------------------------我是分隔線------------------------------------------
+
+
+
+
+.homepage-collections .collection-list{
     width: 100%;
-    height: 100%;
-    opacity: .8;
-    filter: brightness(50%);
+}
+
+.homepage-collections .collection-list>div{
+    position: relative;
+}
+
+.container{
+    // padding: 0 50px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.homepage-collections .collection-list .list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.section-top-page .homepage-collections .collection-list .list .col-item{
+    height: 100vh;
+}
+
+.homepage-collections .collection-list .list .col-item{
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.section-top-page .homepage-collections .collection-list .list .col-item a{
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-aligin-items: flex-end;
+}
+
+.homepage-collections .collection-list .list .col-item a{
+    position: absolute;
+    width: 100%;
+}
+
+a, a:link, a:active, a:visited, a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+a, .animated {
+    transition: all .5s;
+}
+
+a {
+    background-color: transparent;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+element.style{
+    background-color: #EFD3CE;
+}
+
+.homepage-collections .collection-list .list .col-item a > .rectangle{
+    position: absolute;
+    bottom: 0;
+    height: 5px;
+    left: 0;
+    width: 100%;
+    content: "";
+    transition: all .5s;
+}
+
+.homepage-collections .collection-list .list .col-item .item-content{
+    position: relative;
+    padding: 70px 0 80px;
+}
+
+.homepage-collections .collection-list .list .col-item .item-content>div{
+    padding: 0 20px;
+}
+
+.homepage-collections .collection-list .list .col-item .item-content::after{
+    opacity: 0;
+    width: 58px;
+    height: 58px;
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+    transition: all .3s;
+    transform: translateX(-10px);
+}
+
+
+
+.animated{
+    font-size: 28px;
+    font-weight: bold;
+    color: #612021;
+    margin-top: 314px;
+    margin-bottom: 314px;
+}
+
+.animated:hover{
+    color: #D99282;
 }

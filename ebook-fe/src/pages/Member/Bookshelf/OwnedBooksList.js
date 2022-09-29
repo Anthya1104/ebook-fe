@@ -62,7 +62,7 @@ function OwnedBooksList() {
   // 同時篩 類別, 閱讀進度, 日期sort
   // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
   const [bookFilterParams, setBookFilterParams] = useState({
-    category: 1,
+    category: 0,
     is_read: true,
     date_sort_toggled: true,
     search_param: '',
@@ -87,22 +87,25 @@ function OwnedBooksList() {
 
       setGetCategories(response.data)
       console.log('firstRender', response.data)
-      setOnCategory(response.data[0])
+      // setOnCategory(response.data[0])
     }
     getCategories()
   }, [])
 
+  // 改變分類、已讀未讀 -> 重製
   useEffect(() => {
-    // console.log(onCategory)
-    // console.log({ API_URL })
-    // TODO:在這裡做 ownedBookList 切換
-    // 把 Category post 到後端
+    setBookFilterParams({ ...bookFilterParams, on_page: 1 })
+    setGetPage({ ...getPage, onPage: 1 })
+  }, [onCategory])
 
+  useEffect(() => {
+    setBookFilterParams({ ...bookFilterParams, on_page: 1 })
+    setGetPage({ ...getPage, onPage: 1 })
+  }, [isRead])
+
+  useEffect(() => {
     handleCategoryChange()
   }, [bookFilterParams])
-
-  // TODO:處理 tab 切換
-  // TODO:用 useEffect -> 每次 onCategory有變動 -> 用 axios 打 API 請求 讓後端重新傳資料
 
   const distingReading = () => {
     if (isRead) {
@@ -146,11 +149,6 @@ function OwnedBooksList() {
   }
 
   const createBookList = (bookList) => {
-    if (onCategoryList[0] === 'nothing') {
-      // 如果沒抓到資料
-      return <div>nothing</div>
-    }
-
     return (
       <>
         <div
@@ -160,7 +158,11 @@ function OwnedBooksList() {
           <div className="Bookshelf-hover-area position-absolute"></div>
           <Link to={`${bookList.id}`}>
             <div className="bookCover">
-              <img className="contain-fit" src={Bookcover} alt="bookCover" />
+              <img
+                className="contain-fit"
+                src={bookList.book_img}
+                alt={bookList.book_name}
+              />
             </div>
           </Link>
           <ul className="my-2 d-flex-column justify-content-center align-items-center">
@@ -198,11 +200,27 @@ function OwnedBooksList() {
   }
   return (
     <>
-    {/* TODO:卡片hover -> 用 onPointerEnter -> 1. 設定 container 包含 目前的 card 內容 -> 新增一個 position-absolute 且位置在 下方的 box -> 設定 overflow:hidden 先藏起來 -> const onPointerEnter = (e) => {} -> 使用state判別有沒有 onPointerEnter, 改變 state -> 三元判斷 */}
+      {/* TODO:卡片hover -> 用 onPointerEnter -> 1. 設定 container 包含 目前的 card 內容 -> 新增一個 position-absolute 且位置在 下方的 box -> 設定 overflow:hidden 先藏起來 -> const onPointerEnter = (e) => {} -> 使用state判別有沒有 onPointerEnter, 改變 state -> 三元判斷 */}
       {/* 卡片 hover 參考 : https://codepen.io/chhiring90/pen/zLJLBG */}
       {/* Customized Category */}
       <div className="Bookshelf-customized-category d-flex justify-content-between">
         <ul className="d-flex my-2 align-items-center">
+          <li
+            className={
+              !onCategory.category_name
+                ? 'p-2 d-flex align-items-center active'
+                : 'p-2 d-flex align-items-center'
+            }
+            onClick={() => {
+              setOnCategory('')
+              setBookFilterParams({
+                ...bookFilterParams,
+                category: 0,
+              })
+            }}
+          >
+            <div className="btn">所有藏書</div>
+          </li>
           {/* 把category 鋪出來 */}
           {getCategories.map((categoryValue) => {
             return (
@@ -323,11 +341,18 @@ function OwnedBooksList() {
           {distingReading()}
         </button>
       </div>
-      <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4">
-        {onCategoryList.map((listValue) => {
-          return createBookList(listValue)
-        })}
-      </div>
+      {onCategoryList[0] === 'nothing' ? (
+        <div className="Bookshelf-non-notify">
+          這個分類沒有任何藏書唷，趕快去買新書，或新增一本已有藏書！
+        </div>
+      ) : (
+        <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4">
+          {onCategoryList.map((listValue) => {
+            return createBookList(listValue)
+          })}
+        </div>
+      )}
+
       {/* pagination */}
       <div className="Reviews-pagination-area d-flex justify-content-center">
         <div
@@ -335,8 +360,11 @@ function OwnedBooksList() {
           onClick={() => {
             setGetPage({
               ...getPage,
-              onPage:
-                getPage.onPage === 1 ? getPage.onPage : getPage.onPage - 1,
+              onPage: getPage.onPage === 1 ? 1 : getPage.onPage - 1,
+            })
+            setBookFilterParams({
+              ...bookFilterParams,
+              on_page: getPage.onPage === 1 ? 1 : getPage.onPage - 1,
             })
             ScrollToTop()
           }}
@@ -369,7 +397,14 @@ function OwnedBooksList() {
               ...getPage,
               onPage:
                 getPage.onPage === getPage.totalPage
-                  ? getPage.onPage + 0
+                  ? getPage.onPage
+                  : getPage.onPage + 1,
+            })
+            setBookFilterParams({
+              ...bookFilterParams,
+              on_page:
+                getPage.onPage === getPage.totalPage
+                  ? getPage.onPage
                   : getPage.onPage + 1,
             })
             ScrollToTop()

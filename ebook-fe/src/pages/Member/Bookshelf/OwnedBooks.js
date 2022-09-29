@@ -7,28 +7,35 @@ import BookReviesList from './BookReviewList'
 function OwnedBooks() {
   // tab state
   const [bookToggleState, setbookToggleState] = useState(1)
+  const [getRecentBookData, setGetRecentBookData] = useState([])
   return (
     <>
       <div className="d-flex-column justify-content-left vw-100">
         {/* <div>Book List</div> */}
-        <div className="Bookshelf-recent-title position-absolute top-50 end-0">
-          <h2>最近閱讀</h2>
-          <div>
-            <svg
-              width="670"
-              height="12"
-              viewBox="0 0 670 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0.226497 6L6 11.7735L11.7735 6L6 0.226497L0.226497 6ZM6 7L670 7.00006L670 5.00006L6 5L6 7Z"
-                fill="#661F1E"
-              />
-            </svg>
+        {console.log('getRecentBook', getRecentBookData)}
+        {getRecentBookData.length === 0 ? (
+          <></>
+        ) : (
+          <div className="Bookshelf-recent-title position-absolute top-50 end-0">
+            <h2>最近閱讀</h2>
+            <div>
+              <svg
+                width="670"
+                height="12"
+                viewBox="0 0 670 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.226497 6L6 11.7735L11.7735 6L6 0.226497L0.226497 6ZM6 7L670 7.00006L670 5.00006L6 5L6 7Z"
+                  fill="#661F1E"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <RecentBook />
+        )}
+
+        <RecentBook setGetRecentBookData={setGetRecentBookData} />
         {/* 書櫃標題 */}
 
         {/* Bookshelf Tab Mobile */}
