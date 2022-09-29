@@ -17,7 +17,7 @@ function Pay({ tab, handleStep }) {
   const handleClick = (path) => () => {
     navigate(path)
   }
-
+  console.log(items);
   return (
     <>
       <div>
@@ -210,7 +210,7 @@ function Pay({ tab, handleStep }) {
           >
             確定付款
           </button> */}
-          <Popup />
+          <Popup items={items}/>
         </div>
       </div>
     </>

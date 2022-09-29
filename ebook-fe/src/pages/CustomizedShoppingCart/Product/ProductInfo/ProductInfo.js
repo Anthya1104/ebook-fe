@@ -11,7 +11,7 @@ import CartIcon from '../../../../img/icon-cart.svg'
 import TrialIcon from '../../../../img/icon-trial.svg'
 import HeartIcon from '../../../../img/icon-heart.svg'
 import { Modal, Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 // import { DATA } from './MockData'
 // import MemberComment from './MemberComment/MemberComment'
 import products from '../../data/products.json'
@@ -183,9 +183,11 @@ function ProductInfo(productId) {
                 </ButtonGroup>
 
                 <ButtonGroup className="me-2">
-                  <Button className="btn-danger me-2 mb-2">
-                    <img src={TrialIcon} alt="trial" /> 試閱
-                  </Button>
+                  <Link to="/Preview">
+                    <Button className="btn-danger me-2 mb-2">
+                      <img src={TrialIcon} alt="trial" /> 試閱
+                    </Button>
+                  </Link>
                 </ButtonGroup>
                 <ButtonGroup className="me-2">
                   <Button
