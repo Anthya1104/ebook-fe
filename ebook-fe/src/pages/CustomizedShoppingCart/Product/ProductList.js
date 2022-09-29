@@ -221,7 +221,20 @@ function ProductList(props) {
   return (
     <>
       <TopCategory cat={cat} setCat={setCat} />
-      <DropdownSelect />
+      {/* RWD用下拉分類&搜尋框 */}
+      <div className="ProductList-DropdownAndSearchBook">
+        <div className="ProductList-mobile-SearchBookNameBox">
+          <input
+            className="ProductList-SearchBookNameBox"
+            type="text"
+            value={searchBookName}
+            placeholder="搜尋書名"
+            onChange={(e) => setSearchBookName(e.target.value)}
+          />
+        </div>
+        <DropdownSelect />
+      </div>
+      {/* RWD用下拉分類&搜尋框 */}
       <div className="my-5"></div>
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">
@@ -241,7 +254,7 @@ function ProductList(props) {
             setSearchPublisher={setSearchPublisher}
           />
         </div>
-        <div className='ProductList-product-width'>
+        <div className="ProductList-product-width">
           {messageModal}
           {messageModal2}
           {display}
