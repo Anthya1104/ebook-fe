@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import Pdf from './金錢心理學：打破你對金錢的迷思，學會聰明花費 (傑夫．克萊斯勒 [傑夫．克萊斯勒]) (1-11).pdf'
+import Pdf from './金錢心理學：打破你對金錢的迷思，學會聰明花費 (傑夫．克萊斯勒 [傑夫．克萊斯勒]) (1-22).pdf'
 import LeftIcon from '../../../img/left-arrow.png'
 import RightIcon from '../../../img/right-arrow.png'
 

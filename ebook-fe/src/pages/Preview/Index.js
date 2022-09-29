@@ -28,16 +28,16 @@ function Headers() {
             <div>
               <h5>書籍段落</h5>
               <li>
-                <a href="#">1.目錄</a>
+                <a href="#">前言:不只跟錢有關</a>
               </li>
               <li>
-                <a href="#">2.for-of</a>
+                <a href="#">1.別拿來賭一把</a>
               </li>
               <li>
-                <a href="#">3.生成器Generators</a>
+                <a href="#">2.當機會找上門</a>
               </li>
               <li>
-                <a href="#">4.模板字串符</a>
+                <a href="#">3.價值主張</a>
               </li>
               {/* <li>
                 <a href="#">第五本書</a>
@@ -61,12 +61,12 @@ function Headers() {
           <div className={styles.iconEndButton}>
             <ShoppingCart />
           </div>
-
-          <button className={styles.iconEndButton}>
-            <img src={iconShare} alt="" />
-            <p>分享</p>
-          </button>
-
+          <li className={styles.book}>
+            <button>
+              <img src={iconShare} alt="" />
+              <p>分享</p>
+            </button>
+          </li>
           <button className={styles.iconEndButton}>
             <img src={iconFull} alt="" />
             <p>專注模式</p>
