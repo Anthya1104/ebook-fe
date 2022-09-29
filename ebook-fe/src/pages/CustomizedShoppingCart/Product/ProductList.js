@@ -257,7 +257,7 @@ function ProductList(props) {
             setSearchPublisher={setSearchPublisher}
           />
         </div>
-        <div>
+        <div className='ProductList-product-width'>
           {messageModal}
           {messageModal2}
           {display}
