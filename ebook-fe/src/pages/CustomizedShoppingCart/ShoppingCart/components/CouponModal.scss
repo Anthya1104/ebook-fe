@@ -42,3 +42,11 @@
 //     color: #8D4343 !important;
 //     border: 2px solid #8D4343;
 // }
+
+
+@media (max-width:480px) {
+        .CouponModal-inMiddle{
+           display: flex;
+           justify-content: center;
+        }
+    }

@@ -1,6 +1,11 @@
 
 @import './global.scss';
 
+.cover-fit{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .navbar{
   display:flex;
@@ -128,4 +133,133 @@
 .navbar-separate{
   color: #D99282;
   padding-top: 8px;
+}
+
+// mobile
+
+
+.navbar-mobile{
+  display:none !important;
+  
+  @media(max-width:$mobile-break-point){
+  display:flex !important;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  margin:0px;
+  background: $primary;
+  }
+
+  .Navbar-hamburger{
+    & :hover{
+      cursor: pointer;
+    }
+    .Navbar-hamburger-items{
+    margin: 6px 0px;    
+    width: 35px;
+    height: 6px;
+    border-radius: 6px;
+    background:$success;
+  }
+
+  }
+  .Navbar-hamburger-active{      
+    & :hover{
+        cursor: pointer;
+      }
+    .Navbar-hamburger-items{
+
+      margin: 6px 0px;    
+      width: 35px;
+      height: 6px;
+      border-radius: 6px;
+      background:$success;
+      transform: rotate(135deg) translateY(-9px);
+
+      
+    }
+    .Navbar-hamburger-items-flip{
+
+      margin: 6px 0px;    
+      width: 35px;
+      height: 6px;
+      border-radius: 6px;
+      background:$success;
+      transform: rotate(45deg) translateY(-9px);
+      
+    }
+  }
+
+  .Navbar-logo-mobile{
+    width: 60px;
+
+  }
+}
+
+.Navbar-active{
+  z-index:1;
+  position:fixed;
+  top:0;
+  width: 70%;
+  height: 100vh;
+  background:$dark;
+  color:$success;
+  border-right: 1px solid $primary;
+
+  .Navbar-hamburger-active{
+    z-index:2;
+    position:absolute;
+    top:20px;
+    right:20px;      
+    & :hover{
+        cursor: pointer;
+      }
+    .Navbar-hamburger-items{
+
+      margin: 6px 0px;    
+      width: 35px;
+      height: 6px;
+      border-radius: 6px;
+      background:$success;
+      transform: rotate(135deg) translateY(-9px);
+
+      
+    }
+    .Navbar-hamburger-items-flip{
+
+      margin: 6px 0px;    
+      width: 35px;
+      height: 6px;
+      border-radius: 6px;
+      background:$success;
+      transform: rotate(45deg) translateY(-9px);
+      
+    }
+  }
+  ul{
+
+    // transform:translateY(80px);
+    list-style: none;
+    padding:0px;
+    text-decoration: none;
+    
+  }
+  li{
+    width:100%;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    background:$primary;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  .Navbar-login-area{
+    display:flex;
+    align-items: center;
+    padding:20px;
+    text-decoration: none;
+    font-size: 2rem;
+
+    
+  }
+
 }

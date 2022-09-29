@@ -15,7 +15,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
-    color: #8D4343;
+    color: #8d4343;
     margin-bottom: 10px;
   }
   .ProductInfo-bookInfo {
@@ -25,7 +25,7 @@
     color: #000000;
     margin-bottom: 10px;
     span {
-      color: #BF245D;
+      color: #bf245d;
       font-weight: 400;
       font-size: 20px;
       line-height: 23px;
@@ -35,11 +35,11 @@
     }
   }
   a {
-    color:none;
+    color: none;
     text-decoration: none;
   }
   p {
-    color:#000000
+    color: #000000;
   }
 }
 
@@ -48,10 +48,19 @@
     .ProductInfo-img {
       width: 250px;
       height: 350px;
+      margin-bottom: 60px;
     }
   }
-}
 
+  .ProductInfo-btn-position {
+    width: 450px;
+  }
+
+  .ProductInfo_img_position {
+    display: flex;
+    justify-content: center;
+  }
+}
 
 //後來加的
 .ProductInfo-font-weight {

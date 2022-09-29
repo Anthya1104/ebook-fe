@@ -6,15 +6,22 @@ import { useNavigate2 } from 'react-router-dom'
 // import ProductList from '../../../pages/Product/ProductList'
 import ProductList from '../../Product/ProductList'
 import CouponModal from '../components/CouponModal'
+import { useState } from 'react'
+import { useSecondCart } from '../../utils/useSecondCart'
+import { Link } from 'react-router-dom'
 
-function ListItemsWithHook({ tab, handleStep }) {
+function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
 
+  const [couponAmount, setCouponAmount] = useState(couponAmount0)
+
   const handleClick = (path) => () => {
     navigate(path)
   }
+
+  const { addSecondItem } = useSecondCart()
 
   return (
     <div>
@@ -27,7 +34,7 @@ function ListItemsWithHook({ tab, handleStep }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            <th style={{ width: 180 }}>商品明細</th>
+            <th style={{ width: 160 }}>商品明細</th>
             <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
@@ -41,19 +48,22 @@ function ListItemsWithHook({ tab, handleStep }) {
               <>
                 <tr key={v.id}>
                   <td>
-                    <img
-                      style={{ width: 120, height: 160 }}
-                      src={v.book_img}
-                      className="card-img-top ProductList-card-img-top"
-                      alt="..."
-                    />
-                    
+                    <Link to={'/Cart/ProductDetail/' + v.id}>
+                      <img
+                        style={{ width: 120, height: 160 }}
+                        src={v.book_img}
+                        className="card-img-top ProductList-card-img-top"
+                        alt="..."
+                      />
+                    </Link>
                   </td>
                   <td>{v.book_name}</td>
-
                   <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
-                  <td className='ShoppingCart-BtnInMid'>
+                  <td
+                    className="ShoppingCart-BtnInMid"
+                    // style={{ width: 600 }}
+                  >
                     <button
                       type="button"
                       className="btn btn-primary-reverse me-3"
@@ -68,7 +78,9 @@ function ListItemsWithHook({ tab, handleStep }) {
                         type="button"
                         className="btn btn-primary-reverse"
                         onClick={() => {
+                          const item = { ...v, quantity: 1 }
                           removeItem(v.id)
+                          addSecondItem(item)
                         }}
                       >
                         移入收藏
@@ -106,24 +118,9 @@ function ListItemsWithHook({ tab, handleStep }) {
       </table>
 
       <div>
-        <div className="d-flex justify-content-between">
+        <div className="d-flex">
           <form>
-            <label className="ListItemsWithHook-placeholder">
-              <input
-                className="ListItemsWithHook-coupon-input"
-                type="text"
-                name="name"
-                placeholder="請輸入優惠券折扣碼"
-              />
-            </label>
-            <input
-              className="ListItemsWithHook-coupon-btn"
-              type="submit"
-              value="使用"
-            />
-          </form>
-          <form>
-            <CouponModal/>
+            <CouponModal setCouponAmount={setCouponAmount} />
           </form>
         </div>
 
@@ -135,8 +132,14 @@ function ListItemsWithHook({ tab, handleStep }) {
           </span>{' '}
           &nbsp; 件商品
         </div>
+        <div className="d-flex justify-content-end">
+          訂單小計: ＄{cart.cartTotal}
+        </div>
+        <div className="d-flex justify-content-end">
+          優惠金額: -{couponAmount}
+        </div>
         <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
-          訂單小計：$ {cart.cartTotal}
+          優惠後金額：$ {cart.cartTotal - couponAmount}
         </div>
 
         <br />
@@ -154,7 +157,7 @@ function ListItemsWithHook({ tab, handleStep }) {
         <button
           type="button"
           className="btn btn-primary-reverse"
-          onClick={handleStep(2)}
+          onClick={handleStep(2, couponAmount)}
         >
           結帳
         </button>
