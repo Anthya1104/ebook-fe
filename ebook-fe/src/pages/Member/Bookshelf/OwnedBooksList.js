@@ -87,7 +87,7 @@ function OwnedBooksList() {
 
       setGetCategories(response.data)
       console.log('firstRender', response.data)
-      // setOnCategory(response.data[0])
+      setOnCategory(response.data[0])
     }
     getCategories()
   }, [])
