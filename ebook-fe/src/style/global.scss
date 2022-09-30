@@ -12,8 +12,8 @@ $dark: #8D4343;
 $body-bg:#F5F5F5;
 $body-color: $primary;
 // link-color
-$link-color:#661F1E;
-$link-hover-color: #661F1E;
+$link-color:#D99282;
+$link-hover-color: #F5F5F5;
 
 // break point
 $mobile-break-point:768px;
@@ -21,8 +21,15 @@ $mobile-break-point:768px;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+.Layout-outlet-position{
+  transform: translateY(70px);
+  @media(max-width:$mobile-break-point){
+    transform: translateY(0px);
+  }
+}
+
 .btn-primary{
-  border-radius: 5px;
+  border-radius: 0;
   &:hover{
     border:1px solid $primary;
     background:$body-bg;
@@ -30,7 +37,7 @@ $mobile-break-point:768px;
   }
 }
 .btn-primary-reverse{
-  border-radius: 5px;
+  border-radius: 0;
   background:$body-bg;
   border:1px solid $primary;
   color:$primary;
@@ -54,7 +61,7 @@ $mobile-break-point:768px;
   }
 }
 .btn-danger{
-  border-radius:5px;
+  border-radius:20px;
   color:#F5F5F5;
   padding:15px;
   &:hover{
@@ -66,7 +73,7 @@ $mobile-break-point:768px;
 .product-category{
   background:$body-bg;
   border:3px solid $secondary;
-  border-radius:5px;
+  border-radius:20px;
   color:$secondary;
   padding:15px 30px;
   &:hover{
@@ -149,4 +156,3 @@ $mobile-break-point:768px;
   }
   
 }
-

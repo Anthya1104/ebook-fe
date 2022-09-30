@@ -10,21 +10,17 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        <div className="d-flex align-items-center menu-1">
-          <NavLink to="/">
-            <img className="ebooklogo" src={EbookLogo} alt="ebooklogo" />
-          </NavLink>
+        <div className=" align-items-center justify-content-between menu-1">
+          <div className="menu justify-content-start align-items-center mx-2">
+            <NavLink className="mx-3" to="/">
+              <img className="ebooklogo" src={EbookLogo} alt="ebooklogo" />
+            </NavLink>
 
-          <NavLink
-            className="menu d-flex justify-content-start align-items-center mx-2"
-            to="/"
-          >
-            <h5 className="menu-list mx-4">首頁</h5>
-          </NavLink>
+            <NavLink className="menu-list mx-4" to="/">
+              首頁
+            </NavLink>
 
-          <h4 className="navbar-separate">|</h4>
-
-          <div className="menu d-flex justify-content-start align-items-center mx-2">
+            <h4 className="navbar-separate">|</h4>
             <NavLink className="menu-list mx-4" to="/Cart/product-list">
               商品分類
             </NavLink>
@@ -36,29 +32,16 @@ function Navbar() {
             </NavLink>
 
             <h4 className="navbar-separate">|</h4>
-            <a
-              className="menu-list mx-4 text-decoration-none"
-              href="http://localhost:3000/chats"
-            >
-              聊天室
-            </a>
+
             <a
               className="mx-4 text-decoration-none"
               href="http://localhost:3000/chats"
             >
               聊天室
             </a>
-            {/* 
-            <NavLink className="menu-list mx-1" to="/Materials">
-              Material Reference
-            </NavLink> */}
-
-            {/* <NavLink className="menu-list mx-1" to="/Preview">
-              Preview
-            </NavLink> */}
           </div>
 
-          <div className="menu-2 align-items-center justify-content-end d-flex">
+          <div className="menu-2 align-items-center justify-content-end ">
             <div class="searchBox">
               <input
                 className="searchInput"

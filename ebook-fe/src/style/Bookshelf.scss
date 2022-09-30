@@ -205,9 +205,8 @@ $Bookshelf_recent_translateY: 40px;
 
 // 分隔線
 .Bookshelf-recent-title{
-  @media(max-width:1440px){
-    transform:translateY(180px);
-  }
+  transform: translateY(350px);
+
   @media(max-width:$mobile-break-point){
     display:none;
   }
