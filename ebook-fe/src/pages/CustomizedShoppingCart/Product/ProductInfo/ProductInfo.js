@@ -157,14 +157,14 @@ function ProductInfo(productId) {
                 出版日期：{v.publication_date}
               </div>
               <div className="ProductInfo-bookInfo">語言：{v.language}</div>
-              <div className="ProductInfo-bookInfo">
+              <div className="ProductInfo-bookInfo ProductInfo-price-position">
                 售價：<span>$</span>
                 <span className="ProductInfo-bookInfo-price">{v.price}</span>
               </div>
             </div>
 
             <div className="ProductInfo-btn-position">
-              <ButtonToolbar className="mt-5 ">
+              <ButtonToolbar className="mt-3 ">
                 <ButtonGroup className="me-2 ">
                   <Button
                     className="btn-danger me-2 mb-2"
