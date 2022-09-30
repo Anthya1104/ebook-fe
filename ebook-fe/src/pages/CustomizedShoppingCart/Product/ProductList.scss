@@ -52,6 +52,12 @@
   font-size: 30px;
 }
 
+//按鈕的border-radius
+.ShoppingCart-btn-border-radius {
+  border-radius: 5px;
+  
+}
+
 @media (max-width: 600px) {
   //最上面分類篩選區
   .ProductList-showTopCategory {

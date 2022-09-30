@@ -88,7 +88,7 @@ function ListItemsWithProps(props) {
                   </button> */}
                   <button
                     type="button"
-                    className="btn btn-primary-reverse me-3"
+                    className="btn btn-primary-reverse me-3 ShoppingCart-btn-border-radius"
                     onClick={() => {
                       removeItem(v.id)
                     }}
@@ -98,7 +98,7 @@ function ListItemsWithProps(props) {
 
                   <button
                     type="button"
-                    className="btn btn-primary-reverse"
+                    className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
                     onClick={() => {
                       const item = { ...v, quantity: 1 }
                       removeItem(v.id)

@@ -69,7 +69,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                   >
                     <button
                       type="button"
-                      className="btn btn-primary-reverse me-3 ListItemsWithHook-mobile-btn-margin"
+                      className="btn btn-primary-reverse me-3 ListItemsWithHook-mobile-btn-margin ShoppingCart-btn-border-radius"
                       onClick={() => {
                         removeItem(v.id)
                       }}
@@ -79,7 +79,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                     {tab === 'cart' ? (
                       <button
                         type="button"
-                        className="btn btn-primary-reverse"
+                        className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
                         onClick={() => {
                           const item = { ...v, quantity: 1 }
                           removeItem(v.id)
@@ -91,7 +91,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                     ) : (
                       <button
                         type="button"
-                        className="btn btn-primary-reverse"
+                        className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
                         onClick={() => {
                           removeItem(v.id)
                         }}
@@ -153,20 +153,15 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
         <div className="d-flex justify-content-end">
           訂單小計: ＄{cart.cartTotal}
         </div>
-        <div className="d-flex justify-content-end">
-          優惠金額: -{couponAmount}
-        </div>
-        <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
-          優惠後金額：$ {cart.cartTotal - couponAmount}
-        </div>
+
 
         {/* /// 9/29優惠券*/}
-        <div className="d-flex justify-content-end">
+        {/* <div className="d-flex justify-content-end">
           優惠金額: -{couponAmount}
         </div>
         <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
           優惠後金額：$ {cart.cartTotal - couponAmount}
-        </div>
+        </div> */}
         {/* /// */}
 
         <br />
@@ -176,14 +171,14 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       <div className="d-flex justify-content-end mb-5">
         <button
           type="button"
-          className="btn btn-primary-reverse me-3"
+          className="btn btn-primary-reverse me-3 ShoppingCart-btn-border-radius"
           onClick={handleClick('/Cart/product-list')}
         >
           繼續購物
         </button>
         <button
           type="button"
-          className="btn btn-primary-reverse"
+          className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
           onClick={handleStep(2, couponAmount)}
         >
           結帳

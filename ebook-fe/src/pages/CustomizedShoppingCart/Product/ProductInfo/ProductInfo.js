@@ -83,7 +83,7 @@ function ProductInfo(productId) {
         </Modal.Header>
         <Modal.Body>已成功加入購物車</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary " onClick={handleClose}>
             繼續購物
           </Button>
           <Button
@@ -131,22 +131,20 @@ function ProductInfo(productId) {
 
     return (
       <>
-        {/* /// */}
-        {/* <Button className="btn-danger" variant="" onClick={handleShow}>
-        購買
-      </Button> */}
-
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{productTitle}</Modal.Title>
           </Modal.Header>
           <Modal.Body>{productName}</Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>
+            <Button
+              variant="primary ShoppingCart-btn-border-radius"
+              onClick={handleClose}
+            >
               繼續購物
             </Button>
             <Button
-              variant="primary"
+              variant="primary ShoppingCart-btn-border-radius"
               onClick={(e) => {
                 // 導向購物車頁面
                 // props.history.push('/')
@@ -205,13 +203,13 @@ function ProductInfo(productId) {
                   <div className="ProductInfo-btn-position">
                     <ButtonToolbar className="mt-5 ">
                       <ButtonGroup className="me-2">
-                        <Button className="btn-primary-reverse me-2 mb-2">
+                        <Button className="btn-primary-reverse mb-2 ShoppingCart-btn-border-radius">
                           <img src={TrialIcon} alt="trial" /> 試閱
                         </Button>
                       </ButtonGroup>
                       <ButtonGroup className="me-2">
                         <Button
-                          className="btn-primary-reverse mb-2"
+                          className="btn-primary-reverse mb-2 ShoppingCart-btn-border-radius"
                           onClick={() => {
                             // 商品原本無數量屬性(quantity)，要先加上
                             const item = { ...v, quantity: 1 }
@@ -226,7 +224,7 @@ function ProductInfo(productId) {
                       </ButtonGroup>
                       <ButtonGroup className="me-2 ">
                         <Button
-                          className="btn-primary me-2 mb-2"
+                          className="btn-primary me-2 mb-2 ShoppingCart-btn-border-radius"
                           onClick={() => {
                             // 商品原本無數量屬性(quantity)，要先加上
                             const item = { ...v, quantity: 1 }
@@ -248,22 +246,34 @@ function ProductInfo(productId) {
                 <Col>
                   <ButtonGroup className="mb-4">
                     <a href="#detail">
-                      <Button className="btn-primary-reverse" size="m">
+                      <Button
+                        className="btn-primary-reverse ShoppingCart-btn-border-radius"
+                        size="m"
+                      >
                         詳細書訊
                       </Button>
                     </a>
                     <a href="#aboutAuthor">
-                      <Button className="btn-primary-reverse" size="m">
+                      <Button
+                        className="btn-primary-reverse ShoppingCart-btn-border-radius"
+                        size="m"
+                      >
                         作者簡介
                       </Button>
                     </a>
                     <a href="#aboutTranslator">
-                      <Button className="btn-primary-reverse" size="m">
+                      <Button
+                        className="btn-primary-reverse ShoppingCart-btn-border-radius"
+                        size="m"
+                      >
                         譯者簡介
                       </Button>
                     </a>
                     <a href="#recommended">
-                      <Button className="btn-primary-reverse" size="m">
+                      <Button
+                        className="btn-primary-reverse ShoppingCart-btn-border-radius"
+                        size="m"
+                      >
                         好評推薦
                       </Button>
                     </a>
