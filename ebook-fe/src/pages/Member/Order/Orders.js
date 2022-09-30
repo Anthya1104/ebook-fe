@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/config'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
@@ -16,17 +16,23 @@ import example from '../../../img/order_example.svg'
 import dash from '../../../img/dash.svg'
 import '../../../style/Order.scss'
 import { useAuth } from '../../../Context/auth'
+import { toast } from 'react-toastify'
+import Chat from '../../../img/Chat.png'
+
 function Orders() {
   const { member, setMember } = useAuth()
   console.log('member from context', member.id)
   useEffect(() => {
     const getOrder = async () => {
       let response = await axios.get(
-        `${API_URL}/order/get-order?member_id=${member.id}`
+        `${API_URL}/order/get-order?member_id=${member.id}`,
+        {
+          withCredentials: true,
+        }
       )
       setOrder(response.data)
       setFilterOrder(response.data)
-      console.log(response.data)
+      console.log('data', order.length)
     }
     getOrder()
   }, [])
@@ -115,11 +121,20 @@ function Orders() {
 
   return (
     <>
+      {/* {(() => {
+        if (order.length === 0) {
+          alert('尚無訂單，請先到商品頁購書喔!')
+          return (
+            <>
+              <Navigate to="/Cart/product-list" />
+            </>
+          )
+        }
+      })()} */}
       <div className="container">
-        <ScrollToTop />
         <BreadCrumb />
+        <ScrollToTop />
         <img className="img-fluid" src={line} alt="line" />
-
         <div className="mobile-search">
           <div className="mb-3 d-flex justify-content-end">
             <input ref={inputValue1} type="text" placeholder="搜尋訂單編號" />
@@ -188,14 +203,14 @@ function Orders() {
           </div>
         </div>
 
-        <div>
+        <div className="Order-tabs">
           <Button
             className="tab_background btn-primary-reverse"
             onClick={(e) => {
               onButtonClick('', e)
             }}
           >
-            <p className="btn_word">所有訂單</p>
+            <div className="btn_word">所有訂單</div>
           </Button>
           <Button
             className="tab_background btn-primary-reverse tab_fix
@@ -204,7 +219,7 @@ function Orders() {
               onButtonClick('finished', e)
             }}
           >
-            <p className="btn_word">已完成</p>
+            <div className="btn_word">已完成</div>
           </Button>
           <Button
             className="tab_background btn-primary-reverse tab_fix
@@ -213,7 +228,7 @@ function Orders() {
               onButtonClick('notFinished', e)
             }}
           >
-            <p className="btn_word">已取消</p>
+            <div className="btn_word">已取消</div>
           </Button>
         </div>
 
@@ -248,11 +263,33 @@ function Orders() {
                   >
                     訂單日期:{o.date}
                   </Typography>
-                  <CardActions className="col justify-content-center">
-                    <Link to={`${o.id}`}>
-                      <Button className="puzzle-button">完整訂單</Button>
-                    </Link>
-                  </CardActions>
+                  <Typography
+                    variant="h5"
+                    className="orderText mb-1 order-mobile-text"
+                  >
+                    優惠金額:{o.discount}
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    className="orderText order-mobile-text"
+                  >
+                    訂單總額:{o.total}
+                  </Typography>
+                  <div className="d-flex">
+                    <CardActions className="col justify-content-center detail-icon">
+                      <Link to={`${o.id}`}>
+                        <Button className="o-button btn-primary-reverse">
+                          完整訂單
+                        </Button>
+                      </Link>
+                    </CardActions>
+                    <CardActions>
+                      <Link className="mx-2" to="/Chat">
+                        <img className="chat-icon" src={Chat} alt="Chat" />
+                      </Link>
+                      <h5 className="text-white">詢問客服</h5>
+                    </CardActions>
+                  </div>
                 </CardContent>
               </div>
             </Card>

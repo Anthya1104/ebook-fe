@@ -36,6 +36,7 @@ function SingleCart(props, couponAmount0) {
 
   //購物車/我的收藏 setState
   const [tab, setTab] = useState('cart')
+  const [couponAmount, setCouponAmount] = useState(0)
 
   const onClickTab = (tab) => () => {
     setTab(tab)
@@ -43,8 +44,11 @@ function SingleCart(props, couponAmount0) {
 
   const [step, setStep] = useState(1)
 
-  const handleStep = (step) => () => {
+  const handleStep = (step, couponAmount) => () => {
     setStep(step)
+    if (couponAmount != null) {
+      setCouponAmount(couponAmount)
+    }
   }
 
 /// 9/29優惠券
@@ -88,7 +92,11 @@ const [couponAmount, setCouponAmount] = useState(couponAmount0)
             </div>
           </div> */}
           {/* 這裡要帶入參數 */}
-          <ListItemsWithHook tab={tab} handleStep={handleStep} />
+          <ListItemsWithHook
+            tab={tab}
+            handleStep={handleStep}
+            couponAmount={couponAmount}
+          />
         </>
       ) : step === 2 ? (
         <div>

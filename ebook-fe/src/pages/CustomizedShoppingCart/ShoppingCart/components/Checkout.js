@@ -127,6 +127,12 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
             {/* /// */}
             <br />
             <br />
+            <div className="d-flex justify-content-end">
+              優惠金額: -50
+            </div>
+            <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
+              優惠後金額：$ {cart.cartTotal - couponAmount}
+            </div>
             {cart.isEmpty && '購物車為空'}
           </div>
         </div>

@@ -62,7 +62,7 @@ function OwnedBooksList() {
   // 同時篩 類別, 閱讀進度, 日期sort
   // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
   const [bookFilterParams, setBookFilterParams] = useState({
-    category: 0,
+    category: 1,
     is_read: true,
     date_sort_toggled: true,
     search_param: '',
@@ -87,7 +87,7 @@ function OwnedBooksList() {
 
       setGetCategories(response.data)
       console.log('firstRender', response.data)
-      // setOnCategory(response.data[0])
+      setOnCategory(response.data[0])
     }
     getCategories()
   }, [])
@@ -134,7 +134,7 @@ function OwnedBooksList() {
           withCredentials: true,
         }
       )
-      console.log(response.data)
+      console.log('bookshelf', response.data)
 
       if (response.data.data.length === 0) {
         setOnCategoryList(['nothing'])
@@ -205,7 +205,7 @@ function OwnedBooksList() {
       {/* Customized Category */}
       <div className="Bookshelf-customized-category d-flex justify-content-between">
         <ul className="d-flex my-2 align-items-center">
-          <li
+          {/* <li
             className={
               !onCategory.category_name
                 ? 'p-2 d-flex align-items-center active'
@@ -220,7 +220,7 @@ function OwnedBooksList() {
             }}
           >
             <div className="btn">所有藏書</div>
-          </li>
+          </li> */}
           {/* 把category 鋪出來 */}
           {getCategories.map((categoryValue) => {
             return (

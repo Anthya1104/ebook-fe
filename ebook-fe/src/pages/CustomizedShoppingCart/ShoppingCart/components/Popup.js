@@ -4,10 +4,17 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../utils/config'
+import { useAuth } from '../../../../Context/auth'
 
 function Example(props) {
+  const { member, setMember } = useAuth()
+  let memberId = member.id
+  console.log('checkout', member)
+
   const { items } = props
   console.log(items)
+  let newItems = items.map((items) => items.id)
+
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -17,7 +24,16 @@ function Example(props) {
   const handleOrder = async () => {
     // e.preventDefault()
     try {
-      const result = await axios.post(`${API_URL}/market/cart-list`, { items })
+      const result = await axios.post(
+        `${API_URL}/market/cart-list`,
+        {
+          items,
+          memberId,
+        },
+        {
+          withCredentials: true,
+        }
+      )
       // if (result.data.message === '已成功移除收藏') {
       //   // console.log('成功');
       //   e.target.style['color'] = '#747474'

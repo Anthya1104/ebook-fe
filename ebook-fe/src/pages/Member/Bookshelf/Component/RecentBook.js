@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BookCover from '../../../../img/book.jpg'
+import AvatarImg from '../../../../img/kitty-avatar.jpeg'
 import ArrowRight from '../../../../img/recent_book_arrow_r.svg'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
@@ -13,8 +14,6 @@ import StarRating from './StarRating'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-// test avatar img importing
-import Avatar from '../../../../img/book.jpg'
 // auth
 import { useAuth } from '../../../../Context/auth'
 
@@ -45,6 +44,9 @@ function RecentBook({ setGetRecentBookData }) {
 
   // the most recent read book from DB
   const [recentBook, setRecentBook] = useState([])
+
+  // on mobile review input
+  const [openMobileReview, setOpenMobileReview] = useState(false)
 
   // the most recent read book mapping
   useEffect(() => {
@@ -162,12 +164,22 @@ function RecentBook({ setGetRecentBookData }) {
                     </Button>
                   </Link>
                 </div>
+                <div className="mb-2 Bookshelf-recent-review-mobile">
+                  <Button
+                    className="btn btn-primary-reverse"
+                    onClick={() => {
+                      setOpenMobileReview(true)
+                    }}
+                  >
+                    寫下評論
+                  </Button>
+                </div>
                 {/* popup 評論 window */}
                 {/* reference: https://react-popup.elazizi.com/ */}
-                <div className="mb-2">
+                <div className="mb-2 Bookshelf-recent-review-desktop">
                   <Popup
                     trigger={
-                      <Button className="btn btn-primary-reverse">
+                      <Button className=" btn btn-primary-reverse">
                         寫下評論
                       </Button>
                     }
@@ -188,7 +200,7 @@ function RecentBook({ setGetRecentBookData }) {
                               <img
                                 className="cover-fit rounded-circle"
                                 alt="avatar"
-                                src={Avatar}
+                                src={AvatarImg}
                               />
                             </div>
                             <div className="mx-2">
@@ -276,6 +288,97 @@ function RecentBook({ setGetRecentBookData }) {
       )
     })
   }
+  // create mobile review Area
+  const createMobileReviewWindow = () => {
+    return (
+      <>
+        <div className="Bookshelf-mobile-review-area">
+          <Button
+            className="Bookshelf-close-btn btn btn-primary float-end rounded-circle"
+            onClick={() => {
+              setOpenMobileReview(false)
+            }}
+          >
+            &times;
+          </Button>
+          <div className="d-flex-column m-2">
+            <div className="d-flex align-items-center">
+              <div className="Bookshelf-recentbook-avatar mx-3">
+                <img
+                  className="cover-fit rounded-circle"
+                  alt="avatar"
+                  src={AvatarImg}
+                />
+              </div>
+              <div className="mx-2">
+                <svg
+                  width="2"
+                  height="44"
+                  viewBox="0 0 2 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1.74512L0.999998 42.7451"
+                    stroke="#B48C8C"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              {/* reference : https://mui.com/material-ui/react-rating/ */}
+              <div className="mx-3">
+                <StarRating
+                  setScoreFromStarRating={setScoreFromStarRating}
+                  color={'#F5F5F5'}
+                />
+              </div>
+            </div>
+            {/* <input type="textarea" /> */}
+            <textarea
+              id="Bookshelf-mobile-review-input"
+              col="4"
+              row="500"
+              placeholder="請輸入評論"
+              value={reviewParam.review_comments}
+              onChange={reviewOnChangeHandler}
+            ></textarea>
+            <div className="Bookshelf-mobile-review-btns d-flex justify-content-end">
+              <Button
+                className="btn btn-primary mx-2"
+                onClick={() => {
+                  setReviewParam({
+                    ...reviewParam,
+                    review_comments: '',
+                    review_score: 0,
+                  })
+                }}
+              >
+                清空
+              </Button>
+              <Button
+                className="btn btn-primary"
+                onClick={() => {
+                  if (
+                    !reviewParam.member_id ||
+                    !reviewParam.book_id ||
+                    !reviewParam.review_score ||
+                    !reviewParam.review_comments
+                  ) {
+                    return warning()
+                  }
+                  console.log('資料送出', reviewParam)
+                  setDataReady(true)
+                }}
+              >
+                送出
+              </Button>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  }
 
   // 確定review Data 都有存到 -> post request
   useEffect(() => {
@@ -333,6 +436,7 @@ function RecentBook({ setGetRecentBookData }) {
         createRecentBook(recentBook)
       )}
       {/* {console.log('createRecentBook', createRecentBook(recentBook))} */}
+      {openMobileReview ? createMobileReviewWindow() : <></>}
 
       {/* success toast */}
       <ToastContainer

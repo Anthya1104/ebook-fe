@@ -8,15 +8,16 @@ import Button from 'react-bootstrap/Button'
 import { useAuth } from '../../Context/auth'
 import axios from 'axios'
 import { API_URL } from '../../utils/config'
+
 function Member() {
   const { member, setMember } = useAuth()
-  if (!member) {
-    return (
-      <>
-        <Navigate to="/Login" />
-      </>
-    )
-  }
+  // if (!member) {
+  //   return (
+  //     <>
+  //       <Navigate to="/Login" />
+  //     </>
+  //   )
+  // }
   const sideNavContents = [
     {
       value: '訂單相關',
