@@ -209,22 +209,22 @@ function ProductInfo(productId) {
           <Col>
             <ButtonGroup className="mb-4">
               <a href="#detail">
-                <Button className="btn-primary" size="m">
+                <Button className="btn-primary-reverse" size="m">
                   詳細書訊
                 </Button>
               </a>
               <a href="#aboutAuthor">
-                <Button className="btn-primary" size="m">
+                <Button className="btn-primary-reverse" size="m">
                   作者簡介
                 </Button>
               </a>
               <a href="#aboutTranslator">
-                <Button className="btn-primary" size="m">
+                <Button className="btn-primary-reverse" size="m">
                   譯者簡介
                 </Button>
               </a>
               <a href="#recommended">
-                <Button className="btn-primary" size="m">
+                <Button className="btn-primary-reverse" size="m">
                   好評推薦
                 </Button>
               </a>
