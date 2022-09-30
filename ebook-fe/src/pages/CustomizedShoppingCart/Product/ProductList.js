@@ -160,7 +160,7 @@ function ProductList(props) {
               key={v.id}
             >
               <div className="card ProductList-card">
-                <Link to={'/Cart/ProductDetail/' + v.id}>
+                <Link to={'/Cart/ProductDetail/' + v.id} style={{ textDecoration: 'none' }}>
                   {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
                   <img
                     src={v.book_img}
@@ -177,7 +177,7 @@ function ProductList(props) {
                         {v.author}
                       </h5>
                     </p>
-                    <p className="card-text text-danger">$ {v.price}元</p>
+                    <p className="card-text text-danger ProductList-price-text">$ {v.price}元</p>
                   </div>
                 </Link>
                 <div className="my-2 ProductList-mobile-btn-outer">

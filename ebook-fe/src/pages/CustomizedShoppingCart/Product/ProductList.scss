@@ -48,6 +48,9 @@
 .ProductList-product-width {
   width: 100%;
 }
+.ProductList-price-text {
+  font-size: 30px;
+}
 
 @media (max-width: 600px) {
   //最上面分類篩選區
@@ -119,20 +122,21 @@
 
   //搜尋框
   .ProductList-SearchBookNameBox {
-    width: 320px;
+    width: 280px;
     height: 36px;
   }
   //顯示書名搜尋框
   .ProductList-mobile-SearchBookNameBox {
     display: flex;
     margin-top: 6px;
-    margin-right: 50px;
+    // margin-right: 50px;
+    margin-right: 20px;
   }
 
   //下拉式搜尋
   .ProductList-DropdownAndSearchBook {
     display: flex;
     margin-top: 20px;
-    // justify-content: space-between;
+    // justify-content: end;
   }
 }

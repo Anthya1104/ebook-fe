@@ -35,12 +35,14 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            <th style={{ width: 160 }}>商品明細</th>
+            <th style={{ width: 160 }} className="SingleCart-tr">
+              商品明細
+            </th>
             <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
             <th>小計</th>
-            <th></th>
+            <th className="SingleCart-tr2"></th>
           </tr>
         </thead>
         <tbody className="co-text-color">
@@ -62,12 +64,12 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                   <td>${v.price}</td>
                   {/* 設定tab是購物車還是收藏 */}
                   <td
-                    className="ShoppingCart-BtnInMid ListItemsWithHook-mobile-btn-position"
+                    className="ShoppingCart-BtnInMid"
                     // style={{ width: 600 }}
                   >
                     <button
                       type="button"
-                      className="btn btn-primary-reverse me-3 "
+                      className="btn btn-primary-reverse me-3 ListItemsWithHook-mobile-btn-margin"
                       onClick={() => {
                         removeItem(v.id)
                       }}

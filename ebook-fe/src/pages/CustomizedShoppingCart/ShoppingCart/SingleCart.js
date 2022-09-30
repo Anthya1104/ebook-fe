@@ -69,7 +69,7 @@ const [couponAmount, setCouponAmount] = useState(couponAmount0)
           {/* <h4>購物車列表</h4> */}
 
           {/* 新加的 */}
-          <div className=''>
+          {/* <div>
             <div
               className={`btn SingleCart-tab ${
                 tab === 'cart' ? 'SingleCart-active-state' : ''
@@ -84,9 +84,9 @@ const [couponAmount, setCouponAmount] = useState(couponAmount0)
               }`}
               onClick={onClickTab('wishList')}
             >
-              {/* 我的收藏 */}
+              我的收藏
             </div>
-          </div>
+          </div> */}
           {/* 這裡要帶入參數 */}
           <ListItemsWithHook tab={tab} handleStep={handleStep} />
         </>

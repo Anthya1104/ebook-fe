@@ -31,11 +31,13 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            <th style={{ width: 200 }}>商品明細</th>
+            <th style={{ width: 200 }}
+            className="SingleCart-tr"
+            >商品明細</th>
             <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
-            <th>小計</th>
+            <th className="SingleCart-tr2">小計</th>
             {/* <th>移除</th> */}
           </tr>
         </thead>

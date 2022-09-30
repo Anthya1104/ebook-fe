@@ -13,7 +13,27 @@
 .SingleCart-topnav {
   background: #661f1e;
   color: white;
+  
+  
 }
+.SingleCart-tr{
+  border-collapse:separate;
+  border-radius: 5px 0px 0px 5px;
+}
+.SingleCart-tr2 {
+  border-collapse:separate;
+  border-radius: 0px 5px 5px 0px;
+}
+.SingleCart-tr3 {
+  border-collapse:separate;
+  border-radius: 5px;
+}
+
+// // 商品明細設圓角
+// .ListItemsWithHook-border-radius {
+//   border-collapse: separate;
+//   border-radius: 10px 0px 0px 5px;
+// }
 
 //輸入折扣碼
 .ListItemsWithHook-coupon-input {
@@ -60,7 +80,7 @@
 }
 
 .Popup-text-style {
-  font-weight:bolder;
+  font-weight: bolder;
 }
 
 //購物車按鈕置中
@@ -78,9 +98,9 @@
   .ShoppingCart-BtnInMid {
     text-align: left;
 
-  //購物車手機板按鈕margin
-  .ListItemsWithHook-mobile-btn-position {
-    display: flex;
-    flex-direction:column
+    //購物車手機板按鈕margin
+    .ListItemsWithHook-mobile-btn-margin {
+      margin-bottom: 10px;
+    }
   }
-  }}
+}

@@ -30,11 +30,13 @@ function ListItemsWithHook({ tab, handleStep }) {
         >
           <thead>
             <tr className="SingleCart-topnav">
-              <th style={{ width: 200 }}>商品明細</th>
+              <th style={{ width: 200 }}
+              className="SingleCart-tr"
+              >商品明細</th>
               <th></th>
               {/* <th>單價</th> */}
               {/* <th>數量</th> */}
-              <th>小計</th>
+              <th className="SingleCart-tr2">小計</th>
               {/* <th>移除</th> */}
             </tr>
           </thead>
@@ -93,7 +95,7 @@ function ListItemsWithHook({ tab, handleStep }) {
 
         <div>
           <div className="my-5">
-            <div className="SingleCart-topnav py-2 ps-2">訂單資訊 </div>
+            <div className="SingleCart-topnav py-2 ps-2 SingleCart-tr3">訂單資訊 </div>
             <br />
             共有&nbsp;
             <span className="ListItemsWithHook-text-em-color">
@@ -112,7 +114,7 @@ function ListItemsWithHook({ tab, handleStep }) {
         </div>
 
         <div>
-          <div className="SingleCart-topnav py-2 ps-2"> 付款方式：信用卡</div>
+          <div className="SingleCart-topnav py-2 ps-2 SingleCart-tr3"> 付款方式：信用卡</div>
           <br />
           <div className="d-flex Pay-text-style">
             <Form.Label htmlFor=" ">信用卡號：</Form.Label>
