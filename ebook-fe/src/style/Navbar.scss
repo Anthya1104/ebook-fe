@@ -8,7 +8,7 @@
 }
 
 .navbar{
-  position: fixed;
+  // position: fixed;
   display:flex;
   height: 70px;
   margin:0px;
@@ -25,6 +25,7 @@
 
 
 .menu{
+  // position: fixed;
   display:none;
   font-size: $h5-font-size;
   .selected{
@@ -36,18 +37,6 @@
 .menu-1{
   margin-left: 230px;
 }
-
-// .menu-home{
-//   display: block;
-//   text-decoration: none;
-//   list-style: none;
-//   font-weight: bold;
-//   padding-top: 3px;
-//   border-bottom: 3px solid transparent;
-// }
-// .menu-home:hover{
-//   border-bottom:3px solid $primary;
-// }
 
 .menu-list{
   display: block;
@@ -62,6 +51,9 @@
 
 .ebooklogo{
   width: 50px;
+  position: fixed;
+  top: 15px;
+  left: 160px;
 }
 
 .navbar-login{

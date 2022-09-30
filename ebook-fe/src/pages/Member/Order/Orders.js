@@ -17,6 +17,8 @@ import dash from '../../../img/dash.svg'
 import '../../../style/Order.scss'
 import { useAuth } from '../../../Context/auth'
 import { toast } from 'react-toastify'
+import Chat from '../../../img/Chat.png'
+
 function Orders() {
   const { member, setMember } = useAuth()
   console.log('member from context', member.id)
@@ -271,11 +273,21 @@ function Orders() {
                   >
                     訂單總額:{o.total}
                   </Typography>
-                  <CardActions className="col justify-content-center">
-                    <Link to={`${o.id}`}>
-                      <Button className="o-button">完整訂單</Button>
-                    </Link>
-                  </CardActions>
+                  <div className="d-flex">
+                    <CardActions className="col justify-content-center detail-icon">
+                      <Link to={`${o.id}`}>
+                        <Button className="o-button btn-primary-reverse">
+                          完整訂單
+                        </Button>
+                      </Link>
+                    </CardActions>
+                    <CardActions>
+                      <Link className="mx-2" to="/Chat">
+                        <img className="chat-icon" src={Chat} alt="Chat" />
+                      </Link>
+                      <h5 className="text-white">詢問客服</h5>
+                    </CardActions>
+                  </div>
                 </CardContent>
               </div>
             </Card>

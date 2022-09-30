@@ -65,6 +65,13 @@ function OrderDetail() {
   return (
     <>
       <div className="container">
+        {' '}
+        <div className="o-back">
+          <Link className="mx-2" to="/Member/order">
+            <img src={Back} alt="" />
+          </Link>
+          <h5 className="mx-2 text-white">返回</h5>
+        </div>
         <ScrollToTop />
         <Card sx={{ maxWidth: 1067, height: 200 }}>
           <div className="orderCardBackground">
@@ -90,13 +97,13 @@ function OrderDetail() {
                 </Typography>
               </div>
               <div className="d-flex justify-content-around">
-                <div>
+                {/* <div>
                   <Link className="mx-2" to="/Member/order">
                     <img src={Back} alt="" />
                   </Link>
                   <br></br>
                   <h5 className="mx-2 text-white">返回</h5>
-                </div>
+                </div> */}
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -119,13 +126,13 @@ function OrderDetail() {
                   {createOrderStatus()}
                   訂單狀態
                 </Typography>
-                <div>
+                {/* <div>
                   <Link className="mx-2" to="/Chat">
                     <img src={Chat} alt="Chat" />
                   </Link>
                   <br></br>
                   <h5 className="text-white">詢問客服</h5>
-                </div>
+                </div> */}
               </div>
             </CardContent>
           </div>
@@ -150,7 +157,9 @@ function OrderDetail() {
                       component="div"
                       className="mb-3"
                     >
-                      <Link to={`/Cart/ProductDetail/${v.id}`}>{v.book_name}</Link>
+                      <Link to={`/Cart/ProductDetail/${v.id}`}>
+                        {v.book_name}
+                      </Link>
                     </Typography>
                     <Typography variant="h6" className="mb-2">
                       {v.book_subtitle}

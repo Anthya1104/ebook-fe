@@ -165,9 +165,29 @@ function ProductInfo(productId) {
 
             <div className="ProductInfo-btn-position">
               <ButtonToolbar className="mt-5 ">
+                <ButtonGroup className="me-2">
+                  <Button className="btn-primary-reverse me-2 mb-2">
+                    <img src={TrialIcon} alt="trial" /> 試閱
+                  </Button>
+                </ButtonGroup>
+                <ButtonGroup className="me-2">
+                  <Button
+                    className="btn-primary-reverse mb-2"
+                    onClick={() => {
+                      // 商品原本無數量屬性(quantity)，要先加上
+                      const item = { ...v, quantity: 1 }
+                      // 注意: 重覆加入會自動+1產品數量
+                      addSecondItem(item)
+                      // 呈現跳出對話盒
+                      showModal2(v.name)
+                    }}
+                  >
+                    <img src={HeartIcon} alt="heart" /> 收藏
+                  </Button>
+                </ButtonGroup>
                 <ButtonGroup className="me-2 ">
                   <Button
-                    className="btn-danger me-2 mb-2"
+                    className="btn-primary me-2 mb-2"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
@@ -179,27 +199,6 @@ function ProductInfo(productId) {
                   >
                     <img src={CartIcon} alt="buy" />
                     購買
-                  </Button>
-                </ButtonGroup>
-
-                <ButtonGroup className="me-2">
-                  <Button className="btn-danger me-2 mb-2">
-                    <img src={TrialIcon} alt="trial" /> 試閱
-                  </Button>
-                </ButtonGroup>
-                <ButtonGroup className="me-2">
-                  <Button
-                    className="btn-danger mb-2"
-                    onClick={() => {
-                      // 商品原本無數量屬性(quantity)，要先加上
-                      const item = { ...v, quantity: 1 }
-                      // 注意: 重覆加入會自動+1產品數量
-                      addSecondItem(item)
-                      // 呈現跳出對話盒
-                      showModal2(v.name)
-                    }}
-                  >
-                    <img src={HeartIcon} alt="heart" /> 收藏
                   </Button>
                 </ButtonGroup>
               </ButtonToolbar>

@@ -107,3 +107,19 @@
   border: 2px solid $primary;
   border-radius: 5px;
 }
+
+@media (min-width: 600px) {
+.chat-icon{
+  position: relative;
+  bottom: 200px;
+  right: -230px;
+}
+.detail-icon{
+  position: relative;
+  right: -370px;
+}
+.o-back{
+  position: relative;
+  top: 100px;
+}
+}

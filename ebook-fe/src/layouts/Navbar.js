@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        <div className="d-flex p-2 align-items-center menu-1">
+        <div className="d-flex align-items-center menu-1">
           <NavLink to="/">
             <img className="ebooklogo" src={EbookLogo} alt="ebooklogo" />
           </NavLink>

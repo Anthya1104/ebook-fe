@@ -22,7 +22,7 @@ $mobile-break-point:768px;
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 .btn-primary{
-  border-radius: 0;
+  border-radius: 5px;
   &:hover{
     border:1px solid $primary;
     background:$body-bg;
@@ -30,7 +30,7 @@ $mobile-break-point:768px;
   }
 }
 .btn-primary-reverse{
-  border-radius: 0;
+  border-radius: 5px;
   background:$body-bg;
   border:1px solid $primary;
   color:$primary;
@@ -54,7 +54,7 @@ $mobile-break-point:768px;
   }
 }
 .btn-danger{
-  border-radius:20px;
+  border-radius:5px;
   color:#F5F5F5;
   padding:15px;
   &:hover{
@@ -66,7 +66,7 @@ $mobile-break-point:768px;
 .product-category{
   background:$body-bg;
   border:3px solid $secondary;
-  border-radius:20px;
+  border-radius:5px;
   color:$secondary;
   padding:15px 30px;
   &:hover{
