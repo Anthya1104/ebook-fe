@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../style/Navbar.scss'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 // axios
 import axios from 'axios'
@@ -49,7 +49,9 @@ function NavbarMobile() {
         )}
 
         <div className="Navbar-logo-mobile d-flex p-2 align-items-center justify-content-center">
-          <img className="cover-fit" alt="ebk-logo" src={EbookLogo}></img>
+          <Link to="/">
+            <img className="cover-fit" alt="ebk-logo" src={EbookLogo} />
+          </Link>
         </div>
         <div>
           <svg

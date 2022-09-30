@@ -9,6 +9,25 @@
 //     height:100vh;
 // }
 
+.Home-background{
+
+background: linear-gradient(180deg, rgba(64, 1, 30, 0) -12.15%, rgba(32, 14, 22, 0.755208) 31.46%, rgba(27, 15, 21, 0.28) 58.53%, #151213 100%), $primary;
+
+}
+
+.Home-container{
+    padding:50px;
+    margin-top:50px;
+    
+    .Home-title{
+        h3{
+            color:$light;
+        }
+        width: 200px;
+        border-bottom: 1px solid $light;
+        margin-bottom: 15px;
+    }
+}
 .cover-fit{
     width: 100%;
     height: 100%;
@@ -33,13 +52,11 @@
 }
 
 .homepage-collections .homepage-bg{
-    // background-position: left top;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    // opacity: .8;
     filter: brightness(50%);
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../style/Homepage.scss'
 import Homepagebackground from './memberindexcategory/homepagebackground.png'
 import Books from './memberindexcategory/books.png'
@@ -9,12 +9,23 @@ import Audiobook from './memberindexcategory/audiobook.png'
 import { Link } from 'react-router-dom'
 
 function HomePage() {
+  const baclgrounds = {
+    Book: <img src={Books} />,
+    Novel: <img src={Novel} />,
+    Comic: <img src={Comic} />,
+    Magazine: <img src={Magazine} />,
+    Audiobook: <img src={Audiobook} />,
+  }
+  const [background, setBackground] = useState()
+  useEffect(() => {
+    document.body.style.background = background
+  }, [background])
+
   return (
     <>
       <article>
         <div className="section-top-page">
           <div className="top-collection">
-
             <div className="homepage-collections">
               {/* 首頁預設背景 */}
               <div className="homepage-bg">
@@ -51,7 +62,6 @@ function HomePage() {
                 <div className="collection-list">
                   <div className="container">
                     <div className="list">
-                    
                       {/* 書籍 */}
                       <div className="col-item">
                         <Link
@@ -65,7 +75,12 @@ function HomePage() {
                           ></span>
                           <div className="item-content">
                             <div className="animated">
-                              <div className="item-title">書籍</div>
+                              <div
+                                className="item-title"
+                                onChange={(e) => setBackground(e.target.value)}
+                              >
+                                書籍
+                              </div>
                               <div className="item-text">Books</div>
                             </div>
                           </div>

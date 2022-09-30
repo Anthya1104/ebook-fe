@@ -16,7 +16,7 @@ function OwnedBooks() {
         {getRecentBookData.length === 0 ? (
           <></>
         ) : (
-          <div className="Bookshelf-recent-title position-absolute top-50 end-0">
+          <div className="Bookshelf-recent-title position-absolute end-0">
             <h2>最近閱讀</h2>
             <div>
               <svg
