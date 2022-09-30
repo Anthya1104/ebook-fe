@@ -284,7 +284,9 @@ $Bookshelf_recent_translateY: 40px;
   transform: skew(-20deg);
   transition:.4s;
   & h5{
-    padding-top:10px;
+    padding-top:6px;
+  
+    text-align: center;
     transform: skew(20deg);
 
   }
