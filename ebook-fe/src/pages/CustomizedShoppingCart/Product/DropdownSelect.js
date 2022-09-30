@@ -5,7 +5,7 @@ function DropdownSelect() {
     <div className="ProductList-select-dropdown mt-2">
       <Dropdown>
         <Dropdown.Toggle
-        className='me-3 ProductList-mobile-btn'
+        className='me-3 ProductList-mobile-btn ShoppingCart-btn-border-radius'
         variant="primary" id="dropdown-basic">
           價格
         </Dropdown.Toggle>
@@ -21,7 +21,7 @@ function DropdownSelect() {
 
       <Dropdown>
         <Dropdown.Toggle 
-        className='ProductList-mobile-btn'
+        className='ProductList-mobile-btn ShoppingCart-btn-border-radius'
         variant="primary" id="dropdown-basic">
           出版社
         </Dropdown.Toggle>

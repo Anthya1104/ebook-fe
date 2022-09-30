@@ -33,6 +33,7 @@
   width: 200px;
   border: #661f1e 2px solid;
   border-radius: 5px;
+  
 }
 
 //RWD 搜尋書名的輸入框
@@ -52,10 +53,31 @@
   font-size: 30px;
 }
 
-//按鈕的border-radius
+//按鈕的border-radius & hover
 .ShoppingCart-btn-border-radius {
   border-radius: 5px;
-  
+  svg {
+    transform: translate(-5px, -2px);
+    fill: #661f1e;
+  }
+  &:hover {
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
+.ProductList-btn-cart {
+  border-radius: 5px;
+  svg {
+    transform: translate(-5px, -2px);
+    fill:#fff ;
+  }
+  &:hover {
+    svg {
+      fill: #661f1e;
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -90,7 +112,7 @@
   }
   .card-body {
     background: white;
-    height: 120px;
+    height: 150px;
     width: 200px;
   }
   .ProductList-bookname {
@@ -129,7 +151,7 @@
   //搜尋框
   .ProductList-SearchBookNameBox {
     width: 280px;
-    height: 36px;
+    height: 34px;
   }
   //顯示書名搜尋框
   .ProductList-mobile-SearchBookNameBox {
