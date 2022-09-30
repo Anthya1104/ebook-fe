@@ -36,7 +36,7 @@ function SingleCart(props, couponAmount0) {
 
   //購物車/我的收藏 setState
   const [tab, setTab] = useState('cart')
-  const [couponAmount, setCouponAmount] = useState(0)
+  // const [couponAmount, setCouponAmount] = useState(0)
 
   const onClickTab = (tab) => () => {
     setTab(tab)
