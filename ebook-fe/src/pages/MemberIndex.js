@@ -5,8 +5,9 @@ import MemberPic from './memberindexcategory/member.png'
 import Bar from './memberindexcategory/decobar-2.png'
 import BarDesktop from './memberindexcategory/decobar.png'
 import Progressbar from './memberindexcategory/progress.jpg'
-// auth
+import Card from '@mui/material/Card'
 import { useAuth } from '../Context/auth'
+import order from '../img/order.svg'
 
 function MemberIndex() {
   const { member, setMember } = useAuth()
@@ -19,42 +20,39 @@ function MemberIndex() {
   // }
   return (
     <>
-      <div className="container-xxl d-flex-column justify-context-center">
-        <div className="member-header d-flex">
-          <div className="">
+      <div className="container justify-context-center">
+        <Card sx={{ maxWidth: 1067, height: 200 }} className="mt-5 ml-5">
+          <div className="member-header d-flex ml-5 my-5 mb-3 d-flex">
             <img className="member-pic" src={MemberPic} alt="memberpic" />
+            <div className="member-info">
+              <ul className="member-information">
+                <li className="member-information-1">
+                  <p>會員姓名 : 王大明</p>
+                </li>
+                <li className="member-information-2">
+                  <p>會員等級 : 銀卡</p>
+                </li>
+              </ul>
+            </div>
+            <div className="member-info">
+              <ul className="member-information">
+                <li className="member-information-3">
+                  <p>會員帳號 : wangdaming</p>
+                </li>
+                <li className="member-information-4">
+                  <p>加入會員日 : 2022/08/02 </p>
+                </li>
+              </ul>
+            </div>
           </div>
-
-          <div className="member-info">
-            <ul className="member-information">
-              <li className="member-information-1">
-                <a>會員姓名 : 王大明</a>
-              </li>
-              <li className="member-information-2">
-                <a>會員等級 : 銀卡</a>
-              </li>
-            </ul>
+          {/* 進度條 */}
+          <div className="">
+            <img className=" " src={Progressbar} alt="progressbar" />
           </div>
-
-          <div className="member-info">
-            <ul className="member-information">
-              <li className="member-information-3">
-                <a>會員帳號 : wangdaming</a>
-              </li>
-              <li className="member-information-4">
-                <a>加入會員日 : 2022/08/02 </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* 進度條 */}
-        <div className="progress-bar">
-          <img className="progressbar" src={Progressbar} alt="progressbar" />
-        </div>
+        </Card>
 
         {/* 裝飾bar */}
-        
+
         <div className="member-bar-desktop">
           <img src={BarDesktop} alt="bar" />
         </div>
@@ -65,19 +63,15 @@ function MemberIndex() {
         <div className="member-container">
           <ul className="d-flex row flex-wrap">
             <div className="row justify-content-center member-category">
-              <li className="member-item col-4 m-5">
+              <div className="btn product-category col m-3">
+                <img className="member-icon" src={order} alt="" />
+
                 <Link className="member-word" to="/Member/order">
-                  <img
-                    className="member-icon"
-                    src={require('../pages/memberindexcategory/order.png')}
-                    alt=""
-                  />
                   <br />
                   訂單相關查詢{' '}
                 </Link>
-              </li>
-
-              <li className="member-item col-4 m-5">
+              </div>
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
@@ -88,8 +82,7 @@ function MemberIndex() {
                   會員資料修改{' '}
                 </a>
               </li>
-
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
@@ -100,10 +93,7 @@ function MemberIndex() {
                   修改密碼{' '}
                 </a>
               </li>
-            </div>
-
-            <div className="row justify-content-center member-category">
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <Link className="member-word" to="/Member/bookshelf">
                   <img
                     className="member-icon"
@@ -114,8 +104,10 @@ function MemberIndex() {
                   我的專屬書櫃{' '}
                 </Link>
               </li>
+            </div>
 
-              <li className="member-item col-4 m-5">
+            <div className="row justify-content-center member-category">
+              <li className="btn product-category  col m-3">
                 <Link className="member-word" to="/Member/coupon">
                   <img
                     className="member-icon"
@@ -126,8 +118,7 @@ function MemberIndex() {
                   我的優惠券{' '}
                 </Link>
               </li>
-
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
@@ -138,10 +129,7 @@ function MemberIndex() {
                   我的里程碑{' '}
                 </a>
               </li>
-            </div>
-
-            <div className="row justify-content-center member-category">
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
@@ -153,7 +141,7 @@ function MemberIndex() {
                 </a>
               </li>
 
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
@@ -164,8 +152,10 @@ function MemberIndex() {
                   儲值{' '}
                 </a>
               </li>
+            </div>
 
-              <li className="member-item col-4 m-5">
+            <div className="row justify-content-center member-category">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
@@ -176,22 +166,17 @@ function MemberIndex() {
                   常見問題{' '}
                 </a>
               </li>
-            </div>
-
-            <div className="row justify-content-center member-category">
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
-                    src={require('../pages/memberindexcategory/gift.png')}
-                    alt=""
+                    src=
                   />
                   <br />
                   贈送紀錄{' '}
                 </a>
               </li>
-
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
@@ -202,8 +187,7 @@ function MemberIndex() {
                   訊息通知紀錄{' '}
                 </a>
               </li>
-
-              <li className="member-item col-4 m-5">
+              <li className="btn product-category  col m-3">
                 <a className="member-word" href="#">
                   <img
                     className="member-icon"
