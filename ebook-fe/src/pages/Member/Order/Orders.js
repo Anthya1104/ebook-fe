@@ -137,11 +137,16 @@ function Orders() {
         <img className="img-fluid" src={line} alt="line" />
         <div className="mobile-search">
           <div className="mb-3 d-flex justify-content-end">
-            <input ref={inputValue1} type="text" placeholder="搜尋訂單編號" />
+            <input
+              ref={inputValue1}
+              className="order-BtnRadius"
+              type="text"
+              placeholder="搜尋訂單編號"
+            />
             <div>
               <button
                 onClick={onSnSearchClick}
-                className="ms-2 btn btn-primary"
+                className="ms-2 btn btn-primary order-BtnRadius"
               >
                 搜尋
               </button>
@@ -205,7 +210,7 @@ function Orders() {
 
         <div>
           <Button
-            className="tab_background btn-primary-reverse"
+            className="tab_background btn-primary-reverse order-BtnRadius"
             onClick={(e) => {
               onButtonClick('', e)
             }}
@@ -213,7 +218,7 @@ function Orders() {
             <p className="btn_word">所有訂單</p>
           </Button>
           <Button
-            className="tab_background btn-primary-reverse tab_fix
+            className="tab_background btn-primary-reverse tab_fix order-BtnRadius
             "
             onClick={(e) => {
               onButtonClick('finished', e)
@@ -222,7 +227,7 @@ function Orders() {
             <p className="btn_word">已完成</p>
           </Button>
           <Button
-            className="tab_background btn-primary-reverse tab_fix
+            className="tab_background btn-primary-reverse tab_fix order-BtnRadius
             "
             onClick={(e) => {
               onButtonClick('notFinished', e)
@@ -278,7 +283,7 @@ function Orders() {
                   <div className="d-flex">
                     <CardActions className="col justify-content-center detail-icon">
                       <Link to={`${o.id}`}>
-                        <Button className="o-button btn-primary-reverse">
+                        <Button className="o-button btn-primary-reverse order-BtnRadius">
                           完整訂單
                         </Button>
                       </Link>
