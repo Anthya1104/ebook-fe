@@ -356,9 +356,11 @@ function CouponList() {
         {/* 麵包屑 */}
         <div className="cu-bd">
           <Breadcrumb>
-            <Breadcrumb.Item href="http://localhost:3005">首頁</Breadcrumb.Item>
-            <Breadcrumb.Item href="../../Member">會員專區</Breadcrumb.Item>
-            <Breadcrumb.Item active>優惠券</Breadcrumb.Item>
+            <Breadcrumb.Item className="coupon-bread" href="http://localhost:3005">首頁</Breadcrumb.Item>
+            <Breadcrumb.Item className="coupon-bread" href="../../member-index">
+              會員專區
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active className="text-danger">優惠券</Breadcrumb.Item>
           </Breadcrumb>
         </div>
 
