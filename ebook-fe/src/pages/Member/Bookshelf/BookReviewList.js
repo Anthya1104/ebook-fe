@@ -110,7 +110,7 @@ function BookReviewList() {
             className={
               reviewValue.book_name === isEdit
                 ? 'Bookshelf-review-container Bookshelf-review-container-active row'
-                : 'Bookshelf-review-container row'
+                : 'Bookshelf-review-container row animate__animated animate__fadeInUp'
             }
           >
             <div className="col-sm-3">

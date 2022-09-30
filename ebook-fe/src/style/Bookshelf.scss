@@ -394,7 +394,6 @@ $Bookshelf_recent_translateY: 40px;
 .Bookshelf-on-category-list{
   display:flex;
   
-  
   @media(max-width:$mobile-break-point){
     flex-direction: column;
     align-items: center;
