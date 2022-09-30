@@ -8,13 +8,18 @@
 }
 
 .navbar{
-  display:flex;
-  height: 110px;
-  margin:0px;
+  z-index:2;
+  display: flex;
+  position:fixed !important;
+  top:0;
+  width: 100%;
+  height: 70px;
+  margin:0px 0px 70px 0px;
   background: $primary;
   @media(max-width:$mobile-break-point){
     display:none !important;
   }
+
 }
 
 .navbar-links{
@@ -23,16 +28,16 @@
 
 
 .menu{
-  display:none;
-  font-size: $h4-font-size;
-  .selected{
-    color:red;
-  }
+  display:flex;
+  font-size: $h5-font-size;
+
   font-weight: bold;
 }
 
 .menu-1{
-  margin-left: 230px;
+  display:flex;
+  width:80%;
+  margin:auto;
 }
 
 .menu-home{
@@ -48,7 +53,7 @@
 }
 
 .ebooklogo{
-  width: 80px;
+  width: 48px;
 }
 
 .navbar-login{
@@ -119,7 +124,7 @@
 }
 
 .menu-2{
-  margin-left: 580px;
+  display:flex;
 }
 
 .menu-2-icon{

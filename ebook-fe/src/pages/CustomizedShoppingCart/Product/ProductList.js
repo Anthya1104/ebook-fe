@@ -1,14 +1,11 @@
 import { useState, useParam, useEffect, useRef } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-
 import { useCart } from '../utils/useCart'
-
 import './ProductList.scss'
 import '../../../img/book.jpg'
 import { Link } from 'react-router-dom'
 import TopCategory from '../../Mart/TopCategory/TopCategory'
-
 import { useSecondCart } from '../utils/useSecondCart'
 
 import axios from 'axios'
@@ -149,16 +146,6 @@ function ProductList(props) {
         <Button variant="primary" onClick={handleClose}>
           繼續購物
         </Button>
-        {/* <Button
-          variant="primary"
-          onClick={() => {
-            // 導向購物車頁面
-            // props.history.push('/')
-            navigate('/Cart/WishList', { replace: true })
-          }}
-        >
-          {productBtn}
-        </Button> */}
       </Modal.Footer>
     </Modal>
   )
@@ -173,7 +160,7 @@ function ProductList(props) {
               key={v.id}
             >
               <div className="card ProductList-card">
-                <Link to={'/Cart/ProductDetail/' + v.id}>
+                <Link to={'/Cart/ProductDetail/' + v.id} style={{ textDecoration: 'none' }}>
                   {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
                   <img
                     src={v.book_img}
@@ -189,9 +176,8 @@ function ProductList(props) {
                       <h5 className="card-title ProductList-author">
                         {v.author}
                       </h5>
-                      {/* 這裡只是放一些商品的描述說明。這裡只是放一些商品的描述說明。 */}
                     </p>
-                    <p className="card-text text-danger">$ {v.price}元</p>
+                    <p className="card-text text-danger ProductList-price-text">$ {v.price}元</p>
                   </div>
                 </Link>
                 <div className="my-2 ProductList-mobile-btn-outer">
@@ -235,9 +221,20 @@ function ProductList(props) {
   return (
     <>
       <TopCategory cat={cat} setCat={setCat} />
-      {/* <Slick /> */}
-      <DropdownSelect />
-      {/* <DropdownSelectPublisher /> */}
+      {/* RWD用下拉分類&搜尋框 */}
+      <div className="ProductList-DropdownAndSearchBook">
+        <div className="ProductList-mobile-SearchBookNameBox">
+          <input
+            className="ProductList-SearchBookNameBox"
+            type="text"
+            value={searchBookName}
+            placeholder="搜尋書名"
+            onChange={(e) => setSearchBookName(e.target.value)}
+          />
+        </div>
+        <DropdownSelect />
+      </div>
+      {/* RWD用下拉分類&搜尋框 */}
       <div className="my-5"></div>
       <div className="d-flex">
         <div className="me-5 ProductList-showSelect">
@@ -257,7 +254,7 @@ function ProductList(props) {
             setSearchPublisher={setSearchPublisher}
           />
         </div>
-        <div className='ProductList-product-width'>
+        <div className="ProductList-product-width">
           {messageModal}
           {messageModal2}
           {display}

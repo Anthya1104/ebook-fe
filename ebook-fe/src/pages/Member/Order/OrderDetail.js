@@ -8,7 +8,7 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import Chat from '../../../img/Chat.png'
-import Back from '../../../img/back.png'
+import Back from '../../../img/order-back.png'
 import DetailLine from '../../../img/DetailLine.png'
 import DetailDash from '../../../img/DetailDash.svg'
 import ScrollToTop from './Component/ScrollToTop'
@@ -65,7 +65,14 @@ function OrderDetail() {
   return (
     <>
       <div className="container">
-      <ScrollToTop />
+        {' '}
+        <div className="o-back">
+          <Link className="mx-2" to="/Member/order">
+            <img src={Back} alt="" />
+          </Link>
+          <h5 className="mx-2 text-white">返回</h5>
+        </div>
+        <ScrollToTop />
         <Card sx={{ maxWidth: 1067, height: 200 }}>
           <div className="orderCardBackground">
             <CardContent>
@@ -90,13 +97,13 @@ function OrderDetail() {
                 </Typography>
               </div>
               <div className="d-flex justify-content-around">
-                <div>
+                {/* <div>
                   <Link className="mx-2" to="/Member/order">
                     <img src={Back} alt="" />
                   </Link>
                   <br></br>
                   <h5 className="mx-2 text-white">返回</h5>
-                </div>
+                </div> */}
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -104,7 +111,8 @@ function OrderDetail() {
                   className="mb-3 text-white"
                 >
                   {/* 透過後端求總比數 */}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{createOrderAmount()}<br></br>商品數量
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{createOrderAmount()}
+                  <br></br>商品數量
                 </Typography>
                 <div>
                   <img className="img-fluid" src={DetailLine} alt="Line" />
@@ -118,13 +126,13 @@ function OrderDetail() {
                   {createOrderStatus()}
                   訂單狀態
                 </Typography>
-                <div>
+                {/* <div>
                   <Link className="mx-2" to="/Chat">
                     <img src={Chat} alt="Chat" />
                   </Link>
                   <br></br>
                   <h5 className="text-white">詢問客服</h5>
-                </div>
+                </div> */}
               </div>
             </CardContent>
           </div>
@@ -149,7 +157,9 @@ function OrderDetail() {
                       component="div"
                       className="mb-3"
                     >
-                      {v.book_name}
+                      <Link to={`/Cart/ProductDetail/${v.id}`}>
+                        {v.book_name}
+                      </Link>
                     </Typography>
                     <Typography variant="h6" className="mb-2">
                       {v.book_subtitle}

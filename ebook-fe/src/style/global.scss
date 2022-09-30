@@ -21,6 +21,13 @@ $mobile-break-point:768px;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+.Layout-outlet-position{
+  transform: translateY(70px);
+  @media(max-width:$mobile-break-point){
+    transform: translateY(0px);
+  }
+}
+
 .btn-primary{
   border-radius: 0;
   &:hover{
@@ -149,4 +156,3 @@ $mobile-break-point:768px;
   }
   
 }
-

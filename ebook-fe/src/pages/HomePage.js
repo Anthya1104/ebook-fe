@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../style/Homepage.scss'
 import Homepagebackground from './memberindexcategory/homepagebackground.png'
 import Books from './memberindexcategory/books.png'
@@ -10,31 +10,17 @@ import { Link } from 'react-router-dom'
 import { FaCompactDisc } from 'react-icons/fa'
 
 function HomePage() {
-  const [homePageBackground, setHomePageBackground] = useState('')
-  const onPointerEnter = (key, e) => {
-    let background = []
-    switch (key) {
-      case 'Book':
-        background = Books
-        break
-      case 'Novel':
-        background = Novel
-        break
-      case 'Comic':
-        background = Comic
-        break
-      case 'Magazine':
-        background = Magazine
-        break
-      case 'AudioBook':
-        background = Audiobook
-        break
-      default:
-        background = Homepagebackground
-        break
-    }
-    setHomePageBackground(background)
+  const baclgrounds = {
+    Book: <img src={Books} />,
+    Novel: <img src={Novel} />,
+    Comic: <img src={Comic} />,
+    Magazine: <img src={Magazine} />,
+    Audiobook: <img src={Audiobook} />,
   }
+  const [background, setBackground] = useState()
+  useEffect(() => {
+    document.body.style.background = background
+  }, [background])
 
   return (
     <>
@@ -104,9 +90,7 @@ function HomePage() {
                             <div className="animated">
                               <div
                                 className="item-title"
-                                onPointerEnter={(e) => {
-                                  onPointerEnter('Book', e)
-                                }}
+                                onChange={(e) => setBackground(e.target.value)}
                               >
                                 書籍
                               </div>
