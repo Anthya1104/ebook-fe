@@ -63,6 +63,7 @@ $Bookshelf_recent_translateY: 40px;
   }
 }
 .Bookshelf-mobile-review-area{
+  transition: .4s;
   background:$primary;
   .Bookshelf-close-btn{
     transform: translateY(5px) translateX(-5px);
@@ -183,7 +184,7 @@ $Bookshelf_recent_translateY: 40px;
 .Bookshelf-popup-reviews{
   transform: translateX(350px);
   width: 500px;
-  background: $primary;
+  background:linear-gradient(289.4deg, #000000 -2.14%, rgba(38, 12, 11, 0.625) 30.34%, rgba(102, 31, 30, 0) 114%), $primary;
   color:#fff;
  textarea{
   padding:15px;
@@ -191,6 +192,8 @@ $Bookshelf_recent_translateY: 40px;
   height:200px;
  }
  .Bookshelf-close-btn{
+  background:none;
+  border: 1px solid rgba(0,0,0,0);
   &:hover{
     color:$body-bg;
     background:none;
@@ -258,6 +261,7 @@ $Bookshelf_recent_translateY: 40px;
   width:100%;
   background:$body-bg;
   color:$primary;
+  transition: .4s;
 
   &:hover{
     background:$primary;
@@ -376,6 +380,7 @@ $Bookshelf_recent_translateY: 40px;
 .Bookshelf-on-category-list{
   display:flex;
   
+  
   @media(max-width:$mobile-break-point){
     flex-direction: column;
     align-items: center;
@@ -383,6 +388,7 @@ $Bookshelf_recent_translateY: 40px;
   }
 }
 .Bookshelf-bookCollection{
+  transition:.4s;
   margin:15px auto;
 
   @media(max-width:$mobile-break-point){
@@ -430,6 +436,7 @@ $Bookshelf_recent_translateY: 40px;
   border-bottom: 1px dashed $primary;
   margin-bottom: 30px;
   padding:50px;
+  transition: .4s;
   // background:red;
 
   .col-sm-3{
