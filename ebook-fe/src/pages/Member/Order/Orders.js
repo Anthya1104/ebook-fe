@@ -116,7 +116,7 @@ function Orders() {
 
   return (
     <>
-      {(() => {
+      {/* {(() => {
         if (order.length === 0) {
           alert('尚無訂單，請先到商品頁購書喔!')
           return (
@@ -125,7 +125,7 @@ function Orders() {
             </>
           )
         }
-      })()}
+      })()} */}
       <div className="container">
         <ScrollToTop />
         <BreadCrumb />
@@ -273,7 +273,7 @@ function Orders() {
                   </Typography>
                   <CardActions className="col justify-content-center">
                     <Link to={`${o.id}`}>
-                      <Button className="puzzle-button">完整訂單</Button>
+                      <Button className="o-button">完整訂單</Button>
                     </Link>
                   </CardActions>
                 </CardContent>

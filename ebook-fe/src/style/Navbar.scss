@@ -8,10 +8,12 @@
 }
 
 .navbar{
+  position: fixed;
   display:flex;
-  height: 110px;
+  height: 70px;
   margin:0px;
-  background: $primary;
+  background: white;
+  box-shadow: 3px 2px 1px;
   @media(max-width:$mobile-break-point){
     display:none !important;
   }
@@ -24,7 +26,7 @@
 
 .menu{
   display:none;
-  font-size: $h4-font-size;
+  font-size: $h5-font-size;
   .selected{
     color:red;
   }
@@ -35,20 +37,31 @@
   margin-left: 230px;
 }
 
-.menu-home{
-  text-decoration: none;
-  list-style: none;
-  font-weight: bold;
-  padding-top: 3px;
-}
+// .menu-home{
+//   display: block;
+//   text-decoration: none;
+//   list-style: none;
+//   font-weight: bold;
+//   padding-top: 3px;
+//   border-bottom: 3px solid transparent;
+// }
+// .menu-home:hover{
+//   border-bottom:3px solid $primary;
+// }
 
 .menu-list{
+  display: block;
   text-decoration: none;
+  font-weight: bold;
   list-style: none;
+  border-bottom: 3px solid transparent;
+}
+.menu-list:hover{
+  border-bottom:3px solid $primary;
 }
 
 .ebooklogo{
-  width: 80px;
+  width: 50px;
 }
 
 .navbar-login{
@@ -70,7 +83,7 @@
 // Navbar-Search 搜尋
 
 .searchBox {
-  background: #803E3D;
+  background: $primary;
   height: 38px;
   border-radius: 40px;
   margin-top: 4px;
@@ -82,7 +95,7 @@
 }
 
 .searchBox:hover > .searchButton {
-  background: #803E3D;
+  background: white;
   border-radius: 50%;
 }
 
@@ -91,7 +104,7 @@
   width: 38px;
   height: 38px;
   // border-radius: 50%;
-  background: #612021;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,13 +112,12 @@
 }
 
 .searchInput {
-  // background: #803E3D;
   border:none;
   background: none;
   outline:none;
   float:left;
   padding: 0;
-  font-size: 20px;
+  font-size: 12px;
   transition: 0.4s;
   line-height: 35px;
   width: 0px;
@@ -131,8 +143,9 @@
 }
 
 .navbar-separate{
-  color: #D99282;
+  color: $primary;
   padding-top: 8px;
+  font-weight:bolder;
 }
 
 // mobile
@@ -168,7 +181,6 @@
         cursor: pointer;
       }
     .Navbar-hamburger-items{
-
       margin: 6px 0px;    
       width: 35px;
       height: 6px;
