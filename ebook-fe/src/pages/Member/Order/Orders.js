@@ -208,14 +208,14 @@ function Orders() {
           </div>
         </div>
 
-        <div>
+        <div className="Order-tabs">
           <Button
             className="tab_background btn-primary-reverse order-BtnRadius"
             onClick={(e) => {
               onButtonClick('', e)
             }}
           >
-            <p className="btn_word">所有訂單</p>
+            <div className="btn_word">所有訂單</div>
           </Button>
           <Button
             className="tab_background btn-primary-reverse tab_fix order-BtnRadius
@@ -224,7 +224,7 @@ function Orders() {
               onButtonClick('finished', e)
             }}
           >
-            <p className="btn_word">已完成</p>
+            <div className="btn_word">已完成</div>
           </Button>
           <Button
             className="tab_background btn-primary-reverse tab_fix order-BtnRadius
@@ -233,7 +233,7 @@ function Orders() {
               onButtonClick('notFinished', e)
             }}
           >
-            <p className="btn_word">已取消</p>
+            <div className="btn_word">已取消</div>
           </Button>
         </div>
 
