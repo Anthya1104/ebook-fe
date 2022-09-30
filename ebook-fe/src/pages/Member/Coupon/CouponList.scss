@@ -1,15 +1,29 @@
 // @import '../../../style/global.scss';
-// .coupon-bg{
-//     border: 0px;
-//     background: rgba($color: #ffffff, $alpha: 0);
+
+
+// mui style
+//   .coupon-card{
+//     width: 343px;
+//     height: 147px;
+//     // background-image: url("../../../img/coupon.png") ;
+//     // background-image: url("../../../img/test-coupon.png") ;
+//     background-image: url("../../../img/coupons.png") ;
 // }
 
-.CouponPage{
-  .coupon-card{
-    width: 343px;
-    height: 147px;
-    // background-image: url("../../../img/coupon.png") ;
-    background-image: url("../../../img/test-coupon.png") ;
+.coupon-size{
+  width: 450px;
+  height: 200px;
+  // background-image: url("../../../img/coupon-stroke.png") ;
+  background-image: url("../../../img/coupon-light.png") ;
+}
+
+.coupon-text-margin{
+  margin-top: 24px;
+  margin-left: 80px;
+}
+
+.coupon-img-pd{
+  margin-left: 44px;
 }
 
 // .cu-bd{
@@ -45,6 +59,8 @@
   color: white;
   padding: 10px;
 }
+
+
 
 
 // .coupon-option{
@@ -100,4 +116,4 @@
 
 
 
-}
+
