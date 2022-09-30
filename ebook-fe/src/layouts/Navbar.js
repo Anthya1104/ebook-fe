@@ -42,14 +42,20 @@ function Navbar() {
             >
               聊天室
             </a>
-
+            <a
+              className="mx-4 text-decoration-none"
+              href="http://localhost:3000/chats"
+            >
+              聊天室
+            </a>
+            {/* 
             <NavLink className="menu-list mx-1" to="/Materials">
               Material Reference
-            </NavLink>
+            </NavLink> */}
 
-            <NavLink className="menu-list mx-1" to="/Preview">
+            {/* <NavLink className="menu-list mx-1" to="/Preview">
               Preview
-            </NavLink>
+            </NavLink> */}
           </div>
 
           <div className="menu-2 align-items-center justify-content-end d-flex">
@@ -74,7 +80,7 @@ function Navbar() {
                 <img className="navbar-login" src={Login} alt="Login" />
               </NavLink>
 
-              <NavLink className="menu-2-icon mx-2" to="/Preview">
+              <NavLink className="menu-2-icon mx-2" to="/Cart/WishList">
                 <img
                   className="navbar-favoritelist"
                   src={Favoritelist}

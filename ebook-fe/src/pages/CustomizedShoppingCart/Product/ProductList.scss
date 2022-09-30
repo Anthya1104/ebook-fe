@@ -47,6 +47,10 @@
   display: none;
 }
 
+.ProductList-product-width {
+  width: 100%;
+}
+
 @media (max-width: 600px) {
   //最上面分類篩選區
   .ProductList-showTopCategory {
