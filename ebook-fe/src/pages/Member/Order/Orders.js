@@ -210,7 +210,7 @@ function Orders() {
 
         <div className="Order-tabs">
           <Button
-            className="tab_background btn-primary-reverse order-BtnRadius"
+            className="tab_background btn-primary-reverse"
             onClick={(e) => {
               onButtonClick('', e)
             }}
@@ -218,7 +218,7 @@ function Orders() {
             <div className="btn_word">所有訂單</div>
           </Button>
           <Button
-            className="tab_background btn-primary-reverse tab_fix order-BtnRadius
+            className="tab_background btn-primary-reverse tab_fix
             "
             onClick={(e) => {
               onButtonClick('finished', e)
@@ -227,7 +227,7 @@ function Orders() {
             <div className="btn_word">已完成</div>
           </Button>
           <Button
-            className="tab_background btn-primary-reverse tab_fix order-BtnRadius
+            className="tab_background btn-primary-reverse tab_fix
             "
             onClick={(e) => {
               onButtonClick('notFinished', e)
