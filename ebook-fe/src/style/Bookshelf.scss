@@ -284,7 +284,9 @@ $Bookshelf_recent_translateY: 40px;
   transform: skew(-20deg);
   transition:.4s;
   & h5{
-    padding-top:10px;
+    padding-top:6px;
+  
+    text-align: center;
     transform: skew(20deg);
 
   }
@@ -372,6 +374,18 @@ $Bookshelf_recent_translateY: 40px;
     .Bookshelf-is-read-toggle{
       display:flex;
       justify-content: end;
+      & :hover{
+        transform: translateX(5px);
+      }
+      .toggle-primary-active, .toggle-primary{
+        .px-2, .toggle-inside{
+          &:hover{
+             transform: translateX(0px);
+          }
+         
+        }
+      }
+    
 
     }
 // 書卡片

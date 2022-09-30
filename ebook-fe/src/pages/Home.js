@@ -11,6 +11,9 @@ function Home() {
         <HomePage />
         <div className="Home-container container-xxl d-flex-column justify-context-center">
           <div className="Home-title">
+            <h3>人氣作家</h3>
+          </div>
+          <div className="Home-title">
             <h3>線上書展</h3>
           </div>
           <Slider />
