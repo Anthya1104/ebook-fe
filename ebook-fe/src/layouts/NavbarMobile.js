@@ -80,9 +80,16 @@ function NavbarMobile() {
             <div className="Navbar-hamburger-items-flip"></div>
           </div>
           <ul>
-            <NavLink to="/Login" style={{ textDecoration: 'none' }}>
-              <li className="Navbar-login-area">登入/註冊</li>
-            </NavLink>
+            {member ? (
+              <NavLink to="/member-index" style={{ textDecoration: 'none' }}>
+                <li className="Navbar-login-area">會員專區</li>
+              </NavLink>
+            ) : (
+              <NavLink to="/Login" style={{ textDecoration: 'none' }}>
+                <li className="Navbar-login-area">登入/註冊</li>
+              </NavLink>
+            )}
+
             <NavLink to="/Cart/product-list" style={{ textDecoration: 'none' }}>
               <li>商城</li>
             </NavLink>
