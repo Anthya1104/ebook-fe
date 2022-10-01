@@ -7,7 +7,7 @@ import iconFull from '../../img/full-screen.png'
 import styles from '../Preview/Index.module.css'
 import CollectModal from './Modal/CollectModal'
 import ShoppingCart from './Modal/ShoppingCart'
-import ReactPDF from './React-pdf/ReactPDF(test3)'
+import ReactPDF from './React-pdf/ReactPDF(test3-1)'
 
 function Headers() {
   return (
@@ -16,13 +16,13 @@ function Headers() {
         <ul className={styles.iconStart}>
           <li className={styles.iconLi}>
             <Link to="/Cart/ProductDetail/5">
-              <img src={iconBack} alt="" />
+              <img className={styles.pricon} src={iconBack} alt="" />
               <p>返回</p>
             </Link>
           </li>
           <li className={styles.book}>
             <button>
-              <img src={iconMenu} alt="" />
+              <img className={styles.pricon} src={iconMenu} alt="" />
               <p>目錄</p>
             </button>
             <div>
@@ -63,12 +63,12 @@ function Headers() {
           </div>
           <li className={styles.book}>
             <button>
-              <img src={iconShare} alt="" />
+              <img className={styles.pricon} src={iconShare} alt="" />
               <p>分享</p>
             </button>
           </li>
           <button className={styles.iconEndButton}>
-            <img src={iconFull} alt="" />
+            <img className={styles.pricon} src={iconFull} alt="" />
             <p>專注模式</p>
           </button>
         </ul>

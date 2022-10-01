@@ -21,7 +21,7 @@
 }
 
 .headers {
-  max-height: 130px;
+  max-height: 105px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -68,7 +68,7 @@
 .title {
   color: var(--color3);
   justify-content: center;
-  padding-top: var(--6);
+  padding-top: var(--4);
 }
 
 .iconEnd {
@@ -170,4 +170,7 @@
   opacity: 1;
   pointer-events: all;
   transform: translateY(0px);
+}
+.pricon {
+  width: 40px;
 }

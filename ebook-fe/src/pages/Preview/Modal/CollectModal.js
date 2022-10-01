@@ -9,6 +9,7 @@ import Slide from '@mui/material/Slide'
 import { TransitionProps } from '@mui/material/transitions'
 import iconBook from '../../../img/book.png'
 import iconCheack from '../../../img/check(1).png'
+import styles from '../Index.module.css'
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -42,7 +43,7 @@ export default function AlertDialogSlide() {
         variant="outlined"
         onClick={handleClickOpen}
       >
-        <img src={iconBook} alt="" />
+        <img className={styles.pricon} src={iconBook} alt="" />
         <p style={{ fontSize: '15px' }}>收藏</p>
       </Button>
       <Dialog
