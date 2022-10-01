@@ -13,7 +13,7 @@
     "@heroicons/react": "^2.0.11",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
-    "@pdftron/webviewer": "^8.8.0",
+    "@pdftron/webviewer": "^8.9.0",
     "@react-icons/all-files": "^4.1.0",
     "@react-pdf/renderer": "^3.0.0",
     "@reduxjs/toolkit": "^1.8.5",

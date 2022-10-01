@@ -47,6 +47,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import WishList from '../src/pages/CustomizedShoppingCart/ShoppingCart/WishList'
 import Preview2 from './pages/Preview/index2'
+import PreviewFocus from './pages/Preview/React-pdf/ReactPDF(test3-1)'
 
 library.add(fas, fab)
 
@@ -118,13 +119,13 @@ function App() {
               <Route path="materials" element={<Materials />} />
               {/* <Route path="SingleCart" element={<SingleCart />} /> */}
               {/* <Route path="Test" element={<Test />} /> */}
-              
             </Route>
             <Route path="test" element={<TestPage />} />
             {/* 404未找到的頁面路由，需放在最下方 */}
             <Route path="*" element={<NotFound />} />
             <Route path="Preview" element={<Preview />} />
             <Route path="Preview2" element={<Preview2 />} />
+            <Route path="Preview-focus" element={<PreviewFocus />} />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>

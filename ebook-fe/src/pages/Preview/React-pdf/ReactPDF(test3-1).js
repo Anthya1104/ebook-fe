@@ -4,7 +4,7 @@ import Pdf from './金錢心理學：打破你對金錢的迷思，學會聰明�
 import LeftIcon from '../../../img/left-arrow.png'
 import RightIcon from '../../../img/right-arrow.png'
 
-function App() {
+function PreviewFocus() {
   const [numPages, setNumPages] = useState(null)
   const [pageNumber, setPageNumber] = useState(1)
 
@@ -79,4 +79,4 @@ function App() {
     </div>
   )
 }
-export default App
+export default PreviewFocus

@@ -7,7 +7,7 @@ import iconFull from '../../img/full-screen.png'
 import styles from '../Preview/Index.module.css'
 import CollectModal from './Modal/CollectModal'
 import ShoppingCart from './Modal/ShoppingCart'
-import ReactPDF from './React-pdf/ReactPDF(test3-1)'
+import ReactPDF from './React-pdf/ReactPDF(test3)'
 
 function Headers() {
   return (
@@ -67,10 +67,12 @@ function Headers() {
               <p>分享</p>
             </button>
           </li>
-          <button className={styles.iconEndButton}>
-            <img className={styles.pricon} src={iconFull} alt="" />
-            <p>專注模式</p>
-          </button>
+          <Link to="/Preview-focus">
+            <button className={styles.iconEndButton}>
+              <img className={styles.pricon} src={iconFull} alt="" />
+              <p>專注模式</p>
+            </button>
+          </Link>
         </ul>
       </div>
     </div>
