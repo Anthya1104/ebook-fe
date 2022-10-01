@@ -338,13 +338,13 @@ function BookReviewList() {
   // isEdit
   const StyledRatingOnEdit = styled(Rating)({
     '& .MuiRating-iconEmpty': {
-      color: '#F5F5F5',
+      color: '#B48C8C',
     },
     '& .MuiRating-iconFilled': {
-      color: '#F5F5F5',
+      color: '#B48C8C',
     },
     '& .MuiRating-iconHover': {
-      color: '#F5F5F5',
+      color: '#B48C8C',
     },
   })
 

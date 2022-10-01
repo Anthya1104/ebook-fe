@@ -72,8 +72,8 @@ function OwnedBooks() {
             <Button
               className={
                 bookToggleState === 1
-                  ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
-                  : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+                  ? ' btn Bookshelf_category py-2 d-flex justify-content-center active'
+                  : 'btn Bookshelf_category py-2 d-flex justify-content-center'
               }
               onClick={() => {
                 setbookToggleState(1)
@@ -84,8 +84,8 @@ function OwnedBooks() {
             <Button
               className={
                 bookToggleState === 2
-                  ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
-                  : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+                  ? ' btn Bookshelf_category py-2 d-flex justify-content-center active'
+                  : 'btn Bookshelf_category py-2 d-flex justify-content-center'
               }
               onClick={() => {
                 setbookToggleState(2)
