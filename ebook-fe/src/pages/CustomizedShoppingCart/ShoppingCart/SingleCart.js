@@ -20,7 +20,7 @@ import './SingleCart.scss'
 //   cartTotal: 0,
 // }
 
-function SingleCart(props) {
+function SingleCart(props, couponAmount0) {
   //可從useCart中獲取的各方法與屬性，參考README檔中說明
   const {
     cart,
@@ -36,7 +36,7 @@ function SingleCart(props) {
 
   //購物車/我的收藏 setState
   const [tab, setTab] = useState('cart')
-  const [couponAmount, setCouponAmount] = useState(0)
+  // const [couponAmount, setCouponAmount] = useState(0)
 
   const onClickTab = (tab) => () => {
     setTab(tab)
@@ -50,6 +50,10 @@ function SingleCart(props) {
       setCouponAmount(couponAmount)
     }
   }
+
+/// 9/29優惠券
+const [couponAmount, setCouponAmount] = useState(couponAmount0)
+///
 
   return (
     <>
@@ -69,7 +73,7 @@ function SingleCart(props) {
           {/* <h4>購物車列表</h4> */}
 
           {/* 新加的 */}
-          <div className="">
+          {/* <div>
             <div
               className={`btn SingleCart-tab ${
                 tab === 'cart' ? 'SingleCart-active-state' : ''
@@ -84,9 +88,9 @@ function SingleCart(props) {
               }`}
               onClick={onClickTab('wishList')}
             >
-              {/* 我的收藏 */}
+              我的收藏
             </div>
-          </div>
+          </div> */}
           {/* 這裡要帶入參數 */}
           <ListItemsWithHook
             tab={tab}
@@ -96,7 +100,7 @@ function SingleCart(props) {
         </>
       ) : step === 2 ? (
         <div>
-          <Checkout handleStep={handleStep} />
+          <Checkout handleStep={handleStep} setCouponAmount={setCouponAmount}/>
         </div>
       ) : (
         <div>

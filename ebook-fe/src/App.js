@@ -49,6 +49,8 @@ import WishList from '../src/pages/CustomizedShoppingCart/ShoppingCart/WishList'
 import Preview2 from './pages/Preview/index2'
 import PreviewFocus from './pages/Preview/React-pdf/ReactPDF(test3-1)'
 
+// animate.css
+import 'animate.css'
 library.add(fas, fab)
 
 function App() {

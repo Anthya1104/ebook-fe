@@ -21,6 +21,8 @@ import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import { ThemeProvider } from '@emotion/react'
 
+
+
 // customized MUI Linear Progress
 const BookLinearProgress = styled(LinearProgress)(({ theme }) => ({
   width: 115,
@@ -87,7 +89,7 @@ function OwnedBooksList() {
 
       setGetCategories(response.data)
       console.log('firstRender', response.data)
-      // setOnCategory(response.data[0])
+      setOnCategory(response.data[0])
     }
     getCategories()
   }, [])
@@ -346,7 +348,7 @@ function OwnedBooksList() {
           這個分類沒有任何藏書唷，趕快去買新書，或新增一本已有藏書！
         </div>
       ) : (
-        <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4">
+        <div className="Bookshelf-on-category-list row row-cols-1 row-cols-md-4 animate__animated animate__fadeInUp">
           {onCategoryList.map((listValue) => {
             return createBookList(listValue)
           })}

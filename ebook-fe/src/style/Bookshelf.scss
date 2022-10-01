@@ -62,6 +62,32 @@ $Bookshelf_recent_translateY: 40px;
     justify-content: center;
   }
 }
+.Bookshelf-mobile-review-area{
+  transition: .4s;
+  background:$primary;
+  .Bookshelf-close-btn{
+    transform: translateY(5px) translateX(-5px);
+  }
+  .d-flex-column{
+    .d-flex{
+      transform: translateY(20px);
+      margin-bottom: 40px;
+      .Bookshelf-recentbook-avatar{
+        margin:0px 20px 0px 20px;
+        width: 46px;
+        height: 46px;
+      }
+    }
+    textarea{
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+    }
+    .Bookshelf-mobile-review-btns{
+      padding-bottom:40px;
+    }
+  }
+}
 
 .recent-book{
   width: 310px;
@@ -97,6 +123,19 @@ $Bookshelf_recent_translateY: 40px;
 
 .Bookshelf-recent-btn{
   transform: translate($Bookshelf_recent_translateX,65px);
+  
+    .Bookshelf-recent-review-mobile{
+      display:none;
+      @media(max-width:$mobile-break-point){
+        display:flex;
+      }
+    }
+    .Bookshelf-recent-review-desktop{
+      @media(max-width:$mobile-break-point){
+        display:none !important;
+      }
+    }
+  
 }
 
 .Bookshelf-recent-info{
@@ -145,7 +184,7 @@ $Bookshelf_recent_translateY: 40px;
 .Bookshelf-popup-reviews{
   transform: translateX(350px);
   width: 500px;
-  background: $primary;
+  background:linear-gradient(289.4deg, #000000 -2.14%, rgba(38, 12, 11, 0.625) 30.34%, rgba(102, 31, 30, 0) 114%), $primary;
   color:#fff;
  textarea{
   padding:15px;
@@ -153,6 +192,8 @@ $Bookshelf_recent_translateY: 40px;
   height:200px;
  }
  .Bookshelf-close-btn{
+  background:none;
+  border: 1px solid rgba(0,0,0,0);
   &:hover{
     color:$body-bg;
     background:none;
@@ -167,9 +208,8 @@ $Bookshelf_recent_translateY: 40px;
 
 // 分隔線
 .Bookshelf-recent-title{
-  @media(max-width:1440px){
-    transform:translateY(180px);
-  }
+  transform: translateY(350px);
+
   @media(max-width:$mobile-break-point){
     display:none;
   }
@@ -221,6 +261,7 @@ $Bookshelf_recent_translateY: 40px;
   width:100%;
   background:$body-bg;
   color:$primary;
+  transition: .4s;
 
   &:hover{
     background:$primary;
@@ -243,7 +284,9 @@ $Bookshelf_recent_translateY: 40px;
   transform: skew(-20deg);
   transition:.4s;
   & h5{
-    padding-top:10px;
+    padding-top:7px;
+  
+    text-align: center;
     transform: skew(20deg);
 
   }
@@ -331,6 +374,18 @@ $Bookshelf_recent_translateY: 40px;
     .Bookshelf-is-read-toggle{
       display:flex;
       justify-content: end;
+      & :hover{
+        transform: translateX(5px);
+      }
+      .toggle-primary-active, .toggle-primary{
+        .px-2, .toggle-inside{
+          &:hover{
+             transform: translateX(0px);
+          }
+         
+        }
+      }
+    
 
     }
 // 書卡片
@@ -346,6 +401,7 @@ $Bookshelf_recent_translateY: 40px;
   }
 }
 .Bookshelf-bookCollection{
+  transition:.4s;
   margin:15px auto;
 
   @media(max-width:$mobile-break-point){
@@ -393,6 +449,7 @@ $Bookshelf_recent_translateY: 40px;
   border-bottom: 1px dashed $primary;
   margin-bottom: 30px;
   padding:50px;
+  transition: .4s;
   // background:red;
 
   .col-sm-3{
@@ -407,12 +464,14 @@ $Bookshelf_recent_translateY: 40px;
         max-width:160px;
       }
       .Review-update-time{
+        margin-top:5px;
         font-size:0.8rem;
         color:$secondary;
       }
       .Review-update-time-active{
+        margin-top:5px;
         font-size:0.8rem;
-        color:$light;
+        color:$danger;
       }
     }
   }
@@ -424,6 +483,8 @@ $Bookshelf_recent_translateY: 40px;
     align-items:center;
     justify-content: center;
     .Review-close-btn{
+      font-size: 1.2rem;
+      color:$info;
       position:absolute;
       top:-25px;
       right:-30px;
@@ -433,9 +494,14 @@ $Bookshelf_recent_translateY: 40px;
         top:-350px;
       }
       &:hover{
-        color:$body-bg;
+        color:$info;
         background:none;
-        border:1px solid $body-bg;
+        border:1px solid $info;
+      }
+      &:active{
+        color:$info;
+        background:none;
+        border:1px solid $info;
       }
      }
     .Review-comments-btn{
@@ -453,17 +519,36 @@ $Bookshelf_recent_translateY: 40px;
 }
 
 .Bookshelf-review-container-active{
-  background-color:$danger;
-  color:$body-bg;
-  
+  // background-color:$info;
+  // color:$body-bg;
+  .col-sm-9{
+    .Review-comment-input{
+      width:95%;
+      height:70%;
+      padding:15px;
+      margin-bottom:15px;
+      border-radius: 15px;
+      border: 1px solid $light;
+      background:$info;
+      color:$body-bg;
+      &::placeholder{
+        color:$light;
+      }
+    }
+    .Review-comments-btn{
+      .btn-primary-reverse{
+        color:$info;
+        border: 1px solid $info;
+        &:hover{
+          background:$info;
+          color:$body-bg;
+        }
+      }
+    }
+  }
+
 }
-.Review-comment-input{
-  width:100%;
-  height:70%;
-  padding:15px;
-  margin-bottom:15px;
-  border-radius: 15px;
-}
+
 
 .Reviews-pagination-area{
   margin-bottom: 50px;

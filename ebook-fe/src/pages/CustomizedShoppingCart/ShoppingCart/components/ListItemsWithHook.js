@@ -9,13 +9,14 @@ import CouponModal from '../components/CouponModal'
 import { useState } from 'react'
 import { useSecondCart } from '../../utils/useSecondCart'
 import { Link } from 'react-router-dom'
-
 function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
 
+  /// 9/29優惠券
   const [couponAmount, setCouponAmount] = useState(couponAmount0)
+  ///
 
   const handleClick = (path) => () => {
     navigate(path)
@@ -34,12 +35,14 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            <th style={{ width: 160 }}>商品明細</th>
+            <th style={{ width: 160 }} className="SingleCart-tr">
+              商品明細
+            </th>
             <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
             <th>小計</th>
-            <th></th>
+            <th className="SingleCart-tr2"></th>
           </tr>
         </thead>
         <tbody className="co-text-color">
@@ -66,7 +69,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                   >
                     <button
                       type="button"
-                      className="btn btn-primary-reverse me-3"
+                      className="btn btn-primary-reverse me-3 ListItemsWithHook-mobile-btn-margin ShoppingCart-btn-border-radius"
                       onClick={() => {
                         removeItem(v.id)
                       }}
@@ -76,7 +79,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                     {tab === 'cart' ? (
                       <button
                         type="button"
-                        className="btn btn-primary-reverse"
+                        className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
                         onClick={() => {
                           const item = { ...v, quantity: 1 }
                           removeItem(v.id)
@@ -88,7 +91,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                     ) : (
                       <button
                         type="button"
-                        className="btn btn-primary-reverse"
+                        className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
                         onClick={() => {
                           removeItem(v.id)
                         }}
@@ -118,7 +121,22 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       </table>
 
       <div>
-        <div className="d-flex">
+        <div className="d-flex justify-content-end">
+          {/* <form>
+            <label className="ListItemsWithHook-placeholder">
+              <input
+                className="ListItemsWithHook-coupon-input"
+                type="text"
+                name="name"
+                placeholder="請輸入優惠券折扣碼"
+              />
+            </label>
+            <input
+              className="ListItemsWithHook-coupon-btn"
+              type="submit"
+              value="使用"
+            />
+          </form> */}
           <form>
             <CouponModal setCouponAmount={setCouponAmount} />
           </form>
@@ -135,12 +153,16 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
         <div className="d-flex justify-content-end">
           訂單小計: ＄{cart.cartTotal}
         </div>
-        <div className="d-flex justify-content-end">
+
+
+        {/* /// 9/29優惠券*/}
+        {/* <div className="d-flex justify-content-end">
           優惠金額: -{couponAmount}
         </div>
         <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
           優惠後金額：$ {cart.cartTotal - couponAmount}
-        </div>
+        </div> */}
+        {/* /// */}
 
         <br />
         {cart.isEmpty && '購物車為空'}
@@ -149,14 +171,14 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       <div className="d-flex justify-content-end mb-5">
         <button
           type="button"
-          className="btn btn-primary-reverse me-3"
+          className="btn btn-primary-reverse me-3 ShoppingCart-btn-border-radius"
           onClick={handleClick('/Cart/product-list')}
         >
           繼續購物
         </button>
         <button
           type="button"
-          className="btn btn-primary-reverse"
+          className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
           onClick={handleStep(2, couponAmount)}
         >
           結帳

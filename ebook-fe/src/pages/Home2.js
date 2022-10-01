@@ -12,15 +12,15 @@ function Home2() {
     const body = document.querySelector('body')
     const li = document.querySelectorAll('li')
 
-    li.forEach((el) => {
-      el.addEventListener('mouseover', () => {
-        let bg = el.getAttribute('data-bg')
-        body.style.background = `url(${bg})no-repeat center /cover`
-      })
-    })
+    // li.forEach((el) => {
+    //   el.addEventListener('mouseover', () => {
+    //     let bg = el.getAttribute('data-bg')
+    //     body.style.background = `url(${bg})no-repeat center /cover`
+    //   })
+    // })
   }, [])
   return (
-    <div className="body">
+    <div className="home-body">
       <ul>
         <li data-bg={Books}>
           <a href="#">書籍</a>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -60,9 +61,11 @@ function ProductInfo() {
                 </Button>
               </ButtonGroup>
               <ButtonGroup className="me-2">
-                <Button className="btn-danger">
-                  <img src={TrialIcon} alt="trial" /> 試閱
-                </Button>
+                <Link to="/Preview">
+                  <Button className="btn-danger">
+                    <img src={TrialIcon} alt="trial" /> 試閱
+                  </Button>
+                </Link>
               </ButtonGroup>
               <ButtonGroup className="me-2">
                 <Button className="btn-danger">
@@ -104,19 +107,19 @@ function ProductInfo() {
           </ButtonGroup>
           <div className="ProductInfo-detail"></div>
           <h4 id="detail">詳細書訊</h4>
-          <hr/>
-          <p className='mb-5'>{detail}</p>
+          <hr />
+          <p className="mb-5">{detail}</p>
           <h4 id="aboutAuthor">作者簡介</h4>
-          <hr/>
-          <p className='mb-5'>{aboutAuthor}</p>
+          <hr />
+          <p className="mb-5">{aboutAuthor}</p>
           <h4 id="aboutTranslator">譯者簡介</h4>
-          <hr/>
-          <p className='mb-5'>{aboutTranslator}</p>
+          <hr />
+          <p className="mb-5">{aboutTranslator}</p>
           <h4 id="recommended">好評推薦</h4>
-          <hr/>
-          <p className='mb-5'>{recommended}</p>
+          <hr />
+          <p className="mb-5">{recommended}</p>
           <h4 id="memberRecommended">會員評論</h4>
-          <hr/>
+          <hr />
           <div>
             {!!memberRecommended.length &&
               memberRecommended.map(

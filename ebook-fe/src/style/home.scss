@@ -3,7 +3,8 @@
 }
 
 .body {
-  background: #5d789d;
+  // background: #5d789d;
+  
 }
 
 .main {
@@ -11,13 +12,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   overflow: hidden;
+  
 }
 
 .home-container {
   display: flex;
   width: 90vw;
+
 }
 
 .panel {
@@ -25,7 +27,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 450px;
   border-radius: 20px;
   flex: 0.5;
   position: relative;

@@ -1,10 +1,3 @@
-// .ProductList-display-mobile-position {
-//   // background: #000;
-//   display: flex;
-//   // width: 1000px;
-//   justify-content: start;
-// }
-
 .ProductList-bookname {
   color: #661f1e;
   font-weight: bolder;
@@ -40,6 +33,12 @@
   width: 200px;
   border: #661f1e 2px solid;
   border-radius: 5px;
+  
+}
+
+//RWD 搜尋書名的輸入框
+.ProductList-mobile-SearchBookNameBox {
+  display: none;
 }
 
 //價格及出版社dropdown 手機版使用
@@ -49,6 +48,37 @@
 
 .ProductList-product-width {
   width: 100%;
+}
+.ProductList-price-text {
+  font-size: 30px;
+}
+
+//按鈕的border-radius & hover
+.ShoppingCart-btn-border-radius {
+  border-radius: 5px;
+  margin-right: 15px;
+  svg {
+    transform: translate(-5px, -2px);
+    fill: #661f1e;
+  }
+  &:hover {
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
+.ProductList-btn-cart {
+  border-radius: 5px;
+  svg {
+    transform: translate(-5px, -2px);
+    fill:#fff ;
+  }
+  &:hover {
+    svg {
+      fill: #661f1e;
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -83,7 +113,7 @@
   }
   .card-body {
     background: white;
-    height: 120px;
+    height: 150px;
     width: 200px;
   }
   .ProductList-bookname {
@@ -117,5 +147,25 @@
   }
   .ProductList-card-body {
     width: 215px;
+  }
+
+  //搜尋框
+  .ProductList-SearchBookNameBox {
+    width: 280px;
+    height: 34px;
+  }
+  //顯示書名搜尋框
+  .ProductList-mobile-SearchBookNameBox {
+    display: flex;
+    margin-top: 6px;
+    // margin-right: 50px;
+    margin-right: 20px;
+  }
+
+  //下拉式搜尋
+  .ProductList-DropdownAndSearchBook {
+    display: flex;
+    margin-top: 20px;
+    // justify-content: end;
   }
 }

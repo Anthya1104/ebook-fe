@@ -1,13 +1,16 @@
+@import '../../../style/global.scss';
+
 .Mart-select {
     width: 200px;
     margin-bottom: 20px;
 }
 
 
-// 為什麼要寫在global才有效??
+// 為什麼要寫在global才有效?? 因為要引入Global
 .Mart-title {
-    background: #661F1E; 
+    background: $primary; 
     color: white;
+    font-weight: bold !important;
 }
 
 .Mart-select a {
