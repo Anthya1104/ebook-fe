@@ -166,7 +166,7 @@ function ProductInfo(productId) {
             <>
               <Row className="mb-5 py-5">
                 <Col>
-                  <div className="ProductInfo_img_position">
+                  <div className="ProductInfo_img_position animate__animated animate__fadeIn">
                     <img
                       className="ProductInfo-img"
                       src={v.book_img}
@@ -176,24 +176,28 @@ function ProductInfo(productId) {
                 </Col>
                 <Col className="ProductInfo-box">
                   <div>
-                    <div className="ProductInfo-title">{v.book_name}</div>
-                    <div className="ProductInfo-subTitle">
+                    <div className="ProductInfo-title animate__animated animate__fadeInDown">
+                      {v.book_name}
+                    </div>
+                    <div className="ProductInfo-subTitle animate__animated animate__fadeInDown">
                       {v.book_subtitle}
                     </div>
-                    <div className="ProductInfo-bookInfo">作者：{v.author}</div>
-                    <div className="ProductInfo-bookInfo">
+                    <div className="ProductInfo-bookInfo animate__animated animate__fadeInDown">
+                      作者：{v.author}
+                    </div>
+                    <div className="ProductInfo-bookInfo animate__animated animate__fadeInDown">
                       譯者：{v.translator}
                     </div>
-                    <div className="ProductInfo-bookInfo">
+                    <div className="ProductInfo-bookInfo animate__animated animate__fadeInDown">
                       出版社：{v.publisher}
                     </div>
-                    <div className="ProductInfo-bookInfo">
+                    <div className="ProductInfo-bookInfo animate__animated animate__fadeInDown">
                       出版日期：{v.publication_date}
                     </div>
-                    <div className="ProductInfo-bookInfo">
+                    <div className="ProductInfo-bookInfo animate__animated animate__fadeInDown">
                       語言：{v.language}
                     </div>
-                    <div className="ProductInfo-bookInfo ProductInfo-price-position">
+                    <div className="ProductInfo-bookInfo ProductInfo-price-position animate__animated animate__fadeInDown">
                       售價：<span>$</span>
                       <span className="ProductInfo-bookInfo-price">
                         {v.price}
@@ -201,7 +205,7 @@ function ProductInfo(productId) {
                     </div>
                   </div>
 
-                  <div className="ProductInfo-btn-position">
+                  <div className="ProductInfo-btn-position animate__animated animate__fadeInDown">
                     <ButtonToolbar className="mt-5 ">
                       <ButtonGroup className="me-2">
                         <Button className="btn-primary-reverse mb-2 ShoppingCart-btn-border-radius">
@@ -283,7 +287,7 @@ function ProductInfo(productId) {
               </Row>
               <Row>
                 <Col>
-                  <ButtonGroup className="mb-4">
+                  <ButtonGroup className="mb-4 animate__animated animate__fadeInDown">
                     <a href="#detail">
                       <Button
                         className="btn-primary-reverse ShoppingCart-btn-border-radius"
@@ -317,12 +321,16 @@ function ProductInfo(productId) {
                       </Button>
                     </a>
                   </ButtonGroup>
-                  <div className="ProductInfo-detail "></div>
-                  <h4 className="ProductInfo-font-weight" id="detail">
+                  <h4
+                    className="ProductInfo-font-weight  animate__animated animate__fadeInDown"
+                    id="detail"
+                  >
                     詳細書訊
                   </h4>
 
-                  <p className="mb-5">{v.book_details}</p>
+                  <p className="mb-5 animate__animated animate__fadeInUp">
+                    {v.book_details}
+                  </p>
                   <svg
                     className="img-fluid mb-3"
                     width="1356"
@@ -337,11 +345,16 @@ function ProductInfo(productId) {
                     />
                   </svg>
                   <br />
-                  <h4 className="ProductInfo-font-weight" id="aboutAuthor">
+                  <h4
+                    className="ProductInfo-font-weight animate__animated animate__fadeInDown"
+                    id="aboutAuthor"
+                  >
                     作者簡介
                   </h4>
 
-                  <p className="mb-5">{v.author_details}</p>
+                  <p className="mb-5 animate__animated animate__fadeInUp">
+                    {v.author_details}
+                  </p>
                   <svg
                     className="img-fluid mb-3"
                     width="1356"
@@ -355,11 +368,16 @@ function ProductInfo(productId) {
                       fill="#661F1E"
                     />
                   </svg>
-                  <h4 className="ProductInfo-font-weight" id="aboutTranslator">
+                  <h4
+                    className="ProductInfo-font-weight animate__animated animate__fadeInDown"
+                    id="aboutTranslator"
+                  >
                     譯者簡介
                   </h4>
 
-                  <p className="mb-5">{v.translator_details}</p>
+                  <p className="mb-5 animate__animated animate__fadeInUp">
+                    {v.translator_details}
+                  </p>
                   <svg
                     className="img-fluid mb-3"
                     width="1356"
@@ -373,11 +391,16 @@ function ProductInfo(productId) {
                       fill="#661F1E"
                     />
                   </svg>
-                  <h4 className="ProductInfo-font-weight" id="recommended">
+                  <h4
+                    className="ProductInfo-font-weight animate__animated animate__fadeInDown"
+                    id="recommended"
+                  >
                     好評推薦
                   </h4>
 
-                  <p className="mb-5">{v.recommendation}</p>
+                  <p className="mb-5 animate__animated animate__fadeInUp">
+                    {v.recommendation}
+                  </p>
                 </Col>
               </Row>
             </>
