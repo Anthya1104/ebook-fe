@@ -20,7 +20,7 @@ function CouponModal({ setCouponAmount }) {
   return (
     <>
       {values.map((v, idx) => (
-        <Button key={idx} className="me-2 mb-2" onClick={() => handleShow(v)}>
+        <Button key={idx} className="me-2 mb-2 ShoppingCart-btn-border-radius" onClick={() => handleShow(v)}>
           請選擇優惠券
           {typeof v === 'string' && `below ${v.split('-')[0]}`}
         </Button>

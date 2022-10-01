@@ -120,19 +120,13 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
               $ {cart.cartTotal}
             </span>
             {/* /// 9/29優惠券*/}
-            <div className="d-flex">優惠金額: -{couponAmount}</div>
+            {/* <div className="d-flex">優惠金額: -{couponAmount}</div>
             <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
               優惠後金額：$ {cart.cartTotal - couponAmount}
-            </div>
+            </div> */}
             {/* /// */}
             <br />
-            <br />
-            <div className="d-flex justify-content-end">
-              優惠金額: -50
-            </div>
-            <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
-              優惠後金額：$ {cart.cartTotal - couponAmount}
-            </div>
+            
             {cart.isEmpty && '購物車為空'}
           </div>
         </div>
@@ -141,7 +135,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
       <div className="d-flex justify-content-end my-5">
         <button
           type="button"
-          className="btn btn-primary-reverse"
+          className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
           onClick={handleStep(3)}
         >
           確定付款

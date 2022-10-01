@@ -119,7 +119,7 @@ function ProductList(props) {
       </Modal.Header>
       <Modal.Body>{productName} </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary ShoppingCart-btn-border-radius" onClick={handleClose}>
           繼續購物
         </Button>
         <Button
@@ -143,7 +143,7 @@ function ProductList(props) {
       </Modal.Header>
       <Modal.Body>{productName} </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary ShoppingCart-btn-border-radius" onClick={handleClose}>
           繼續購物
         </Button>
       </Modal.Footer>
@@ -183,7 +183,7 @@ function ProductList(props) {
                 <div className="my-2 ProductList-mobile-btn-outer">
                   <button
                     type="button"
-                    className="btn btn-primary me-2 ProductList-mobile-btn"
+                    className="btn btn-primary me-2 ProductList-mobile-btn ShoppingCart-btn-border-radius"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
@@ -197,7 +197,7 @@ function ProductList(props) {
                   </button>
                   <button
                     type="button"
-                    className="btn btn-primary ProductList-mobile-btn"
+                    className="btn btn-primary ProductList-mobile-btn ShoppingCart-btn-border-radius"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }

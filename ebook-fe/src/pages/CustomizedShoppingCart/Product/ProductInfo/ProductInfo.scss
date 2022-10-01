@@ -57,15 +57,35 @@
     }
   }
 
-  .ProductInfo-btn-position {
-    width: 450px;
-  }
+  // .ProductInfo-btn-position {
+  //   width: 450px;
+  //   .btn-toolbar {
+  //     .btn-group {
+  //       //按鈕的border-radius
+  //       .ShoppingCart-btn-border-radius {
+  //         border-radius: 5px;
+  //         svg {
+  //           // fill:red;
+  //           // & :hover{
+  //           //   fill:#fff;
+  //           // }
+  //         }
+  //         &:hover {
+  //           svg {
+  //             fill: #fff;
+  //             path: #fff;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   .ProductInfo_img_position {
     display: flex;
     justify-content: center;
   }
-  
+
   //書圖 & 書資訊
   .ProductInfo-box {
     margin-left: 0;

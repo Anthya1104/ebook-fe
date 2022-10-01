@@ -53,7 +53,7 @@ function Example(props) {
   return (
     <>
       <Button
-        variant="btn btn-primary-reverse my-5"
+        variant="btn btn-primary-reverse my-5 ShoppingCart-btn-border-radius"
         onClick={() => {
           handleOrder()
         }}
@@ -71,7 +71,10 @@ function Example(props) {
             關閉
           </Button> */}
           <Link to="product-list">
-            <Button variant="btn btn-primary-reverse" onClick={handleClose}>
+            <Button
+              variant="btn btn-primary-reverse ShoppingCart-btn-border-radius"
+              onClick={handleClose}
+            >
               回到商品列表
             </Button>
           </Link>
