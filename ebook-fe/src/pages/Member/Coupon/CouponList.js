@@ -356,15 +356,22 @@ function CouponList() {
         {/* 麵包屑 */}
         <div className="cu-bd">
           <Breadcrumb>
-            <Breadcrumb.Item className="coupon-bread" href="http://localhost:3005">首頁</Breadcrumb.Item>
+            <Breadcrumb.Item
+              className="coupon-bread"
+              href="http://localhost:3005"
+            >
+              首頁
+            </Breadcrumb.Item>
             <Breadcrumb.Item className="coupon-bread" href="../../member-index">
               會員專區
             </Breadcrumb.Item>
-            <Breadcrumb.Item active className="text-danger">優惠券</Breadcrumb.Item>
+            <Breadcrumb.Item active className="text-danger">
+              優惠券
+            </Breadcrumb.Item>
           </Breadcrumb>
         </div>
 
-        <div className="d-flex justify-content-end dp-bd">
+        <div className="d-flex justify-content-end dp-bd animate__animated animate__fadeIn">
           <div className="coupon-dropdown mb-4 dp-b">
             {/* <DropdownButton
               align="end"
@@ -398,10 +405,13 @@ function CouponList() {
             </select>
           </div>
         </div>
-        <div className="d-flex flex-wrap justify-content-between align-items-center">
+        <div className="d-flex flex-wrap justify-content-between align-items-center ">
           {coupons &&
             coupons.map((c, i) => (
-              <div className="" key={`coupon${i}`}>
+              <div
+                className="Coupon-object animate__animated animate__fadeInUp"
+                key={`coupon${i}`}
+              >
                 <div className="d-flex coupon-size mb-5">
                   <div className="d-flex align-items-center coupon-img-pd">
                     <img src={c.url} alt="..." />
