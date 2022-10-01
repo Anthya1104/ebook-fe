@@ -77,7 +77,7 @@ function BookReviewList() {
   // TODO:研究改顏色
   // https://fkhadra.github.io/react-toastify/how-to-style
   const notifyDownSide = () =>
-    toast.info('成功送出資料', {
+    toast.info('成功送出評論', {
       className: 'Bookshelf-toast-black-background',
       position: 'top-center',
       autoClose: 1500,
