@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import '../style/Home2.scss'
 import Homepagebackground from './memberindexcategory/homepagebackground.png'
-import Books from './memberindexcategory/books.png'
-import Novel from './memberindexcategory/novel.png'
-import Comic from './memberindexcategory/comic.png'
-import Magazine from './memberindexcategory/magazine.png'
-import Audiobook from './memberindexcategory/audiobook.png'
+import Books from './memberindexcategory/books-copy.png'
+import Novel from './memberindexcategory/novel-copy.png'
+import Comic from './memberindexcategory/comic-copy.png'
+import Magazine from './memberindexcategory/magazine-copy.png'
+import Audiobook from './memberindexcategory/audiobook-copy.png'
 
 function Home2() {
   useEffect(() => {
