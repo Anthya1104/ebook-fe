@@ -11,13 +11,13 @@ import order from '../img/order.svg'
 
 function MemberIndex() {
   const { member, setMember } = useAuth()
-  // if (!member) {
-  //   return (
-  //     <>
-  //       <Navigate to="/Login" />
-  //     </>
-  //   )
-  // }
+  if (!member) {
+    return (
+      <>
+        <Navigate to="/Login" />
+      </>
+    )
+  }
   return (
     <>
       <div className="container">
