@@ -17,22 +17,21 @@
     margin-bottom: 10px;
 }
 
-
 .member-pic{
     width: 150px;
-    margin-left: 100px;
+    margin-left: 40px;
 }
 
-.member-information{
-    list-style: none;
-    font-weight: 600;
-    margin-left: 50px;;
+.member-info{
+    margin-top: 50px;
+    color: #661f1e;
+    font-weight: bolder;
 }
 
  .member-word{
     color: #C0724A;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 18px;
     flex-direction: column;
 }
@@ -40,29 +39,47 @@
 .member-container{
     margin-top: 50px;
     margin-bottom: 50px;
-    ul{
+    
+        margin: auto;
         .member-category{
+            @media(max-width:600px){
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+            }
             .product-category{
+                @media(max-width:600px){
+                    width: 250px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                }
+                padding: 40px 0px 40px 0px;
+                &:hover{
+                    .member-icon{
+                        filter: brightness(100);
+                    }
+                    .member-word{
+                        color:#F5F5F5;
+                    }
+                }
                 .member-icon{
-                    width: 35px;
+                    width: 50px;
                     margin: 0 auto;
                     flex-direction: column;
-                    & :hover{
-                        filter: invert(100%)
-                    }
+               
                 }
             }
         }
-    }
+    
 }
 
 .member-bar-desktop{
-    display:flex;
-    justify-content: center;
     margin:auto;
     margin-top: 80px;
-    margin-left: 15px;
-
+    margin-left: 55px;
+    width: 100%;
     img{
         margin:auto;
     }
@@ -76,24 +93,37 @@
     margin:auto;
     margin-top: 40px;
     margin-left: 15px;
-
-    img{
+    .bar{
+        width: 100%;
         margin:auto;
     }
+
+
     @media(max-width:600px){
         display:flex;
     }
 }
 
-.progressbar{
-    width: 50%;
+
+.Member-progress-bar{
+    width: 43%;
+    margin-right: 30px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        
+    }
+    @media(max-width:600px){
+        transform: translateY(25px);
+        margin:auto;
+    }
 }
+
+// .progressbar{
+//     width: 50%;
+// }
 @media (min-width: 600px){
-    .progressbar{
-        // position: relative;
-        // top: -15px;
-        // left: 600px;
-    }  
 }
 
 @media (max-width: 600px) {
@@ -102,38 +132,24 @@
     }
 
     .member-pic{
-        width: 150px;
-        margin-left: -45px
-    }
-
-    .member-information{
-        font-size: 14px;
-        line-height: 40px;
-    }
-
-    .member-information-3{
-        margin-top: -135px;
-    }
-
-    .member-information-1{
-        margin-top: -215px;
-    }
-
-    .member-info{
-        margin-left: 75px;
-    }
-
-
-    .progressbar{
-        width: 90%;
-        margin-left: 27px;
-        margin-top: 40px;
+        width: 100px;
     }
 
     .member-container{
         margin-top: -1px;
     }
 
+    .member-info{
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+}
+.member-btn{
+    width: 60px;
+}
+.member-card{
+    margin:auto;
 }
 
 

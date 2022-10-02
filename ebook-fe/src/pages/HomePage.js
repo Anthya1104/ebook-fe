@@ -125,14 +125,7 @@ function HomePage() {
 
                           <div className="item-content">
                             <div className="animated">
-                              <div
-                                className="item-title"
-                                onPointerEnter={(e) => {
-                                  onPointerEnter('Novel', e)
-                                }}
-                              >
-                                小說
-                              </div>
+                              <div className="item-title">小說</div>
                               <div className="item-text">Novel</div>
                             </div>
                           </div>
@@ -164,14 +157,7 @@ function HomePage() {
 
                           <div className="item-content">
                             <div className="animated">
-                              <div
-                                className="item-title"
-                                onPointerEnter={(e) => {
-                                  onPointerEnter('Comic', e)
-                                }}
-                              >
-                                漫畫
-                              </div>
+                              <div className="item-title">漫畫</div>
                               <div className="item-text">Comic</div>
                             </div>
                           </div>
@@ -203,14 +189,7 @@ function HomePage() {
 
                           <div className="item-content">
                             <div className="animated">
-                              <div
-                                className="item-title"
-                                onPointerEnter={(e) => {
-                                  onPointerEnter('Magazine', e)
-                                }}
-                              >
-                                雜誌
-                              </div>
+                              <div className="item-title">雜誌</div>
                               <div className="item-text">Magazine</div>
                             </div>
                           </div>
@@ -242,14 +221,7 @@ function HomePage() {
 
                           <div className="item-content">
                             <div className="animated">
-                              <div
-                                className="item-title"
-                                onPointerEnter={(e) => {
-                                  onPointerEnter('Audiobook', e)
-                                }}
-                              >
-                                有聲書
-                              </div>
+                              <div className="item-title">有聲書</div>
                               <div className="item-text">Audiobook</div>
                             </div>
                           </div>
