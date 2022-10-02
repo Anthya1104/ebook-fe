@@ -86,7 +86,7 @@ function RecentBook({ setGetRecentBookData }) {
   // TODO:研究改顏色
   // https://fkhadra.github.io/react-toastify/how-to-style
   const notify = () =>
-    toast.info('成功送出資料', {
+    toast.info('成功送出評論', {
       className: 'Bookshelf-toast-black-background',
       position: 'top-center',
       autoClose: 1500,
@@ -120,10 +120,10 @@ function RecentBook({ setGetRecentBookData }) {
             <h6>{recentBookValue.author}</h6>
           </div>
           <div
-            className="Bookshelf-recent-book position-relative my-5"
+            className="Bookshelf-recent-book position-relative my-5 animate__animated animate__fadeInDown"
             key={recentBookValue.id}
           >
-            <div className="Bookshelf-recent-book-container d-flex justify-content-left align-items-center">
+            <div className="Bookshelf-recent-book-container d-flex justify-content-left align-items-center ">
               <img
                 className="Bookshelf-arrow img-flip m-2"
                 alt="arrow-l"

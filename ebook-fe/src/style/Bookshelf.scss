@@ -284,7 +284,7 @@ $Bookshelf_recent_translateY: 40px;
   transform: skew(-20deg);
   transition:.4s;
   & h5{
-    padding-top:6px;
+    padding-top:7px;
   
     text-align: center;
     transform: skew(20deg);
@@ -394,7 +394,6 @@ $Bookshelf_recent_translateY: 40px;
 .Bookshelf-on-category-list{
   display:flex;
   
-  
   @media(max-width:$mobile-break-point){
     flex-direction: column;
     align-items: center;
@@ -465,12 +464,14 @@ $Bookshelf_recent_translateY: 40px;
         max-width:160px;
       }
       .Review-update-time{
+        margin-top:5px;
         font-size:0.8rem;
         color:$secondary;
       }
       .Review-update-time-active{
+        margin-top:5px;
         font-size:0.8rem;
-        color:$light;
+        color:$danger;
       }
     }
   }
@@ -482,6 +483,8 @@ $Bookshelf_recent_translateY: 40px;
     align-items:center;
     justify-content: center;
     .Review-close-btn{
+      font-size: 1.2rem;
+      color:$info;
       position:absolute;
       top:-25px;
       right:-30px;
@@ -491,9 +494,14 @@ $Bookshelf_recent_translateY: 40px;
         top:-350px;
       }
       &:hover{
-        color:$body-bg;
+        color:$info;
         background:none;
-        border:1px solid $body-bg;
+        border:1px solid $info;
+      }
+      &:active{
+        color:$info;
+        background:none;
+        border:1px solid $info;
       }
      }
     .Review-comments-btn{
@@ -511,17 +519,36 @@ $Bookshelf_recent_translateY: 40px;
 }
 
 .Bookshelf-review-container-active{
-  background-color:$danger;
-  color:$body-bg;
-  
+  // background-color:$info;
+  // color:$body-bg;
+  .col-sm-9{
+    .Review-comment-input{
+      width:95%;
+      height:70%;
+      padding:15px;
+      margin-bottom:15px;
+      border-radius: 15px;
+      border: 1px solid $light;
+      background:$info;
+      color:$body-bg;
+      &::placeholder{
+        color:$light;
+      }
+    }
+    .Review-comments-btn{
+      .btn-primary-reverse{
+        color:$info;
+        border: 1px solid $info;
+        &:hover{
+          background:$info;
+          color:$body-bg;
+        }
+      }
+    }
+  }
+
 }
-.Review-comment-input{
-  width:100%;
-  height:70%;
-  padding:15px;
-  margin-bottom:15px;
-  border-radius: 15px;
-}
+
 
 .Reviews-pagination-area{
   margin-bottom: 50px;

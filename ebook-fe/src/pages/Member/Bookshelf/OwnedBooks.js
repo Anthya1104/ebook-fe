@@ -16,8 +16,8 @@ function OwnedBooks() {
         {getRecentBookData.length === 0 ? (
           <></>
         ) : (
-          <div className="Bookshelf-recent-title position-absolute end-0">
-            <h2>最近閱讀</h2>
+          <div className="Bookshelf-recent-title position-absolute end-0 ">
+            <h2 className="animate__animated animate__fadeInDown">最近閱讀</h2>
             <div>
               <svg
                 width="670"
@@ -68,12 +68,12 @@ function OwnedBooks() {
 
         <div className="Bookshelf-tabs d-flex-column py-3">
           {/* desktop category tab */}
-          <div className="Bookshelf-desktop-tab m-2">
+          <div className="Bookshelf-desktop-tab m-2 animate__animated animate__fadeIn">
             <Button
               className={
                 bookToggleState === 1
-                  ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
-                  : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+                  ? ' btn Bookshelf_category py-2 d-flex justify-content-center active'
+                  : 'btn Bookshelf_category py-2 d-flex justify-content-center'
               }
               onClick={() => {
                 setbookToggleState(1)
@@ -84,8 +84,8 @@ function OwnedBooks() {
             <Button
               className={
                 bookToggleState === 2
-                  ? ' btn Bookshelf_category py-2 d-flex justify-content-end active'
-                  : 'btn Bookshelf_category py-2 d-flex justify-content-end'
+                  ? ' btn Bookshelf_category py-2 d-flex justify-content-center active'
+                  : 'btn Bookshelf_category py-2 d-flex justify-content-center'
               }
               onClick={() => {
                 setbookToggleState(2)

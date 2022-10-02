@@ -119,7 +119,10 @@ function ProductList(props) {
       </Modal.Header>
       <Modal.Body>{productName} </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
+        <Button
+          variant="primary ShoppingCart-btn-border-radius"
+          onClick={handleClose}
+        >
           繼續購物
         </Button>
         <Button
@@ -143,7 +146,10 @@ function ProductList(props) {
       </Modal.Header>
       <Modal.Body>{productName} </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
+        <Button
+          variant="primary ShoppingCart-btn-border-radius"
+          onClick={handleClose}
+        >
           繼續購物
         </Button>
       </Modal.Footer>
@@ -159,8 +165,11 @@ function ProductList(props) {
               className="col-8 col-md-3 mb-4 ProductList-card-outer"
               key={v.id}
             >
-              <div className="card ProductList-card">
-                <Link to={'/Cart/ProductDetail/' + v.id} style={{ textDecoration: 'none' }}>
+              <div className="card ProductList-card animate__animated animate__fadeInRight">
+                <Link
+                  to={'/Cart/ProductDetail/' + v.id}
+                  style={{ textDecoration: 'none' }}
+                >
                   {/* {console.log('/Cart/ProductDetail/' + v.id)} */}
                   <img
                     src={v.book_img}
@@ -177,13 +186,15 @@ function ProductList(props) {
                         {v.author}
                       </h5>
                     </p>
-                    <p className="card-text text-danger ProductList-price-text">$ {v.price}元</p>
+                    <p className="card-text text-danger ProductList-price-text">
+                      $ {v.price}元
+                    </p>
                   </div>
                 </Link>
                 <div className="my-2 ProductList-mobile-btn-outer">
                   <button
                     type="button"
-                    className="btn btn-primary me-2 ProductList-mobile-btn"
+                    className="btn btn-primary me-2 ProductList-mobile-btn ShoppingCart-btn-border-radius"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
@@ -197,7 +208,7 @@ function ProductList(props) {
                   </button>
                   <button
                     type="button"
-                    className="btn btn-primary ProductList-mobile-btn"
+                    className="btn btn-primary ProductList-mobile-btn ShoppingCart-btn-border-radius"
                     onClick={() => {
                       // 商品原本無數量屬性(quantity)，要先加上
                       const item = { ...v, quantity: 1 }
@@ -237,7 +248,7 @@ function ProductList(props) {
       {/* RWD用下拉分類&搜尋框 */}
       <div className="my-5"></div>
       <div className="d-flex">
-        <div className="me-5 ProductList-showSelect">
+        <div className="me-5 ProductList-showSelect animate__animated animate__fadeInLeft">
           <div className="mb-3">
             <h4 className="Select-title">篩選條件</h4>
             <input
