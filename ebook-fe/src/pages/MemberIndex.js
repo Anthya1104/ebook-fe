@@ -51,7 +51,7 @@ function MemberIndex() {
         </div>
 
         <div className="member-container">
-          <div className="row justify-content-center member-category">
+          <div className="row justify-content-center align-items-center member-category">
             <div className="btn product-category col m-3">
               <Link className="member-word" to="/Member/order">
                 <img className="member-icon" src={order} alt="" />
