@@ -19,24 +19,46 @@ function Home2() {
     })
   }, [])
   return (
-    <div className="home-body">
-      <ul>
-        <li data-bg={Books}>
-          <a href="#">書籍<br />Books</a>
-        </li>
-        <li data-bg={Novel}>
-          <a href="#">小說<br />Novel</a>
-        </li>
-        <li data-bg={Comic}>
-          <a href="#">漫畫<br />Comic</a>
-        </li>
-        <li data-bg={Magazine}>
-          <a href="#">雜誌<br />Magazine</a>
-        </li>
-        <li data-bg={Audiobook}>
-          <a href="#">有聲書<br />Audiobook</a>
-        </li>
-      </ul>
+    <div className="comtainer">
+      <div className="home-body">
+        <ul>
+          <li className="lihover1" data-bg={Books}>
+            <a href="#">
+              書籍
+              <br />
+              Books
+            </a>
+          </li>
+          <li className="lihover2" data-bg={Novel}>
+            <a href="#">
+              小說
+              <br />
+              Novel
+            </a>
+          </li>
+          <li className="lihover3" data-bg={Comic}>
+            <a href="#">
+              漫畫
+              <br />
+              Comic
+            </a>
+          </li>
+          <li className="lihover4" data-bg={Magazine}>
+            <a href="#">
+              雜誌
+              <br />
+              Magazine
+            </a>
+          </li>
+          <li className="lihover5" data-bg={Audiobook}>
+            <a href="#">
+              有聲書
+              <br />
+              Audiobook
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   )
 }

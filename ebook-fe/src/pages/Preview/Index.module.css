@@ -34,6 +34,7 @@
   /* flex-direction: row; */
   /* justify-content: start; */
   margin-left: -32px;
+  list-style: none;
 }
 
 .iconLi {
@@ -75,6 +76,7 @@
   display: flex;
   flex-direction: row;
   justify-content: end;
+  list-style: none;
 }
 
 .iconEndButton {
@@ -83,11 +85,11 @@
   color: var(--color2);
   padding: 10px 10px 0 10px;
   margin: 0 var(--3);
+  border-radius: 20px;
 }
 
 .iconEndButton:hover {
   background: var(--color3);
-  border-radius: 20px;
 }
 
 .iconEndButton p {
@@ -173,4 +175,5 @@
 }
 .pricon {
   width: 40px;
+  margin: 0 var(--2);
 }

@@ -62,7 +62,7 @@ export default function AlertDialogSlide() {
           }}
         >
           <p>
-            幫你放購物車了拉，給我買喔！ <br /> Bitch！
+            幫你放購物車了喔！<br/>方便你等一下結帳ヽ(●´∀`●)ﾉ
           </p>
         </DialogTitle>
         <DialogContent style={{ margin: '0 auto', transitionDelay: '0.3s' }}>

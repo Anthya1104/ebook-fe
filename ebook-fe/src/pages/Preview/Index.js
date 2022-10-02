@@ -61,12 +61,12 @@ function Headers() {
           <div className={styles.iconEndButton}>
             <ShoppingCart />
           </div>
-          <li className={styles.book}>
+          {/* <li className={styles.book}>
             <button>
               <img className={styles.pricon} src={iconShare} alt="" />
               <p>分享</p>
             </button>
-          </li>
+          </li> */}
           <Link to="/Preview-focus">
             <button className={styles.iconEndButton}>
               <img className={styles.pricon} src={iconFull} alt="" />

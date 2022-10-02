@@ -61,7 +61,7 @@ export default function AlertDialogSlide() {
             transitionDelay: '0.3s',
           }}
         >
-          <p>幫你收藏好了拉，Bitch！</p>
+          <p>幫你收藏好了唷！<br/>方便你想看就看٩(｡・ω・｡)﻿و</p>
         </DialogTitle>
         <DialogContent style={{ margin: '0 auto', transitionDelay: '0.3s' }}>
           <DialogContentText id="alert-dialog-slide-description">
