@@ -229,7 +229,8 @@ function BookReviewList() {
                         !reviewParam.review_score ||
                         !reviewParam.review_comments
                       ) {
-                        return warning()
+                        warning()
+                        return ScrollToZero()
                       }
                       console.log('資料送出', reviewParam)
                       setReviewDataReady(true)
@@ -319,6 +320,7 @@ function BookReviewList() {
 
       notifyDownSide()
       setIsEdit('')
+      ScrollToZero()
     }
     submitReview()
   }, [reviewDataReady])
@@ -350,6 +352,10 @@ function BookReviewList() {
 
   const ScrollToTop = () => {
     window.scrollTo(0, 450)
+  }
+
+  const ScrollToZero = () => {
+    window.scrollTo(0, 0)
   }
   return (
     <>
