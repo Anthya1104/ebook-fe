@@ -99,6 +99,9 @@ function NavbarMobile() {
             <NavLink to="/Cart/WishList" style={{ textDecoration: 'none' }}>
               <li>願望清單</li>
             </NavLink>
+            <NavLink to="/Member/coupon" style={{ textDecoration: 'none' }}>
+              <li>我的優惠券</li>
+            </NavLink>
             <NavLink to="/Member/bookshelf" style={{ textDecoration: 'none' }}>
               <li>我的書櫃</li>
             </NavLink>
