@@ -87,7 +87,7 @@ function RecentBook({ setGetRecentBookData }) {
   // https://fkhadra.github.io/react-toastify/how-to-style
   const notify = () =>
     toast.info('成功送出評論', {
-      className: 'Bookshelf-toast-black-background',
+      className: 'Bookshelf-toast-light-background',
       position: 'top-center',
       autoClose: 1500,
       hideProgressBar: false,
