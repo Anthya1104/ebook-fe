@@ -483,6 +483,7 @@ $Bookshelf_recent_translateY: 40px;
     align-items:center;
     justify-content: center;
     .Review-close-btn{
+
       font-size: 1.2rem;
       color:$info;
       position:absolute;
@@ -490,13 +491,15 @@ $Bookshelf_recent_translateY: 40px;
       right:-30px;
       background:rgba(0,0,0,0);
       border: 1px solid rgba(0,0,0,0);
+      
       @media(max-width:$mobile-break-point){
         top:-350px;
       }
       &:hover{
         color:$info;
         background:none;
-        border:1px solid $info;
+        border:1px solid rgba(0,0,0,0);
+        border-bottom: 1px solid $info;
       }
       &:active{
         color:$info;
