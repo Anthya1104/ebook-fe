@@ -292,12 +292,12 @@ function Orders() {
                       </Link>
                     </CardActions>
                     <CardActions>
-                      <Link
+                      <a
                         className="mx-2 mobile-chat"
-                        to="http://localhost:3000/chats"
+                        href="http://localhost:3000/chats"
                       >
                         <img className="chat-icon" src={Chat} alt="Chat" />
-                      </Link>
+                      </a>
                       <h5 className="text-white">詢問客服</h5>
                     </CardActions>
                   </div>
