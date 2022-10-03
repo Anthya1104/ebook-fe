@@ -120,16 +120,6 @@ function Orders() {
 
   return (
     <>
-      {/* {(() => {
-        if (order.length === 0) {
-          alert('尚無訂單，請先到商品頁購書喔!')
-          return (
-            <>
-              <Navigate to="/Cart/product-list" />
-            </>
-          )
-        }
-      })()} */}
       <div className="container">
         <BreadCrumb />
         <ScrollToTop />
