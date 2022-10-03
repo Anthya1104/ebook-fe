@@ -77,7 +77,7 @@ function BookReviewList() {
   // TODO:研究改顏色
   // https://fkhadra.github.io/react-toastify/how-to-style
   const notifyDownSide = () =>
-    toast.info('成功送出資料', {
+    toast.info('成功送出評論', {
       className: 'Bookshelf-toast-black-background',
       position: 'top-center',
       autoClose: 1500,
@@ -110,7 +110,7 @@ function BookReviewList() {
             className={
               reviewValue.book_name === isEdit
                 ? 'Bookshelf-review-container Bookshelf-review-container-active row'
-                : 'Bookshelf-review-container row'
+                : 'Bookshelf-review-container row animate__animated animate__fadeInUp'
             }
           >
             <div className="col-sm-3">
@@ -338,13 +338,13 @@ function BookReviewList() {
   // isEdit
   const StyledRatingOnEdit = styled(Rating)({
     '& .MuiRating-iconEmpty': {
-      color: '#F5F5F5',
+      color: '#B48C8C',
     },
     '& .MuiRating-iconFilled': {
-      color: '#F5F5F5',
+      color: '#B48C8C',
     },
     '& .MuiRating-iconHover': {
-      color: '#F5F5F5',
+      color: '#B48C8C',
     },
   })
 

@@ -6,13 +6,18 @@ function BreadCrumb() {
   return (
     <div>
       <Breadcrumb>
-        <Breadcrumb.Item href="http://localhost:3005">
+        <Breadcrumb.Item className="order-bread" href="http://localhost:3005">
           <Link to="/"></Link>首頁
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="http://localhost:3005/member-index">
-        <Link to="/member-index"></Link>會員專區
+        <Breadcrumb.Item
+          className="order-bread"
+          href="http://localhost:3005/member-index"
+        >
+          <Link to="/member-index"></Link>會員專區
         </Breadcrumb.Item>
-        <Breadcrumb.Item active>我的訂單</Breadcrumb.Item>
+        <Breadcrumb.Item active className="text-danger">
+          我的訂單
+        </Breadcrumb.Item>
       </Breadcrumb>
     </div>
   )

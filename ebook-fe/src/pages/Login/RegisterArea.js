@@ -27,7 +27,7 @@ function RegisterArea() {
     e.preventDefault()
     try {
       let response = await axios.post(`${API_URL}/auth/register`, member)
-      console.log(response.data)
+      console.log(response.status)
     } catch (e) {
       console.error(e)
     }

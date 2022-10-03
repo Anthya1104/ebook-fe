@@ -18,7 +18,7 @@ function WishList(props) {
 
   return (
     <>
-      <h1>我的收藏</h1>
+      
       {/* <p className="text-nowrap bd-highlight">
         /pages/ShoppingCart/MultipleCart.js
       </p>
@@ -27,7 +27,7 @@ function WishList(props) {
         hook。
       </div> */}
 
-      <div>
+      <div className='mt-5'>
         <ListItemsWithProps
           cart={secondCart.cart}
           items={secondCart.items}
@@ -41,7 +41,7 @@ function WishList(props) {
       <div className="d-flex justify-content-end mb-5">
         <button
           type="button"
-          className="btn btn-primary-reverse me-3"
+          className="btn btn-primary-reverse me-3 ShoppingCart-btn-border-radius"
           onClick={handleClick('/Cart/product-list')}
         >
           繼續購物

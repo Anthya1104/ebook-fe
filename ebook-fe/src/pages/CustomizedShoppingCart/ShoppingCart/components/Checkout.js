@@ -1,13 +1,3 @@
-// import React from 'react'
-
-// function Checkout() {
-//   return (
-//     <div>Checkout</div>
-//   )
-// }
-
-// export default Checkout
-
 // import { useCart } from '../../utils/useCart'
 import { useCart } from '../../../CustomizedShoppingCart/utils/useCart'
 import { useNavigate } from 'react-router-dom'
@@ -17,11 +7,15 @@ import ProductList from '../../Product/ProductList'
 import CouponModal from '../components/CouponModal'
 import { useState } from 'react'
 
-function Checkout({ tab, handleStep, couponAmount0 }) {
+function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
   // 使用hooks 解出所需的狀態與函式(自context)
   const { cart, items, plusOne, minusOne, removeItem } = useCart()
   let navigate = useNavigate()
+
+  /// 9/29優惠券
   const [couponAmount, setCouponAmount] = useState(couponAmount0)
+  ///
+
   const handleClick = (path) => () => {
     navigate(path)
   }
@@ -37,11 +31,13 @@ function Checkout({ tab, handleStep, couponAmount0 }) {
       >
         <thead className="SingleCart-topnav">
           <tr>
-            <th style={{ width: 200 }}>商品明細</th>
+            <th style={{ width: 200 }}
+            className="SingleCart-tr"
+            >商品明細</th>
             <th></th>
             {/* <th>單價</th> */}
             {/* <th>數量</th> */}
-            <th>小計</th>
+            <th className="SingleCart-tr2">小計</th>
             {/* <th>移除</th> */}
           </tr>
         </thead>
@@ -123,14 +119,14 @@ function Checkout({ tab, handleStep, couponAmount0 }) {
             <span className="ListItemsWithHook-text-em-color">
               $ {cart.cartTotal}
             </span>
-            <br />
-            <br />
-            <div className="d-flex justify-content-end">
-              優惠金額: -50
-            </div>
+            {/* /// 9/29優惠券*/}
+            {/* <div className="d-flex">優惠金額: -{couponAmount}</div>
             <div className="d-flex justify-content-end ListItemsWithHook-text-em-color">
               優惠後金額：$ {cart.cartTotal - couponAmount}
-            </div>
+            </div> */}
+            {/* /// */}
+            <br />
+            
             {cart.isEmpty && '購物車為空'}
           </div>
         </div>
@@ -139,7 +135,7 @@ function Checkout({ tab, handleStep, couponAmount0 }) {
       <div className="d-flex justify-content-end my-5">
         <button
           type="button"
-          className="btn btn-primary-reverse"
+          className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
           onClick={handleStep(3)}
         >
           確定付款
@@ -149,4 +145,4 @@ function Checkout({ tab, handleStep, couponAmount0 }) {
   )
 }
 
-export default Checkout
+export default ListItemsWithHook

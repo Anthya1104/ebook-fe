@@ -8,10 +8,7 @@ import './TopCategory.scss'
 function DefaultExample({ cat, setCat }) {
   return (
     <>
-
-
-
-      <div className="mt-5 cart-nav ProductList-showTopCategory ms-4">
+      <div className="mt-5 cart-nav ProductList-showTopCategory ms-4 animate__animated animate__fadeInDown">
         {/* 商業理財 */}
         <a
           className=""

@@ -208,7 +208,7 @@ function Orders() {
           </div>
         </div>
 
-        <div className="Order-tabs">
+        <div className="Order-tabs animate__animated animate__fadeInDown">
           <Button
             className="tab_background btn-primary-reverse"
             onClick={(e) => {
@@ -239,7 +239,11 @@ function Orders() {
 
         {filterOrder &&
           filterOrder.map((o, i) => (
-            <Card sx={{ maxwidth: 1067 }} className="mb-2" key={`order${i}`}>
+            <Card
+              sx={{ maxwidth: 1067 }}
+              className="mb-2 animate__animated animate__fadeInUp"
+              key={`order${i}`}
+            >
               <div className="row">
                 <div className="col-md-5 mobile-card">
                   <CardMedia

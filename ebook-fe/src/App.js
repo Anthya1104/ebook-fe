@@ -47,6 +47,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import WishList from '../src/pages/CustomizedShoppingCart/ShoppingCart/WishList'
 
+// animate.css
+import 'animate.css'
 library.add(fas, fab)
 
 function App() {

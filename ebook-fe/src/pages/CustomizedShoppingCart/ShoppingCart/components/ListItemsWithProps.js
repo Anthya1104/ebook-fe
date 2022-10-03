@@ -19,13 +19,13 @@ function ListItemsWithProps(props) {
         <thead>
           <tr className="SingleCart-topnav">
             {/* <th>id</th> */}
-            <th style={{ width: 160 }}>收藏商品</th>
+            <th style={{ width: 160 }} className="SingleCart-tr">收藏商品</th>
             <th></th>
             <th></th>
             <th>單價</th>
             {/* <th>數量</th> */}
             {/* <th>小計</th> */}
-            <th></th>
+            <th className="SingleCart-tr2"></th>
           </tr>
         </thead>
         <tbody>
@@ -88,7 +88,7 @@ function ListItemsWithProps(props) {
                   </button> */}
                   <button
                     type="button"
-                    className="btn btn-primary-reverse me-3"
+                    className="btn btn-primary-reverse me-3 ShoppingCart-btn-border-radius"
                     onClick={() => {
                       removeItem(v.id)
                     }}
@@ -98,7 +98,7 @@ function ListItemsWithProps(props) {
 
                   <button
                     type="button"
-                    className="btn btn-primary-reverse"
+                    className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
                     onClick={() => {
                       const item = { ...v, quantity: 1 }
                       removeItem(v.id)
