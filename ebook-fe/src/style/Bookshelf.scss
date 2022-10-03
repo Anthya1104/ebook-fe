@@ -23,9 +23,9 @@ $Bookshelf_recent_translateY: 40px;
 // TODO:研究怎麼改顏色
 // toastify
 .Bookshelf-toast-black-background{
-  .Toastify__toast-theme--light {
-    background: $primary;
-  }
+  z-index: 2000000;
+  background: $warning;
+  color:$body-bg;
 }
 
 // recent book non book info
@@ -182,7 +182,7 @@ $Bookshelf_recent_translateY: 40px;
 
 // recent books popup reviews
 .Bookshelf-popup-reviews{
-  transform: translateX(350px);
+  transform: translateX(450px) translateY(55px);
   width: 500px;
   background:linear-gradient(289.4deg, #000000 -2.14%, rgba(38, 12, 11, 0.625) 30.34%, rgba(102, 31, 30, 0) 114%), $primary;
   color:#fff;
