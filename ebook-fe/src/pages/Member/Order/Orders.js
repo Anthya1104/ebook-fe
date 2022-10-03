@@ -16,7 +16,6 @@ import example from '../../../img/order_example.svg'
 import dash from '../../../img/dash.svg'
 import '../../../style/Order.scss'
 import { useAuth } from '../../../Context/auth'
-import { toast } from 'react-toastify'
 import Chat from '../../../img/Chat.png'
 
 function Orders() {
@@ -293,7 +292,10 @@ function Orders() {
                       </Link>
                     </CardActions>
                     <CardActions>
-                      <Link className="mx-2" to="/Chat">
+                      <Link
+                        className="mx-2 mobile-chat"
+                        to="http://localhost:3000/chats"
+                      >
                         <img className="chat-icon" src={Chat} alt="Chat" />
                       </Link>
                       <h5 className="text-white">詢問客服</h5>

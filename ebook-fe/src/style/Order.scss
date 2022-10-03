@@ -5,21 +5,17 @@
 }
 
 //ScrollToTop
-.orderText {
-  color: $primary;
-}
-
-.top-to-btm {
+.top-to-btm{
   position: relative;
 }
-.icon-position {
+.icon-position{
   position: fixed;
-  bottom: 40px;
+  bottom: 20px;
   right: 25px;
-  z-index: 20;
+  z-index: 40;
 }
-.icon-style {
-  background-color: #661f1e;
+.icon-style{
+  background-color: #661F1E;
   border: 2px solid #fff;
   border-radius: 50%;
   height: 50px;
@@ -27,14 +23,15 @@
   color: #fff;
   cursor: pointer;
   animation: movebtn 3s ease-in-out infinite;
-  transition: all 0.5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
-.icon-style:hover {
+.icon-style:hover{
   animation: none;
   background: #fff;
-  color: #661f1e;
-  border: 2px solid #661f1e;
+  color: #661F1E;
+  border: 2px solid #661F1E;
 }
+
 @keyframes movebtn {
   0% {
     transform: translateY(0px);
@@ -60,6 +57,10 @@
     .book-cover {
       display:none;
     }
+    .o-back{
+      position: relative;
+      top: 130px;
+    }
 }
 
 
@@ -81,6 +82,15 @@
     display: flex;
   justify-content: center;
   
+  }
+  .mobile-chat{
+    position: relative;
+    right: -84px;
+    bottom: 365px;
+  }
+  .detail-icon{
+    position: relative;
+    right: -89px;
   }
 }
 
@@ -127,19 +137,9 @@
 }
 .o-back{
   position: relative;
-  top: 100px;
+  top: 120px;
 }
 }
-
-<<<<<<< HEAD
-.order-BtnRadius{
-  // border: 1px solid #661f1e;
-  border-radius: 5px !important;
-}
-=======
-
-
 .order-bread :hover {
   color: #BF245D;
   }
->>>>>>> main
