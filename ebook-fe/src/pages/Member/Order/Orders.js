@@ -42,32 +42,32 @@ function Orders() {
     let cTemp = []
     switch (key) {
       case 'dateRange1':
-        const startDate1 = new Date('2022-09-03')
-        const endDate1 = new Date('2022-10-03')
+        const startDate1 = new Date('2022-09-05')
+        const endDate1 = new Date('2022-10-05')
         cTemp = [...order].filter((od) => {
           const orderDate = new Date(od.date)
           return orderDate - startDate1 > 0 && endDate1 - orderDate > 0
         })
         break
       case 'dateRange2':
-        const startDate2 = new Date('2022-06-03')
-        const endDate2 = new Date('2022-09-03')
+        const startDate2 = new Date('2022-07-05')
+        const endDate2 = new Date('2022-10-05')
         cTemp = [...order].filter((od) => {
           const orderDate2 = new Date(od.date)
           return orderDate2 - startDate2 > 0 && endDate2 - orderDate2 > 0
         })
         break
       case 'dateRange3':
-        const startDate3 = new Date('2022-03-03')
-        const endDate3 = new Date('2022-09-03')
+        const startDate3 = new Date('2022-04-05')
+        const endDate3 = new Date('2022-10-05')
         cTemp = [...order].filter((od) => {
           const orderDate3 = new Date(od.date)
           return orderDate3 - startDate3 > 0 && endDate3 - orderDate3 > 0
         })
         break
       case 'dateRange4':
-        const startDate4 = new Date('2021-09-03')
-        const endDate4 = new Date('2022-09-03')
+        const startDate4 = new Date('2021-10-05')
+        const endDate4 = new Date('2022-10-05')
         cTemp = [...order].filter((od) => {
           const orderDate4 = new Date(od.date)
           return orderDate4 - startDate4 > 0 && endDate4 - orderDate4 > 0
