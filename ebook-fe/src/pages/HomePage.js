@@ -7,6 +7,7 @@ import Comic from './memberindexcategory/comic.png'
 import Magazine from './memberindexcategory/magazine.png'
 import Audiobook from './memberindexcategory/audiobook.png'
 import { Link } from 'react-router-dom'
+import { FaCompactDisc } from 'react-icons/fa'
 
 function HomePage() {
   const baclgrounds = {
@@ -69,10 +70,22 @@ function HomePage() {
                           title="Books"
                           to="/Cart/product-list"
                         >
-                          <span
+                          {/* <span
                             className="rectangle"
                             style={{ background: '#EFD3CE' }}
-                          ></span>
+                          ></span> */}
+                          <div
+                            className="rectangle"
+                            style={{
+                              backgroundColor: '#EFD3CE',
+                              width: '100%',
+                              height: '5px',
+                              position: 'absolute',
+                              bottom: '0',
+                              left: '0',
+                            }}
+                          />
+
                           <div className="item-content">
                             <div className="animated">
                               <div
@@ -94,10 +107,22 @@ function HomePage() {
                           title="Novel"
                           to="/Cart/product-list"
                         >
-                          <span
+                          {/* <span
                             className="rectangle"
                             style={{ background: '#E3BBB1' }}
-                          ></span>
+                          ></span> */}
+                          <div
+                            className="rectangle"
+                            style={{
+                              backgroundColor: '#E3BBB1',
+                              width: '100%',
+                              height: '5px',
+                              position: 'absolute',
+                              bottom: '0',
+                              left: '0',
+                            }}
+                          />
+
                           <div className="item-content">
                             <div className="animated">
                               <div className="item-title">小說</div>
@@ -114,10 +139,22 @@ function HomePage() {
                           title="Comic"
                           to="/Cart/product-list"
                         >
-                          <span
+                          {/* <span
                             className="rectangle"
                             style={{ background: '#B48C8C' }}
-                          ></span>
+                          ></span> */}
+                          <div
+                            className="rectangle"
+                            style={{
+                              backgroundColor: '#B48C8C',
+                              width: '100%',
+                              height: '5px',
+                              position: 'absolute',
+                              bottom: '0',
+                              left: '0',
+                            }}
+                          />
+
                           <div className="item-content">
                             <div className="animated">
                               <div className="item-title">漫畫</div>
@@ -134,10 +171,22 @@ function HomePage() {
                           title="Magazine"
                           to="/Cart/product-list"
                         >
-                          <span
+                          {/* <span
                             className="rectangle"
                             style={{ background: '#DF9D6E' }}
-                          ></span>
+                          ></span> */}
+                          <div
+                            className="rectangle"
+                            style={{
+                              backgroundColor: '#DF9D6E',
+                              width: '100%',
+                              height: '5px',
+                              position: 'absolute',
+                              bottom: '0',
+                              left: '0',
+                            }}
+                          />
+
                           <div className="item-content">
                             <div className="animated">
                               <div className="item-title">雜誌</div>
@@ -154,10 +203,22 @@ function HomePage() {
                           title="Audiobook"
                           to="/Cart/product-list"
                         >
-                          <span
+                          {/* <span
                             className="rectangle"
                             style={{ background: '#C0724A' }}
-                          ></span>
+                          ></span> */}
+                          <div
+                            className="rectangle"
+                            style={{
+                              backgroundColor: '#C0724A',
+                              width: '100%',
+                              height: '5px',
+                              position: 'absolute',
+                              bottom: '0',
+                              left: '0',
+                            }}
+                          />
+
                           <div className="item-content">
                             <div className="animated">
                               <div className="item-title">有聲書</div>

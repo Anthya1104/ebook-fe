@@ -120,6 +120,7 @@ function Orders() {
 
   return (
     <>
+<<<<<<< HEAD
       {(() => {
         if (order.length === 0) {
           alert('尚無訂單，請先到商品頁購書喔!')
@@ -130,6 +131,8 @@ function Orders() {
           )
         }
       })()}
+=======
+>>>>>>> development
       <div className="container">
         <BreadCrumb />
         <ScrollToTop />
@@ -292,12 +295,16 @@ function Orders() {
                       </Link>
                     </CardActions>
                     <CardActions>
-                      <Link
+                      <a
                         className="mx-2 mobile-chat"
+<<<<<<< HEAD
                         to="/http://localhost:3000/chats"
+=======
+                        href="http://localhost:3000/chats"
+>>>>>>> development
                       >
                         <img className="chat-icon" src={Chat} alt="Chat" />
-                      </Link>
+                      </a>
                       <h5 className="text-white">詢問客服</h5>
                     </CardActions>
                   </div>

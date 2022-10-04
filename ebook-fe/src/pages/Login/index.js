@@ -16,7 +16,7 @@ function Login() {
   const createTab = () => {
     return (
       <>
-        <div>
+        <div className="Login-container">
           <button
             className={
               logRegSwitcher === 'login' ? 'Login-tabs-active' : 'Login-tabs'

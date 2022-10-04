@@ -65,7 +65,7 @@ function OwnedBooksList() {
   // isRead -> 預設是 true 所以如果沒特別按 就是先選 true
   const [bookFilterParams, setBookFilterParams] = useState({
     category: 1,
-    is_read: true,
+    is_read: false,
     date_sort_toggled: true,
     search_param: '',
     on_page: 1,
@@ -79,7 +79,7 @@ function OwnedBooksList() {
 
   // isRead 切換
   // toggle reference: https://www.npmjs.com/package/react-toggle
-  const [isRead, setIsRead] = useState(true)
+  const [isRead, setIsRead] = useState(false)
 
   useEffect(() => {
     const getCategories = async () => {
@@ -329,8 +329,8 @@ function OwnedBooksList() {
         <button
           className={
             isRead
-              ? 'd-flex align-items-center toggle-primary-active'
-              : 'd-flex align-items-center toggle-primary'
+              ? 'd-flex align-items-center toggle-primary'
+              : 'd-flex align-items-center toggle-primary-active'
           }
           onClick={() => {
             setIsRead(!isRead)
