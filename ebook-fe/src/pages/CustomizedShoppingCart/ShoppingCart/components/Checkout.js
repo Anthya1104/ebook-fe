@@ -89,7 +89,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
 
           <div className="">
             <h5 className="me-4 ListItemsWithHook-text-em-color">付款方式 </h5>
-            <div className="my-1">
+            <div className="my-2 d-flex flex-column">
               <button
                 type="button"
                 className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
@@ -99,8 +99,11 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
               </button>
               <button
                 type="button"
-                className="btn btn-primary-reverse ShoppingCart-btn-border-radius"
-                onClick={handleLinePay}
+                className="mt-2 btn btn-primary-reverse ShoppingCart-btn-border-radius"
+                onClick={() => {
+                  handleLinePay()
+                  localStorage.clear()
+                }}
               >
                 LinePay支付
               </button>

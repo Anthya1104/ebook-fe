@@ -120,19 +120,6 @@ function Orders() {
 
   return (
     <>
-<<<<<<< HEAD
-      {(() => {
-        if (order.length === 0) {
-          alert('尚無訂單，請先到商品頁購書喔!')
-          return (
-            <>
-              <Navigate to="/Cart/product-list" />
-            </>
-          )
-        }
-      })()}
-=======
->>>>>>> development
       <div className="container">
         <BreadCrumb />
         <ScrollToTop />
@@ -297,11 +284,7 @@ function Orders() {
                     <CardActions>
                       <a
                         className="mx-2 mobile-chat"
-<<<<<<< HEAD
-                        to="/http://localhost:3000/chats"
-=======
                         href="http://localhost:3000/chats"
->>>>>>> development
                       >
                         <img className="chat-icon" src={Chat} alt="Chat" />
                       </a>

@@ -48,7 +48,6 @@ function Example(props) {
       >
         確定付款
       </Button>
-      。
       <Modal show={show} onHide={handleClose}>
         <Modal.Title></Modal.Title>
         <Modal.Body className="Popup-text-style my-4">訂單已成立</Modal.Body>
