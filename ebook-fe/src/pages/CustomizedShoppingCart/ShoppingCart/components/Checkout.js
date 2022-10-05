@@ -70,8 +70,8 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
         </tbody>
       </table>
       <div className="Checkout-box my-5">
-        <div className="d-flex">
-          <div>
+        <div className="d-flex justify-content-end">
+          <div className='me-5'>
             <h5 className="ListItemsWithHook-text-em-color ">訂單資訊 </h5>
             共有&nbsp;
             <span className="ListItemsWithHook-text-em-color">
