@@ -103,8 +103,7 @@ function ListItemsWithHook({ tab, handleStep, couponAmount0 }) {
                 onClick={() => {
                   handleLinePay()
                   localStorage.clear()
-                }}
-              >
+                }}>
                 LinePay支付
               </button>
             </div>
