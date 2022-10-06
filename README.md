@@ -3,11 +3,29 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
+    <a href="#achievements">Achievements</a> •
   <a href="#live-demo">Live Demo</a> •
   <a href="#credits">Credits</a> •
 </p>
 
 ## Key Features
+
+## Achievements
+
+### Membership
+- [x] Account Registration
+- [x] Account Login
+### E-commerce Mart
+- [x] Shopping Cart
+- [x] Wish List
+- [x] Product Purchasing
+### Digital Bookshelf
+- [x] Custom Categories
+- [x] Conditional Filter/Sorting
+- [x] Reading Progress Update
+### Book Reviews
+- [x] Leave a comment
+- [x] Edit the comments
 
 ## Live Demo
  To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/download/) and [ReactJS](https://github.com/facebook/react/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
