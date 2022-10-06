@@ -7,8 +7,8 @@
 
 ## Credits
 
-The project uses the following packages:
-(You can find the Back-end Repo <a href='https://github.com/Anthya1104/ebook-be'>here<a> !) 
+The project uses the following packages:<br>
+(You can find the backend repo <a href='https://github.com/Anthya1104/ebook-be'>here<a> !) 
 <br>
 
 Frameworks
