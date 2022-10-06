@@ -13,7 +13,7 @@ The project uses the following packages:
 <br>
 
 Frameworks
-- [ReactJS(H](https://github.com/facebook/react/)
+- [ReactJS(Hook)](https://github.com/facebook/react/)
 - [Node.js](https://nodejs.org/)
 
 Database:
