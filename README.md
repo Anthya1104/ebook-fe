@@ -7,19 +7,19 @@
  To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/download/) and [ReactJS](https://github.com/facebook/react/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
   
 
-# Clone this repository
+Clone this repository
 ```bash
 $ git clone https://github.com/Anthya1104/ebook-fe.git
 ``` 
-# Go into the repository
+Go into the repository
 ```bash
 $ cd ebook-fe/ebook-fe
  ```
-# Install dependencies
+Install dependencies
  ```bash
 $ npm install
  ```
-# Run the app
+Run the app
 ```bash
 $ npm start
  ```
