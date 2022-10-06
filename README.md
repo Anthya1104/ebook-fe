@@ -20,9 +20,10 @@
 - [x] Wish List
 - [x] Product Purchasing
 ### Digital Bookshelf
-- [x] Custom Categories
+- [ ] Custom Categories (WIP)
 - [x] Conditional Filter/Sorting
-- [x] Reading Progress Update
+- [ ] Reading Progress Updating (WIP)
+- [ ] Gift Sending (WIP)
 ### Book Reviews
 - [x] Leave a comment
 - [x] Edit the comments
