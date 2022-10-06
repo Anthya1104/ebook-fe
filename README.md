@@ -30,7 +30,7 @@ Run the app
 $ npm start
  ```
 
-p.s. You need to clone and run the backend repo meanwhile for live demo<br>
+p.s. You'll need to clone and run the backend repo meanwhile for live demo<br>
 (You can find the backend repo <a href='https://github.com/Anthya1104/ebook-be'>here<a> !) 
 
 ## Credits
