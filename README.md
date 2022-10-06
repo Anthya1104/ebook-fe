@@ -32,3 +32,4 @@ CSS Preprocessor
 - [MUI](https://mui.com/)
 - [Reactjs-popup](https://github.com/yjose/reactjs-popup)
 - [react-toastify](https://github.com/fkhadra/react-toastify)
+- [Animate.css](https://animate.style/)
