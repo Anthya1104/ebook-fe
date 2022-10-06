@@ -1,5 +1,4 @@
 <h1 align='center'>缺E-Book<h1>
-
 <h4 align='center'>閱讀，在生活中「缺一不可」<h4>
 
 ## Key Features
@@ -31,3 +30,5 @@ CSS Preprocessor
 - [axios](https://axios-http.com/docs/intro) -- API
 - [Chart.js](https://github.com/chartjs/Chart.js) -- Data Visualisation
 - [MUI](https://mui.com/)
+- [Reactjs-popup](https://github.com/yjose/reactjs-popup)
+- [react-toastify](https://github.com/fkhadra/react-toastify)
