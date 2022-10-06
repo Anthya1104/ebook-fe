@@ -20,7 +20,7 @@ Database:
 - [MySQL](https://www.mysql.com/)
 
 CSS Preprocessor
-- [Bootstrap5](https://getbootstrap.com/) + - [SCSS](https://sass-lang.com/)
+- [Bootstrap5](https://getbootstrap.com/) + [SCSS](https://sass-lang.com/)
 
 3rd Party Dependencies
 - [Express](https://expressjs.com/) -- Server
