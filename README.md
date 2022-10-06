@@ -4,7 +4,6 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#live-demo">Live Demo</a> •
-  <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
 </p>
 
