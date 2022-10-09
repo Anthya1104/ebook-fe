@@ -3,9 +3,10 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-    <a href="#achievements">Achievements</a> •
+  <a href="#achievements">Achievements</a> •
   <a href="#live-demo">Live Demo</a> •
   <a href="#credits">Credits</a> •
+  <a href="#team-biographies">Team Biographies</a> •
 </p>
 
 ## Key Features
