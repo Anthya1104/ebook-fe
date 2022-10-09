@@ -29,7 +29,7 @@
 - [x] Wish List
 - [x] Product Purchasing
 ### Digital Bookshelf
-- [ ] Custom Categories (WIP)
+- [ ] ACustom Categories (WIP)
 - [x] Filtering in Custom Categories
 - [x] Conditional Filter/Sorting
 - [ ] Reading Progress Updating (WIP)
