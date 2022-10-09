@@ -100,7 +100,7 @@ CSS Preprocessor
 [YusaLiu](https://github.com/Anthya1104) -- Digital Bookshelf, Review System, Login/Registration, Server Building<br>
 [Aaron_Chang](https://github.com/0xAaronFomo) -- Order System<br>
 [cocohsieh](https://github.com/cocohsieh) -- E-book Mart, Shopping Cart, Wish List<br>
-[vicliu0325](https://github.com/vicliu0325) -- Coupon System, Chat Room ( you will find it  in <a href='https://github.com/vicliu0325/chatrooms'>this repo</a>)<br>
+[vicliu0325](https://github.com/vicliu0325) -- Coupon System, Chat Room ( you will find it out in <a href='https://github.com/vicliu0325/chatrooms'>this repo</a>)<br>
 [Jiayu721](https://github.com/Jiayu721) -- Home Page Layout<br>
 [Lonck999](https://github.com/Lonck999) -- E-reader
 
