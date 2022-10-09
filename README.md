@@ -12,7 +12,7 @@
 ## Key Features
 ### Digital Bookshelf + Book Reviews
 <div align='center'>
-  <img src='https://im3.ezgif.com/tmp/ezgif-3-a02f83a265.gif' />
+  <img src='https://im3.ezgif.com/tmp/ezgif-3-6e3489c2ce.gif' />
 </div>
 
   
