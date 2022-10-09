@@ -30,12 +30,14 @@
 - [x] Product Purchasing
 ### Digital Bookshelf
 - [ ] Custom Categories (WIP)
+- [x] Filtering in Custom Categories
 - [x] Conditional Filter/Sorting
 - [ ] Reading Progress Updating (WIP)
 - [ ] Gift Sending (WIP)
 ### Book Reviews
 - [x] Leave a comment
 - [x] Edit the comments
+- [ ] Delete the comments
 
 ## Live Demo
  To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/download/) and [ReactJS](https://github.com/facebook/react/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
