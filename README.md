@@ -50,7 +50,7 @@ $ npm install -f
  ```
 Switch to the newest dev version
 ```bash
-$ git checkout 
+$ git checkout development
 ```
 Run the app
 ```bash
