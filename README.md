@@ -46,8 +46,12 @@ $ cd ebook-fe/ebook-fe
  ```
 Install dependencies
  ```bash
-$ npm install
+$ npm install -f
  ```
+Switch to the newest dev version
+```bash
+$ git checkout 
+```
 Run the app
 ```bash
 $ npm start
