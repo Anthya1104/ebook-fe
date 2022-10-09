@@ -9,9 +9,13 @@
 </p>
 
 ## Key Features
-### Digital Bookshelf
+### Digital Bookshelf + Book Reviews
+<div align='center'>
+  <img src='https://im3.ezgif.com/tmp/ezgif-3-a02f83a265.gif' />
+</div>
 
-
+  
+  
 ## Achievements
 
 ### Membership
