@@ -9,12 +9,16 @@
 </p>
 
 ## Key Features
+### Digital Bookshelf
+
 
 ## Achievements
 
 ### Membership
 - [x] Account Registration
 - [x] Account Login
+- [ ] Registration Validation (WIP)
+- [ ] Login Validation (WIP)
 ### E-commerce Mart
 - [x] Shopping Cart
 - [x] Wish List
@@ -80,3 +84,12 @@ CSS Preprocessor
 - [react-toastify](https://github.com/fkhadra/react-toastify)
 - [Animate.css](https://animate.style/)
 - [React-pdf](https://react-pdf.org/)
+
+## Team Biographies
+[YusaLiu](https://github.com/Anthya1104) -- Digital Bookshelf, Review System, Login/Registration, Server Building<br>
+[Aaron_Chang](https://github.com/0xAaronFomo) -- Order System<br>
+[cocohsieh](https://github.com/cocohsieh) -- E-book Mart, Shopping Cart, Wish List<br>
+[vicliu0325](https://github.com/vicliu0325) -- Coupon System, Chat Room ( you will find it in <a href='https://github.com/vicliu0325/chatrooms'>this repo</a>)<br>
+[Jiayu721](https://github.com/Jiayu721) -- Home Page Layout<br>
+[Lonck999](https://github.com/Lonck999) -- E-reader
+
