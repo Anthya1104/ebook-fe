@@ -49,12 +49,8 @@ $ git clone https://github.com/Anthya1104/ebook-fe.git
 ``` 
 Go into the repository
 ```bash
-$ cd ebook-fe/ebook-fe
+$ cd ebook-fe
  ```
- Switch to the newest dev version
-```bash
-$ git checkout development
-```
 Install dependencies
  ```bash
 $ npm install -f
