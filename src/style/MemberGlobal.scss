@@ -1,0 +1,20 @@
+@import './global.scss';
+
+.Member-side-nav{
+  transform: translateX(-100px);
+  @media(max-width:$mobile-break-point){
+    display:none;
+  }
+  h3{
+    font-weight:600;
+  }
+  ul{
+    padding:0px;
+    list-style: none;
+    width:100%;
+    .Member-nav-contents{   
+        width:100%;
+      }
+  }
+
+}

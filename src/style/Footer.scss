@@ -1,0 +1,37 @@
+@import './global.scss';
+
+.footer{
+  // height: 460px;
+  // margin:0px;
+  // background: $primary !important;
+}
+
+// .footer-text-bg{
+//   color: #F9BF29;
+// }
+// @media (max-width:600px){
+//     .footer-sm{
+//       display: none;
+//     }
+// }
+
+@media (max-width:576px) {
+  .footer-lg{
+    display: none;
+  }
+  .footer-img{
+    width: 200px;
+  }
+}
+
+// .footer-bb{
+//   padding-bottom: 8px;
+//   border-bottom: 2px solid #ffffff;
+// }
+.footer-height{
+  height: 160px;
+}
+
+.footer-text{
+  font-size: 14px;
+}

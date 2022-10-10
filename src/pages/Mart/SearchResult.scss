@@ -1,0 +1,17 @@
+.SearchResult {
+    max-width: 1420px;
+    display: flex;
+    padding-top: 67px;
+    .SearchResult-list {
+      max-width: 1120px;
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 50px;
+      
+    }
+    
+  }
+
+  .SearchResult-card {
+    margin-left: 80px;
+  }
