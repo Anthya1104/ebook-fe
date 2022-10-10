@@ -51,14 +51,14 @@ Go into the repository
 ```bash
 $ cd ebook-fe/ebook-fe
  ```
+ Switch to the newest dev version
+```bash
+$ git checkout development
+```
 Install dependencies
  ```bash
 $ npm install -f
  ```
-Switch to the newest dev version
-```bash
-$ git checkout development
-```
 Run the app
 ```bash
 $ npm start
