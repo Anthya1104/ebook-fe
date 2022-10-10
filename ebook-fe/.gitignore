@@ -20,7 +20,7 @@
 .env.production.local
 
 #data
-/data
+/src/pages/CustomizedShoppingCart/data
 
 npm-debug.log*
 yarn-debug.log*
