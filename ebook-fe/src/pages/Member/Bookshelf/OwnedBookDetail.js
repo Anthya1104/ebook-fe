@@ -34,7 +34,7 @@ function OwnedBookDetail() {
   const PreviewNavigator = () => {
     return (
       <>
-        <Navigate to="/Preview" />
+        <Navigate to="/Preview2" />
       </>
     )
   }
@@ -45,7 +45,7 @@ function OwnedBookDetail() {
 
       {updateDone ? (
         <>
-          <Navigate to="/Preview" state={{ ownedBookId }} />
+          <Navigate to="/Preview2" state={{ ownedBookId }} />
         </>
       ) : (
         <></>

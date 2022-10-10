@@ -10,7 +10,7 @@ function RegisterArea() {
   // toast
   const notify = () =>
     toast.info('註冊成功', {
-      className: 'Bookshelf-toast-black-background',
+      className: 'Bookshelf-toast-light-background',
       position: 'top-center',
       autoClose: 1500,
       hideProgressBar: false,

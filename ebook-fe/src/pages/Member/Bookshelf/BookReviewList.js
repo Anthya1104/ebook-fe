@@ -78,7 +78,7 @@ function BookReviewList() {
   // https://fkhadra.github.io/react-toastify/how-to-style
   const notifyDownSide = () =>
     toast.info('成功送出評論', {
-      className: 'Bookshelf-toast-black-background',
+      className: 'Bookshelf-light-black-background',
       position: 'top-center',
       autoClose: 1500,
       hideProgressBar: false,
@@ -229,7 +229,8 @@ function BookReviewList() {
                         !reviewParam.review_score ||
                         !reviewParam.review_comments
                       ) {
-                        return warning()
+                        warning()
+                        return ScrollToZero()
                       }
                       console.log('資料送出', reviewParam)
                       setReviewDataReady(true)
@@ -319,6 +320,7 @@ function BookReviewList() {
 
       notifyDownSide()
       setIsEdit('')
+      ScrollToZero()
     }
     submitReview()
   }, [reviewDataReady])
@@ -350,6 +352,10 @@ function BookReviewList() {
 
   const ScrollToTop = () => {
     window.scrollTo(0, 450)
+  }
+
+  const ScrollToZero = () => {
+    window.scrollTo(0, 0)
   }
   return (
     <>

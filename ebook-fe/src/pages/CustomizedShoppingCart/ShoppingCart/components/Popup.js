@@ -56,6 +56,7 @@ function Example(props) {
         variant="btn btn-primary-reverse my-5 ShoppingCart-btn-border-radius"
         onClick={() => {
           handleOrder()
+          localStorage.clear()
         }}
       >
         確定付款
