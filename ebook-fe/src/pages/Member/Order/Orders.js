@@ -16,7 +16,6 @@ import example from '../../../img/order_example.svg'
 import dash from '../../../img/dash.svg'
 import '../../../style/Order.scss'
 import { useAuth } from '../../../Context/auth'
-import { toast } from 'react-toastify'
 import Chat from '../../../img/Chat.png'
 
 function Orders() {
@@ -43,32 +42,32 @@ function Orders() {
     let cTemp = []
     switch (key) {
       case 'dateRange1':
-        const startDate1 = new Date('2022-09-03')
-        const endDate1 = new Date('2022-10-03')
+        const startDate1 = new Date('2022-09-07')
+        const endDate1 = new Date('2022-10-07')
         cTemp = [...order].filter((od) => {
           const orderDate = new Date(od.date)
           return orderDate - startDate1 > 0 && endDate1 - orderDate > 0
         })
         break
       case 'dateRange2':
-        const startDate2 = new Date('2022-06-03')
-        const endDate2 = new Date('2022-09-03')
+        const startDate2 = new Date('2022-07-03')
+        const endDate2 = new Date('2022-10-07')
         cTemp = [...order].filter((od) => {
           const orderDate2 = new Date(od.date)
           return orderDate2 - startDate2 > 0 && endDate2 - orderDate2 > 0
         })
         break
       case 'dateRange3':
-        const startDate3 = new Date('2022-03-03')
-        const endDate3 = new Date('2022-09-03')
+        const startDate3 = new Date('2022-04-07')
+        const endDate3 = new Date('2022-10-07')
         cTemp = [...order].filter((od) => {
           const orderDate3 = new Date(od.date)
           return orderDate3 - startDate3 > 0 && endDate3 - orderDate3 > 0
         })
         break
       case 'dateRange4':
-        const startDate4 = new Date('2021-09-03')
-        const endDate4 = new Date('2022-09-03')
+        const startDate4 = new Date('2021-10-07')
+        const endDate4 = new Date('2022-10-07')
         cTemp = [...order].filter((od) => {
           const orderDate4 = new Date(od.date)
           return orderDate4 - startDate4 > 0 && endDate4 - orderDate4 > 0
@@ -121,27 +120,22 @@ function Orders() {
 
   return (
     <>
-      {/* {(() => {
-        if (order.length === 0) {
-          alert('尚無訂單，請先到商品頁購書喔!')
-          return (
-            <>
-              <Navigate to="/Cart/product-list" />
-            </>
-          )
-        }
-      })()} */}
       <div className="container">
         <BreadCrumb />
         <ScrollToTop />
         <img className="img-fluid" src={line} alt="line" />
         <div className="mobile-search">
           <div className="mb-3 d-flex justify-content-end">
-            <input ref={inputValue1} type="text" placeholder="搜尋訂單編號" />
+            <input
+              ref={inputValue1}
+              className="order-BtnRadius"
+              type="text"
+              placeholder="搜尋訂單編號"
+            />
             <div>
               <button
                 onClick={onSnSearchClick}
-                className="ms-2 btn btn-primary"
+                className="ms-2 btn btn-primary order-BtnRadius"
               >
                 搜尋
               </button>
@@ -282,15 +276,18 @@ function Orders() {
                   <div className="d-flex">
                     <CardActions className="col justify-content-center detail-icon">
                       <Link to={`${o.id}`}>
-                        <Button className="o-button btn-primary-reverse">
+                        <Button className="o-button btn-primary-reverse order-BtnRadius">
                           完整訂單
                         </Button>
                       </Link>
                     </CardActions>
                     <CardActions>
-                      <Link className="mx-2" to="/Chat">
+                      <a
+                        className="mx-2 mobile-chat"
+                        href="http://localhost:3000/chats"
+                      >
                         <img className="chat-icon" src={Chat} alt="Chat" />
-                      </Link>
+                      </a>
                       <h5 className="text-white">詢問客服</h5>
                     </CardActions>
                   </div>

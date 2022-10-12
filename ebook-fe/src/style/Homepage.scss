@@ -17,16 +17,23 @@ background: linear-gradient(180deg, rgba(64, 1, 30, 0) -12.15%, rgba(32, 14, 22,
 
 .Home-container{
     padding:50px;
+    padding-bottom: 150px;
     margin-top:50px;
     
+
+    .body{
+        margin-bottom: 150px;
+    }
+
     .Home-title{
+
         h3{
             color:$light;
         }
         width: 200px;
         border-bottom: 1px solid $light;
         margin-top:15px;
-        margin-bottom: 15px;
+        margin-bottom: 60px;
     }
 }
 .cover-fit{
@@ -163,6 +170,7 @@ background: linear-gradient(180deg, rgba(64, 1, 30, 0) -12.15%, rgba(32, 14, 22,
     margin-left: auto;
 }
 
+
 .homepage-collections .collection-list .list{
     display: flex;
     flex-wrap: wrap;
@@ -214,15 +222,62 @@ element.style{
     background-color: #EFD3CE;
 }
 
-.homepage-collections .collection-list .list .col-item a > .rectangle{
-    position: absolute;
-    bottom: 0;
-    height: 5px;
-    left: 0;
-    width: 100%;
-    content: "";
+.rectangle{
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+    // height: 5px;
+    // width: 100%;
+    // content: "";
     transition: all .5s;
 }
+
+.rectangle hover{
+    height: 100px;
+}
+
+
+// .rectangle-1{
+//     background: #EFD3CE;
+// }
+
+// .rectangle-2{
+//     background: #E3BBB1;
+// }
+
+// .rectangle-3{
+//     background: #B48C8C;
+// }
+
+// .rectangle-4{
+//     background: #DF9D6E;
+// }
+
+// .rectangle-5{
+//     background: #C0724A;
+// }
+
+// .rectangle-1:hover{
+//     height: 100px;
+// }
+
+// .rectangle-2:hover{
+//     height: 100px;
+// }
+
+// .rectangle-3:hover{
+//     height: 100px;
+// }
+
+// .rectangle-4:hover{
+//     height: 100px;
+// }
+
+// .rectangle-5:hover{
+//     height: 100px;
+// }
+
+
 
 .homepage-collections .collection-list .list .col-item .item-content{
     position: relative;

@@ -3,28 +3,32 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    
 }
 
 
 .home-body {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
     background: url(../pages/memberindexcategory/homepagebackground-copy.png) no-repeat center / cover;
 
     ul {
+        @media(max-width:600px){
+            display:none;
+        }
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         /* gap: 50px; */
         position: absolute;
         top: 50%;
-        left: 9%;
+        left: 15%;
         transform: translateY(-50%);
 
     }
 
     ul li {
-        width: 300px;
+        max-width: 300px;
         list-style: none;
         height: 100vh;
         padding: 0 40px;
