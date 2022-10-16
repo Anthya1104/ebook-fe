@@ -325,6 +325,7 @@ function BookReviewList() {
       }
 
       notifyDownSide()
+      setIsEdit('')
       ScrollToZero()
     }
     submitReview()
