@@ -216,6 +216,7 @@ function BookReviewList() {
                         review_comments: '',
                         review_score: '',
                       })
+                      // setReviewDataReady(false)
                     }}
                   >
                     清空
@@ -273,8 +274,8 @@ function BookReviewList() {
     ScrollToTop()
   }
 
-  // getPage改變 -> 先 render Review 資料
-  useEffect(() => {
+  // 得到 review data
+  const getReviewData = () => {
     try {
       const reviewData = async () => {
         let response = await axios.get(
@@ -294,6 +295,11 @@ function BookReviewList() {
     } catch (e) {
       console.error(e)
     }
+  }
+
+  // getPage改變 -> 先 render Review 資料
+  useEffect(() => {
+    getReviewData()
   }, [getPage.onPage])
 
   // 儲存start score
@@ -319,7 +325,6 @@ function BookReviewList() {
       }
 
       notifyDownSide()
-      setIsEdit('')
       ScrollToZero()
     }
     submitReview()
