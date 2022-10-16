@@ -84,7 +84,7 @@ CSS Preprocessor
 - [express-session](https://github.com/expressjs/session) -- Authentication
 - [bcrypt](https://github.com/kelektiv/node.bcrypt.js) -- Password Hashing
 - [cors](https://github.com/expressjs/cors) -- Cross-Origin Resource Sharing
-- [axios](https://axios-http.com/docs/intro) -- API
+- [axios](https://axios-http.com/docs/intro) -- API Request
 - [Chart.js](https://github.com/chartjs/Chart.js) -- Data Visualisation
 - [MUI](https://mui.com/)
 - [Reactjs-popup](https://github.com/yjose/reactjs-popup)
