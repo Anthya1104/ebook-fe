@@ -58,6 +58,9 @@ $Bookshelf_recent_translateY: 40px;
   }
 }
 .Bookshelf-recent-book-container{
+    @media(max-width:$laptop-break-point){
+      padding-left:50px;
+    }
     @media(max-width:$mobile-break-point){
     justify-content: center;
   }
@@ -230,6 +233,9 @@ $Bookshelf_recent_translateY: 40px;
 // 大分類
 .Bookshelf-tabs{
   transform: translateY(50px);
+  @media(max-width:$laptop-break-point){
+    padding:50px;
+  }
   @media(max-width:$mobile-break-point){
     transform:translateY(0)
   }

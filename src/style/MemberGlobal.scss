@@ -2,6 +2,9 @@
 
 .Member-side-nav{
   transform: translateX(-100px);
+  @media(max-width:$laptop-break-point){
+    transform: translateX(0px);
+  }
   @media(max-width:$mobile-break-point){
     display:none;
   }
